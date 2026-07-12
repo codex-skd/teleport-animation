@@ -1,0 +1,13 @@
+{
+  "itemGroup.teleport_animation": "Example Mod Tab",
+  "block.teleport_animation.example_block": "Example Block",
+  "item.teleport_animation.example_item": "Example Item",
+
+  "teleport_animation.configuration.title": "Teleport Animation Configs",
+  "teleport_animation.configuration.section.teleport_animation.common.toml": "Teleport Animation Configs",
+  "teleport_animation.configuration.section.teleport_animation.common.toml.title": "Teleport Animation Configs",
+  "teleport_animation.configuration.items": "Item List",
+  "teleport_animation.configuration.logDirtBlock": "Log Dirt Block",
+  "teleport_animation.configuration.magicNumberIntroduction": "Magic Number Text",
+  "teleport_animation.configuration.magicNumber": "Magic Number"
+}
