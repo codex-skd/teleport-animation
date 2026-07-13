@@ -5,7 +5,6 @@
   "plugin": "com.skd.teleport_animation.mixin.TeleportMixinPlugin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "ServerPlayerMixin",
     "WaystonesWarpPlateBlockEntityMixin",
     "WaystonesPlayerWaystoneManagerMixin"
   ],

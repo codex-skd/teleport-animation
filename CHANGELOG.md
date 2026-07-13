@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.6 (2026-07-13)
+
+- Replaced ServerPlayerMixin with EntityTeleportEvent (NeoForge event system)
+- Removed problematic mixin that couldn't resolve teleportTo method signature
+
 ## 0.0.0-beta.5 (2026-07-13)
 
 - Fixed ServerPlayerMixin method descriptor (removed explicit signature, let Mixin resolve)
