@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.0-beta.2 (2026-07-13)
+
+Second beta. Initial port verified working.
+
+- Basic server-client teleport functionality tested
+- Corrected versioning and release metadata
+
 ## 0.0.0-beta.1 (2026-07-13)
 
 Initial release. Port of Grand Teleport from Forge 1.20.1 to NeoForge 26.1.2.
