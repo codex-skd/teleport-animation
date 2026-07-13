@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.10 (2026-07-13)
+
+- Removed ALL mixins to ensure stable game loading
+- Pure event-based server-side teleport interception via EntityTeleportEvent
+- Clean slate for incremental mixin restoration
+
 ## 0.0.0-beta.9 (2026-07-13)
 
 - Restored ServerPlayerMixin with dual 7-param and 8-param teleportTo interceptors (require=0)
