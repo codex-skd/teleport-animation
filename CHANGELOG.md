@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.4 (2026-07-13)
+
+- Fixed ServerPlayerMixin teleportTo method descriptor (void + boolean resetCamera)
+
 ## 0.0.0-beta.3 (2026-07-13)
 
 - Refactored all GtaLikeTeleport* classes to clean names (TeleportClient, TeleportConfig, etc.)
