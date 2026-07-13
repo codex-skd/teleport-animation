@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.5 (2026-07-13)
+
+- Fixed ServerPlayerMixin method descriptor (removed explicit signature, let Mixin resolve)
+
 ## 0.0.0-beta.4 (2026-07-13)
 
 - Fixed ServerPlayerMixin teleportTo method descriptor (void + boolean resetCamera)

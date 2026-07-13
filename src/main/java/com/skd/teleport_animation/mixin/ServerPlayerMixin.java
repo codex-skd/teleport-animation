@@ -12,9 +12,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin {
-    @Inject(method = "teleportTo(Lnet/minecraft/server/level/ServerLevel;DDDLjava/util/Set;FFZ)V", at = @At("HEAD"), cancellable = true)
-    private void teleportAnimation$delayExternalTeleport(ServerLevel level, double x, double y, double z, Set<Relative> relatives, float yaw, float pitch, boolean resetCamera, CallbackInfo ci) {
-        if (TeleportServer.tryDelayExternalTeleport((ServerPlayer) (Object) this, level, x, y, z, relatives, yaw, pitch, resetCamera)) {
+    @Inject(method = "teleportTo", at = @At("HEAD"), cancellable = true)
+    private void teleportAnimation$delayExternalTeleport(ServerLevel level, double x, double y, double z, Set<Relative> relatives, float yaw, float pitch, CallbackInfo ci) {
+        if (TeleportServer.tryDelayExternalTeleport((ServerPlayer) (Object) this, level, x, y, z, relatives, yaw, pitch, false)) {
             ci.cancel();
         }
     }
