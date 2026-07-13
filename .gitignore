@@ -41,3 +41,13 @@ repo/
 
 ### Local development libraries ###
 lib_ext/
+
+### Temporary files ###
+_decompiled_temp/
+_extracted/
+compile_errors.txt
+errors.txt
+nul
+
+### Release notes ###
+*.zip
