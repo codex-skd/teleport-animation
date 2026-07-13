@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.9 (2026-07-13)
+
+- Restored ServerPlayerMixin with dual 7-param and 8-param teleportTo interceptors (require=0)
+- Restored ConnectionMixin and ClientPacketListenerMixin for client-side interception (require=0)
+- Server-side EntityTeleportEvent handler kept as fallback
+
 ## 0.0.0-beta.8 (2026-07-13)
 
 - Removed all remaining problematic client mixins (MouseHandler, KeyboardInput, Gui, GameRenderer, LevelRenderer, Frustum, etc.)
