@@ -39,8 +39,8 @@ import com.mojang.logging.LogUtils;
 import com.skd.teleport_animation.BobbyCompat;
 import com.skd.teleport_animation.DimensionIds;
 import com.skd.teleport_animation.DistantHorizonsCompat;
-import com.skd.teleport_animation.GtaLikeTeleportClient;
-import com.skd.teleport_animation.GtaLikeTeleportConfig;
+import com.skd.teleport_animation.TeleportClient;
+import com.skd.teleport_animation.TeleportConfig;
 import com.skd.teleport_animation.IrisCompat;
 import com.skd.teleport_animation.SodiumCompat;
 import com.skd.teleport_animation.TeleportDestinationParser;
@@ -205,8 +205,8 @@ public final class TeleportTransitionController {
         if (player == null) {
             return;
         }
-        boolean stablePlannedTarget = !TeleportDestinationParser.usesRelativeCoordinates(command) || GtaLikeTeleportConfig.isPlayerFreezeEnabled();
-        TeleportTransitionController.start(client, TeleportDestinationParser.parse(command, player), TeleportDestinationParser.parseDimension(command), () -> GtaLikeTeleportClient.sendDeferredCommand(command), true, stablePlannedTarget, 0);
+        boolean stablePlannedTarget = !TeleportDestinationParser.usesRelativeCoordinates(command) || TeleportConfig.isPlayerFreezeEnabled();
+        TeleportTransitionController.start(client, TeleportDestinationParser.parse(command, player), TeleportDestinationParser.parseDimension(command), () -> TeleportClient.sendDeferredCommand(command), true, stablePlannedTarget, 0);
     }
 
     static void start(Minecraft client, Vec3 plannedTarget, Runnable action) {
@@ -394,7 +394,7 @@ public final class TeleportTransitionController {
     }
 
     public static boolean shouldBlockPlayerInput() {
-        return GtaLikeTeleportConfig.isPlayerFreezeEnabled() && TeleportTransitionController.isRunning() && !cameraReleased;
+        return TeleportConfig.isPlayerFreezeEnabled() && TeleportTransitionController.isRunning() && !cameraReleased;
     }
 
     public static boolean shouldBlockGameplayInput() {
@@ -414,7 +414,7 @@ public final class TeleportTransitionController {
         if (!TeleportTransitionController.isRunning() || cameraReleased) {
             return false;
         }
-        int hideTicks = GtaLikeTeleportConfig.getLocalPlayerHideTicks();
+        int hideTicks = TeleportConfig.getLocalPlayerHideTicks();
         if (hideTicks <= 0) {
             return false;
         }
@@ -1280,7 +1280,7 @@ public final class TeleportTransitionController {
     }
 
     private static boolean shouldSkipTravelForTargetDimension(String targetDimensionId) {
-        return targetDimensionId != null && startDimension != null && !GtaLikeTeleportConfig.isCrossDimensionTravelEnabled() && !targetDimensionId.equals(DimensionIds.fromResourceKey(startDimension));
+        return targetDimensionId != null && startDimension != null && !TeleportConfig.isCrossDimensionTravelEnabled() && !targetDimensionId.equals(DimensionIds.fromResourceKey(startDimension));
     }
 
     private static boolean hasArrivedAtTeleportTarget(Minecraft client, Vec3 playerFeet) {
@@ -1743,21 +1743,21 @@ public final class TeleportTransitionController {
     }
 
     private static double getZoomOutStageAltitude(int index) {
-        return GtaLikeTeleportConfig.getZoomOutStageHeights(TeleportTransitionController.getStartZoomDimension())[index];
+        return TeleportConfig.getZoomOutStageHeights(TeleportTransitionController.getStartZoomDimension())[index];
     }
 
     private static double getZoomInStageAltitude(int index) {
-        return GtaLikeTeleportConfig.getZoomInStageHeights(TeleportTransitionController.getCurrentZoomDimension())[index];
+        return TeleportConfig.getZoomInStageHeights(TeleportTransitionController.getCurrentZoomDimension())[index];
     }
 
-    private static GtaLikeTeleportConfig.ZoomDimension getStartZoomDimension() {
-        return GtaLikeTeleportConfig.ZoomDimension.fromLevel(startDimension);
+    private static TeleportConfig.ZoomDimension getStartZoomDimension() {
+        return TeleportConfig.ZoomDimension.fromLevel(startDimension);
     }
 
-    private static GtaLikeTeleportConfig.ZoomDimension getCurrentZoomDimension() {
+    private static TeleportConfig.ZoomDimension getCurrentZoomDimension() {
         Minecraft client = Minecraft.getInstance();
         ResourceKey dimension = client.level == null ? startDimension : client.level.dimension();
-        return GtaLikeTeleportConfig.ZoomDimension.fromLevel((ResourceKey<Level>)dimension);
+        return TeleportConfig.ZoomDimension.fromLevel((ResourceKey<Level>)dimension);
     }
 
     private static double pullAltitude(float frameTick) {
@@ -1909,7 +1909,7 @@ public final class TeleportTransitionController {
     }
 
     private static int getPullStageTick(int stageIndex) {
-        int[] stageTicks = GtaLikeTeleportConfig.getZoomOutStageTicks();
+        int[] stageTicks = TeleportConfig.getZoomOutStageTicks();
         int offset = 0;
         for (int i = 0; i < stageIndex && i < stageTicks.length; ++i) {
             offset += stageTicks[i];
@@ -1918,7 +1918,7 @@ public final class TeleportTransitionController {
     }
 
     private static int getPushStageTick(int stageIndex) {
-        int[] stageTicks = GtaLikeTeleportConfig.getZoomInStageTicks();
+        int[] stageTicks = TeleportConfig.getZoomInStageTicks();
         int offset = 0;
         for (int i = 0; i < stageIndex && i < stageTicks.length; ++i) {
             offset += stageTicks[i];
@@ -1927,7 +1927,7 @@ public final class TeleportTransitionController {
     }
 
     private static int getZoomInStageTickLength(int stageIndex) {
-        int[] stageTicks = GtaLikeTeleportConfig.getZoomInStageTicks();
+        int[] stageTicks = TeleportConfig.getZoomInStageTicks();
         if (stageIndex >= 0 && stageIndex < stageTicks.length) {
             return Math.max(1, stageTicks[stageIndex]);
         }
@@ -1938,8 +1938,8 @@ public final class TeleportTransitionController {
         if (!TeleportTransitionController.isCameraStepSoundTick(tick)) {
             return;
         }
-        if (GtaLikeTeleportConfig.isCustomSoundsEnabled()) {
-            TeleportTransitionController.playUiSound(client, TeleportTransitionController.getCustomStepSound(tick), (float)GtaLikeTeleportConfig.getCustomSoundVolume(), 1.0f);
+        if (TeleportConfig.isCustomSoundsEnabled()) {
+            TeleportTransitionController.playUiSound(client, TeleportTransitionController.getCustomStepSound(tick), (float)TeleportConfig.getCustomSoundVolume(), 1.0f);
             return;
         }
         TeleportTransitionController.playUiSound(client, SoundEvents.UI_BUTTON_CLICK.value(), TeleportTransitionController.minecraftSoundVolume(0.86f), 1.0f);
@@ -1959,8 +1959,8 @@ public final class TeleportTransitionController {
     }
 
     private static void playTravelSound(Minecraft client) {
-        if (GtaLikeTeleportConfig.isCustomSoundsEnabled()) {
-            activeTravelSound = new FadingTravelSound((float)GtaLikeTeleportConfig.getCustomSoundVolume());
+        if (TeleportConfig.isCustomSoundsEnabled()) {
+            activeTravelSound = new FadingTravelSound((float)TeleportConfig.getCustomSoundVolume());
             client.getSoundManager().play((SoundInstance)activeTravelSound);
             return;
         }
@@ -1968,8 +1968,8 @@ public final class TeleportTransitionController {
     }
 
     private static void playBodyTransitionSound(Minecraft client, boolean enteringPlayer) {
-        if (GtaLikeTeleportConfig.isCustomSoundsEnabled()) {
-            TeleportTransitionController.playUiSound(client, enteringPlayer ? TeleportSounds.CAMERA_IN : TeleportSounds.CAMERA_OUT, (float)GtaLikeTeleportConfig.getCustomSoundVolume(), 1.0f);
+        if (TeleportConfig.isCustomSoundsEnabled()) {
+            TeleportTransitionController.playUiSound(client, enteringPlayer ? TeleportSounds.CAMERA_IN : TeleportSounds.CAMERA_OUT, (float)TeleportConfig.getCustomSoundVolume(), 1.0f);
             return;
         }
         for (int i = 0; i < 3; ++i) {
@@ -1978,7 +1978,7 @@ public final class TeleportTransitionController {
     }
 
     private static float minecraftSoundVolume(float baseVolume) {
-        return baseVolume * (float)GtaLikeTeleportConfig.getMinecraftSoundVolume();
+        return baseVolume * (float)TeleportConfig.getMinecraftSoundVolume();
     }
 
     private static void playUiSound(Minecraft client, SoundEvent sound, float volume, float pitch) {
@@ -2177,12 +2177,12 @@ public final class TeleportTransitionController {
     }
 
     private static int getBodyHoldTicks() {
-        return GtaLikeTeleportConfig.getBodyGlideTicks();
+        return TeleportConfig.getBodyGlideTicks();
     }
 
     private static int getPullTicks() {
         int total = 0;
-        for (int stageTick : GtaLikeTeleportConfig.getZoomOutStageTicks()) {
+        for (int stageTick : TeleportConfig.getZoomOutStageTicks()) {
             total += stageTick;
         }
         return Math.max(1, total);
@@ -2190,7 +2190,7 @@ public final class TeleportTransitionController {
 
     private static int getPushTicks() {
         int total = 0;
-        for (int stageTick : GtaLikeTeleportConfig.getZoomInStageTicks()) {
+        for (int stageTick : TeleportConfig.getZoomInStageTicks()) {
             total += stageTick;
         }
         return Math.max(1, total);
@@ -2234,15 +2234,15 @@ public final class TeleportTransitionController {
     }
 
     private static double getBodyCameraHeight() {
-        return GtaLikeTeleportConfig.getBodyCameraHeight();
+        return TeleportConfig.getBodyCameraHeight();
     }
 
     private static double getBodyGlideHeight() {
-        return GtaLikeTeleportConfig.getBodyGlideHeight();
+        return TeleportConfig.getBodyGlideHeight();
     }
 
     private static double getZoomStageGlideHeight() {
-        return GtaLikeTeleportConfig.getZoomStageGlideHeight();
+        return TeleportConfig.getZoomStageGlideHeight();
     }
 
     private static int getPullStartTick() {

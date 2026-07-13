@@ -1,6 +1,6 @@
 package com.skd.teleport_animation.mixin;
 
-import com.skd.teleport_animation.GtaLikeTeleportClient;
+import com.skd.teleport_animation.TeleportClient;
 import java.lang.reflect.InvocationTargetException;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,19 +13,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = "journeymap.common.network.dispatch.ClientNetworkDispatcher", remap = false)
 public abstract class JourneyMapClientNetworkDispatcherMixin {
     @Inject(method = "sendTeleportPacket(DIDLjava/lang/String;)V", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private void gtalikeTeleport$interceptJourneyMapTeleport(double x, int y, double z, String dimension, CallbackInfo ci) {
+    private void teleportAnimation$interceptJourneyMapTeleport(double x, int y, double z, String dimension, CallbackInfo ci) {
         Vec3 targetFeet = new Vec3(x, y, z);
         Runnable action = () -> this.invokeJourneyMapTeleport(new Class[]{Double.TYPE, Integer.TYPE, Double.TYPE, String.class}, x, y, z, dimension);
-        if (!GtaLikeTeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {
+        if (!TeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "sendTeleportPacket(DIDLjava/lang/String;Ljava/lang/String;)V", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private void gtalikeTeleport$interceptJourneyMapTeleportWithWaypoint(double x, int y, double z, String dimension, String waypointId, CallbackInfo ci) {
+    private void teleportAnimation$interceptJourneyMapTeleportWithWaypoint(double x, int y, double z, String dimension, String waypointId, CallbackInfo ci) {
         Vec3 targetFeet = new Vec3(x, y, z);
         Runnable action = () -> this.invokeJourneyMapTeleport(new Class[]{Double.TYPE, Integer.TYPE, Double.TYPE, String.class, String.class}, x, y, z, dimension, waypointId);
-        if (!GtaLikeTeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {
+        if (!TeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {
             ci.cancel();
         }
     }

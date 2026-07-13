@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(EntityRenderDispatcher.class)
 public abstract class EntityRendererMixin {
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    private <E extends Entity> void gtalikeTeleport$hideLocalPlayerDuringBodyCamera(E entity, double x, double y, double z, float yaw, float tickProgress, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, CallbackInfo ci) {
+    private <E extends Entity> void teleportAnimation$hideLocalPlayerDuringBodyCamera(E entity, double x, double y, double z, float yaw, float tickProgress, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, CallbackInfo ci) {
         LocalPlayer player = Minecraft.getInstance().player;
         if (player != null && entity.getId() == player.getId() && TeleportTransitionController.shouldHideLocalPlayerModel()) {
             ci.cancel();

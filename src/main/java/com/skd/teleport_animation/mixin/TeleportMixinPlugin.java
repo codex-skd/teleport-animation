@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import java.util.List;
 import java.util.Set;
 
-public final class GtaLikeTeleportMixinPlugin implements IMixinConfigPlugin {
+public final class TeleportMixinPlugin implements IMixinConfigPlugin {
     private static final String JOURNEYMAP_MIXIN = "com.skd.teleport_animation.mixin.JourneyMapClientNetworkDispatcherMixin";
     private static final String VOXY_CLIENT_MIXIN = "com.skd.teleport_animation.mixin.VoxyClientMixin";
     private static final String DISTANT_HORIZONS_RENDER_UTIL_MIXIN = "com.skd.teleport_animation.mixin.DistantHorizonsRenderUtilMixin";

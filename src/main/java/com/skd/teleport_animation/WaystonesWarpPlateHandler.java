@@ -26,12 +26,12 @@ public final class WaystonesWarpPlateHandler {
         if (teleportMethod == null || pos == null) {
             return false;
         }
-        if (!GtaLikeTeleportConfig.isWarpPlateTransitionsEnabled()) {
-            GtaLikeTeleportServer.markNextServerTeleportBypassed(player);
+        if (!TeleportConfig.isWarpPlateTransitionsEnabled()) {
+            TeleportServer.markNextServerTeleportBypassed(player);
             return false;
         }
         Vec3 targetFeet = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-        return GtaLikeTeleportServer.scheduleServerTransition(player, 2, targetFeet, getWaystoneDimension(player, target), () -> runWarpPlateTeleport(warpPlate, teleportMethod, player, target, stack));
+        return TeleportServer.scheduleServerTransition(player, 2, targetFeet, getWaystoneDimension(player, target), () -> runWarpPlateTeleport(warpPlate, teleportMethod, player, target, stack));
     }
 
     private static boolean isValidWaystone(Object target) {
@@ -87,7 +87,7 @@ public final class WaystonesWarpPlateHandler {
     }
 
     private static void runWarpPlateTeleport(Object warpPlate, Method teleportMethod, ServerPlayer player, Object target, ItemStack stack) {
-        GtaLikeTeleportServer.runWithServerTeleportBypass(player, () -> {
+        TeleportServer.runWithServerTeleportBypass(player, () -> {
             try {
                 teleportMethod.invoke(warpPlate, player, target, stack);
             }

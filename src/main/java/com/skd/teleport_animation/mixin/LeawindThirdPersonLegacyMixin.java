@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(targets = "com.github.leawind.thirdperson.ThirdPerson", remap = false)
 public abstract class LeawindThirdPersonLegacyMixin {
     @Inject(method = "isAvailable", at = @At("HEAD"), cancellable = true, require = 0)
-    private static void gtalikeTeleport$disableLegacyLeawindDuringTransition(CallbackInfoReturnable<Boolean> cir) {
+    private static void teleportAnimation$disableLegacyLeawindDuringTransition(CallbackInfoReturnable<Boolean> cir) {
         if (TeleportTransitionController.shouldPreemptLeawindThirdPersonCamera()) {
             cir.setReturnValue(false);
         }

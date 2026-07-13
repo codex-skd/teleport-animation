@@ -13,7 +13,7 @@ public final class TeleportAnimation {
     public static final String MOD_ID = "teleport_animation";
 
     public TeleportAnimation(IEventBus modBus) {
-        GtaLikeTeleportServer.initialize();
+        TeleportServer.initialize();
         NeoForge.EVENT_BUS.addListener(TeleportAnimation::onServerTick);
         modBus.addListener(TeleportAnimation::onRegisterPayloads);
     }
@@ -21,29 +21,29 @@ public final class TeleportAnimation {
     private static void onRegisterPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToClient(
-            GtaLikeTeleportNetworkPayloads.StartServerTeleportPayload.TYPE,
-            GtaLikeTeleportNetworkPayloads.StartServerTeleportPayload.STREAM_CODEC,
-            (payload, context) -> GtaLikeTeleportClientNetworking.handleStart(payload)
+            TeleportNetworkPayloads.StartServerTeleportPayload.TYPE,
+            TeleportNetworkPayloads.StartServerTeleportPayload.STREAM_CODEC,
+            (payload, context) -> TeleportClientNetworking.handleStart(payload)
         );
         registrar.playToServer(
-            GtaLikeTeleportNetworkPayloads.ServerTeleportAckPayload.TYPE,
-            GtaLikeTeleportNetworkPayloads.ServerTeleportAckPayload.STREAM_CODEC,
+            TeleportNetworkPayloads.ServerTeleportAckPayload.TYPE,
+            TeleportNetworkPayloads.ServerTeleportAckPayload.STREAM_CODEC,
             (payload, context) -> {
                 var player = (ServerPlayer) context.player();
-                if (player != null) GtaLikeTeleportServer.handleTeleportAck(player, payload.requestId());
+                if (player != null) TeleportServer.handleTeleportAck(player, payload.requestId());
             }
         );
         registrar.playToServer(
-            GtaLikeTeleportNetworkPayloads.BypassNextServerTeleportPayload.TYPE,
-            GtaLikeTeleportNetworkPayloads.BypassNextServerTeleportPayload.STREAM_CODEC,
+            TeleportNetworkPayloads.BypassNextServerTeleportPayload.TYPE,
+            TeleportNetworkPayloads.BypassNextServerTeleportPayload.STREAM_CODEC,
             (payload, context) -> {
                 var player = (ServerPlayer) context.player();
-                if (player != null) GtaLikeTeleportServer.markNextServerTeleportBypassed(player);
+                if (player != null) TeleportServer.markNextServerTeleportBypassed(player);
             }
         );
     }
 
     private static void onServerTick(ServerTickEvent.Post event) {
-        GtaLikeTeleportServer.tick(event.getServer());
+        TeleportServer.tick(event.getServer());
     }
 }

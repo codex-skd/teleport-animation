@@ -5,8 +5,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
-final class GtaLikeTeleportServerNetworking {
-    private GtaLikeTeleportServerNetworking() {
+final class TeleportServerNetworking {
+    private TeleportServerNetworking() {
     }
 
     static void registerReceivers() {
@@ -17,6 +17,6 @@ final class GtaLikeTeleportServerNetworking {
     }
 
     static void sendStart(ServerPlayer player, long requestId, int source, Vec3 targetFeet, ResourceKey<Level> targetDimension) {
-        GtaLikeTeleportNetworkPayloads.sendStart(player, requestId, source, targetFeet, targetDimension);
+        TeleportNetworkPayloads.sendStart(player, requestId, source, targetFeet, targetDimension);
     }
 }

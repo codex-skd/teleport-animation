@@ -12,24 +12,24 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 @EventBusSubscriber(modid = "teleport_animation", value = Dist.CLIENT)
-public final class TeleportAnimationClient {
-    private TeleportAnimationClient() {
+public final class ClientModEvents {
+    private ClientModEvents() {
     }
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            GtaLikeTeleportClient.initializeClient();
-            NeoForge.EVENT_BUS.addListener(TeleportAnimationClient::onClientTick);
-            NeoForge.EVENT_BUS.addListener(TeleportAnimationClient::onRegisterClientCommands);
+            TeleportClient.initializeClient();
+            NeoForge.EVENT_BUS.addListener(ClientModEvents::onClientTick);
+            NeoForge.EVENT_BUS.addListener(ClientModEvents::onRegisterClientCommands);
         });
     }
 
     private static void onClientTick(ClientTickEvent.Post event) {
-        GtaLikeTeleportClient.tick(Minecraft.getInstance());
+        TeleportClient.tick(Minecraft.getInstance());
     }
 
     private static void onRegisterClientCommands(RegisterClientCommandsEvent event) {
-        GtaLikeTeleportClient.registerClientCommands((CommandDispatcher<CommandSourceStack>) event.getDispatcher());
+        TeleportClient.registerClientCommands((CommandDispatcher<CommandSourceStack>) event.getDispatcher());
     }
 }

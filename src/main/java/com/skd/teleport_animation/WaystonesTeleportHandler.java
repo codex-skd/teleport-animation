@@ -43,7 +43,7 @@ public final class WaystonesTeleportHandler {
         if (targetDimension == null) {
             targetDimension = ((ServerLevel)player.level()).dimension();
         }
-        return (scheduled = GtaLikeTeleportServer.scheduleServerTransition(player, 1, finalTargetFeet = targetFeet, finalTargetDimension = targetDimension, () -> runWaystonesTeleport(context))) ? Either.left(List.of(player)) : null;
+        return (scheduled = TeleportServer.scheduleServerTransition(player, 1, finalTargetFeet = targetFeet, finalTargetDimension = targetDimension, () -> runWaystonesTeleport(context))) ? Either.left(List.of(player)) : null;
     }
 
     private static Entity readEntity(Object context) {

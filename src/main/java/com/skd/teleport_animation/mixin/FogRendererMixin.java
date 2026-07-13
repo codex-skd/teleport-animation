@@ -12,6 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(FogRenderer.class)
 abstract class FogRendererMixin {
     @Inject(method = "setupFog", at = @At("TAIL"))
-    private static void gtalikeTeleport$useGroundSkyBackground(Camera camera, int something, Object deltaTracker, float bossColorModifier, ClientLevel level, CallbackInfoReturnable<Object> cir) {
+    private static void teleportAnimation$useGroundSkyBackground(Camera camera, int something, Object deltaTracker, float bossColorModifier, ClientLevel level, CallbackInfoReturnable<Object> cir) {
     }
 }

@@ -1,6 +1,6 @@
 package com.skd.teleport_animation.mixin;
 
-import com.skd.teleport_animation.GtaLikeTeleportServer;
+import com.skd.teleport_animation.TeleportServer;
 import java.util.Set;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -13,8 +13,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin {
     @Inject(method = "teleportTo(Lnet/minecraft/server/level/ServerLevel;DDDLjava/util/Set;FF)Z", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$delayExternalTeleport(ServerLevel level, double x, double y, double z, Set<Relative> relatives, float yaw, float pitch, CallbackInfoReturnable<Boolean> cir) {
-        if (GtaLikeTeleportServer.tryDelayExternalTeleport((ServerPlayer) (Object) this, level, x, y, z, relatives, yaw, pitch, false)) {
+    private void teleportAnimation$delayExternalTeleport(ServerLevel level, double x, double y, double z, Set<Relative> relatives, float yaw, float pitch, CallbackInfoReturnable<Boolean> cir) {
+        if (TeleportServer.tryDelayExternalTeleport((ServerPlayer) (Object) this, level, x, y, z, relatives, yaw, pitch, false)) {
             cir.setReturnValue(true);
         }
     }

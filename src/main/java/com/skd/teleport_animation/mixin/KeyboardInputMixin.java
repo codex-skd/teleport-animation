@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(KeyboardInput.class)
 public abstract class KeyboardInputMixin {
     @Unique
-    private static final Input gtalikeTeleport$emptyInput = new Input(false, false, false, false, false, false, false);
+    private static final Input teleportAnimation$emptyInput = new Input(false, false, false, false, false, false, false);
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$blockMovementInput(boolean slowDown, float movementMultiplier, CallbackInfo ci) {
+    private void teleportAnimation$blockMovementInput(boolean slowDown, float movementMultiplier, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldBlockPlayerInput()) {
             return;
         }
-        ((KeyboardInput)(Object) this).keyPresses = gtalikeTeleport$emptyInput;
+        ((KeyboardInput)(Object) this).keyPresses = teleportAnimation$emptyInput;
         ci.cancel();
     }
 }

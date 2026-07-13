@@ -11,7 +11,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
-public final class GtaLikeTeleportServer {
+public final class TeleportServer {
     private static final int BYPASS_TICKS = 20;
     private static final int ACK_TIMEOUT_TICKS = 200;
     private static final AtomicLong NEXT_REQUEST_ID = new AtomicLong(1L);
@@ -21,7 +21,7 @@ public final class GtaLikeTeleportServer {
     private static final ThreadLocal<Boolean> executingDelayedTeleport = ThreadLocal.withInitial(() -> false);
 
     static void initialize() {
-        GtaLikeTeleportConfig.load();
+        TeleportConfig.load();
     }
 
     public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel level, double x, double y, double z,
@@ -61,7 +61,7 @@ public final class GtaLikeTeleportServer {
         PendingTeleport pending = new PendingTeleport(requestId, player, source, action);
         pendingTeleports.put(requestId, pending);
         pendingPlayers.add(player.getUUID());
-        GtaLikeTeleportServerNetworking.sendStart(player, requestId, source, targetFeet, targetDimension);
+        TeleportServerNetworking.sendStart(player, requestId, source, targetFeet, targetDimension);
         return true;
     }
 
@@ -96,16 +96,16 @@ public final class GtaLikeTeleportServer {
         if (player == null || player.isSpectator() || !player.isAlive()) {
             return false;
         }
-        if (!GtaLikeTeleportConfig.isEffectEnabled()) {
+        if (!TeleportConfig.isEffectEnabled()) {
             return false;
         }
-        if (source == 1 && !GtaLikeTeleportConfig.isExternalTeleportTransitionsEnabled()) {
+        if (source == 1 && !TeleportConfig.isExternalTeleportTransitionsEnabled()) {
             return false;
         }
-        if (source == 2 && !GtaLikeTeleportConfig.isWarpPlateTransitionsEnabled()) {
+        if (source == 2 && !TeleportConfig.isWarpPlateTransitionsEnabled()) {
             return false;
         }
-        return GtaLikeTeleportServerNetworking.canSendStart(player);
+        return TeleportServerNetworking.canSendStart(player);
     }
 
     private static boolean consumeServerTeleportBypass(ServerPlayer player) {

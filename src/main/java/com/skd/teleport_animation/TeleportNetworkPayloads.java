@@ -7,11 +7,11 @@ import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.Identifier;
 
-public final class GtaLikeTeleportNetworkPayloads {
+public final class TeleportNetworkPayloads {
     public static final int SOURCE_EXTERNAL = 1;
     public static final int SOURCE_WARP_PLATE = 2;
 
-    private GtaLikeTeleportNetworkPayloads() {
+    private TeleportNetworkPayloads() {
     }
 
     public static Identifier id(String path) {

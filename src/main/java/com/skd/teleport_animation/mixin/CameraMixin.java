@@ -16,18 +16,18 @@ public abstract class CameraMixin {
         @At(value = "INVOKE", target = "Lnet/minecraft/client/Camera;move(DDD)V", ordinal = 0, shift = At.Shift.BEFORE),
         @At(value = "INVOKE", target = "Lnet/minecraft/client/Camera;move(DDD)V", ordinal = 1, shift = At.Shift.BEFORE)
     }, cancellable = true, require = 0)
-    private void gtalikeTeleport$preemptLeawindThirdPersonCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
-        if (TeleportTransitionController.shouldPreemptLeawindThirdPersonCamera() && this.gtalikeTeleport$applyCameraFrame(tickProgress)) {
+    private void teleportAnimation$preemptLeawindThirdPersonCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
+        if (TeleportTransitionController.shouldPreemptLeawindThirdPersonCamera() && this.teleportAnimation$applyCameraFrame(tickProgress)) {
             ci.cancel();
         }
     }
 
     @Inject(method = "setup", at = @At("TAIL"))
-    private void gtalikeTeleport$overrideCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
-        this.gtalikeTeleport$applyCameraFrame(tickProgress);
+    private void teleportAnimation$overrideCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
+        this.teleportAnimation$applyCameraFrame(tickProgress);
     }
 
-    private boolean gtalikeTeleport$applyCameraFrame(float tickProgress) {
+    private boolean teleportAnimation$applyCameraFrame(float tickProgress) {
         TeleportTransitionController.CameraFrame frame = TeleportTransitionController.getCameraFrame(tickProgress);
         if (frame == null) {
             return false;
@@ -42,8 +42,8 @@ public abstract class CameraMixin {
             cameraPos = TeleportTransitionController.followPostReleaseCameraPosition(cameraPos, vanillaCameraPos);
         }
         CameraAccessor accessor = (CameraAccessor) (Object) this;
-        accessor.gtalikeTeleport$setPosition(cameraPos);
-        accessor.gtalikeTeleport$setRotation(preserveLiveRotation ? liveYaw : frame.yaw(), preserveLiveRotation ? livePitch : frame.pitch());
+        accessor.teleportAnimation$setPosition(cameraPos);
+        accessor.teleportAnimation$setRotation(preserveLiveRotation ? liveYaw : frame.yaw(), preserveLiveRotation ? livePitch : frame.pitch());
         if (!TeleportTransitionController.shouldApplyPostReleaseCameraOverrideAfterLeawind()) {
             TeleportTransitionController.rememberTransitionCameraPosition(cameraPos, vanillaCameraPos, preserveLiveRotation ? Float.NaN : liveYaw, preserveLiveRotation ? Float.NaN : livePitch);
             TeleportTransitionController.requestTerrainVisibilityUpdate(cameraPos);

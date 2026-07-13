@@ -13,46 +13,46 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Frustum.class)
 abstract class FrustumMixin {
     @Unique
-    private static Field gtalikeTeleport$camXField;
+    private static Field teleportAnimation$camXField;
     @Unique
-    private static Field gtalikeTeleport$camYField;
+    private static Field teleportAnimation$camYField;
     @Unique
-    private static Field gtalikeTeleport$camZField;
+    private static Field teleportAnimation$camZField;
     @Unique
-    private static boolean gtalikeTeleport$lookupFailed;
+    private static boolean teleportAnimation$lookupFailed;
 
     @Inject(method = "prepare", at = @At("TAIL"))
-    private void gtalikeTeleport$useTransitionCameraPosition(double camX, double camY, double camZ, CallbackInfo ci) {
+    private void teleportAnimation$useTransitionCameraPosition(double camX, double camY, double camZ, CallbackInfo ci) {
         Vec3 cameraPos = TeleportTransitionController.getTransitionCameraPositionForRendering();
-        if (cameraPos == null || !FrustumMixin.gtalikeTeleport$ensureFields(this.getClass())) {
+        if (cameraPos == null || !FrustumMixin.teleportAnimation$ensureFields(this.getClass())) {
             return;
         }
         try {
-            gtalikeTeleport$camXField.setDouble(this, cameraPos.x);
-            gtalikeTeleport$camYField.setDouble(this, cameraPos.y);
-            gtalikeTeleport$camZField.setDouble(this, cameraPos.z);
+            teleportAnimation$camXField.setDouble(this, cameraPos.x);
+            teleportAnimation$camYField.setDouble(this, cameraPos.y);
+            teleportAnimation$camZField.setDouble(this, cameraPos.z);
         } catch (IllegalAccessException ignored) {
         }
     }
 
     @Unique
-    private static boolean gtalikeTeleport$ensureFields(Class<?> owner) {
-        if (gtalikeTeleport$camXField != null && gtalikeTeleport$camYField != null && gtalikeTeleport$camZField != null) {
+    private static boolean teleportAnimation$ensureFields(Class<?> owner) {
+        if (teleportAnimation$camXField != null && teleportAnimation$camYField != null && teleportAnimation$camZField != null) {
             return true;
         }
-        if (gtalikeTeleport$lookupFailed) {
+        if (teleportAnimation$lookupFailed) {
             return false;
         }
-        gtalikeTeleport$camXField = FrustumMixin.gtalikeTeleport$getField(owner, "camX");
-        gtalikeTeleport$camYField = FrustumMixin.gtalikeTeleport$getField(owner, "camY");
-        gtalikeTeleport$camZField = FrustumMixin.gtalikeTeleport$getField(owner, "camZ");
-        boolean foundAll = gtalikeTeleport$camXField != null && gtalikeTeleport$camYField != null && gtalikeTeleport$camZField != null;
-        gtalikeTeleport$lookupFailed = !foundAll;
+        teleportAnimation$camXField = FrustumMixin.teleportAnimation$getField(owner, "camX");
+        teleportAnimation$camYField = FrustumMixin.teleportAnimation$getField(owner, "camY");
+        teleportAnimation$camZField = FrustumMixin.teleportAnimation$getField(owner, "camZ");
+        boolean foundAll = teleportAnimation$camXField != null && teleportAnimation$camYField != null && teleportAnimation$camZField != null;
+        teleportAnimation$lookupFailed = !foundAll;
         return foundAll;
     }
 
     @Unique
-    private static Field gtalikeTeleport$getField(Class<?> owner, String... names) {
+    private static Field teleportAnimation$getField(Class<?> owner, String... names) {
         for (String name : names) {
             try {
                 Field field = owner.getDeclaredField(name);

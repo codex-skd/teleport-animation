@@ -22,40 +22,40 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(LevelRenderer.class)
 abstract class LevelRendererMixin {
     @Unique
-    private static Field gtalikeTeleport$viewAreaField;
+    private static Field teleportAnimation$viewAreaField;
     @Unique
-    private static boolean gtalikeTeleport$viewAreaLookupFailed;
+    private static boolean teleportAnimation$viewAreaLookupFailed;
     @Unique
-    private static Field gtalikeTeleport$lastCameraXField;
+    private static Field teleportAnimation$lastCameraXField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraYField;
+    private static Field teleportAnimation$lastCameraYField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraZField;
+    private static Field teleportAnimation$lastCameraZField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkXField;
+    private static Field teleportAnimation$lastCameraChunkXField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkYField;
+    private static Field teleportAnimation$lastCameraChunkYField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkZField;
+    private static Field teleportAnimation$lastCameraChunkZField;
     @Unique
-    private static boolean gtalikeTeleport$lastCameraLookupFailed;
+    private static boolean teleportAnimation$lastCameraLookupFailed;
 
     @Inject(method = "renderLevel", at = @At("HEAD"))
-    private void gtalikeTeleport$anchorViewAreaToTransitionCamera(net.minecraft.client.DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, CallbackInfo ci) {
+    private void teleportAnimation$anchorViewAreaToTransitionCamera(net.minecraft.client.DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldForceTerrainFrustumApply()) {
             return;
         }
-        ViewArea viewArea = LevelRendererMixin.gtalikeTeleport$getViewArea((LevelRenderer)(Object) this);
+        ViewArea viewArea = LevelRendererMixin.teleportAnimation$getViewArea((LevelRenderer)(Object) this);
         if (viewArea == null) {
             return;
         }
         Vec3 cameraPos = camera.position();
         viewArea.repositionCamera(SectionPos.of(BlockPos.containing(cameraPos)));
-        LevelRendererMixin.gtalikeTeleport$maskPlayerChunkReposition((LevelRenderer)(Object) this);
+        LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
 
     @Redirect(method = "renderSky", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel$ClientLevelData;getHorizonHeight(Lnet/minecraft/world/level/LevelHeightAccessor;)D"))
-    private double gtalikeTeleport$useGroundSkyHorizon(ClientLevel.ClientLevelData data, LevelHeightAccessor level) {
+    private double teleportAnimation$useGroundSkyHorizon(ClientLevel.ClientLevelData data, LevelHeightAccessor level) {
         if (TeleportTransitionController.shouldUseGroundSkyBackground()) {
             return Double.NEGATIVE_INFINITY;
         }
@@ -63,30 +63,30 @@ abstract class LevelRendererMixin {
     }
 
     @Unique
-    private static void gtalikeTeleport$maskPlayerChunkReposition(LevelRenderer renderer) {
+    private static void teleportAnimation$maskPlayerChunkReposition(LevelRenderer renderer) {
         LocalPlayer player;
         Minecraft client = Minecraft.getInstance();
         LocalPlayer localPlayer = player = client == null ? null : client.player;
         if (player == null) {
             return;
         }
-        if (!LevelRendererMixin.gtalikeTeleport$ensureLastCameraFields(renderer.getClass())) {
+        if (!LevelRendererMixin.teleportAnimation$ensureLastCameraFields(renderer.getClass())) {
             return;
         }
         try {
-            gtalikeTeleport$lastCameraXField.setDouble(renderer, player.getX());
-            gtalikeTeleport$lastCameraYField.setDouble(renderer, player.getY());
-            gtalikeTeleport$lastCameraZField.setDouble(renderer, player.getZ());
-            gtalikeTeleport$lastCameraChunkXField.setInt(renderer, SectionPos.posToSectionCoord(player.getX()));
-            gtalikeTeleport$lastCameraChunkYField.setInt(renderer, SectionPos.posToSectionCoord(player.getY()));
-            gtalikeTeleport$lastCameraChunkZField.setInt(renderer, SectionPos.posToSectionCoord(player.getZ()));
+            teleportAnimation$lastCameraXField.setDouble(renderer, player.getX());
+            teleportAnimation$lastCameraYField.setDouble(renderer, player.getY());
+            teleportAnimation$lastCameraZField.setDouble(renderer, player.getZ());
+            teleportAnimation$lastCameraChunkXField.setInt(renderer, SectionPos.posToSectionCoord(player.getX()));
+            teleportAnimation$lastCameraChunkYField.setInt(renderer, SectionPos.posToSectionCoord(player.getY()));
+            teleportAnimation$lastCameraChunkZField.setInt(renderer, SectionPos.posToSectionCoord(player.getZ()));
         } catch (IllegalAccessException ignored) {
         }
     }
 
     @Unique
-    private static ViewArea gtalikeTeleport$getViewArea(LevelRenderer renderer) {
-        Field field = LevelRendererMixin.gtalikeTeleport$getViewAreaField(renderer.getClass());
+    private static ViewArea teleportAnimation$getViewArea(LevelRenderer renderer) {
+        Field field = LevelRendererMixin.teleportAnimation$getViewAreaField(renderer.getClass());
         if (field == null) {
             return null;
         }
@@ -99,47 +99,47 @@ abstract class LevelRendererMixin {
     }
 
     @Unique
-    private static Field gtalikeTeleport$getViewAreaField(Class<?> rendererClass) {
-        if (gtalikeTeleport$viewAreaField != null) {
-            return gtalikeTeleport$viewAreaField;
+    private static Field teleportAnimation$getViewAreaField(Class<?> rendererClass) {
+        if (teleportAnimation$viewAreaField != null) {
+            return teleportAnimation$viewAreaField;
         }
-        if (gtalikeTeleport$viewAreaLookupFailed) {
+        if (teleportAnimation$viewAreaLookupFailed) {
             return null;
         }
         for (String fieldName : new String[]{"viewArea"}) {
             try {
                 Field field = rendererClass.getDeclaredField(fieldName);
                 field.setAccessible(true);
-                gtalikeTeleport$viewAreaField = field;
+                teleportAnimation$viewAreaField = field;
                 return field;
             } catch (NoSuchFieldException ignored) {
             }
         }
-        gtalikeTeleport$viewAreaLookupFailed = true;
+        teleportAnimation$viewAreaLookupFailed = true;
         return null;
     }
 
     @Unique
-    private static boolean gtalikeTeleport$ensureLastCameraFields(Class<?> rendererClass) {
-        if (gtalikeTeleport$lastCameraXField != null && gtalikeTeleport$lastCameraYField != null && gtalikeTeleport$lastCameraZField != null && gtalikeTeleport$lastCameraChunkXField != null && gtalikeTeleport$lastCameraChunkYField != null && gtalikeTeleport$lastCameraChunkZField != null) {
+    private static boolean teleportAnimation$ensureLastCameraFields(Class<?> rendererClass) {
+        if (teleportAnimation$lastCameraXField != null && teleportAnimation$lastCameraYField != null && teleportAnimation$lastCameraZField != null && teleportAnimation$lastCameraChunkXField != null && teleportAnimation$lastCameraChunkYField != null && teleportAnimation$lastCameraChunkZField != null) {
             return true;
         }
-        if (gtalikeTeleport$lastCameraLookupFailed) {
+        if (teleportAnimation$lastCameraLookupFailed) {
             return false;
         }
-        gtalikeTeleport$lastCameraXField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraX");
-        gtalikeTeleport$lastCameraYField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraY");
-        gtalikeTeleport$lastCameraZField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraZ");
-        gtalikeTeleport$lastCameraChunkXField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraChunkX");
-        gtalikeTeleport$lastCameraChunkYField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraChunkY");
-        gtalikeTeleport$lastCameraChunkZField = LevelRendererMixin.gtalikeTeleport$getField(rendererClass, "lastCameraChunkZ");
-        boolean foundAll = gtalikeTeleport$lastCameraXField != null && gtalikeTeleport$lastCameraYField != null && gtalikeTeleport$lastCameraZField != null && gtalikeTeleport$lastCameraChunkXField != null && gtalikeTeleport$lastCameraChunkYField != null && gtalikeTeleport$lastCameraChunkZField != null;
-        gtalikeTeleport$lastCameraLookupFailed = !foundAll;
+        teleportAnimation$lastCameraXField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraX");
+        teleportAnimation$lastCameraYField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraY");
+        teleportAnimation$lastCameraZField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraZ");
+        teleportAnimation$lastCameraChunkXField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraChunkX");
+        teleportAnimation$lastCameraChunkYField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraChunkY");
+        teleportAnimation$lastCameraChunkZField = LevelRendererMixin.teleportAnimation$getField(rendererClass, "lastCameraChunkZ");
+        boolean foundAll = teleportAnimation$lastCameraXField != null && teleportAnimation$lastCameraYField != null && teleportAnimation$lastCameraZField != null && teleportAnimation$lastCameraChunkXField != null && teleportAnimation$lastCameraChunkYField != null && teleportAnimation$lastCameraChunkZField != null;
+        teleportAnimation$lastCameraLookupFailed = !foundAll;
         return foundAll;
     }
 
     @Unique
-    private static Field gtalikeTeleport$getField(Class<?> owner, String... names) {
+    private static Field teleportAnimation$getField(Class<?> owner, String... names) {
         for (String name : names) {
             try {
                 Field field = owner.getDeclaredField(name);

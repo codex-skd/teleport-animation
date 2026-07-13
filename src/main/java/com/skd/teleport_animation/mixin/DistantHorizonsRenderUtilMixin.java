@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(targets = "com.seibel.distanthorizons.core.util.RenderUtil", remap = false)
 abstract class DistantHorizonsRenderUtilMixin {
     @Inject(method = "getNearClipPlaneInBlocks", at = @At("HEAD"), cancellable = true, require = 0)
-    private static void gtalikeTeleport$reduceNearClipDuringTransition(CallbackInfoReturnable<Float> cir) {
+    private static void teleportAnimation$reduceNearClipDuringTransition(CallbackInfoReturnable<Float> cir) {
         if (TeleportTransitionController.shouldOverrideDistantHorizonsNearClip()) {
             cir.setReturnValue(0.1f);
         }

@@ -31,19 +31,19 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.UUID;
 
-public final class GtaLikeTeleportClient {
-    private static final String[] COMMAND_ALIASES = new String[]{"grandtp", "gtp"};
-    private static final String USAGE_MESSAGE = "Usage: /gtp or /grandtp on|off|status|player_freeze <on|off|status>";
+public final class TeleportClient {
+    private static final String[] COMMAND_ALIASES = new String[]{"ta", "tpanimation"};
+    private static final String USAGE_MESSAGE = "Usage: /ta or /tpanimation on|off|status|player_freeze <on|off|status>";
     private static boolean bypassNextCommand;
     private static boolean bypassNextPacket;
     private static boolean bypassNextJourneyMapTeleport;
     private static boolean openConfigScreenNextTick;
 
-    private GtaLikeTeleportClient() {
+    private TeleportClient() {
     }
 
     static void initializeClient() {
-        GtaLikeTeleportConfig.load();
+        TeleportConfig.load();
         openConfigScreenNextTick = false;
     }
 
@@ -86,7 +86,7 @@ public final class GtaLikeTeleportClient {
         if (handleGtaTeleportCommand(client, command)) {
             return false;
         }
-        if (!GtaLikeTeleportConfig.isEffectEnabled()) {
+        if (!TeleportConfig.isEffectEnabled()) {
             return true;
         }
         if (!TeleportCommandMatcher.isTeleportCommand(command) || client.player == null || client.getConnection() == null) {
@@ -111,7 +111,7 @@ public final class GtaLikeTeleportClient {
             return true;
         }
         Minecraft client = Minecraft.getInstance();
-        if (!GtaLikeTeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
+        if (!TeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
             return true;
         }
         if (TeleportTransitionController.isRunning()) {
@@ -130,7 +130,7 @@ public final class GtaLikeTeleportClient {
             return true;
         }
         Minecraft client = Minecraft.getInstance();
-        if (!GtaLikeTeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
+        if (!TeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
             return true;
         }
         if (TeleportTransitionController.isRunning()) {
@@ -140,27 +140,27 @@ public final class GtaLikeTeleportClient {
         return false;
     }
 
-    static void handleServerTeleportRequest(GtaLikeTeleportNetworkPayloads.StartServerTeleportPayload payload) {
+    static void handleServerTeleportRequest(TeleportNetworkPayloads.StartServerTeleportPayload payload) {
         Minecraft client = Minecraft.getInstance();
         if (!shouldPlayServerTeleportTransition(client, payload.source())) {
-            GtaLikeTeleportClientNetworking.sendServerTeleportAck(payload.requestId());
+            TeleportClientNetworking.sendServerTeleportAck(payload.requestId());
             return;
         }
-        TeleportTransitionController.start(client, GtaLikeTeleportClientNetworking.targetFeet(payload), GtaLikeTeleportClientNetworking.targetDimensionId(payload),
-            () -> GtaLikeTeleportClientNetworking.sendServerTeleportAck(payload.requestId()), payload.source());
+        TeleportTransitionController.start(client, TeleportClientNetworking.targetFeet(payload), TeleportClientNetworking.targetDimensionId(payload),
+            () -> TeleportClientNetworking.sendServerTeleportAck(payload.requestId()), payload.source());
     }
 
     private static boolean shouldPlayServerTeleportTransition(Minecraft client, int source) {
-        if (!GtaLikeTeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
+        if (!TeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
             return false;
         }
         if (TeleportTransitionController.isRunning()) {
             return false;
         }
         if (source == 2) {
-            return GtaLikeTeleportConfig.isWarpPlateTransitionsEnabled();
+            return TeleportConfig.isWarpPlateTransitionsEnabled();
         }
-        return GtaLikeTeleportConfig.isExternalTeleportTransitionsEnabled();
+        return TeleportConfig.isExternalTeleportTransitionsEnabled();
     }
 
     static void sendDeferredCommand(String command) {
@@ -168,7 +168,7 @@ public final class GtaLikeTeleportClient {
         if (client.getConnection() == null) {
             return;
         }
-        GtaLikeTeleportClientNetworking.sendBypassNextServerTeleport();
+        TeleportClientNetworking.sendBypassNextServerTeleport();
         bypassNextCommand = true;
         try {
             client.getConnection().sendCommand(command);
@@ -179,7 +179,7 @@ public final class GtaLikeTeleportClient {
     }
 
     private static void sendDeferredPacket(Connection connection, Packet<?> packet) {
-        GtaLikeTeleportClientNetworking.sendBypassNextServerTeleport();
+        TeleportClientNetworking.sendBypassNextServerTeleport();
         bypassNextPacket = true;
         try {
             connection.send(packet);
@@ -190,7 +190,7 @@ public final class GtaLikeTeleportClient {
     }
 
     private static void sendDeferredJourneyMapTeleport(Runnable action) {
-        GtaLikeTeleportClientNetworking.sendBypassNextServerTeleport();
+        TeleportClientNetworking.sendBypassNextServerTeleport();
         bypassNextJourneyMapTeleport = true;
         try {
             action.run();
@@ -368,12 +368,12 @@ public final class GtaLikeTeleportClient {
         String lowerArgument = argument.toLowerCase(Locale.ROOT);
 
         if (lowerArgument.equals("on")) {
-            boolean saved = GtaLikeTeleportConfig.setEffectEnabled(true);
+            boolean saved = TeleportConfig.setEffectEnabled(true);
             sendCommandFeedback(client, true, saved);
             return true;
         }
         if (lowerArgument.equals("off")) {
-            boolean saved = GtaLikeTeleportConfig.setEffectEnabled(false);
+            boolean saved = TeleportConfig.setEffectEnabled(false);
             sendCommandFeedback(client, false, saved);
             return true;
         }
@@ -382,20 +382,20 @@ public final class GtaLikeTeleportClient {
             return true;
         }
         if (lowerArgument.equals("status")) {
-            sendFeedback(client, createStateFeedback(GtaLikeTeleportConfig.isEffectEnabled(), true, ChatFormatting.GRAY));
+            sendFeedback(client, createStateFeedback(TeleportConfig.isEffectEnabled(), true, ChatFormatting.GRAY));
             return true;
         }
         if (lowerArgument.equals("player_freeze") || lowerArgument.equals("player_freeze status")) {
-            sendFeedback(client, createPlayerFreezeStateFeedback(GtaLikeTeleportConfig.isPlayerFreezeEnabled(), true, ChatFormatting.GRAY));
+            sendFeedback(client, createPlayerFreezeStateFeedback(TeleportConfig.isPlayerFreezeEnabled(), true, ChatFormatting.GRAY));
             return true;
         }
         if (lowerArgument.equals("player_freeze on")) {
-            boolean saved = GtaLikeTeleportConfig.setPlayerFreezeEnabled(true);
+            boolean saved = TeleportConfig.setPlayerFreezeEnabled(true);
             sendFeedback(client, createPlayerFreezeStateFeedback(true, saved, saved ? ChatFormatting.GREEN : ChatFormatting.YELLOW));
             return true;
         }
         if (lowerArgument.equals("player_freeze off")) {
-            boolean saved = GtaLikeTeleportConfig.setPlayerFreezeEnabled(false);
+            boolean saved = TeleportConfig.setPlayerFreezeEnabled(false);
             sendFeedback(client, createPlayerFreezeStateFeedback(false, saved, saved ? ChatFormatting.GREEN : ChatFormatting.YELLOW));
             return true;
         }
@@ -409,13 +409,13 @@ public final class GtaLikeTeleportClient {
 
     private static Component createStateFeedback(boolean enabled, boolean saved, ChatFormatting formatting) {
         String state = enabled ? "ON" : "OFF";
-        String message = "Grand Teleport:" + state + (saved ? "" : " (save failed)");
+        String message = "Teleport Animation:" + state + (saved ? "" : " (save failed)");
         return Component.literal(message).withStyle(formatting);
     }
 
     private static Component createPlayerFreezeStateFeedback(boolean enabled, boolean saved, ChatFormatting formatting) {
         String state = enabled ? "ON" : "OFF";
-        String message = "Grand Teleport player_freeze:" + state + (saved ? "" : " (save failed)");
+        String message = "Teleport Animation player_freeze:" + state + (saved ? "" : " (save failed)");
         return Component.literal(message).withStyle(formatting);
     }
 
