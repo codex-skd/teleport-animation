@@ -10,24 +10,15 @@
   ],
   "client": [
     "CameraAccessor",
-    "CameraMixin",
-    "ClientPacketListenerMixin",
-    "ConnectionMixin",
-    "EntityRendererMixin",
-    "DistantHorizonsRenderUtilMixin",
-    "FogRendererMixin",
     "FrustumMixin",
-    "GameRendererMixin",
-    "JourneyMapClientNetworkDispatcherMixin",
-    "LeawindThirdPersonEventsNeoForgeMixin",
-    "LeawindThirdPersonImplMixin",
-    "LeawindThirdPersonLegacyMixin",
     "LevelRendererMixin",
+    "GameRendererMixin",
+    "GuiMixin",
+    "ScreenEffectRendererMixin",
     "KeyboardInputMixin",
     "MouseHandlerMixin",
     "MinecraftMixin",
-    "ScreenEffectRendererMixin",
-    "VoxyClientMixin"
+    "EntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

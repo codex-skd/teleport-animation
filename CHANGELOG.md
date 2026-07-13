@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.7 (2026-07-13)
+
+- Removed failing mixins (CameraMixin, ConnectionMixin, ClientPacketListenerMixin, FogRendererMixin, etc.) causing crashes at startup
+- Retained core mixins for terrain, frustum, input blocking, and rendering effects
+
 ## 0.0.0-beta.6 (2026-07-13)
 
 - Replaced ServerPlayerMixin with EntityTeleportEvent (NeoForge event system)
