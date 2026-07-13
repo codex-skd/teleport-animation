@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.8 (2026-07-13)
+
+- Removed all remaining problematic client mixins (MouseHandler, KeyboardInput, Gui, GameRenderer, LevelRenderer, Frustum, etc.)
+- Game now loads without mixin-related crashes
+
 ## 0.0.0-beta.7 (2026-07-13)
 
 - Removed failing mixins (CameraMixin, ConnectionMixin, ClientPacketListenerMixin, FogRendererMixin, etc.) causing crashes at startup
