@@ -19,6 +19,7 @@ public final class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            TeleportTransitionController.resetState(Minecraft.getInstance());
             TeleportClient.initializeClient();
             NeoForge.EVENT_BUS.addListener(ClientModEvents::onClientTick);
             NeoForge.EVENT_BUS.addListener(ClientModEvents::onRegisterClientCommands);

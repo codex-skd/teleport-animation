@@ -2446,6 +2446,23 @@ public final class TeleportTransitionController {
         SodiumCompat.scheduleTerrainUpdate();
     }
 
+    static void resetState(Minecraft client) {
+        if (previousCameraType != null) {
+            client.options.setCameraType(previousCameraType);
+        } else {
+            client.options.setCameraType(CameraType.FIRST_PERSON);
+        }
+        client.options.hideGui = previousHudHidden;
+        pendingAction = null;
+        previousCameraType = null;
+        previousHudHidden = false;
+        hudSuppressed = false;
+        ticks = 0;
+        totalTicks = 0;
+        cameraReleased = false;
+        cameraTypeRestoredForEnter = false;
+    }
+
     private static void clear(Minecraft client) {
         TeleportTransitionController.releaseRetainedDepartingChunks(client);
         TeleportTransitionController.restoreCameraType(client);
