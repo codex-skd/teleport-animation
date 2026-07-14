@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.12 (2026-07-14)
+
+- feat: add mixin para `teleport(TeleportTransition)` (nuevo método en MC 26.1.2)
+- refactor: mantener mixins legacy de `teleportTo` como respaldo
+- docs: actualizar WORKFLOW.md con convenciones de idioma
+
 ## 0.0.0-beta.11 (2026-07-14)
 
 - fix: restore ServerPlayerMixin with correct 7-param teleportTo descriptor
