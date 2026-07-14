@@ -196,6 +196,7 @@ public final class TeleportTransitionController {
     private static int postReleaseCameraBlendTicks;
     private static int postReleaseCameraOverrideFrames;
     private static int postReleaseCameraOverrideStableFrames;
+    private static boolean needsStateReset = true;
 
     private TeleportTransitionController() {
     }
@@ -304,6 +305,10 @@ public final class TeleportTransitionController {
     }
 
     static void tick(Minecraft client) {
+        if (needsStateReset) {
+            needsStateReset = false;
+            TeleportTransitionController.resetState(client);
+        }
         if (!TeleportTransitionController.isRunning()) {
             return;
         }
