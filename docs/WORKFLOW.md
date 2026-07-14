@@ -21,12 +21,12 @@
 │   │           └── neoforge.mods.toml  # Template con placeholders ${...}
 │   ├── main/java/<package>/...         # Código fuente
 ├── docs/
-│   └── WORKFLOW.md                    # Este documento
-├── curseforge/
-│   ├── project_description.md          # Descripción del proyecto para CurseForge
-│   └── versions/                       # Release notes por versión
-│       ├── 0.0.0-beta.1.md
-│       └── ...
+│   ├── WORKFLOW.md                    # Este documento
+│   └── curseforge/                    # Documentación para publicación en CurseForge
+│       ├── project_description.md      # Descripción del proyecto
+│       └── versions/                   # Release notes por versión
+│           ├── 0.0.0-beta.1.md
+│           └── ...
 ├── CHANGELOG.md
 └── README.md
 ```
@@ -35,8 +35,8 @@
 
 | Archivo | Propósito |
 |---------|-----------|
-| `curseforge/project_description.md` | Descripción completa del proyecto (qué hace, características, requisitos) |
-| `curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
+| `docs/curseforge/project_description.md` | Descripción completa del proyecto (qué hace, características, requisitos) |
+| `docs/curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
 
 ---
 
