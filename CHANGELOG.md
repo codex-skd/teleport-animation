@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.11 (2026-07-14)
+
+- fix: restore ServerPlayerMixin with correct 7-param teleportTo descriptor
+- docs: add WORKFLOW.md with versioning and commit conventions
+- chore: restructure curseforge files into curseforge/ directory
+
 ## 0.0.0-beta.10 (2026-07-13)
 
 - Removed ALL mixins to ensure stable game loading

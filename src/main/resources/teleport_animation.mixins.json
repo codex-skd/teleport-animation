@@ -1,10 +1,11 @@
 {
-  "required": false,
+  "required": true,
   "minVersion": "0.8.5",
   "package": "com.skd.teleport_animation.mixin",
   "plugin": "com.skd.teleport_animation.mixin.TeleportMixinPlugin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "ServerPlayerMixin"
   ],
   "client": [
   ],
