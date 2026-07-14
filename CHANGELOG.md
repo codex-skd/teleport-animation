@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.13 (2026-07-14)
+
+- fix: añadir EntityMixin para interceptar teleport en Entity (clase padre)
+- fix: restaurar cámara y HUD al iniciar el juego si el estado quedó sucio
+- refactor: resetState() para limpiar estado de la animación al inicio
+
 ## 0.0.0-beta.12 (2026-07-14)
 
 - feat: add mixin para `teleport(TeleportTransition)` (nuevo método en MC 26.1.2)
