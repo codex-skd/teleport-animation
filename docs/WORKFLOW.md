@@ -193,3 +193,12 @@ git push origin curseforge-1.0.0
 - **Versionar antes de subir a CurseForge**: el tag debe apuntar al commit exacto del JAR que se sube
 - **CHANGELOG.md siempre actualizado**: reflejar todos los cambios de cada versión
 - **Siempre hacer `clean build` antes de generar el JAR final**: la caché de Gradle puede dejar artefactos obsoletos o corruptos que no se detectan en compilaciones incrementales; `clean` fuerza una compilación desde cero
+
+## Idioma
+
+| Ámbito | Idioma |
+|--------|--------|
+| Código, commits, documentación interna, GitLab | **Castellano** (es-ES) |
+| CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) |
+
+El proyecto se dirige a la comunidad hispanohablante, pero CurseForge es una plataforma global donde el inglés es el idioma estándar para llegar a la mayor audiencia posible.
