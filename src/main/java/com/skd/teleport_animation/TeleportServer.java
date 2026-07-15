@@ -7,11 +7,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Relative;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class TeleportServer {
+    private static final Logger LOGGER = LoggerFactory.getLogger("teleport_animation");
     private static final int BYPASS_TICKS = 20;
     private static final int ACK_TIMEOUT_TICKS = 200;
     private static final AtomicLong NEXT_REQUEST_ID = new AtomicLong(1L);
@@ -26,7 +29,9 @@ public final class TeleportServer {
 
     public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel level, double x, double y, double z,
                                                    Set<Relative> relatives, float yaw, float pitch, boolean resetCamera) {
+        LOGGER.info("tryDelayExternalTeleport called for player={} at [{}, {}, {}]", player.getName().getString(), x, y, z);
         if (consumeServerTeleportBypass(player)) {
+            LOGGER.info("  -> bypassed");
             return false;
         }
         if (pendingPlayers.contains(player.getUUID())) {

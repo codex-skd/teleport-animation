@@ -1,6 +1,7 @@
 package com.skd.teleport_animation;
 
 import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.client.CameraType;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSourceStack;
 import net.neoforged.api.distmarker.Dist;
@@ -18,12 +19,14 @@ public final class ClientModEvents {
 
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
-        event.enqueueWork(() -> {
-            TeleportTransitionController.resetState(Minecraft.getInstance());
-            TeleportClient.initializeClient();
-            NeoForge.EVENT_BUS.addListener(ClientModEvents::onClientTick);
-            NeoForge.EVENT_BUS.addListener(ClientModEvents::onRegisterClientCommands);
-        });
+        Minecraft client = Minecraft.getInstance();
+        if (client.options != null) {
+            client.options.setCameraType(CameraType.FIRST_PERSON);
+            client.options.hideGui = false;
+        }
+        TeleportClient.initializeClient();
+        NeoForge.EVENT_BUS.addListener(ClientModEvents::onClientTick);
+        NeoForge.EVENT_BUS.addListener(ClientModEvents::onRegisterClientCommands);
     }
 
     private static void onClientTick(ClientTickEvent.Post event) {
