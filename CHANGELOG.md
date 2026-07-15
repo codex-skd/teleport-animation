@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.14 (2026-07-14)
+
+- fix: forzar cámara a primera persona y HUD visible directamente en onClientSetup
+- fix: añadir logging de diagnóstico en tryDelayExternalTeleport
+
 ## 0.0.0-beta.13 (2026-07-14)
 
 - fix: añadir EntityMixin para interceptar teleport en Entity (clase padre)
