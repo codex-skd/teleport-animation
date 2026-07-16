@@ -1,6 +1,6 @@
-# Flujo de trabajo — Armor Cosmetic (NeoForge)
+# Flujo de trabajo — Grand Teleport (NeoForge)
 
-> Este archivo pertenece al proyecto **Armor Cosmetic**. Cada proyecto tiene su propio `WORKFLOW.md`.
+> Este archivo pertenece al proyecto **Grand Teleport**. Cada proyecto tiene su propio `WORKFLOW.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 
 ## Estructura del proyecto
@@ -26,7 +26,6 @@
 ├── docs/
 │   ├── WORKFLOW.md                    # Este documento
 │   └── curseforge/                    # Documentación para publicación en CurseForge
-│       ├── project_vars.md             # Variables del proyecto (ID, token, versiones)
 │       ├── project_description.md      # Descripción del proyecto
 │       └── versions/                   # Release notes por versión
 │           ├── 0.0.0-beta.1.md
@@ -109,16 +108,16 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 #### Ejemplo de estructura HTML para release notes
 
 ```html
-<h2>v1.0.21 - Tombstone Compatibility: Real Armor Captured</h2>
+<h2>v0.0.0-beta.X - Titulo descriptivo</h2>
 
 <h3>Fix</h3>
 <ul>
-<li><strong>Real armor lost on death with Tombstone</strong>: The player&#8217;s real armor is now added to <code>LivingDropsEvent</code> alongside cosmetic armor.</li>
+<li><strong>Issue</strong>: description with <code>code</code>.</li>
 </ul>
 
 <h3>Technical Changes</h3>
 <ul>
-<li><code>InventoryManager.handlePlayerDrops()</code> now iterates the player&#8217;s armor slots...</li>
+<li><code>Class.method()</code> — description.</li>
 </ul>
 ```
 
@@ -150,7 +149,7 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 
 | Rama | Versión |
 |------|---------|
-| `minecraft/26.1.2/neoforge-26.1.2.78/production` | Minecraft 26.1.2, NeoForge 26.1.2.78 |
+| `minecraft/1.21.1/neoforge-1.21.1.78/production` | Minecraft 1.21.1, NeoForge 1.21.1.78 |
 | `minecraft/1.21.1/neoforge-21.1.141/production` | Minecraft 1.21.1, NeoForge 21.1.141 |
 
 ---
@@ -186,7 +185,9 @@ El JAR generado sigue el formato `<mod_id>-<minecraft_version>-<framework>-<mod_
 
 | Ejemplo | Significado |
 |---------|-------------|
-| `player_animation_core-26.1.2-neoforge-0.0.0-beta.21.jar` | NeoForge 26.1.2, beta 21 |
+| `teleport_animation-1.21.1-neoforge-0.0.0-beta.2.jar` | NeoForge 1.21.1, beta 2 |
+| `teleport_animation-1.21.1-neoforge-1.0.0.jar` | NeoForge 1.21.1, release 1.0.0 |
+| `teleport_animation-1.21.1-neoforge-0.0.0-beta.14.jar` | NeoForge 1.21.1, beta 14 |
 
 El framework puede ser `neoforge`, `forge` o `fabric` según corresponda. Se configura en `build.gradle`:
 
@@ -249,8 +250,8 @@ Cada vez que se sube una versión a CurseForge se debe crear un tag en GitLab.
 
 | Estado | Formato | Ejemplo |
 |--------|---------|---------|
-| Beta | `<mc-version>-neoforge-beta.X` | `26.1.2-neoforge-beta.21` |
-| Release | `<mc-version>-neoforge-X.Y.Z` | `26.1.2-neoforge-1.0.0` |
+| Beta | `<mc-version>-neoforge-beta.X` | `1.21.1-neoforge-beta.15` |
+| Release | `<mc-version>-neoforge-X.Y.Z` | `1.21.1-neoforge-1.0.0` |
 
 El prefijo `<mc-version>-neoforge` se adapta según la versión de Minecraft y el framework de la rama actual.
 
@@ -258,12 +259,12 @@ El prefijo `<mc-version>-neoforge` se adapta según la versión de Minecraft y e
 
 ```bash
 # Beta
-git tag -a 26.1.2-neoforge-beta.21 -m "v0.0.0-beta.21: Update WORKFLOW.md"
-git push origin 26.1.2-neoforge-beta.21
+git tag -a 1.21.1-neoforge-beta.15 -m "v0.0.0-beta.15: Updated WORKFLOW.md"
+git push origin 1.21.1-neoforge-beta.15
 
 # Release estable
-git tag -a 26.1.2-neoforge-1.0.0 -m "v1.0.0: First stable release"
-git push origin 26.1.2-neoforge-1.0.0
+git tag -a 1.21.1-neoforge-1.0.0 -m "v1.0.0: First stable release"
+git push origin 1.21.1-neoforge-1.0.0
 ```
 
 ---
@@ -274,7 +275,7 @@ git push origin 26.1.2-neoforge-1.0.0
 
 ```bash
 # Situarse en la rama de la versión correspondiente
-git checkout minecraft/26.1.2/neoforge-26.1.2.78/production
+git checkout minecraft/1.21.1/neoforge-1.21.1.78/production
 
 # Hacer cambios en el código
 # Compilar para verificar
@@ -309,8 +310,8 @@ git add -A
 git commit -m "chore: bump version to 0.0.0-beta.3"
 
 # 6. Tag para CurseForge
-git tag -a 26.1.2-neoforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
-git push origin 26.1.2-neoforge-beta.3
+git tag -a curseforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
+git push origin curseforge-beta.3
 
 # 7. Subir JAR a CurseForge manualmente
 #    El JAR está en build/libs/<mod_id>-<minecraft_version>-<framework>-<version>.jar
@@ -321,8 +322,8 @@ git push origin 26.1.2-neoforge-beta.3
 ```bash
 # gradle.properties → mod_version=1.0.0
 git commit -m "chore: bump version to 1.0.0"
-git tag -a 26.1.2-neoforge-1.0.0 -m "v1.0.0: First stable release"
-git push origin 26.1.2-neoforge-1.0.0
+git tag -a curseforge-1.0.0 -m "v1.0.0: First stable release"
+git push origin curseforge-1.0.0
 ```
 
 ---
