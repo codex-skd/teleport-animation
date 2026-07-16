@@ -1,2 +1,0 @@
-Summary for G:\Proyectos\Mods_Minecraft\teleport_animation-1.21.1\lib_ext\grand-teleport-forge-1.20.1-forge-build300.jar
-Decompiled with CFR 0.152
