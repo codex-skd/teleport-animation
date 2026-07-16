@@ -244,8 +244,8 @@ git push origin curseforge-1.0.0
 
 | Ámbito | Idioma |
 |--------|--------|
-| Código fuente, logs, nombres técnicos | **Inglés** (en-US) — estándar de programación |
-| Commits, documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
+| Código fuente, logs, nombres técnicos, commits | **Inglés** (en-US) — estándar de programación |
+| Documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
 | CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) — plataforma global |
 
-El código y los logs siguen el estándar internacional de programación en inglés. La documentación interna y el repositorio se mantienen en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
+El código, los logs y los commits siguen el estándar internacional de programación en inglés. La documentación interna y el repositorio se mantienen en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
