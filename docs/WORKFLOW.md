@@ -1,4 +1,4 @@
-# Flujo de trabajo — Mods Minecraft (NeoForge)
+# Flujo de trabajo — Teleport Animation (NeoForge)
 
 ## Estructura del proyecto
 
@@ -23,6 +23,7 @@
 ├── docs/
 │   ├── WORKFLOW.md                    # Este documento
 │   └── curseforge/                    # Documentación para publicación en CurseForge
+│       ├── project_vars.md             # Variables del proyecto (ID, token, versiones)
 │       ├── project_description.md      # Descripción del proyecto
 │       └── versions/                   # Release notes por versión
 │           ├── 0.0.0-beta.1.md
@@ -31,12 +32,105 @@
 └── README.md
 ```
 
-### Archivos obligatorios de CurseForge
+### Archivos de CurseForge
 
 | Archivo | Propósito |
 |---------|-----------|
+| `docs/curseforge/project_vars.md` | Variables específicas del proyecto (project ID, token, versiones) |
 | `docs/curseforge/project_description.md` | Descripción completa del proyecto (qué hace, características, requisitos) |
 | `docs/curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
+
+Las variables de cada proyecto (project ID, API token, versiones de Minecraft/NeoForge/Java) se documentan en `docs/curseforge/project_vars.md`. No duplicar aquí.
+
+### Formato de descripciones CurseForge
+
+CurseForge admite **Markdown y HTML** en las descripciones y release notes. Usamos ambos porque:
+
+- Se versiona junto al código en el repositorio
+- Es portátil (funciona en GitHub, GitLab, etc.)
+- El HTML permite control preciso sobre espaciado, alineación y estructura visual
+- El Markdown es más limpio para listas, tablas y código
+
+Usamos HTML para la **descripción general del proyecto** (`project_description.md`), donde el control visual es más importante. Para las **release notes** (`versions/<version>.md`) usamos Markdown con emojis, que es más ligero y rápido de escribir.
+
+#### Estructura de la descripción general
+
+```
+Header:    Título principal (h1 centrado) + tagline
+           Separador
+Cuerpo:    Overview en párrafos (h2)
+           Features con h3 + párrafo descriptivo cada una
+           Tabla de requisitos
+           Lista de uso
+           Separador
+Footer:    Créditos
+           Logo centrado + enlace web + eslogan
+```
+
+#### Elementos HTML disponibles
+
+| Elemento | Uso |
+|----------|-----|
+| `<h1 align="center">` | Título principal centrado |
+| `<h2>` | Secciones del cuerpo |
+| `<h3>` | Subsecciones (cada feature) |
+| `<p>` | Párrafos con espaciado natural |
+| `<br>` | Saltos de línea para separar bloques |
+| `<hr>` | Separadores visuales entre secciones |
+| `<table>` | Datos estructurados (requisitos) |
+| `<ol>` / `<ul>` | Listas ordenadas y sin orden |
+| `<img>` | Logos e imágenes |
+| `<a>` | Enlaces externos |
+| `<code>` | Comandos y rutas técnicas |
+| `<blockquote>` | Notas destacadas |
+| `<strong>` / `<em>` | Negritas y cursivas |
+| `<p align="center">` | Bloques centrados (footer) |
+
+#### Buenas prácticas
+
+- **Respetar la estructura**: Header → Cuerpo → Footer, con separadores visuales
+- **Interlineado**: Usar `<br>` entre bloques, no acumular párrafos seguidos
+- **Títulos diferenciados**: h1 muy visible (centrado), h2 para secciones, h3 para cada feature
+- **Logo en el footer**: Centrado, con enlace a la web y eslogan
+- **Sin carácter retroactivo**: Solo aplicamos el formato a nuevas versiones; las existentes no se modifican
+
+#### Formato del changelog
+
+El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acepta ambos, el HTML se renderiza correctamente en el editor WYSIWYG sin escapes ni caracteres rotos.
+
+| Campo | Valor |
+|-------|-------|
+| `changelogType` | `html` |
+| `changelog` | Código HTML con `<h2>`, `<h3>`, `<ul>/<li>`, `<p>`, `<strong>`, `<code>`, `<blockquote>` |
+
+#### Ejemplo de estructura HTML para release notes
+
+```html
+<h2>v1.0.21 - Tombstone Compatibility: Real Armor Captured</h2>
+
+<h3>Fix</h3>
+<ul>
+<li><strong>Real armor lost on death with Tombstone</strong>: The player&#8217;s real armor is now added to <code>LivingDropsEvent</code> alongside cosmetic armor.</li>
+</ul>
+
+<h3>Technical Changes</h3>
+<ul>
+<li><code>InventoryManager.handlePlayerDrops()</code> now iterates the player&#8217;s armor slots...</li>
+</ul>
+```
+
+#### Elementos HTML permitidos
+
+| Elemento | Uso |
+|----------|-----|
+| `<h2>` | Título principal de la versión |
+| `<h3>` | Subsecciones (Fix, Technical Changes, Notes) |
+| `<ul><li>` | Listas de puntos |
+| `<strong>` | Negritas para resaltar |
+| `<code>` | Código o nombres técnicos |
+| `<blockquote>` | Notas importantes para servidores |
+| `<hr>` | Separador |
+| `<p>` | Párrafos |
 
 ---
 
@@ -89,9 +183,7 @@ El JAR generado sigue el formato `<mod_id>-<minecraft_version>-<framework>-<mod_
 
 | Ejemplo | Significado |
 |---------|-------------|
-| `teleport_animation-1.21.1-neoforge-0.0.0-beta.2.jar` | NeoForge 1.21.1, beta 2 |
-| `teleport_animation-1.21.1-neoforge-1.0.0.jar` | NeoForge 1.21.1, release 1.0.0 |
-| `teleport_animation-26.1.2-neoforge-0.0.0-beta.14.jar` | NeoForge 26.1.2, beta 14 |
+| `teleport_animation-26.1.2-neoforge-0.0.0-beta.15.jar` | NeoForge 26.1.2, beta 15 |
 
 El framework puede ser `neoforge`, `forge` o `fabric` según corresponda. Se configura en `build.gradle`:
 
@@ -154,7 +246,7 @@ Cada vez que se sube una versión a CurseForge se debe crear un tag en GitLab.
 
 | Estado | Formato | Ejemplo |
 |--------|---------|---------|
-| Beta | `<mc-version>-neoforge-beta.X` | `26.1.2-neoforge-beta.15` |
+| Beta | `<mc-version>-neoforge-beta.X` | `26.1.2-neoforge-beta.21` |
 | Release | `<mc-version>-neoforge-X.Y.Z` | `26.1.2-neoforge-1.0.0` |
 
 El prefijo `<mc-version>-neoforge` se adapta según la versión de Minecraft y el framework de la rama actual.
@@ -163,8 +255,8 @@ El prefijo `<mc-version>-neoforge` se adapta según la versión de Minecraft y e
 
 ```bash
 # Beta
-git tag -a 26.1.2-neoforge-beta.15 -m "v0.0.0-beta.15: Updated WORKFLOW.md"
-git push origin 26.1.2-neoforge-beta.15
+git tag -a 26.1.2-neoforge-beta.21 -m "v0.0.0-beta.21: Update WORKFLOW.md"
+git push origin 26.1.2-neoforge-beta.21
 
 # Release estable
 git tag -a 26.1.2-neoforge-1.0.0 -m "v1.0.0: First stable release"
@@ -214,8 +306,8 @@ git add -A
 git commit -m "chore: bump version to 0.0.0-beta.3"
 
 # 6. Tag para CurseForge
-git tag -a curseforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
-git push origin curseforge-beta.3
+git tag -a 26.1.2-neoforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
+git push origin 26.1.2-neoforge-beta.3
 
 # 7. Subir JAR a CurseForge manualmente
 #    El JAR está en build/libs/<mod_id>-<minecraft_version>-<framework>-<version>.jar
@@ -226,8 +318,8 @@ git push origin curseforge-beta.3
 ```bash
 # gradle.properties → mod_version=1.0.0
 git commit -m "chore: bump version to 1.0.0"
-git tag -a curseforge-1.0.0 -m "v1.0.0: First stable release"
-git push origin curseforge-1.0.0
+git tag -a 26.1.2-neoforge-1.0.0 -m "v1.0.0: First stable release"
+git push origin 26.1.2-neoforge-1.0.0
 ```
 
 ---
@@ -236,6 +328,7 @@ git push origin curseforge-1.0.0
 
 - **Un commit por cambio lógico**: no acumular múltiples cambios en un solo commit
 - **Commit y push después de cada cambio funcional**: no esperar a tener todo terminado
+- **Cualquier cambio en documentación debe committearse y pushearse inmediatamente**: los archivos de `docs/` deben reflejar siempre el estado actual del proyecto
 - **Versionar antes de subir a CurseForge**: el tag debe apuntar al commit exacto del JAR que se sube
 - **CHANGELOG.md siempre actualizado**: reflejar todos los cambios de cada versión
 - **Siempre hacer `clean build` antes de generar el JAR final**: la caché de Gradle puede dejar artefactos obsoletos o corruptos que no se detectan en compilaciones incrementales; `clean` fuerza una compilación desde cero
@@ -244,8 +337,8 @@ git push origin curseforge-1.0.0
 
 | Ámbito | Idioma |
 |--------|--------|
-| Código fuente, logs, nombres técnicos | **Inglés** (en-US) — estándar de programación |
-| Commits, documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
+| Código fuente, logs, nombres técnicos, commits | **Inglés** (en-US) — estándar de programación |
+| Documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
 | CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) — plataforma global |
 
-El código y los logs siguen el estándar internacional de programación en inglés. La documentación interna y el repositorio se mantienen en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
+El código, los logs y los commits siguen el estándar internacional de programación en inglés. La documentación interna y el repositorio se mantienen en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.

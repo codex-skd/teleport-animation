@@ -1,69 +1,93 @@
-## About
+<h1 align="center">🌀 Teleport Animation</h1>
 
-**Teleport Animation** brings cinematic, GTA-style teleport transitions to Minecraft. Every time you use `/tp` or `/teleport`, instead of an instant cut, the camera smoothly zooms up into the sky, glides across the world, and descends back to your destination — creating a seamless and immersive traveling experience.
+<p align="center"><strong>Cinematic GTA-style teleport transitions for Minecraft.</strong></p>
 
-Whether you're using commands, Waystones teleports, JourneyMap waypoints, or cross‑dimension travel, the mod intercepts the teleport and plays a full animation before you arrive.
+<br>
 
-## Features
+---
 
-- **Cinematic camera animation** — the camera zooms out, travels above the terrain, and zooms back in on arrival
-- **3‑stage zoom heights** — fully configurable pull and push stages for the zoom effect
-- **Per‑dimension settings** — separate zoom heights for the Overworld, Nether, and End
-- **Custom sounds** — distinctive sound effects for each animation step (camera zoom, step flash, travel wind)
-- **Step flash overlay** — subtle screen flash at each zoom stage to enhance the transition feel
-- **Chunk‑by‑chunk mask fade** — terrain fades out and in following the camera's direction of travel
-- **Player freeze** — optionally freeze movement and look controls during the transition
-- **Full configuration** — every parameter (heights, tick lengths, volumes, enabled/disabled) is adjustable via the in‑game config screen or a `.properties` file
-- **Post‑release camera override** — smooth blend back to third‑person camera after the transition
-- **Cross‑dimension support** — configurable, with a special fallback for dimension changes when chunks are still loading
+<br>
 
-## Integration
+<h2>✨ Overview</h2>
 
-The mod is designed to work seamlessly with popular teleport‑related mods:
+<p>Teleport Animation brings cinematic teleport transitions to Minecraft. Every time you use <code>/tp</code> or <code>/teleport</code>, instead of an instant cut, the camera smoothly zooms into the sky, glides across the world, and descends back to your destination — creating a seamless and immersive traveling experience.</p>
 
-- **Waystones** — delayed teleports with full animation (select waystone, inventory button, warp plates)
-- **JourneyMap** — intercepts teleport requests and plays the animation
-- **Sodium** — schedules terrain updates to reduce visual glitches during transitions
-- **Iris Shaders** — automatically uses hard terrain cut when shaders are active
-- **Distant Horizons** — adjusts near‑clip plane and terrain rendering during travel
-- **Bobby** — integrates with Bobby's rendering for smoother chunk fade
-- **Voxy** — prefers Voxy‑only terrain during the travel phase
-- **Leawind's Third Person** — preempts and restores third‑person camera automatically
+<p>Whether you're using commands, Waystones teleports, JourneyMap waypoints, or cross‑dimension travel, the mod intercepts the teleport and plays a full animation before you arrive.</p>
 
-## How to use
+<br>
 
-- **`/gtp on|off`** — toggle the teleport effect on/off
-- **`/gtp status`** — check if the effect is enabled
-- **`/gtp player_freeze on|off`** — toggle player freeze during transitions
-- **`/gtp`** — open the configuration screen
+<h2>🎯 Features</h2>
 
-The mod intercepts any `/tp`, `/teleport`, or `/execute ... run tp` command as well as teleport packets from Waystones and JourneyMap.
+<h3>🎬 Cinematic Camera Animation</h3>
+<p>The camera zooms out, travels above the terrain, and zooms back in on arrival — fully animated and configurable.</p>
 
-## Configuration
+<h3>📐 3-Stage Zoom Heights</h3>
+<p>Fully configurable pull and push stages for the zoom effect, with per-dimension settings for Overworld, Nether, and End.</p>
 
-The configuration file is located at `config/grand_teleport.properties` and can be edited manually or through the in‑game GUI.
+<h3>🔊 Custom Sounds</h3>
+<p>Distinctive sound effects for each animation step: camera zoom, step flash, and travel wind.</p>
 
-### Settings include:
+<h3>🎨 Step Flash Overlay</h3>
+<p>Subtle screen flash at each zoom stage to enhance the transition feel.</p>
 
-| Group | Options |
-|-------|---------|
-| Zoom heights | 3 configurable heights for zoom‑out and zoom‑in stages (per dimension) |
-| Stage ticks | Duration in ticks for each of the 3 zoom‑out and zoom‑in stages |
-| Glide settings | Camera body height, glide height, and glide tick duration |
-| Sounds | Toggle custom sounds, set Minecraft/custom sound volume |
-| Transitions | Enable/disable external teleport transitions and warp plate transitions |
-| Layout | Position and size of the configuration GUI elements |
-| Freeze | Player freeze toggle, local player model hide ticks |
-| Cross‑dimension | Enable/disable cross‑dimension animation travel |
+<h3>🧊 Chunk-by-Chunk Mask Fade</h3>
+<p>Terrain fades out and in following the camera's direction of travel, avoiding abrupt visual cuts.</p>
 
-## Requirements
+<h3>⏸️ Player Freeze</h3>
+<p>Optionally freeze movement and look controls during the transition.</p>
 
-- Minecraft: 26.1.2
-- NeoForge: 26.1.2.78
-- Java 25+
+<h3>🔌 Broad Mod Compatibility</h3>
+<p>Seamlessly integrates with Waystones, JourneyMap, Sodium, Iris Shaders, Distant Horizons, Bobby, Voxy, and Leawind's Third Person.</p>
 
-## Credits
+<h3>🌍 Cross-Dimension Travel</h3>
+<p>Full animation support for dimension changes, with a special fallback when chunks are still loading.</p>
 
-- **Codex** — original Grand Teleport mod for Forge 1.20.1
-- **hookuru_** — contributions to the original mod
-- **SKD** — NeoForge port
+<h3>⚙️ Fully Configurable</h3>
+<p>Every parameter (heights, tick lengths, volumes, toggles) is adjustable via the in-game config screen or a <code>.properties</code> file.</p>
+
+<br>
+
+<h2>📋 Requirements</h2>
+
+<table>
+<tr><td><strong>Minecraft</strong></td><td>26.1.2</td></tr>
+<tr><td><strong>NeoForge</strong></td><td>26.1.2.78</td></tr>
+</table>
+
+<br>
+
+<h2>🎮 How to Use</h2>
+
+<ul>
+<li><code>/gtp on|off</code> — Toggle the teleport effect on/off</li>
+<li><code>/gtp status</code> — Check if the effect is enabled</li>
+<li><code>/gtp player_freeze on|off</code> — Toggle player freeze during transitions</li>
+<li><code>/gtp</code> — Open the configuration screen</li>
+</ul>
+
+<p>The mod intercepts any <code>/tp</code>, <code>/teleport</code>, or <code>/execute ... run tp</code> command as well as teleport packets from Waystones and JourneyMap.</p>
+
+<br>
+
+---
+
+<br>
+
+<h2>🙏 Credits</h2>
+
+<p><strong>Codex</strong> — original Grand Teleport mod for Forge 1.20.1<br>
+<strong>hookuru_</strong> — contributions to the original mod<br>
+<strong>SKD</strong> — NeoForge port</p>
+
+<br>
+<br>
+
+<p align="center">
+  <a href="https://codex.skdragons.com/" target="_blank">
+    <img src="https://node-files.skdragons.com/logo_codex_stalking_dragons.png" alt="Codex Stalking Dragons" width="200">
+  </a>
+  <br>
+  <a href="https://codex.skdragons.com/">https://codex.skdragons.com/</a>
+  <br>
+  <em>Codex Stalking Dragons — Minecraft Modding</em>
+</p>
