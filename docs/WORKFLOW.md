@@ -154,14 +154,21 @@ Cada vez que se sube una versión a CurseForge se debe crear un tag en GitLab.
 
 | Estado | Formato | Ejemplo |
 |--------|---------|---------|
-| Beta | `curseforge-beta.X` | `curseforge-beta.1`, `curseforge-beta.2` |
-| Release | `curseforge-X.Y.Z` | `curseforge-1.0.0`, `curseforge-1.2.3` |
+| Beta | `<mc-version>-neoforge-beta.X` | `26.1.2-neoforge-beta.15` |
+| Release | `<mc-version>-neoforge-X.Y.Z` | `26.1.2-neoforge-1.0.0` |
 
-### Ejemplo
+El prefijo `<mc-version>-neoforge` se adapta según la versión de Minecraft y el framework de la rama actual.
+
+### Ejemplos
 
 ```bash
-git tag -a curseforge-beta.1 -m "v0.0.0-beta.1: Initial release"
-git push origin curseforge-beta.1
+# Beta
+git tag -a 26.1.2-neoforge-beta.15 -m "v0.0.0-beta.15: Updated WORKFLOW.md"
+git push origin 26.1.2-neoforge-beta.15
+
+# Release estable
+git tag -a 26.1.2-neoforge-1.0.0 -m "v1.0.0: First stable release"
+git push origin 26.1.2-neoforge-1.0.0
 ```
 
 ---
