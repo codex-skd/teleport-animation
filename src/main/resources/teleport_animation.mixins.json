@@ -1,0 +1,37 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.skd.teleportanimation.mixin",
+  "plugin": "com.skd.teleportanimation.mixin.TeleportMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ServerPlayerMixin",
+    "CameraAccessor",
+    "CameraMixin",
+    "ClientPacketListenerMixin",
+    "ConnectionMixin",
+    "EntityRendererMixin",
+    "FogRendererMixin",
+    "FrustumMixin",
+    "GameRendererMixin",
+    "GuiMixin",
+    "KeyboardInputMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "ScreenEffectRendererMixin",
+    "JourneyMapClientNetworkDispatcherMixin",
+    "VoxyClientMixin",
+    "LeawindThirdPersonEventsNeoForgeMixin",
+    "LeawindThirdPersonLegacyMixin",
+    "LeawindThirdPersonImplMixin",
+    "WaystonesWarpPlateBlockEntityMixin",
+    "WaystonesPlayerWaystoneManagerMixin",
+    "DistantHorizonsRenderUtilMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
