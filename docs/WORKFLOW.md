@@ -1,4 +1,7 @@
-# Flujo de trabajo — Mods Minecraft (NeoForge)
+# Flujo de trabajo — Grand Teleport (NeoForge)
+
+> Este archivo pertenece al proyecto **Grand Teleport**. Cada proyecto tiene su propio `WORKFLOW.md`.
+> No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 
 ## Estructura del proyecto
 
@@ -31,12 +34,105 @@
 └── README.md
 ```
 
-### Archivos obligatorios de CurseForge
+### Archivos de CurseForge
 
 | Archivo | Propósito |
 |---------|-----------|
+| `docs/curseforge/project_vars.md` | Variables específicas del proyecto (project ID, token, versiones) |
 | `docs/curseforge/project_description.md` | Descripción completa del proyecto (qué hace, características, requisitos) |
 | `docs/curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
+
+Las variables de cada proyecto (project ID, API token, versiones de Minecraft/NeoForge/Java) se documentan en `docs/curseforge/project_vars.md`. No duplicar aquí.
+
+### Formato de descripciones CurseForge
+
+CurseForge admite **Markdown y HTML** en las descripciones y release notes. Usamos ambos porque:
+
+- Se versiona junto al código en el repositorio
+- Es portátil (funciona en GitHub, GitLab, etc.)
+- El HTML permite control preciso sobre espaciado, alineación y estructura visual
+- El Markdown es más limpio para listas, tablas y código
+
+Usamos HTML para la **descripción general del proyecto** (`project_description.md`), donde el control visual es más importante. Para las **release notes** (`versions/<version>.md`) usamos Markdown con emojis, que es más ligero y rápido de escribir.
+
+#### Estructura de la descripción general
+
+```
+Header:    Título principal (h1 centrado) + tagline
+           Separador
+Cuerpo:    Overview en párrafos (h2)
+           Features con h3 + párrafo descriptivo cada una
+           Tabla de requisitos
+           Lista de uso
+           Separador
+Footer:    Créditos
+           Logo centrado + enlace web + eslogan
+```
+
+#### Elementos HTML disponibles
+
+| Elemento | Uso |
+|----------|-----|
+| `<h1 align="center">` | Título principal centrado |
+| `<h2>` | Secciones del cuerpo |
+| `<h3>` | Subsecciones (cada feature) |
+| `<p>` | Párrafos con espaciado natural |
+| `<br>` | Saltos de línea para separar bloques |
+| `<hr>` | Separadores visuales entre secciones |
+| `<table>` | Datos estructurados (requisitos) |
+| `<ol>` / `<ul>` | Listas ordenadas y sin orden |
+| `<img>` | Logos e imágenes |
+| `<a>` | Enlaces externos |
+| `<code>` | Comandos y rutas técnicas |
+| `<blockquote>` | Notas destacadas |
+| `<strong>` / `<em>` | Negritas y cursivas |
+| `<p align="center">` | Bloques centrados (footer) |
+
+#### Buenas prácticas
+
+- **Respetar la estructura**: Header → Cuerpo → Footer, con separadores visuales
+- **Interlineado**: Usar `<br>` entre bloques, no acumular párrafos seguidos
+- **Títulos diferenciados**: h1 muy visible (centrado), h2 para secciones, h3 para cada feature
+- **Logo en el footer**: Centrado, con enlace a la web y eslogan
+- **Sin carácter retroactivo**: Solo aplicamos el formato a nuevas versiones; las existentes no se modifican
+
+#### Formato del changelog
+
+El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acepta ambos, el HTML se renderiza correctamente en el editor WYSIWYG sin escapes ni caracteres rotos.
+
+| Campo | Valor |
+|-------|-------|
+| `changelogType` | `html` |
+| `changelog` | Código HTML con `<h2>`, `<h3>`, `<ul>/<li>`, `<p>`, `<strong>`, `<code>`, `<blockquote>` |
+
+#### Ejemplo de estructura HTML para release notes
+
+```html
+<h2>v0.0.0-beta.X - Titulo descriptivo</h2>
+
+<h3>Fix</h3>
+<ul>
+<li><strong>Issue</strong>: description with <code>code</code>.</li>
+</ul>
+
+<h3>Technical Changes</h3>
+<ul>
+<li><code>Class.method()</code> — description.</li>
+</ul>
+```
+
+#### Elementos HTML permitidos
+
+| Elemento | Uso |
+|----------|-----|
+| `<h2>` | Título principal de la versión |
+| `<h3>` | Subsecciones (Fix, Technical Changes, Notes) |
+| `<ul><li>` | Listas de puntos |
+| `<strong>` | Negritas para resaltar |
+| `<code>` | Código o nombres técnicos |
+| `<blockquote>` | Notas importantes para servidores |
+| `<hr>` | Separador |
+| `<p>` | Párrafos |
 
 ---
 
@@ -236,6 +332,7 @@ git push origin curseforge-1.0.0
 
 - **Un commit por cambio lógico**: no acumular múltiples cambios en un solo commit
 - **Commit y push después de cada cambio funcional**: no esperar a tener todo terminado
+- **Cualquier cambio en documentación debe committearse y pushearse inmediatamente**: los archivos de `docs/` deben reflejar siempre el estado actual del proyecto
 - **Versionar antes de subir a CurseForge**: el tag debe apuntar al commit exacto del JAR que se sube
 - **CHANGELOG.md siempre actualizado**: reflejar todos los cambios de cada versión
 - **Siempre hacer `clean build` antes de generar el JAR final**: la caché de Gradle puede dejar artefactos obsoletos o corruptos que no se detectan en compilaciones incrementales; `clean` fuerza una compilación desde cero
