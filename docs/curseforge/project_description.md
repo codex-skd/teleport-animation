@@ -12,8 +12,6 @@
 
 <p>Teleport Animation brings cinematic teleport transitions to Minecraft. Every time you use <code>/tp</code> or <code>/teleport</code>, instead of an instant cut, the camera smoothly zooms into the sky, glides across the world, and descends back to your destination — creating a seamless and immersive traveling experience.</p>
 
-<p>Whether you're using commands, Waystones teleports, JourneyMap waypoints, or cross‑dimension travel, the mod intercepts the teleport and plays a full animation before you arrive.</p>
-
 <br>
 
 <h2>🎯 Features</h2>
@@ -58,12 +56,12 @@
 
 <h2>🎮 How to Use</h2>
 
-<ul>
-<li><code>/gtp on|off</code> — Toggle the teleport effect on/off</li>
-<li><code>/gtp status</code> — Check if the effect is enabled</li>
-<li><code>/gtp player_freeze on|off</code> — Toggle player freeze during transitions</li>
-<li><code>/gtp</code> — Open the configuration screen</li>
-</ul>
+<ol>
+<li>Use <code>/gtp on|off</code> to toggle the teleport effect on or off.</li>
+<li>Use <code>/gtp status</code> to check if the effect is enabled.</li>
+<li>Use <code>/gtp player_freeze on|off</code> to toggle player freeze during transitions.</li>
+<li>Use <code>/gtp</code> to open the configuration screen.</li>
+</ol>
 
 <p>The mod intercepts any <code>/tp</code>, <code>/teleport</code>, or <code>/execute ... run tp</code> command as well as teleport packets from Waystones and JourneyMap.</p>
 
@@ -75,9 +73,9 @@
 
 <h2>🙏 Credits</h2>
 
-<p><strong>Codex</strong> — original Grand Teleport mod for Forge 1.20.1<br>
-<strong>hookuru_</strong> — contributions to the original mod<br>
-<strong>SKD</strong> — NeoForge port</p>
+<p><strong>Codex</strong> — original Grand Teleport mod for Forge 1.20.1.<br>
+<strong>hookuru_</strong> — contributions to the original mod.<br>
+<strong>SKD</strong> — NeoForge port.</p>
 
 <br>
 <br>
