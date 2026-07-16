@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.0-beta.2] - 2026-07-16
+
+### Changed
+- WORKFLOW.md actualizado con nueva sección de Ramas y formato de tags `<mc-version>-neoforge-beta.X`
+- Formato de JAR cambiado a `<mod_id>-<minecraft_version>-<framework>-<version>.jar`
+- Tag corregido al nuevo formato (`1.21.1-neoforge-beta.1`)
+- `.gitignore` ahora excluye archivos decompilados temporales
+
 ## [0.0.0-beta.1] - 2026-07-16
 
 ### Added
