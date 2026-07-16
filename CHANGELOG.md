@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.15 (2026-07-16)
+
+- docs: update WORKFLOW.md with new branching strategy and JAR naming conventions
+- chore: restructure repository for multi-version support (main empty, per-version branches)
+
 ## 0.0.0-beta.14 (2026-07-14)
 
 - fix: forzar cámara a primera persona y HUD visible directamente en onClientSetup
