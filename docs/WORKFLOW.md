@@ -103,6 +103,8 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 | `changelogType` | `html` |
 | `changelog` | Código HTML con `<h2>`, `<h3>`, `<ul>/<li>`, `<p>`, `<strong>`, `<code>`, `<blockquote>` |
 
+**Regla importante**: El valor del campo `changelog` en la subida a CurseForge debe ser **exactamente el contenido del archivo** `docs/curseforge/versions/<version>.md`. No resumir, no modificar, no acortar. El archivo ya contiene el HTML que se envía.
+
 #### Ejemplo de estructura HTML para release notes
 
 ```html
