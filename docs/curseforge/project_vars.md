@@ -42,7 +42,7 @@ Ejemplo: `1.21.1-neoforge-0.0.0-beta.2`
 
 | Campo | Valor | Notas |
 |-------|-------|-------|
-| `displayName` | `Grand Teleport (0.0.0-beta.X)` | Nombre visible: `display_name (version)` |
+| `displayName` | `Teleport Animation (0.0.0-beta.X)` | Nombre visible: `display_name (version)` |
 | `changelog` | HTML (no Markdown) | Ver estructura abajo |
 | `changelogType` | `html` | Obligatorio para que se vea bien |
 | `releaseType` | `beta` o `release` | Según el tipo de versión |
@@ -82,7 +82,7 @@ boundary = uuid.uuid4().hex
 version = "0.0.0-beta.X"
 
 metadata = {
-    "displayName": f"Grand Teleport ({version})",
+    "displayName": f"Teleport Animation ({version})",
     "changelog": "<h2>v{version} - Titulo</h2>",
     "changelogType": "html",
     "gameVersionNames": ["Client", "Server", "1.21.1", "NeoForge"],
