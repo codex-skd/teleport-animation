@@ -87,20 +87,7 @@ public final class TeleportClient {
         if (handleGtaTeleportCommand(client, command)) {
             return false;
         }
-        if (!TeleportConfig.isEffectEnabled()) {
-            return true;
-        }
-        if (!TeleportCommandMatcher.isTeleportCommand(command) || client.player == null || client.getConnection() == null) {
-            return true;
-        }
-        if (!canExecuteServerCommand(client, command)) {
-            return true;
-        }
-        if (TeleportTransitionController.isRunning()) {
-            return true;
-        }
-        TeleportTransitionController.start(client, command);
-        return false;
+        return true;
     }
 
     public static boolean interceptOutgoingPacket(Connection connection, Packet<?> packet, Object listener) {
