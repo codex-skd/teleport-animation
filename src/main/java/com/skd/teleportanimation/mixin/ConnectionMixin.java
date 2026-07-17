@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Connection.class)
 public abstract class ConnectionMixin {
     @Inject(method = "send(Lnet/minecraft/network/protocol/Packet;Lnet/minecraft/network/PacketSendListener;)V", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$interceptTeleportPacket(Packet<?> packet, PacketSendListener listener, CallbackInfo ci) {
+    private void ta$interceptTeleportPacket(Packet<?> packet, PacketSendListener listener, CallbackInfo ci) {
         if (!TeleportClient.interceptOutgoingPacket((Connection) (Object) this, packet, listener)) {
             ci.cancel();
         }

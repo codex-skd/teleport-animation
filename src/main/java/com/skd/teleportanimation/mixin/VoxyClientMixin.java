@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(targets = "me.cortex.voxy.client.VoxyClient", remap = false)
 public abstract class VoxyClientMixin {
     @Inject(method = "disableSodiumChunkRender", at = @At("HEAD"), cancellable = true, require = 0)
-    private static void gtalikeTeleport$preferVoxyTerrainDuringTransition(CallbackInfoReturnable<Boolean> cir) {
+    private static void ta$preferVoxyTerrainDuringTransition(CallbackInfoReturnable<Boolean> cir) {
         if (TeleportTransitionController.shouldPreferVoxyOnlyTerrain()) {
             cir.setReturnValue(true);
         }

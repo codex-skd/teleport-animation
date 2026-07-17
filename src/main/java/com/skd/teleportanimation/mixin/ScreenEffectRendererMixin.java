@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ScreenEffectRenderer.class)
 public abstract class ScreenEffectRendererMixin {
     @Inject(method = "renderScreenEffect", at = @At("HEAD"), cancellable = true)
-    private static void gtalikeTeleport$suppressScreenEffects(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {
+    private static void ta$suppressScreenEffects(Minecraft minecraft, PoseStack poseStack, CallbackInfo ci) {
         if (TeleportTransitionController.shouldSuppressScreenEffects()) {
             ci.cancel();
         }

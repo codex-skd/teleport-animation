@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Gui.class)
 abstract class GuiMixin {
     @Inject(method = "render", at = @At("TAIL"))
-    private void gtalikeTeleport$renderEffectAfterHud(GuiGraphics graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
+    private void ta$renderEffectAfterHud(GuiGraphics graphics, DeltaTracker deltaTracker, CallbackInfo ci) {
         TeleportStepEffectRenderer.render(graphics, deltaTracker.getGameTimeDeltaPartialTick(true));
     }
 }

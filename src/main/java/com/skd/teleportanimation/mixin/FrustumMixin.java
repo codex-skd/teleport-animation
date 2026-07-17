@@ -14,46 +14,46 @@ import java.lang.reflect.Field;
 @Mixin(Frustum.class)
 abstract class FrustumMixin {
     @Unique
-    private static Field gtalikeTeleport$camXField;
+    private static Field ta$camXField;
     @Unique
-    private static Field gtalikeTeleport$camYField;
+    private static Field ta$camYField;
     @Unique
-    private static Field gtalikeTeleport$camZField;
+    private static Field ta$camZField;
     @Unique
-    private static boolean gtalikeTeleport$lookupFailed;
+    private static boolean ta$lookupFailed;
 
     @Inject(method = "prepare", at = @At("TAIL"))
-    private void gtalikeTeleport$useTransitionCameraPosition(double camX, double camY, double camZ, CallbackInfo ci) {
+    private void ta$useTransitionCameraPosition(double camX, double camY, double camZ, CallbackInfo ci) {
         Vec3 cameraPos = TeleportTransitionController.getTransitionCameraPositionForRendering();
-        if (cameraPos == null || !gtalikeTeleport$ensureFields(this.getClass())) {
+        if (cameraPos == null || !ta$ensureFields(this.getClass())) {
             return;
         }
         try {
-            gtalikeTeleport$camXField.setDouble(this, cameraPos.x);
-            gtalikeTeleport$camYField.setDouble(this, cameraPos.y);
-            gtalikeTeleport$camZField.setDouble(this, cameraPos.z);
+            ta$camXField.setDouble(this, cameraPos.x);
+            ta$camYField.setDouble(this, cameraPos.y);
+            ta$camZField.setDouble(this, cameraPos.z);
         } catch (IllegalAccessException ignored) {
         }
     }
 
     @Unique
-    private static boolean gtalikeTeleport$ensureFields(Class<?> owner) {
-        if (gtalikeTeleport$camXField != null && gtalikeTeleport$camYField != null && gtalikeTeleport$camZField != null) {
+    private static boolean ta$ensureFields(Class<?> owner) {
+        if (ta$camXField != null && ta$camYField != null && ta$camZField != null) {
             return true;
         }
-        if (gtalikeTeleport$lookupFailed) {
+        if (ta$lookupFailed) {
             return false;
         }
-        gtalikeTeleport$camXField = gtalikeTeleport$getField(owner, "camX");
-        gtalikeTeleport$camYField = gtalikeTeleport$getField(owner, "camY");
-        gtalikeTeleport$camZField = gtalikeTeleport$getField(owner, "camZ");
-        boolean foundAll = gtalikeTeleport$camXField != null && gtalikeTeleport$camYField != null && gtalikeTeleport$camZField != null;
-        gtalikeTeleport$lookupFailed = !foundAll;
+        ta$camXField = ta$getField(owner, "camX");
+        ta$camYField = ta$getField(owner, "camY");
+        ta$camZField = ta$getField(owner, "camZ");
+        boolean foundAll = ta$camXField != null && ta$camYField != null && ta$camZField != null;
+        ta$lookupFailed = !foundAll;
         return foundAll;
     }
 
     @Unique
-    private static Field gtalikeTeleport$getField(Class<?> owner, String... names) {
+    private static Field ta$getField(Class<?> owner, String... names) {
         for (String name : names) {
             try {
                 Field field = owner.getDeclaredField(name);

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Minecraft.class)
 public abstract class MinecraftMixin {
     @Inject(method = "setScreen", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$suppressGameMenuDuringTransition(Screen screen, CallbackInfo ci) {
+    private void ta$suppressGameMenuDuringTransition(Screen screen, CallbackInfo ci) {
         if (screen instanceof PauseScreen && TeleportTransitionController.shouldSuppressGameMenu()) {
             ci.cancel();
         }

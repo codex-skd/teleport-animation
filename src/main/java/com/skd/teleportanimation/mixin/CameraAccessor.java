@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 @Mixin(Camera.class)
 public interface CameraAccessor {
     @Invoker("setPosition")
-    void gtalikeTeleport$setPosition(Vec3 pos);
+    void ta$setPosition(Vec3 pos);
 
     @Invoker("setRotation")
-    void gtalikeTeleport$setRotation(float yaw, float pitch);
+    void ta$setRotation(float yaw, float pitch);
 }

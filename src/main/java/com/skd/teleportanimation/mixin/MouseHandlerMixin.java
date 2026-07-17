@@ -10,21 +10,21 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MouseHandler.class)
 public abstract class MouseHandlerMixin {
     @Inject(method = "turnPlayer", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$blockMouseLook(CallbackInfo ci) {
+    private void ta$blockMouseLook(CallbackInfo ci) {
         if (TeleportTransitionController.shouldBlockGameplayInput()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "onPress", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$blockMousePress(long window, int button, int action, int modifiers, CallbackInfo ci) {
+    private void ta$blockMousePress(long window, int button, int action, int modifiers, CallbackInfo ci) {
         if (action != 0 && TeleportTransitionController.shouldBlockGameplayInput()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "onScroll", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$blockMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
+    private void ta$blockMouseScroll(long window, double horizontal, double vertical, CallbackInfo ci) {
         if (TeleportTransitionController.shouldBlockGameplayInput()) {
             ci.cancel();
         }

@@ -15,14 +15,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = "com.github.leawind.thirdperson.neoforge.ThirdPersonEventsNeoForge", remap = false)
 public abstract class LeawindThirdPersonEventsNeoForgeMixin {
     @Inject(method = "cameraSetupEvent", at = @At("HEAD"), cancellable = true, require = 0)
-    private static void gtalikeTeleport$skipCameraSetupDuringTransition(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
+    private static void ta$skipCameraSetupDuringTransition(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
         if (TeleportTransitionController.shouldPreemptLeawindThirdPersonCamera()) {
             ci.cancel();
         }
     }
 
     @Inject(method = "cameraSetupEvent", at = @At("TAIL"), require = 0)
-    private static void gtalikeTeleport$restoreGtpCameraAfterLeawind(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
+    private static void ta$restoreLeawindCameraAfter(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldApplyPostReleaseCameraOverrideAfterLeawind()) {
             return;
         }
@@ -41,8 +41,8 @@ public abstract class LeawindThirdPersonEventsNeoForgeMixin {
         float appliedYaw = preserveLiveRotation ? leawindYaw : frame.yaw();
         float appliedPitch = preserveLiveRotation ? leawindPitch : frame.pitch();
         CameraAccessor accessor = (CameraAccessor) camera;
-        accessor.gtalikeTeleport$setPosition(cameraPos);
-        accessor.gtalikeTeleport$setRotation(appliedYaw, appliedPitch);
+        accessor.ta$setPosition(cameraPos);
+        accessor.ta$setRotation(appliedYaw, appliedPitch);
         event.setYaw(appliedYaw);
         event.setPitch(appliedPitch);
         TeleportTransitionController.rememberTransitionCameraPosition(cameraPos, leawindCameraPos, preserveLiveRotation ? Float.NaN : leawindYaw, preserveLiveRotation ? Float.NaN : leawindPitch);

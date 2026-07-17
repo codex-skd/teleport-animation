@@ -26,40 +26,40 @@ import java.lang.reflect.Field;
 @Mixin(LevelRenderer.class)
 abstract class LevelRendererMixin {
     @Unique
-    private static Field gtalikeTeleport$viewAreaField;
+    private static Field ta$viewAreaField;
     @Unique
-    private static boolean gtalikeTeleport$viewAreaLookupFailed;
+    private static boolean ta$viewAreaLookupFailed;
     @Unique
-    private static Field gtalikeTeleport$lastCameraXField;
+    private static Field ta$lastCameraXField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraYField;
+    private static Field ta$lastCameraYField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraZField;
+    private static Field ta$lastCameraZField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkXField;
+    private static Field ta$lastCameraChunkXField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkYField;
+    private static Field ta$lastCameraChunkYField;
     @Unique
-    private static Field gtalikeTeleport$lastCameraChunkZField;
+    private static Field ta$lastCameraChunkZField;
     @Unique
-    private static boolean gtalikeTeleport$lastCameraLookupFailed;
+    private static boolean ta$lastCameraLookupFailed;
 
     @Inject(method = "renderLevel", at = @At("HEAD"))
-    private void gtalikeTeleport$anchorViewAreaToTransitionCamera(DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, Matrix4f projectionMatrix, CallbackInfo ci) {
+    private void ta$anchorViewAreaToTransitionCamera(DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, Matrix4f projectionMatrix, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldForceTerrainFrustumApply()) {
             return;
         }
-        ViewArea viewArea = gtalikeTeleport$getViewArea((LevelRenderer) (Object) this);
+        ViewArea viewArea = ta$getViewArea((LevelRenderer) (Object) this);
         if (viewArea == null) {
             return;
         }
         Vec3 cameraPos = camera.getPosition();
         viewArea.repositionCamera(cameraPos.x, cameraPos.z);
-        gtalikeTeleport$maskPlayerChunkReposition((LevelRenderer) (Object) this);
+        ta$maskPlayerChunkReposition((LevelRenderer) (Object) this);
     }
 
     @Redirect(method = "renderSky", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel$ClientLevelData;getHorizonHeight(Lnet/minecraft/world/level/LevelHeightAccessor;)D"))
-    private double gtalikeTeleport$useGroundSkyHorizon(ClientLevel.ClientLevelData data, LevelHeightAccessor level) {
+    private double ta$useGroundSkyHorizon(ClientLevel.ClientLevelData data, LevelHeightAccessor level) {
         if (TeleportTransitionController.shouldUseGroundSkyBackground()) {
             return Double.NEGATIVE_INFINITY;
         }
@@ -67,25 +67,25 @@ abstract class LevelRendererMixin {
     }
 
     @Unique
-    private static void gtalikeTeleport$maskPlayerChunkReposition(LevelRenderer renderer) {
+    private static void ta$maskPlayerChunkReposition(LevelRenderer renderer) {
         Minecraft client = Minecraft.getInstance();
         LocalPlayer player = client == null ? null : client.player;
         if (player == null) return;
-        if (!gtalikeTeleport$ensureLastCameraFields(renderer.getClass())) return;
+        if (!ta$ensureLastCameraFields(renderer.getClass())) return;
         try {
-            gtalikeTeleport$lastCameraXField.setDouble(renderer, player.getX());
-            gtalikeTeleport$lastCameraYField.setDouble(renderer, player.getY());
-            gtalikeTeleport$lastCameraZField.setDouble(renderer, player.getZ());
-            gtalikeTeleport$lastCameraChunkXField.setInt(renderer, SectionPos.blockToSectionCoord(player.getX()));
-            gtalikeTeleport$lastCameraChunkYField.setInt(renderer, SectionPos.blockToSectionCoord(player.getY()));
-            gtalikeTeleport$lastCameraChunkZField.setInt(renderer, SectionPos.blockToSectionCoord(player.getZ()));
+            ta$lastCameraXField.setDouble(renderer, player.getX());
+            ta$lastCameraYField.setDouble(renderer, player.getY());
+            ta$lastCameraZField.setDouble(renderer, player.getZ());
+            ta$lastCameraChunkXField.setInt(renderer, SectionPos.blockToSectionCoord(player.getX()));
+            ta$lastCameraChunkYField.setInt(renderer, SectionPos.blockToSectionCoord(player.getY()));
+            ta$lastCameraChunkZField.setInt(renderer, SectionPos.blockToSectionCoord(player.getZ()));
         } catch (IllegalAccessException ignored) {
         }
     }
 
     @Unique
-    private static ViewArea gtalikeTeleport$getViewArea(LevelRenderer renderer) {
-        Field field = gtalikeTeleport$getViewAreaField(renderer.getClass());
+    private static ViewArea ta$getViewArea(LevelRenderer renderer) {
+        Field field = ta$getViewAreaField(renderer.getClass());
         if (field == null) return null;
         try {
             Object value = field.get(renderer);
@@ -96,41 +96,41 @@ abstract class LevelRendererMixin {
     }
 
     @Unique
-    private static Field gtalikeTeleport$getViewAreaField(Class<?> rendererClass) {
-        if (gtalikeTeleport$viewAreaField != null) return gtalikeTeleport$viewAreaField;
-        if (gtalikeTeleport$viewAreaLookupFailed) return null;
+    private static Field ta$getViewAreaField(Class<?> rendererClass) {
+        if (ta$viewAreaField != null) return ta$viewAreaField;
+        if (ta$viewAreaLookupFailed) return null;
         for (String fieldName : new String[]{"viewArea"}) {
             try {
                 Field field = rendererClass.getDeclaredField(fieldName);
                 field.setAccessible(true);
-                gtalikeTeleport$viewAreaField = field;
+                ta$viewAreaField = field;
                 return field;
             } catch (NoSuchFieldException ignored) {
             }
         }
-        gtalikeTeleport$viewAreaLookupFailed = true;
+        ta$viewAreaLookupFailed = true;
         return null;
     }
 
     @Unique
-    private static boolean gtalikeTeleport$ensureLastCameraFields(Class<?> rendererClass) {
-        if (gtalikeTeleport$lastCameraXField != null && gtalikeTeleport$lastCameraYField != null && gtalikeTeleport$lastCameraZField != null && gtalikeTeleport$lastCameraChunkXField != null && gtalikeTeleport$lastCameraChunkYField != null && gtalikeTeleport$lastCameraChunkZField != null) {
+    private static boolean ta$ensureLastCameraFields(Class<?> rendererClass) {
+        if (ta$lastCameraXField != null && ta$lastCameraYField != null && ta$lastCameraZField != null && ta$lastCameraChunkXField != null && ta$lastCameraChunkYField != null && ta$lastCameraChunkZField != null) {
             return true;
         }
-        if (gtalikeTeleport$lastCameraLookupFailed) return false;
-        gtalikeTeleport$lastCameraXField = gtalikeTeleport$getField(rendererClass, "lastCameraX");
-        gtalikeTeleport$lastCameraYField = gtalikeTeleport$getField(rendererClass, "lastCameraY");
-        gtalikeTeleport$lastCameraZField = gtalikeTeleport$getField(rendererClass, "lastCameraZ");
-        gtalikeTeleport$lastCameraChunkXField = gtalikeTeleport$getField(rendererClass, "lastCameraChunkX");
-        gtalikeTeleport$lastCameraChunkYField = gtalikeTeleport$getField(rendererClass, "lastCameraChunkY");
-        gtalikeTeleport$lastCameraChunkZField = gtalikeTeleport$getField(rendererClass, "lastCameraChunkZ");
-        boolean foundAll = gtalikeTeleport$lastCameraXField != null && gtalikeTeleport$lastCameraYField != null && gtalikeTeleport$lastCameraZField != null && gtalikeTeleport$lastCameraChunkXField != null && gtalikeTeleport$lastCameraChunkYField != null && gtalikeTeleport$lastCameraChunkZField != null;
-        gtalikeTeleport$lastCameraLookupFailed = !foundAll;
+        if (ta$lastCameraLookupFailed) return false;
+        ta$lastCameraXField = ta$getField(rendererClass, "lastCameraX");
+        ta$lastCameraYField = ta$getField(rendererClass, "lastCameraY");
+        ta$lastCameraZField = ta$getField(rendererClass, "lastCameraZ");
+        ta$lastCameraChunkXField = ta$getField(rendererClass, "lastCameraChunkX");
+        ta$lastCameraChunkYField = ta$getField(rendererClass, "lastCameraChunkY");
+        ta$lastCameraChunkZField = ta$getField(rendererClass, "lastCameraChunkZ");
+        boolean foundAll = ta$lastCameraXField != null && ta$lastCameraYField != null && ta$lastCameraZField != null && ta$lastCameraChunkXField != null && ta$lastCameraChunkYField != null && ta$lastCameraChunkZField != null;
+        ta$lastCameraLookupFailed = !foundAll;
         return foundAll;
     }
 
     @Unique
-    private static Field gtalikeTeleport$getField(Class<?> owner, String... names) {
+    private static Field ta$getField(Class<?> owner, String... names) {
         for (String name : names) {
             try {
                 Field field = owner.getDeclaredField(name);

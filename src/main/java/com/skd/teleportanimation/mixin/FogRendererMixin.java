@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(FogRenderer.class)
 abstract class FogRendererMixin {
     @Inject(method = "setupColor", at = @At("TAIL"))
-    private static void gtalikeTeleport$useGroundSkyBackground(Camera camera, float partialTick, ClientLevel level, int renderDistanceChunks, float bossColorModifier, CallbackInfo ci) {
+    private static void ta$useGroundSkyBackground(Camera camera, float partialTick, ClientLevel level, int renderDistanceChunks, float bossColorModifier, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldUseGroundSkyBackground() || level == null || camera.getFluidInCamera() != FogType.NONE) {
             return;
         }

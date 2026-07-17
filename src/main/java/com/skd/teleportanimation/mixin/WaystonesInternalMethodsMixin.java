@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Coerce;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -24,7 +25,7 @@ public abstract class WaystonesInternalMethodsMixin {
     private static final Logger TA_LOG = LoggerFactory.getLogger("TA");
 
     @Inject(method = "tryTeleport", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private void ta$delayWaystoneTeleport(Object context, CallbackInfoReturnable<Object> cir) {
+    private void ta$delayWaystoneTeleport(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
         try {
             Entity entity = (Entity) context.getClass().getMethod("getEntity").invoke(context);
             if (!(entity instanceof ServerPlayer player)) return;

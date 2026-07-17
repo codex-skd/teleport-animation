@@ -14,7 +14,7 @@ import java.lang.reflect.InvocationTargetException;
 @Mixin(targets = "journeymap.common.network.dispatch.ClientNetworkDispatcher", remap = false)
 public abstract class JourneyMapClientNetworkDispatcherMixin {
     @Inject(method = "sendTeleportPacket(DIDLjava/lang/String;)V", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private void gtalikeTeleport$interceptJourneyMapTeleport(double x, int y, double z, String dimension, CallbackInfo ci) {
+    private void ta$interceptJourneyMapTeleport(double x, int y, double z, String dimension, CallbackInfo ci) {
         Vec3 targetFeet = new Vec3(x, y, z);
         Runnable action = () -> this.invokeJourneyMapTeleport(new Class[]{Double.TYPE, Integer.TYPE, Double.TYPE, String.class}, x, y, z, dimension);
         if (!TeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {
@@ -23,7 +23,7 @@ public abstract class JourneyMapClientNetworkDispatcherMixin {
     }
 
     @Inject(method = "sendTeleportPacket(DIDLjava/lang/String;Ljava/lang/String;)V", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private void gtalikeTeleport$interceptJourneyMapTeleportWithWaypoint(double x, int y, double z, String dimension, String waypointId, CallbackInfo ci) {
+    private void ta$interceptJourneyMapTeleportWithWaypoint(double x, int y, double z, String dimension, String waypointId, CallbackInfo ci) {
         Vec3 targetFeet = new Vec3(x, y, z);
         Runnable action = () -> this.invokeJourneyMapTeleport(new Class[]{Double.TYPE, Integer.TYPE, Double.TYPE, String.class, String.class}, x, y, z, dimension, waypointId);
         if (!TeleportClient.interceptJourneyMapTeleport(targetFeet, dimension, action)) {

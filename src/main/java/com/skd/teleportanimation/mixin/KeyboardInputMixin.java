@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(KeyboardInput.class)
 public abstract class KeyboardInputMixin extends Input {
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    private void gtalikeTeleport$blockMovementInput(boolean slowDown, float movementMultiplier, CallbackInfo ci) {
+    private void ta$blockMovementInput(boolean slowDown, float movementMultiplier, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldBlockPlayerInput()) {
             return;
         }
