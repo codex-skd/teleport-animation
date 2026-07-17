@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.0-beta.9] - 2026-07-17
+
+### Fix
+- Removed all gtalike/GTP/Grand Teleport branding references from code
+- Fixed WaystonesInternalMethodsMixin with @Coerce annotation
+- Updated lang file keys to teleport_animation prefix
+- Added bypass flag to prevent Waystones mixin recursion (ConcurrentHashMap tracking)
+
 ## [0.0.0-beta.8] - 2026-07-17
 
 ### Added

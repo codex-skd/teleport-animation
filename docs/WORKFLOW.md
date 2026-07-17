@@ -15,10 +15,8 @@
 │   │   ├── java/<package>/             # Código fuente del mod
 │   │   ├── resources/
 │   │   │   ├── assets/<mod_id>/        # Texturas, shaders, lang, modelos...
-│   │   │   ├── META-INF/
-│   │   │   │   └── accesstransformer.cfg
-│   │   │   ├── <mod_id>.mixins.json
-│   │   │   └── <mod_id>.png           # Logo del mod
+│   │   │   │   └── icon.png           # Logo del mod (64x64 píxeles, referenciado en neoforge.mods.toml)
+│   │   │   └── <mod_id>.mixins.json
 │   │   └── templates/
 │   │       └── META-INF/
 │   │           └── neoforge.mods.toml  # Template con placeholders ${...}
