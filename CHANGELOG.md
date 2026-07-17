@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.0-beta.4] - 2026-07-17
+
+### Fix
+- GuiMixin crash on startup: fixed `Gui.render` mixin signature for Minecraft 1.21.1 (DeltaTracker)
+
 ## [0.0.0-beta.3] - 2026-07-17
 
 ### Fix
