@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.0-beta.3] - 2026-07-17
+
+### Fix
+- LevelRenderer crash on startup: fixed `renderLevel` mixin signature for Minecraft 1.21.1 (DeltaTracker)
+
 ## [0.0.0-beta.2] - 2026-07-16
 
 ### Changed
