@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.0-beta.6] - 2026-07-17
+
+### Fix
+- Animation freeze mid-transition: ++ticks was inside command send condition, preventing further animation after command dispatch
+
 ## [0.0.0-beta.5] - 2026-07-17
 
 ### Changed

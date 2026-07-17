@@ -323,9 +323,10 @@ public final class TeleportTransitionController {
             return;
         }
         if (ticks % 10 == 0) LOGGER.warn("TA tick: ticks={}/{} commandSent={} cameraReleased={}", ticks, totalTicks, commandSent, cameraReleased);
+        ++ticks;
         TeleportTransitionController.updateHardCutTerrainState(client);
         TeleportTransitionController.updateHudVisibility(client);
-        if (!commandSent && ++ticks >= TeleportTransitionController.getCommandSendTick()) {
+        if (!commandSent && ticks >= TeleportTransitionController.getCommandSendTick()) {
             if (skipTravel) {
                 LOGGER.info("GTP cross-dimension command send: source={} tick={} travelStart={} pullStart={} pullEnd={}", new Object[]{transitionSource, ticks, TeleportTransitionController.getTravelStartTick(), TeleportTransitionController.getPullStartTick(), TeleportTransitionController.getPullEndTick()});
             }
