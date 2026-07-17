@@ -18,14 +18,22 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Pseudo
 @Mixin(targets = "net.blay09.mods.waystones.InternalMethodsImpl", remap = false)
 public abstract class WaystonesInternalMethodsMixin {
     private static final Logger TA_LOG = LoggerFactory.getLogger("TA");
+    private static final Set<Object> executingDeferred = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
     @Inject(method = "tryTeleport", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
     private void ta$delayWaystoneTeleport(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
+        if (executingDeferred.contains(context)) {
+            executingDeferred.remove(context);
+            return;
+        }
         try {
             Entity entity = (Entity) context.getClass().getMethod("getEntity").invoke(context);
             if (!(entity instanceof ServerPlayer player)) return;
@@ -51,6 +59,7 @@ public abstract class WaystonesInternalMethodsMixin {
             final ResourceKey<Level> fDimension = dimension;
             Object self = this;
             if (TeleportServer.scheduleServerTransition(fPlayer, 1, fTargetFeet, fDimension, () -> {
+                executingDeferred.add(context);
                 try {
                     Class<?> ctxClass = Class.forName("net.blay09.mods.waystones.api.WaystoneTeleportContext");
                     Method tryTeleport = Class.forName("net.blay09.mods.waystones.api.InternalMethods")
