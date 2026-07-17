@@ -99,8 +99,9 @@ body += f"--{boundary}\r\n".encode()
 body += b'Content-Disposition: form-data; name="metadata"\r\n'
 body += b"Content-Type: application/json\r\n\r\n"
 body += meta_bytes + b"\r\n"
+jar_filename = f"teleport_animation-1.21.1-neoforge-{version}.jar"
 body += f"--{boundary}\r\n".encode()
-body += b'Content-Disposition: form-data; name="file"; filename="teleport_animation-1.21.1-neoforge-{version}.jar"\r\n'
+body += f'Content-Disposition: form-data; name="file"; filename="{jar_filename}"\r\n'.encode()
 body += b"Content-Type: application/java-archive\r\n\r\n"
 body += jar_data + b"\r\n"
 body += f"--{boundary}--\r\n".encode()
