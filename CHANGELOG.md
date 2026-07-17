@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.0-beta.5] - 2026-07-17
+
+### Changed
+- Added debug logs with TA prefix for transition troubleshooting
+- Removed all GTP references from code
+
+### Fix
+- GuiMixin and LevelRendererMixin signature fixes for Minecraft 1.21.1 DeltaTracker API
+
 ## [0.0.0-beta.4] - 2026-07-17
 
 ### Fix
