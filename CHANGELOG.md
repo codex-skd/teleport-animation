@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.0-beta.7] - 2026-07-17
+
+### Changed
+- Animation now only triggers for Waystones teleports (removed /tp command interception)
+
 ## [0.0.0-beta.6] - 2026-07-17
 
 ### Fix
