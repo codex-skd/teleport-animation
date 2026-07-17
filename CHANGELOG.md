@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.0.0-beta.8] - 2026-07-17
+
+### Added
+- Waystones required dependency
+- WaystonesInternalMethodsMixin for proper Waystones teleport interception
+
 ## [0.0.0-beta.7] - 2026-07-17
 
 ### Changed

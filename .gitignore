@@ -40,3 +40,4 @@ repo/
 !**/src/**/repo/
 lib_ext/grand_teleport_decompiled/
 lib_ext/grand_teleport_extracted/
+lib_ext/net/
