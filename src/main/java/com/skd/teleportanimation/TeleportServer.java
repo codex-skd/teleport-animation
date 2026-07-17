@@ -49,11 +49,11 @@ public final class TeleportServer {
         return new Vec3(x, y, z);
     }
 
-    static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, Runnable action) {
+    public static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, Runnable action) {
         return scheduleServerTransition(player, source, targetFeet, player == null ? null : ((ServerLevel)player.level()).dimension(), action);
     }
 
-    static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, ResourceKey<Level> targetDimension, Runnable action) {
+    public static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, ResourceKey<Level> targetDimension, Runnable action) {
         if (consumeServerTeleportBypass(player)) {
             return false;
         }

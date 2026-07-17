@@ -27,6 +27,7 @@
     "LeawindThirdPersonImplMixin",
     "WaystonesWarpPlateBlockEntityMixin",
     "WaystonesPlayerWaystoneManagerMixin",
+    "WaystonesInternalMethodsMixin",
     "DistantHorizonsRenderUtilMixin"
   ],
   "client": [

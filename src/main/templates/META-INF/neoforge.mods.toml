@@ -29,3 +29,10 @@ type="required"
 versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="waystones"
+type="required"
+versionRange="[1.21.1,)"
+ordering="NONE"
+side="BOTH"

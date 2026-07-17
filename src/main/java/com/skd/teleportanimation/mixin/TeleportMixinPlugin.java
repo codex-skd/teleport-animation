@@ -17,6 +17,7 @@ public final class TeleportMixinPlugin implements IMixinConfigPlugin {
     private static final String LEAWIND_THIRD_PERSON_NEOFORGE_EVENTS_MIXIN = "com.skd.teleportanimation.mixin.LeawindThirdPersonEventsNeoForgeMixin";
     private static final String LEAWIND_THIRD_PERSON_LEGACY_MIXIN = "com.skd.teleportanimation.mixin.LeawindThirdPersonLegacyMixin";
     private static final String LEAWIND_THIRD_PERSON_IMPL_MIXIN = "com.skd.teleportanimation.mixin.LeawindThirdPersonImplMixin";
+    private static final String WAYSTONES_INTERNAL_METHODS_MIXIN = "com.skd.teleportanimation.mixin.WaystonesInternalMethodsMixin";
 
     public void onLoad(String mixinPackage) {
     }
@@ -35,7 +36,7 @@ public final class TeleportMixinPlugin implements IMixinConfigPlugin {
         if (mixinClassName.equals(DISTANT_HORIZONS_RENDER_UTIL_MIXIN)) {
             return isModLoaded("distanthorizons");
         }
-        if (mixinClassName.equals(WAYSTONES_WARP_PLATE_MIXIN) || mixinClassName.equals(WAYSTONES_TELEPORT_MIXIN)) {
+        if (mixinClassName.equals(WAYSTONES_WARP_PLATE_MIXIN) || mixinClassName.equals(WAYSTONES_TELEPORT_MIXIN) || mixinClassName.equals(WAYSTONES_INTERNAL_METHODS_MIXIN)) {
             return isModLoaded("waystones");
         }
         if (mixinClassName.equals(LEAWIND_THIRD_PERSON_NEOFORGE_EVENTS_MIXIN) || mixinClassName.equals(LEAWIND_THIRD_PERSON_LEGACY_MIXIN) || mixinClassName.equals(LEAWIND_THIRD_PERSON_IMPL_MIXIN)) {
