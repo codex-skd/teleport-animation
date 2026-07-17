@@ -275,7 +275,7 @@ git push origin 1.21.1-neoforge-1.0.0
 
 ```bash
 # Situarse en la rama de la versión correspondiente
-git checkout minecraft/1.21.1/neoforge-1.21.1.78/production
+git checkout minecraft/1.21.1/neoforge-21.1.238/production
 
 # Hacer cambios en el código
 # Compilar para verificar
@@ -291,39 +291,64 @@ v0.0.0-beta.2"
 git push
 ```
 
-### 2. Preparar versión para CurseForge
+### 2. Copiar a instancia de pruebas
 
 ```bash
-# 1. Compilar con clean para evitar caché corrupta
+# 1. Compilar con clean
 ./gradlew.bat clean build
+
+# 2. Copiar JAR a la instancia de CurseForge, reemplazando el anterior
+#    PREGUNTAR: "¿Copiar el JAR a la instancia de pruebas?"
+#    Solo hacer si el usuario confirma.
+
+# 3. Si el usuario confirma:
+#    cp build/libs/teleport_animation-1.21.1-neoforge-<version>.jar /ruta/a/la/instancia/mods/
+#    rm /ruta/a/la/instancia/mods/teleport_animation-1.21.1-neoforge-<version-anterior>.jar
+```
+
+### 3. Probar en instancia
+
+- El usuario abre Minecraft y verifica que funcione
+- Si hay errores, se vuelve a Desarrollo (paso 1)
+- Si funciona, se continúa
+
+### 4. Preparar versión para CurseForge
+
+```bash
+# 1. PREGUNTAR: "¿Subir esta versión a CurseForge?"
+#    Solo continuar si el usuario confirma.
 
 # 2. Actualizar versión en gradle.properties
 #    mod_version=0.0.0-beta.3
 
-# 3. Crear release notes
+# 3. Compilar con clean
+./gradlew.bat clean build
+
+# 4. Crear release notes
 #    docs/curseforge/versions/0.0.0-beta.3.md
 
-# 4. Actualizar CHANGELOG.md
+# 5. Actualizar CHANGELOG.md
 
-# 5. Commit del bump de versión
+# 6. Commit del bump de versión
 git add -A
 git commit -m "chore: bump version to 0.0.0-beta.3"
 
-# 6. Tag para CurseForge
-git tag -a curseforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
-git push origin curseforge-beta.3
+# 7. Tag para CurseForge
+git tag -a 1.21.1-neoforge-beta.3 -m "v0.0.0-beta.3: Bugfix release"
+git push origin 1.21.1-neoforge-beta.3
 
-# 7. Subir JAR a CurseForge manualmente
-#    El JAR está en build/libs/<mod_id>-<minecraft_version>-<framework>-<version>.jar
+# 8. PREGUNTAR: "¿Subir JAR a CurseForge ahora?"
+#    Solo subir si el usuario confirma.
+#    El JAR está en build/libs/teleport_animation-1.21.1-neoforge-<version>.jar
 ```
 
-### 3. Release estable
+### 5. Release estable
 
 ```bash
 # gradle.properties → mod_version=1.0.0
 git commit -m "chore: bump version to 1.0.0"
-git tag -a curseforge-1.0.0 -m "v1.0.0: First stable release"
-git push origin curseforge-1.0.0
+git tag -a 1.21.1-neoforge-1.0.0 -m "v1.0.0: First stable release"
+git push origin 1.21.1-neoforge-1.0.0
 ```
 
 ---
