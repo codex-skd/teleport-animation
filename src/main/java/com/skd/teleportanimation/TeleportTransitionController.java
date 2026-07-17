@@ -313,13 +313,16 @@ public final class TeleportTransitionController {
             return;
         }
         if (client.player == null || client.level == null || client.getConnection() == null) {
+            LOGGER.warn("TA tick: player/level/connection null, clearing");
             TeleportTransitionController.clear(client);
             return;
         }
         if (client.player.isDeadOrDying()) {
+            LOGGER.warn("TA tick: player dead, clearing");
             TeleportTransitionController.clear(client);
             return;
         }
+        if (ticks % 10 == 0) LOGGER.warn("TA tick: ticks={}/{} commandSent={} cameraReleased={}", ticks, totalTicks, commandSent, cameraReleased);
         TeleportTransitionController.updateHardCutTerrainState(client);
         TeleportTransitionController.updateHudVisibility(client);
         if (!commandSent && ++ticks >= TeleportTransitionController.getCommandSendTick()) {
@@ -1298,7 +1301,12 @@ public final class TeleportTransitionController {
             }
             return TeleportTransitionController.isNearPlannedTarget(playerFeet) || TeleportTransitionController.hasTeleportedSinceLastObservation(playerFeet) || skipTravelTargetDimensionTicks >= 6;
         }
-        return TeleportTransitionController.isNearPlannedTarget(playerFeet) || TeleportTransitionController.hasTeleportedSinceLastObservation(playerFeet);
+        boolean nearTarget = TeleportTransitionController.isNearPlannedTarget(playerFeet);
+        boolean teleported = TeleportTransitionController.hasTeleportedSinceLastObservation(playerFeet);
+        if (nearTarget || teleported) {
+            LOGGER.warn("TA arrived: nearTarget={} teleported={} playerFeet={} plannedTarget={}", nearTarget, teleported, playerFeet, plannedTargetFeet);
+        }
+        return nearTarget || teleported;
     }
 
     private static void updateSkipTravelTargetDimensionTicks(Minecraft client) {

@@ -7,6 +7,8 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContextBuilder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.commands.SharedSuggestionProvider;
 import net.minecraft.commands.CommandSourceStack;
@@ -30,6 +32,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public final class TeleportClient {
+    private static final Logger TA_LOG = LoggerFactory.getLogger("TA");
     private static final String[] COMMAND_ALIASES = new String[]{"ta", "tpanimation"};
     private static final String USAGE_MESSAGE = "Usage: /ta or /tpanimation on|off|status|player_freeze <on|off|status>";
     private static boolean bypassNextCommand;
@@ -160,17 +163,19 @@ public final class TeleportClient {
         }
         return TeleportConfig.isExternalTeleportTransitionsEnabled();
     }
-
     static void sendDeferredCommand(String command) {
         Minecraft client = Minecraft.getInstance();
         if (client.getConnection() == null) {
+            TA_LOG.warn("sendDeferredCommand: connection is null");
             return;
         }
+        TA_LOG.warn("sendDeferredCommand: sending '{}'", command);
         TeleportClientNetworking.sendBypassNextServerTeleport();
         bypassNextCommand = true;
         try {
             client.getConnection().sendCommand(command);
-        } finally {
+        }
+        finally {
             bypassNextCommand = false;
         }
     }
