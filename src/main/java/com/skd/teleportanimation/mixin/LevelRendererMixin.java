@@ -1,8 +1,8 @@
 package com.skd.teleportanimation.mixin;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import com.skd.teleportanimation.TeleportTransitionController;
 import net.minecraft.client.Camera;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
@@ -45,7 +45,7 @@ abstract class LevelRendererMixin {
     private static boolean gtalikeTeleport$lastCameraLookupFailed;
 
     @Inject(method = "renderLevel", at = @At("HEAD"))
-    private void gtalikeTeleport$anchorViewAreaToTransitionCamera(PoseStack poseStack, float partialTick, long finishTimeNano, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f projectionMatrix, CallbackInfo ci) {
+    private void gtalikeTeleport$anchorViewAreaToTransitionCamera(DeltaTracker deltaTracker, boolean renderBlockOutline, Camera camera, GameRenderer gameRenderer, LightTexture lightTexture, Matrix4f matrix4f, Matrix4f projectionMatrix, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldForceTerrainFrustumApply()) {
             return;
         }
