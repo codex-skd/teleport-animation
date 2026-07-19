@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.0.0] - 2026-07-19
+
+### Added
+- First stable release — all beta features polished and production-ready
+
+### Fix
+- Waystones 21.1.37 compatibility: added `tryTeleportAsync` interception
+- Removed dead mixins targeting removed Waystones API
+
+### Changed
+- Project structure aligned with WORKFLOW_GENERIC conventions
+- All Grand Teleport branding removed — fully rebranded to Teleport Animation
+
 ## [0.0.0-beta.10] - 2026-07-19
 
 ### Fix
