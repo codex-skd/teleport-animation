@@ -1,6 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW.md`.
+> Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 
 ## Convenciones de nomenclatura
@@ -17,6 +17,16 @@ Reglas:
 - El display name en `README.md` y `CHANGELOG.md` debe estar en **Title Case**
 - Las clases Java principales deben seguir el naming del `mod_id` pero en **PascalCase**
 - Las config keys en camelCase: `teleportAnimation.enableFeature`
+
+### Ficheros de documentación
+
+| Fichero | Formato | Ejemplo |
+|---|---|---|
+| WORKFLOW | `WORKFLOW_<MOD_ID>_<MC-VERSION>.md` | `WORKFLOW_TELEPORT_ANIMATION_26-1-2.md` |
+| CHANGELOG | `CHANGELOG.md` (fijo) | `CHANGELOG.md` |
+| README | `README.md` (fijo) | `README.md` |
+
+> El nombre del WORKFLOW incluye el `mod_id` y la versión de Minecraft (con puntos reemplazados por guiones) para identificar inequívocamente a qué proyecto y versión pertenece, especialmente útil cuando conviven múltiples versiones del mismo mod.
 
 ## Tipografía
 
@@ -53,7 +63,7 @@ Reglas:
 ├── libs/                               # Dependencias reales del mod (JARs necesarios para compilar). Versionado.
 ├── lib_ext/                            # Librerías externas para análisis de la sesión. NO versionado (.gitignore).
 ├── docs/
-│   ├── WORKFLOW.md                    # Este documento (copia de WORKFLOW_GENERIC.md adaptada al mod)
+│   ├── WORKFLOW_TELEPORT_ANIMATION_26-1-2.md  # Este documento
 │   └── curseforge/                    # Documentación para publicación en CurseForge
 │       ├── project_vars.md             # Variables del proyecto (ID, token, versiones)
 │       ├── project_description.md      # Descripción del proyecto
