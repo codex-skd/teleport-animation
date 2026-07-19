@@ -218,6 +218,7 @@ Configuración en GitLab:
 5. Desmarcar "Keep divergent refs" para permitir force push desde CI
 
 > ⚠️  Las ramas `*/main` nunca se tocan manualmente. Solo el CI/CD escribe en ellas con force push.
+> La primera vez que el CI se ejecute, creará la rama automáticamente (orphan). Tras el primer push, el desarrollador debe protegerla y permitir force push desde GitLab.
 
 ---
 
@@ -384,6 +385,8 @@ publish-public:
     # Sanitizar secrets en gradle.properties
     - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
     - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
+    - sed -i 's/^mod_curseforge_project_id=.*/mod_curseforge_project_id=/' gradle.properties
+    - sed -i 's/^mod_curseforge_token=.*/mod_curseforge_token=/' gradle.properties
 
     # Commit y push (force push a la rama /main)
     - git add -A
@@ -399,7 +402,6 @@ publish-public:
 ### Archivos que pasan a GitHub
 
 | Archivo/Carpeta | GitLab production | GitLab /main → GitHub |
-|---|---|---|
 |---|---|---|
 | `src/` | ✅ | ✅ |
 | `build.gradle`, `settings.gradle` | ✅ | ✅ |
