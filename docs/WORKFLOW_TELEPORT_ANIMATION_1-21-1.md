@@ -1,7 +1,30 @@
-# Flujo de trabajo — Grand Teleport (NeoForge)
+# Flujo de trabajo — Teleport Animation (NeoForge)
 
-> Este archivo pertenece al proyecto **Grand Teleport**. Cada proyecto tiene su propio `WORKFLOW.md`.
+> Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
+
+## Convenciones de nomenclatura
+
+| Convención | Uso | Ejemplo |
+|---|---|---|
+| **snake_case** | `mod_id` en gradle.properties, assets/, packages Java | `teleport_animation` |
+| **PascalCase** | Clases Java principales | `TeleportAnimation` |
+| **camelCase** | Variables, métodos, config keys | `teleportAnimation` |
+| **Title Case** | Display name en README, CHANGELOG, docs, CurseForge | `Teleport Animation` |
+
+Reglas:
+- `mod_id` en `gradle.properties` debe coincidir con el nombre del directorio del proyecto
+- El display name en `README.md` y `CHANGELOG.md` debe estar en **Title Case**
+- Las clases Java principales deben seguir el naming del `mod_id` pero en **PascalCase**:
+- Las config keys en camelCase: `teleportAnimation.enableFeature`
+
+## Tipografía
+
+| Ámbito | Fuente |
+|---|---|
+| Código fuente, logs, nombres técnicos, commits, mensajes de consola | **Monospace** (`Consolas`, `JetBrains Mono`, `Cascadia Code`, `Fira Code`) |
+| Documentación interna (README, CHANGELOG, docs/, WORKFLOW) | **Sans-serif** (`Segoe UI`, `Inter`, `Arial`) para cuerpo; **monospace** para código/rutas/comandos |
+| CurseForge (descripciones, release notes) | Sans-serif por defecto de la plataforma; usar `<code>` para términos técnicos |
 
 ## Estructura del proyecto
 
@@ -16,26 +39,36 @@
 │   │   ├── resources/
 │   │   │   ├── assets/<mod_id>/        # Texturas, shaders, lang, modelos...
 │   │   │   │   └── icon.png           # Logo del mod (64x64 píxeles, referenciado en neoforge.mods.toml)
+│   │   │   ├── templates/
+│   │   │   │   └── META-INF/
+│   │   │   │       └── neoforge.mods.toml  # Template con placeholders ${...}
 │   │   │   └── <mod_id>.mixins.json
-│   │   └── templates/
+│   │   └── templates/                 # (alternativa legacy, evitar)
 │   │       └── META-INF/
-│   │           └── neoforge.mods.toml  # Template con placeholders ${...}
+│   │           └── neoforge.mods.toml
 │   ├── main/java/<package>/...         # Código fuente
+├── libs/                               # Dependencias reales del mod (JARs necesarios para compilar). Versionado.
+├── lib_ext/                            # Librerías externas para análisis de la sesión. NO versionado (.gitignore).
 ├── docs/
-│   ├── WORKFLOW.md                    # Este documento
+│   ├── WORKFLOW.md                    # Este documento (copia de WORKFLOW_GENERIC.md adaptada al mod)
 │   └── curseforge/                    # Documentación para publicación en CurseForge
+│       ├── project_vars.md             # Variables del proyecto (ID, token, versiones)
 │       ├── project_description.md      # Descripción del proyecto
 │       └── versions/                   # Release notes por versión
 │           ├── 0.0.0-beta.1.md
 │           └── ...
 ├── CHANGELOG.md
-└── README.md
+├── README.md
+└── graphify-out/                       # Knowledge Graph (generado por Graphify)
+    ├── graph.html
+    ├── GRAPH_REPORT.md
+    └── graph.json
 ```
 
 ### Archivos de CurseForge
 
 | Archivo | Propósito |
-|---------|-----------|
+|---|---|
 | `docs/curseforge/project_vars.md` | Variables específicas del proyecto (project ID, token, versiones) |
 | `docs/curseforge/project_description.md` | Descripción completa del proyecto (qué hace, características, requisitos) |
 | `docs/curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
@@ -70,7 +103,7 @@ Footer:    Créditos
 #### Elementos HTML disponibles
 
 | Elemento | Uso |
-|----------|-----|
+|---|---|
 | `<h1 align="center">` | Título principal centrado |
 | `<h2>` | Secciones del cuerpo |
 | `<h3>` | Subsecciones (cada feature) |
@@ -93,13 +126,14 @@ Footer:    Créditos
 - **Títulos diferenciados**: h1 muy visible (centrado), h2 para secciones, h3 para cada feature
 - **Logo en el footer**: Centrado, con enlace a la web y eslogan
 - **Sin carácter retroactivo**: Solo aplicamos el formato a nuevas versiones; las existentes no se modifican
+- **Idioma**: CurseForge en **inglés** (en-US) — plataforma global
 
 #### Formato del changelog
 
 El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acepta ambos, el HTML se renderiza correctamente en el editor WYSIWYG sin escapes ni caracteres rotos.
 
 | Campo | Valor |
-|-------|-------|
+|---|---|
 | `changelogType` | `html` |
 | `changelog` | Código HTML con `<h2>`, `<h3>`, `<ul>/<li>`, `<p>`, `<strong>`, `<code>`, `<blockquote>` |
 
@@ -124,7 +158,7 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 #### Elementos HTML permitidos
 
 | Elemento | Uso |
-|----------|-----|
+|---|---|
 | `<h2>` | Título principal de la versión |
 | `<h3>` | Subsecciones (Fix, Technical Changes, Notes) |
 | `<ul><li>` | Listas de puntos |
@@ -141,16 +175,15 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 ### Estructura
 
 | Rama | Propósito |
-|------|-----------|
+|---|---|
 | `main` | Vacía. Solo contiene un commit inicial. No se usa para desarrollo |
 | `minecraft/<mc-version>/neoforge-<neo-version>/production` | Rama de trabajo para una versión específica de Minecraft/NeoForge |
 
 ### Ejemplos
 
 | Rama | Versión |
-|------|---------|
-| `minecraft/1.21.1/neoforge-1.21.1.78/production` | Minecraft 1.21.1, NeoForge 1.21.1.78 |
-| `minecraft/1.21.1/neoforge-21.1.141/production` | Minecraft 1.21.1, NeoForge 21.1.141 |
+|---|---|
+| `minecraft/1.21.1/neoforge-21.1.238/production` | Minecraft 1.21.1, NeoForge 21.1.238 |
 
 ---
 
@@ -159,7 +192,7 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 ### Esquema
 
 | Estado | Formato | Ejemplos |
-|--------|---------|----------|
+|---|---|---|
 | Beta / desarrollo | `0.0.0-beta.X` | `0.0.0-beta.1`, `0.0.0-beta.2` |
 | Release estable | `X.Y.Z` (SemVer) | `1.0.0`, `1.2.3`, `2.0.0` |
 
@@ -184,10 +217,9 @@ mod_version=0.0.0-beta.1
 El JAR generado sigue el formato `<mod_id>-<minecraft_version>-<framework>-<mod_version>.jar`:
 
 | Ejemplo | Significado |
-|---------|-------------|
+|---|---|
 | `teleport_animation-1.21.1-neoforge-0.0.0-beta.2.jar` | NeoForge 1.21.1, beta 2 |
 | `teleport_animation-1.21.1-neoforge-1.0.0.jar` | NeoForge 1.21.1, release 1.0.0 |
-| `teleport_animation-1.21.1-neoforge-0.0.0-beta.14.jar` | NeoForge 1.21.1, beta 14 |
 
 El framework puede ser `neoforge`, `forge` o `fabric` según corresponda. Se configura en `build.gradle`:
 
@@ -212,7 +244,7 @@ Usamos [Conventional Commits](https://www.conventionalcommits.org/) para todos l
 ### Tipos
 
 | Tipo | Uso |
-|------|-----|
+|---|---|
 | `feat` | Nueva funcionalidad |
 | `fix` | Corrección de bug |
 | `refactor` | Refactorización sin cambio funcional |
@@ -249,7 +281,7 @@ Cada vez que se sube una versión a CurseForge se debe crear un tag en GitLab.
 ### Formato del tag
 
 | Estado | Formato | Ejemplo |
-|--------|---------|---------|
+|---|---|---|
 | Beta | `<mc-version>-neoforge-beta.X` | `1.21.1-neoforge-beta.15` |
 | Release | `<mc-version>-neoforge-X.Y.Z` | `1.21.1-neoforge-1.0.0` |
 
@@ -345,11 +377,33 @@ git push origin 1.21.1-neoforge-beta.3
 ### 5. Release estable
 
 ```bash
-# gradle.properties → mod_version=1.0.0
+# gradle.properties -> mod_version=1.0.0
 git commit -m "chore: bump version to 1.0.0"
 git tag -a 1.21.1-neoforge-1.0.0 -m "v1.0.0: First stable release"
 git push origin 1.21.1-neoforge-1.0.0
 ```
+
+### 6. Actualizar Knowledge Graph (Graphify)
+
+Después de cada push a remoto, actualizar el grafo de conocimiento:
+
+```bash
+# 1. Regenerar el grafo del mod
+#    Ruta al ejecutable (Windows):
+"C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" build .
+
+#    O si graphify está en PATH:
+#    graphify build .
+
+# 2. Commit del grafo actualizado
+git add graphify-out/
+git commit -m "chore: update knowledge graph"
+
+# 3. Push
+git push
+```
+
+> **Nota**: El grafo permite a los asistentes de IA entender la arquitectura del mod sin leer todo el código fuente, reduciendo el consumo de tokens hasta 71x.
 
 ---
 
@@ -361,11 +415,14 @@ git push origin 1.21.1-neoforge-1.0.0
 - **Versionar antes de subir a CurseForge**: el tag debe apuntar al commit exacto del JAR que se sube
 - **CHANGELOG.md siempre actualizado**: reflejar todos los cambios de cada versión
 - **Siempre hacer `clean build` antes de generar el JAR final**: la caché de Gradle puede dejar artefactos obsoletos o corruptos que no se detectan en compilaciones incrementales; `clean` fuerza una compilación desde cero
+- **Graphify**: mantener el knowledge graph actualizado tras cada release para que los asistentes de IA tengan contexto preciso del proyecto
+- **Nomenclatura consistente**: no mezclar snake_case, PascalCase, camelCase o Title Case en contextos donde no corresponde
+- **Sin archivos basura en el repositorio**: eliminar `nul`, `TEMPLATE_LICENSE.txt`, `errors.txt`, `compile_errors.txt`, `build_errors.txt` y otros artefactos temporales antes de commitear
 
 ## Idioma
 
 | Ámbito | Idioma |
-|--------|--------|
+|---|---|
 | Código fuente, logs, nombres técnicos, commits | **Inglés** (en-US) — estándar de programación |
 | Documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
 | CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) — plataforma global |

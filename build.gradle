@@ -28,7 +28,7 @@ sourceSets.main.resources {
 
 repositories {
     flatDir {
-        dirs 'lib_ext'
+        dirs 'libs'
     }
 }
 
@@ -120,7 +120,7 @@ configurations {
 }
 
 dependencies {
-    implementation files("lib_ext/waystones-neoforge-1.21.1-21.1.37.jar")
+    implementation files("libs/waystones-neoforge-1.21.1-21.1.37.jar")
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
@@ -162,7 +162,7 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
     ]
     inputs.properties replaceProperties
     expand replaceProperties
-    from "src/main/templates"
+    from "src/main/resources/templates"
     into "build/generated/sources/modMetadata"
 }
 // Include the output of "generateModMetadata" as an input directory for the build
