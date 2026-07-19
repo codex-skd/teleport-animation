@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.0-beta.10] - 2026-07-19
+
+### Fix
+- Added tryTeleportAsync interception to WaystonesInternalMethodsMixin for Waystones 21.1.37 compatibility
+
 ## [0.0.0-beta.9] - 2026-07-17
 
 ### Fix
