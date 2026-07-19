@@ -17,11 +17,15 @@ publish-public:
     - git config user.email "ci@mods-minecraft.dev"
     - git config user.name "Mods Minecraft CI"
 
-    # Obtener main actual
-    - git fetch origin main
-    - git checkout main || git checkout --orphan main
+    # Derivar la rama main desde la rama production actual
+    - MAIN_BRANCH=$(echo "$CI_COMMIT_BRANCH" | sed 's|/production$|/main|')
+    - echo "Publishing to $MAIN_BRANCH"
 
-    # Limpiar main y copiar solo archivos públicos
+    # Obtener la rama main actual
+    - git fetch origin "$MAIN_BRANCH" 2>/dev/null || true
+    - git checkout "$MAIN_BRANCH" || git checkout --orphan "$MAIN_BRANCH"
+
+    # Limpiar y copiar solo archivos públicos
     - git rm -rf --ignore-unmatch --quiet . 2>/dev/null || true
     - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md libs/
 
@@ -29,12 +33,12 @@ publish-public:
     - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
     - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
 
-    # Commit y push
+    # Commit y push (force push a la rama /main)
     - git add -A
     - |
       if ! git diff --cached --quiet; then
         git commit -m "chore: sync public code from ${CI_COMMIT_SHORT_SHA}"
-        git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:main
+        git push --force "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:"$MAIN_BRANCH"
       else
         echo "No changes to publish"
       fi

@@ -177,42 +177,47 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 
 | Rama | Propósito |
 |---|---|
-| `main` | Rama pública para mirror a GitHub. Solo contiene código fuente compilable. Se actualiza automáticamente vía CI/CD desde production |
+| `main` | Vacía. Solo contiene un commit inicial. No se usa para desarrollo |
 | `minecraft/<mc-version>/neoforge-<neo-version>/production` | Rama de trabajo para una versión específica de Minecraft/NeoForge. Contiene todo el proyecto (incluyendo docs/, lib_ext/, graphify-out/) |
+| `minecraft/<mc-version>/neoforge-<neo-version>/main` | Rama pública para mirror a GitHub. Solo contiene código fuente compilable. Se actualiza automáticamente vía CI/CD desde production. Force push permitido |
 
 ### Ejemplos
 
 | Rama | Versión |
 |---|---|
-| `minecraft/1.21.1/neoforge-21.1.238/production` | Minecraft 1.21.1, NeoForge 21.1.238 |
+| `minecraft/1.21.1/neoforge-21.1.238/production` | Minecraft 1.21.1, NeoForge 21.1.238 (trabajo) |
+| `minecraft/1.21.1/neoforge-21.1.238/main` | Minecraft 1.21.1, NeoForge 21.1.238 (mirror a GitHub) |
 
 ### Esquema de publicación
 
 ```
-GitLab (privado)                      GitHub (público)
-───────────────────────────────────── ─────────────────────
-production (TODO: código + docs       main (solo código
-  + lib_ext/ + graphify-out/ +          + libs/ + README
-  gradle.properties con tokens reales)  + gradle.properties
-       │                                 con placeholders)
+GitLab (privado)                         GitHub (público)
+──────────────────────────────────────── ─────────────────────
+minecraft/X/neoforge-N/production        minecraft/X/neoforge-N/main
+  (código + docs + lib_ext/                (solo código + libs/
+   + graphify-out/ + tokens reales)         + README + placeholders)
+       │
        │  CI/CD (.gitlab-ci.yml)
        │  Filtra archivos, sanitiza
-       ▼  secrets, commitea a main
-     main ──────────────────────────→ main
-       │         (mirror push)
+       ▼  secrets, commitea a la rama /main
+  minecraft/X/neoforge-N/main ──────────→ (misma rama espejada)
+       │         (mirror push: GitLab → GitHub)
        │
        ▼
-    GitHub (espejo automático)
+    GitHub: minecraft/X/neoforge-N/main
+    (espejo automático, misma estructura de ramas)
 ```
+
+Cada versión de Minecraft/NeoForge tiene su propio par de ramas `production` + `main`. El mirror de GitLab replica las ramas `main` a GitHub automáticamente.
 
 Configuración en GitLab:
 1. **Settings → Repository → Mirroring repositories**
 2. Añadir `https://<token>@github.com/tuusuario/<mod>.git`
 3. Dirección: **Push**
-4. Marcar **"Only mirror protected branches"**
-5. Proteger la rama `main`
+4. Marcar **"Only mirror protected branches"** (proteger `minecraft/*/neoforge-*/main`)
+5. Desmarcar "Keep divergent refs" para permitir force push desde CI
 
-> ⚠️  La rama `main` nunca se toca manualmente. Solo el CI/CD escribe en ella.
+> ⚠️  Las ramas `*/main` nunca se tocan manualmente. Solo el CI/CD escribe en ellas con force push.
 
 ---
 
@@ -333,11 +338,12 @@ git push origin 1.21.1-neoforge-1.0.0
 ## Publicación a GitHub (CI/CD)
 
 Cada vez que se hace push a una rama `production`, GitLab CI ejecuta automáticamente un pipeline que:
-1. Toma el código de `production`
-2. Filtra solo los archivos públicos (`src/`, `build.gradle`, `settings.gradle`, `libs/`, etc.)
-3. Sanitiza `gradle.properties` (reemplaza tokens reales con placeholders)
-4. Commitea a `main`
-5. El mirror de GitLab replica `main` a GitHub automáticamente
+1. Toma el código de la rama `production`
+2. Deriva la rama `main` correspondiente: `minecraft/X/neoforge-N/main`
+3. Filtra solo los archivos públicos (`src/`, `build.gradle`, `settings.gradle`, `libs/`, etc.)
+4. Sanitiza `gradle.properties` (reemplaza tokens reales con placeholders)
+5. Commitea con force push a la rama `main` correspondiente
+6. El mirror de GitLab replica esa rama a GitHub automáticamente
 
 ### .gitlab-ci.yml
 
@@ -363,11 +369,15 @@ publish-public:
     - git config user.email "ci@mods-minecraft.dev"
     - git config user.name "Mods Minecraft CI"
 
-    # Obtener main actual
-    - git fetch origin main
-    - git checkout main || git checkout --orphan main
+    # Derivar la rama main desde la rama production actual
+    - MAIN_BRANCH=$(echo "$CI_COMMIT_BRANCH" | sed 's|/production$|/main|')
+    - echo "Publishing to $MAIN_BRANCH"
 
-    # Limpiar main y copiar solo archivos públicos
+    # Obtener la rama main actual
+    - git fetch origin "$MAIN_BRANCH" 2>/dev/null || true
+    - git checkout "$MAIN_BRANCH" || git checkout --orphan "$MAIN_BRANCH"
+
+    # Limpiar y copiar solo archivos públicos
     - git rm -rf --ignore-unmatch --quiet . 2>/dev/null || true
     - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md libs/
 
@@ -375,12 +385,12 @@ publish-public:
     - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
     - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
 
-    # Commit y push
+    # Commit y push (force push a la rama /main)
     - git add -A
     - |
       if ! git diff --cached --quiet; then
         git commit -m "chore: sync public code from ${CI_COMMIT_SHORT_SHA}"
-        git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:main
+        git push --force "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:"$MAIN_BRANCH"
       else
         echo "No changes to publish"
       fi
@@ -388,7 +398,8 @@ publish-public:
 
 ### Archivos que pasan a GitHub
 
-| Archivo/Carpeta | GitLab production | GitHub main |
+| Archivo/Carpeta | GitLab production | GitLab /main → GitHub |
+|---|---|---|
 |---|---|---|
 | `src/` | ✅ | ✅ |
 | `build.gradle`, `settings.gradle` | ✅ | ✅ |
