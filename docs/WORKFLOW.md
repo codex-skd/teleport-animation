@@ -527,7 +527,7 @@ Después de cada push a remoto, actualizar el grafo de conocimiento:
 
 ```bash
 # 1. Regenerar el grafo del mod
-" C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" build .
+"C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" build .
 
 # 2. Commit del grafo actualizado
 git add graphify-out/

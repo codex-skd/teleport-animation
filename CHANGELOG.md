@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.16 (2026-07-19)
+
+- feat: add Waystones JAR as compile dependency
+- chore: version waystones JAR in libs/ for reproducible builds
+
 ## 0.0.0-beta.15 (2026-07-16)
 
 - docs: update WORKFLOW.md with new branching strategy and JAR naming conventions
