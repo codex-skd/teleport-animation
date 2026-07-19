@@ -509,6 +509,7 @@ git push origin 26.1.2-neoforge-beta.3
 
 # 8. PREGUNTAR: "¿Subir JAR a CurseForge ahora?"
 #    Solo subir si el usuario confirma.
+#    Usar el script Python en docs/curseforge/project_vars.md
 #    El JAR está en build/libs/<mod_id>-<minecraft_version>-<framework>-<version>.jar
 ```
 

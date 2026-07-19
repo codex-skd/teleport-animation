@@ -6,7 +6,7 @@
 |----------|-------|
 | `curseforge_project_id` | `1608291` |
 | `mod_id` | `teleport_animation` |
-| `display_name` | `Grand Teleport` (separado, no junto) |
+| `display_name` | `Teleport Animation` (separado, no junto) |
 
 ## Tokens
 
@@ -36,22 +36,22 @@ minecraft/26.1.2/neoforge-26.1.2.78/production
 ## Tag
 
 Formato: `<mc-version>-<framework>-<version>`
-Ejemplo: `26.1.2-neoforge-0.0.0-beta.15`
+Ejemplo: `26.1.2-neoforge-0.0.0-beta.16`
 
 ## Parámetros del upload
 
 | Campo | Valor | Notas |
 |-------|-------|-------|
-| `displayName` | `Grand Teleport (0.0.0-beta.15)` | Nombre visible: `display_name (version)` |
+| `displayName` | `Teleport Animation (<version>)` | Nombre visible: `display_name (version)` |
 | `changelog` | HTML (no Markdown) | Ver estructura abajo |
 | `changelogType` | `html` | Obligatorio para que se vea bien |
-| `releaseType` | `release` o `beta` | Según el tipo de versión |
+| `releaseType` | `beta` o `release` | `beta` para betas, `release` para estables |
 | `gameVersionNames` | `["Client", "Server", "26.1.2", "NeoForge"]` | Entorno + MC + modloader |
 
 ## Estructura del changelog (HTML)
 
 ```html
-<h2>v0.0.0-beta.15 - Titulo descriptivo</h2>
+<h2>v0.0.0-beta.X - Titulo descriptivo</h2>
 
 <h3>Fix</h3>
 <ul>
@@ -69,7 +69,7 @@ Ejemplo: `26.1.2-neoforge-0.0.0-beta.15`
 
 <hr>
 
-<p><strong>JAR</strong>: <code>teleport_animation-26.1.2-neoforge-0.0.0-beta.15.jar</code></p>
+<p><strong>JAR</strong>: <code>teleport_animation-26.1.2-neoforge-&lt;version&gt;.jar</code></p>
 ```
 
 ## Subir archivo (JAR) con Python
@@ -78,14 +78,15 @@ Ejemplo: `26.1.2-neoforge-0.0.0-beta.15`
 import json, uuid, urllib.request
 
 boundary = uuid.uuid4().hex
-version = "0.0.0-beta.15"
+version = "0.0.0-beta.16"
+release_type = "beta"
 
 metadata = {
-    "displayName": f"Grand Teleport ({version})",
-    "changelog": "<h2>v0.0.0-beta.15 - Titulo</h2>",
+    "displayName": f"Teleport Animation ({version})",
+    "changelog": open(f"docs/curseforge/versions/{version}.md", "r", encoding="utf-8").read(),
     "changelogType": "html",
     "gameVersionNames": ["Client", "Server", "26.1.2", "NeoForge"],
-    "releaseType": "release"
+    "releaseType": release_type
 }
 
 with open(f"build/libs/teleport_animation-26.1.2-neoforge-{version}.jar", "rb") as f:
@@ -99,7 +100,7 @@ body += b'Content-Disposition: form-data; name="metadata"\r\n'
 body += b"Content-Type: application/json\r\n\r\n"
 body += meta_bytes + b"\r\n"
 body += f"--{boundary}\r\n".encode()
-body += b'Content-Disposition: form-data; name="file"; filename="teleport_animation-26.1.2-neoforge-{version}.jar"\r\n'
+body += f'Content-Disposition: form-data; name="file"; filename="teleport_animation-26.1.2-neoforge-{version}.jar"\r\n'.encode()
 body += b"Content-Type: application/java-archive\r\n\r\n"
 body += jar_data + b"\r\n"
 body += f"--{boundary}--\r\n".encode()
@@ -121,13 +122,15 @@ print(resp.read().decode())
 ## Verificar con GET
 
 ```bash
-curl -s "https://api.curseforge.com/v1/mods/1608291/files/<FILE_ID>"   -H "x-api-key: $2a$10$yGwryAfmRkS9ZJsJUDf5YOKZpOIsmHB8Fji2D8JVCKBSZEKYlwmaO"
+curl -s "https://api.curseforge.com/v1/mods/1608291/files/<FILE_ID>" \
+  -H "x-api-key: $2a$10$yGwryAfmRkS9ZJsJUDf5YOKZpOIsmHB8Fji2D8JVCKBSZEKYlwmaO"
 ```
 
 ## Changelog
 
 ```bash
-curl -s "https://api.curseforge.com/v1/mods/1608291/files/<FILE_ID>/changelog"   -H "x-api-key: $2a$10$yGwryAfmRkS9ZJsJUDf5YOKZpOIsmHB8Fji2D8JVCKBSZEKYlwmaO"
+curl -s "https://api.curseforge.com/v1/mods/1608291/files/<FILE_ID>/changelog" \
+  -H "x-api-key: $2a$10$yGwryAfmRkS9ZJsJUDf5YOKZpOIsmHB8Fji2D8JVCKBSZEKYlwmaO"
 ```
 
 ## Descripcion del proyecto
