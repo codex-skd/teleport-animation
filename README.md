@@ -1,30 +1,32 @@
-# Grand Teleport - NeoForge 1.21.1
+# Teleport Animation — NeoForge 1.21.1
 
-Añade una transición cinematográfica tipo GTA cuando el jugador usa `/tp` o `/teleport`.
+Adds a cinematic camera transition when the player teleports via **Waystones**.
 
-## Características
+## Features
 
-- Animación de cámara fluida al teletransportarse
-- 3 etapas de zoom configurables (zoom-out y zoom-in)
-- Sonidos personalizados
-- Compatible con Waystones, JourneyMap, Sodium, Iris, Bobby, Distant Horizons, Voxy
-- Comandos `/ta` y `/tpanimation` para controlar el efecto
-- Congelación de jugador durante la transición (configurable)
+- Smooth camera transition with configurable zoom-in/out stages
+- Custom sound effects (7 OGG sounds)
+- Player freeze during transition (configurable)
+- Compatible with Sodium, Iris, Bobby, Distant Horizons, Voxy
+- Commands: `/ta on`, `/ta off`, `/ta status`, `/ta player_freeze`
 
-## Requisitos
+## Requirements
 
 - Minecraft 1.21.1
 - NeoForge 21.1.238+
+- [Waystones](https://curseforge.com/minecraft/mc-mods/waystones) (required dependency)
 
-## Instalación
+## Installation
 
-1. Descarga el JAR de la última versión
-2. Colócalo en la carpeta `mods/` de tu servidor/cliente
-3. Asegúrate de tener NeoForge 21.1.238+ instalado
+1. Download the latest JAR from [CurseForge](https://curseforge.com/minecraft/mc-mods/teleport-animation)
+2. Place it in the `mods/` folder of your client/server
+3. Ensure Waystones is also installed
 
-## Uso
+## Usage
 
-- `/ta on` - Activar el efecto
-- `/ta off` - Desactivar el efecto
-- `/ta status` - Ver estado actual
-- `/ta player_freeze on/off` - Congelar al jugador durante la transición
+- `/ta on` — Enable the effect
+- `/ta off` — Disable the effect
+- `/ta status` — Show current status
+- `/ta player_freeze on/off` — Freeze player during transition
+
+The animation triggers automatically when teleporting via Waystones (warp plates, warp stones, or scrolls).

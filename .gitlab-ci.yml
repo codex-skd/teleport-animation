@@ -1,0 +1,40 @@
+image: alpine:latest
+
+variables:
+  GIT_DEPTH: 0
+
+stages:
+  - publish
+
+publish-public:
+  stage: publish
+  only:
+    - /^minecraft\/.*\/.*\/production$/
+  except:
+    - main
+  script:
+    - apk add --no-cache git
+    - git config user.email "ci@mods-minecraft.dev"
+    - git config user.name "Mods Minecraft CI"
+
+    # Obtener main actual
+    - git fetch origin main
+    - git checkout main || git checkout --orphan main
+
+    # Limpiar main y copiar solo archivos públicos
+    - git rm -rf --ignore-unmatch --quiet . 2>/dev/null || true
+    - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md libs/
+
+    # Sanitizar secrets en gradle.properties
+    - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
+    - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
+
+    # Commit y push
+    - git add -A
+    - |
+      if ! git diff --cached --quiet; then
+        git commit -m "chore: sync public code from ${CI_COMMIT_SHORT_SHA}"
+        git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:main
+      else
+        echo "No changes to publish"
+      fi

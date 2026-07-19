@@ -59,10 +59,11 @@ Reglas:
 │           └── ...
 ├── CHANGELOG.md
 ├── README.md
-└── graphify-out/                       # Knowledge Graph (generado por Graphify)
-    ├── graph.html
-    ├── GRAPH_REPORT.md
-    └── graph.json
+├── graphify-out/                       # Knowledge Graph (generado por Graphify). Versionado en GitLab, NO va a GitHub (excluido por CI).
+│   ├── graph.html
+│   ├── GRAPH_REPORT.md
+│   └── graph.json
+└── .gitlab-ci.yml                      # CI/CD: publica código limpio a main para mirror a GitHub
 ```
 
 ### Archivos de CurseForge
@@ -176,14 +177,42 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 
 | Rama | Propósito |
 |---|---|
-| `main` | Vacía. Solo contiene un commit inicial. No se usa para desarrollo |
-| `minecraft/<mc-version>/neoforge-<neo-version>/production` | Rama de trabajo para una versión específica de Minecraft/NeoForge |
+| `main` | Rama pública para mirror a GitHub. Solo contiene código fuente compilable. Se actualiza automáticamente vía CI/CD desde production |
+| `minecraft/<mc-version>/neoforge-<neo-version>/production` | Rama de trabajo para una versión específica de Minecraft/NeoForge. Contiene todo el proyecto (incluyendo docs/, lib_ext/, graphify-out/) |
 
 ### Ejemplos
 
 | Rama | Versión |
 |---|---|
 | `minecraft/1.21.1/neoforge-21.1.238/production` | Minecraft 1.21.1, NeoForge 21.1.238 |
+
+### Esquema de publicación
+
+```
+GitLab (privado)                      GitHub (público)
+───────────────────────────────────── ─────────────────────
+production (TODO: código + docs       main (solo código
+  + lib_ext/ + graphify-out/ +          + libs/ + README
+  gradle.properties con tokens reales)  + gradle.properties
+       │                                 con placeholders)
+       │  CI/CD (.gitlab-ci.yml)
+       │  Filtra archivos, sanitiza
+       ▼  secrets, commitea a main
+     main ──────────────────────────→ main
+       │         (mirror push)
+       │
+       ▼
+    GitHub (espejo automático)
+```
+
+Configuración en GitLab:
+1. **Settings → Repository → Mirroring repositories**
+2. Añadir `https://<token>@github.com/tuusuario/<mod>.git`
+3. Dirección: **Push**
+4. Marcar **"Only mirror protected branches"**
+5. Proteger la rama `main`
+
+> ⚠️  La rama `main` nunca se toca manualmente. Solo el CI/CD escribe en ella.
 
 ---
 
@@ -301,6 +330,81 @@ git push origin 1.21.1-neoforge-1.0.0
 
 ---
 
+## Publicación a GitHub (CI/CD)
+
+Cada vez que se hace push a una rama `production`, GitLab CI ejecuta automáticamente un pipeline que:
+1. Toma el código de `production`
+2. Filtra solo los archivos públicos (`src/`, `build.gradle`, `settings.gradle`, `libs/`, etc.)
+3. Sanitiza `gradle.properties` (reemplaza tokens reales con placeholders)
+4. Commitea a `main`
+5. El mirror de GitLab replica `main` a GitHub automáticamente
+
+### .gitlab-ci.yml
+
+Ubicado en la raíz del proyecto:
+
+```yaml
+image: alpine:latest
+
+variables:
+  GIT_DEPTH: 0
+
+stages:
+  - publish
+
+publish-public:
+  stage: publish
+  only:
+    - /^minecraft\/.*\/.*\/production$/
+  except:
+    - main
+  script:
+    - apk add --no-cache git
+    - git config user.email "ci@mods-minecraft.dev"
+    - git config user.name "Mods Minecraft CI"
+
+    # Obtener main actual
+    - git fetch origin main
+    - git checkout main || git checkout --orphan main
+
+    # Limpiar main y copiar solo archivos públicos
+    - git rm -rf --ignore-unmatch --quiet . 2>/dev/null || true
+    - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md libs/
+
+    # Sanitizar secrets en gradle.properties
+    - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
+    - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
+
+    # Commit y push
+    - git add -A
+    - |
+      if ! git diff --cached --quiet; then
+        git commit -m "chore: sync public code from ${CI_COMMIT_SHORT_SHA}"
+        git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:main
+      else
+        echo "No changes to publish"
+      fi
+```
+
+### Archivos que pasan a GitHub
+
+| Archivo/Carpeta | GitLab production | GitHub main |
+|---|---|---|
+| `src/` | ✅ | ✅ |
+| `build.gradle`, `settings.gradle` | ✅ | ✅ |
+| `gradle.properties` | ✅ (tokens reales) | ✅ (placeholders) |
+| `gradlew`, `gradlew.bat` | ✅ | ✅ |
+| `README.md` | ✅ | ✅ |
+| `CHANGELOG.md` | ✅ | ✅ |
+| `libs/` | ✅ | ✅ |
+| `.gitignore` | ✅ | ✅ |
+| `docs/` | ✅ | ❌ |
+| `lib_ext/` | ✅ | ❌ |
+| `graphify-out/` | ✅ | ❌ (excluido por CI) |
+| `build/` | ❌ (.gitignore) | ❌ |
+
+---
+
 ## Flujo completo (paso a paso)
 
 ### 1. Desarrollo
@@ -388,22 +492,22 @@ git push origin 1.21.1-neoforge-1.0.0
 Después de cada push a remoto, actualizar el grafo de conocimiento:
 
 ```bash
-# 1. Regenerar el grafo del mod
+# 1. Extraer AST del código
 #    Ruta al ejecutable (Windows):
-"C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" build .
+"C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" extract . --code-only
 
-#    O si graphify está en PATH:
-#    graphify build .
+# 2. Generar reporte y clusterizar
+"C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" cluster-only .
 
-# 2. Commit del grafo actualizado
+# 3. Commit del grafo actualizado
 git add graphify-out/
 git commit -m "chore: update knowledge graph"
 
-# 3. Push
+# 4. Push
 git push
 ```
 
-> **Nota**: El grafo permite a los asistentes de IA entender la arquitectura del mod sin leer todo el código fuente, reduciendo el consumo de tokens hasta 71x.
+> **Nota**: El grafo permite a los asistentes de IA entender la arquitectura del mod sin leer todo el código fuente, reduciendo el consumo de tokens hasta 71×.
 
 ---
 
@@ -418,13 +522,26 @@ git push
 - **Graphify**: mantener el knowledge graph actualizado tras cada release para que los asistentes de IA tengan contexto preciso del proyecto
 - **Nomenclatura consistente**: no mezclar snake_case, PascalCase, camelCase o Title Case en contextos donde no corresponde
 - **Sin archivos basura en el repositorio**: eliminar `nul`, `TEMPLATE_LICENSE.txt`, `errors.txt`, `compile_errors.txt`, `build_errors.txt` y otros artefactos temporales antes de commitear
+- **README.md actualizado y en inglés**: el README debe reflejar siempre el estado actual del mod, con descripción, requisitos, instalación y enlaces. Debe estar escrito en **inglés** (en-US) por ser la puerta de entrada al proyecto desde GitHub
+- **Sin residuos de mod original**: si el mod está basado en otro mod existente (fork/referencia), no debe quedar ningún rastro accidental del mod original. Revisar:
+  - Nombres de paquetes (`com/oldauthor/oldmod/` → `com/skd/nuevomod/`)
+  - Nombres de clases, métodos y variables
+  - Referencias en `neoforge.mods.toml` (modid, description, credits)
+  - Textos en lang/ (en_us.json, etc.)
+  - Texturas, modelos y assets que no correspondan al mod actual
+- **Atribución de fork**: si el mod es un fork de otro proyecto, debe indicarse explícitamente:
+  - En `README.md`: "This mod is a fork of [Original Mod] by [Author]"
+  - En `docs/curseforge/project_description.md`: misma atribución
+  - En `neoforge.mods.toml` en el campo `credits` si aplica
+  - La atribución no justifica mantener código muerto, clases renombradas mal o assets huérfanos
 
 ## Idioma
 
 | Ámbito | Idioma |
 |---|---|
 | Código fuente, logs, nombres técnicos, commits | **Inglés** (en-US) — estándar de programación |
-| Documentación interna, GitLab (README, CHANGELOG) | **Castellano** (es-ES) |
+| README.md | **Inglés** (en-US) — puerta de entrada pública del proyecto (GitHub) |
+| Documentación interna (docs/, CHANGELOG, WORKFLOW) | **Castellano** (es-ES) |
 | CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) — plataforma global |
 
-El código, los logs y los commits siguen el estándar internacional de programación en inglés. La documentación interna y el repositorio se mantienen en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
+El código, los logs y los commits siguen el estándar internacional de programación en inglés. El README debe estar en inglés por ser la primera impresión del proyecto en GitHub. La documentación interna se mantiene en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
