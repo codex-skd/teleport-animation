@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.0-beta.18 (2026-07-19)
+
+- fix: declare Waystones as project-level embedded dependency on CurseForge
+
+## 0.0.0-beta.17 (2026-07-19)
+
+- fix: declare Waystones as requiredDependency in CurseForge upload metadata
+
 ## 0.0.0-beta.16 (2026-07-19)
 
 - feat: add Waystones JAR as compile dependency
