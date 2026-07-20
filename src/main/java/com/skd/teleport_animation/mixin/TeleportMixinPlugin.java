@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Set;
 
 public final class TeleportMixinPlugin implements IMixinConfigPlugin {
-    private static final String JOURNEYMAP_MIXIN = "com.skd.teleport_animation.mixin.JourneyMapClientNetworkDispatcherMixin";
     private static final String VOXY_CLIENT_MIXIN = "com.skd.teleport_animation.mixin.VoxyClientMixin";
     private static final String DISTANT_HORIZONS_RENDER_UTIL_MIXIN = "com.skd.teleport_animation.mixin.DistantHorizonsRenderUtilMixin";
     private static final String WAYSTONES_WARP_PLATE_MIXIN = "com.skd.teleport_animation.mixin.WaystonesWarpPlateBlockEntityMixin";
@@ -26,9 +25,6 @@ public final class TeleportMixinPlugin implements IMixinConfigPlugin {
     }
 
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
-        if (mixinClassName.equals(JOURNEYMAP_MIXIN)) {
-            return isModLoaded("journeymap");
-        }
         if (mixinClassName.equals(VOXY_CLIENT_MIXIN)) {
             return isModLoaded("voxy");
         }
