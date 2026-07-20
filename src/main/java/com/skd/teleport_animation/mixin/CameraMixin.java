@@ -2,8 +2,7 @@ package com.skd.teleport_animation.mixin;
 
 import com.skd.teleport_animation.TeleportTransitionController;
 import net.minecraft.client.Camera;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.BlockGetter;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,22 +11,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = Camera.class, priority = 3000)
 public abstract class CameraMixin {
-    @Inject(method = "setup", at = {
-        @At(value = "INVOKE", target = "Lnet/minecraft/client/Camera;move(DDD)V", ordinal = 0, shift = At.Shift.BEFORE),
-        @At(value = "INVOKE", target = "Lnet/minecraft/client/Camera;move(DDD)V", ordinal = 1, shift = At.Shift.BEFORE)
-    }, cancellable = true, require = 0)
-    private void teleportAnimation$preemptLeawindThirdPersonCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
-        if (TeleportTransitionController.shouldPreemptLeawindThirdPersonCamera() && this.teleportAnimation$applyCameraFrame(tickProgress)) {
-            ci.cancel();
-        }
+    @Inject(method = "extractRenderState", at = @At("TAIL"), remap = false)
+    private void teleportAnimation$overrideCamera(CameraRenderState renderState, float partialTicks, CallbackInfo ci) {
+        this.teleportAnimation$applyCameraFrame(renderState, partialTicks);
     }
 
-    @Inject(method = "setup", at = @At("TAIL"))
-    private void teleportAnimation$overrideCamera(BlockGetter level, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickProgress, CallbackInfo ci) {
-        this.teleportAnimation$applyCameraFrame(tickProgress);
-    }
-
-    private boolean teleportAnimation$applyCameraFrame(float tickProgress) {
+    private boolean teleportAnimation$applyCameraFrame(CameraRenderState renderState, float tickProgress) {
         TeleportTransitionController.CameraFrame frame = TeleportTransitionController.getCameraFrame(tickProgress);
         if (frame == null) {
             return false;
@@ -44,6 +33,9 @@ public abstract class CameraMixin {
         CameraAccessor accessor = (CameraAccessor) (Object) this;
         accessor.teleportAnimation$setPosition(cameraPos);
         accessor.teleportAnimation$setRotation(preserveLiveRotation ? liveYaw : frame.yaw(), preserveLiveRotation ? livePitch : frame.pitch());
+        renderState.pos = cameraPos;
+        renderState.xRot = preserveLiveRotation ? livePitch : frame.pitch();
+        renderState.yRot = preserveLiveRotation ? liveYaw : frame.yaw();
         if (!TeleportTransitionController.shouldApplyPostReleaseCameraOverrideAfterLeawind()) {
             TeleportTransitionController.rememberTransitionCameraPosition(cameraPos, vanillaCameraPos, preserveLiveRotation ? Float.NaN : liveYaw, preserveLiveRotation ? Float.NaN : livePitch);
             TeleportTransitionController.requestTerrainVisibilityUpdate(cameraPos);

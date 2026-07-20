@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.0-beta.21 (2026-07-21)
+
+- fix: update all client mixins for MC 26.1.2 rendering pipeline (Camera.setup → extractRenderState, etc.)
+- fix: use remap=false on all @Inject targets to fix Mixin AP obfuscation mapping errors
+- fix: Camera override now writes to CameraRenderState directly for render pipeline compatibility
+- fix: EntityRenderer uses shouldRender() instead of removed render() on EntityRenderDispatcher
+- fix: LevelRenderer.renderLevel signature updated to 9-param MC 26.1.2 version
+- fix: ScreenEffectRenderer, KeyboardInput, MouseHandler signatures updated for MC 26.1.2
+- fix: EntityMixin and ServerPlayerMixin dead code paths cleaned (imports fixed, bodies removed)
+
 ## 0.0.0-beta.20 (2026-07-19)
 
 - change: animation now only plays for Waystones teleports (no /tp or other teleports)

@@ -21,7 +21,7 @@ abstract class FrustumMixin {
     @Unique
     private static boolean teleportAnimation$lookupFailed;
 
-    @Inject(method = "prepare", at = @At("TAIL"))
+    @Inject(method = "prepare", at = @At("TAIL"), remap = false)
     private void teleportAnimation$useTransitionCameraPosition(double camX, double camY, double camZ, CallbackInfo ci) {
         Vec3 cameraPos = TeleportTransitionController.getTransitionCameraPositionForRendering();
         if (cameraPos == null || !FrustumMixin.teleportAnimation$ensureFields(this.getClass())) {

@@ -7,9 +7,9 @@ import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(Camera.class)
 public interface CameraAccessor {
-    @Invoker("setPosition")
+    @Invoker(value = "setPosition", remap = false)
     void teleportAnimation$setPosition(Vec3 pos);
 
-    @Invoker("setRotation")
+    @Invoker(value = "setRotation", remap = false)
     void teleportAnimation$setRotation(float yaw, float pitch);
 }
