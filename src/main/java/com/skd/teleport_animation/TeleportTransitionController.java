@@ -43,7 +43,6 @@ import com.skd.teleport_animation.TeleportClient;
 import com.skd.teleport_animation.TeleportConfig;
 import com.skd.teleport_animation.IrisCompat;
 import com.skd.teleport_animation.SodiumCompat;
-import com.skd.teleport_animation.TeleportDestinationParser;
 import com.skd.teleport_animation.TeleportSounds;
 import com.skd.teleport_animation.VoxyCompat;
 import java.lang.reflect.Field;
@@ -199,15 +198,6 @@ public final class TeleportTransitionController {
     private static boolean needsStateReset = true;
 
     private TeleportTransitionController() {
-    }
-
-    static void start(Minecraft client, String command) {
-        LocalPlayer player = client.player;
-        if (player == null) {
-            return;
-        }
-        boolean stablePlannedTarget = !TeleportDestinationParser.usesRelativeCoordinates(command) || TeleportConfig.isPlayerFreezeEnabled();
-        TeleportTransitionController.start(client, TeleportDestinationParser.parse(command, player), TeleportDestinationParser.parseDimension(command), () -> TeleportClient.sendDeferredCommand(command), true, stablePlannedTarget, 0);
     }
 
     static void start(Minecraft client, Vec3 plannedTarget, Runnable action) {

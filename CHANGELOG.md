@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.0-beta.20 (2026-07-19)
+
+- change: animation now only plays for Waystones teleports (no /tp or other teleports)
+- fix: restore all client mixins (CameraMixin, KeyboardInputMixin, MouseHandlerMixin, etc.)
+- fix: register Waystones mixins in mixins.json so they actually load
+- fix: disable generic server-side teleport interception (tryDelayExternalTeleport returns false)
+- chore: remove CommandMatcher, DestinationParser, ClientPacketListenerMixin, ConnectionMixin
+
 ## 0.0.0-beta.19 (2026-07-19)
 
 - fix: restore template to src/main/templates/ so generateModMetadata expands version correctly

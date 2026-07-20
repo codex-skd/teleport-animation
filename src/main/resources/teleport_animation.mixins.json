@@ -6,9 +6,25 @@
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "ServerPlayerMixin",
-    "EntityMixin"
+    "EntityMixin",
+    "WaystonesPlayerWaystoneManagerMixin",
+    "WaystonesWarpPlateBlockEntityMixin",
+    "DistantHorizonsRenderUtilMixin",
+    "LeawindThirdPersonEventsNeoForgeMixin",
+    "LeawindThirdPersonLegacyMixin",
+    "LeawindThirdPersonImplMixin"
   ],
   "client": [
+    "CameraAccessor",
+    "CameraMixin",
+    "KeyboardInputMixin",
+    "MouseHandlerMixin",
+    "EntityRendererMixin",
+    "ScreenEffectRendererMixin",
+    "FrustumMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "VoxyClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

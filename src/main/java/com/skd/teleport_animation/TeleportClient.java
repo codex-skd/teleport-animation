@@ -1,28 +1,16 @@
 package com.skd.teleport_animation;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.ParseResults;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
-import com.mojang.brigadier.context.CommandContextBuilder;
-import io.netty.buffer.Unpooled;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientPacketListener;
-import net.minecraft.client.multiplayer.ClientSuggestionProvider;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import io.netty.buffer.Unpooled;
-import net.minecraft.network.Connection;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.Packet;
-import net.minecraft.network.protocol.common.ServerboundCustomPayloadPacket;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.phys.Vec3;
 
 import java.lang.reflect.Method;
@@ -34,9 +22,6 @@ import java.util.UUID;
 public final class TeleportClient {
     private static final String[] COMMAND_ALIASES = new String[]{"ta", "tpanimation"};
     private static final String USAGE_MESSAGE = "Usage: /ta or /tpanimation on|off|status|player_freeze <on|off|status>";
-    private static boolean bypassNextCommand;
-    private static boolean bypassNextPacket;
-    private static boolean bypassNextJourneyMapTeleport;
     private static boolean openConfigScreenNextTick;
 
     private TeleportClient() {
@@ -78,68 +63,6 @@ public final class TeleportClient {
         return 1;
     }
 
-    public static boolean interceptOutgoingCommand(String command) {
-        if (bypassNextCommand) {
-            return true;
-        }
-        Minecraft client = Minecraft.getInstance();
-        if (handleGtaTeleportCommand(client, command)) {
-            return false;
-        }
-        if (!TeleportConfig.isEffectEnabled()) {
-            return true;
-        }
-        if (!TeleportCommandMatcher.isTeleportCommand(command) || client.player == null || client.getConnection() == null) {
-            return true;
-        }
-        if (!canExecuteServerCommand(client, command)) {
-            return true;
-        }
-        if (TeleportTransitionController.isRunning()) {
-            return true;
-        }
-        TeleportTransitionController.start(client, command);
-        return false;
-    }
-
-    public static boolean interceptOutgoingPacket(Connection connection, Packet<?> packet, Object listener) {
-        if (bypassNextPacket) {
-            return true;
-        }
-        PacketTeleportTarget teleportTarget = getTeleportPacketTarget(packet);
-        if (teleportTarget == null) {
-            return true;
-        }
-        Minecraft client = Minecraft.getInstance();
-        if (!TeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
-            return true;
-        }
-        if (TeleportTransitionController.isRunning()) {
-            return true;
-        }
-        TeleportTransitionController.start(client, teleportTarget.targetFeet(), teleportTarget.targetDimensionId(), () -> sendDeferredPacket(connection, packet), !teleportTarget.keepMenuOpen());
-        return false;
-    }
-
-    public static boolean interceptJourneyMapTeleport(Vec3 targetFeet, Runnable action) {
-        return interceptJourneyMapTeleport(targetFeet, null, action);
-    }
-
-    public static boolean interceptJourneyMapTeleport(Vec3 targetFeet, String targetDimensionId, Runnable action) {
-        if (bypassNextJourneyMapTeleport) {
-            return true;
-        }
-        Minecraft client = Minecraft.getInstance();
-        if (!TeleportConfig.isEffectEnabled() || client.player == null || client.level == null || client.getConnection() == null) {
-            return true;
-        }
-        if (TeleportTransitionController.isRunning()) {
-            return true;
-        }
-        TeleportTransitionController.start(client, targetFeet, targetDimensionId, () -> sendDeferredJourneyMapTeleport(action));
-        return false;
-    }
-
     static void handleServerTeleportRequest(TeleportNetworkPayloads.StartServerTeleportPayload payload) {
         Minecraft client = Minecraft.getInstance();
         if (!shouldPlayServerTeleportTransition(client, payload.source())) {
@@ -160,85 +83,15 @@ public final class TeleportClient {
         if (source == 2) {
             return TeleportConfig.isWarpPlateTransitionsEnabled();
         }
-        return TeleportConfig.isExternalTeleportTransitionsEnabled();
+        return true;
     }
 
-    static void sendDeferredCommand(String command) {
-        Minecraft client = Minecraft.getInstance();
-        if (client.getConnection() == null) {
-            return;
-        }
-        TeleportClientNetworking.sendBypassNextServerTeleport();
-        bypassNextCommand = true;
+    // ---- Waystones target resolution (used by WaystonesTeleportHandler) ----
+
+    static WaystoneTarget getWaystonesSelectedTarget(UUID waystoneUid) {
         try {
-            client.getConnection().sendCommand(command);
-        }
-        finally {
-            bypassNextCommand = false;
-        }
-    }
-
-    private static void sendDeferredPacket(Connection connection, Packet<?> packet) {
-        TeleportClientNetworking.sendBypassNextServerTeleport();
-        bypassNextPacket = true;
-        try {
-            connection.send(packet);
-        }
-        finally {
-            bypassNextPacket = false;
-        }
-    }
-
-    private static void sendDeferredJourneyMapTeleport(Runnable action) {
-        TeleportClientNetworking.sendBypassNextServerTeleport();
-        bypassNextJourneyMapTeleport = true;
-        try {
-            action.run();
-        }
-        finally {
-            bypassNextJourneyMapTeleport = false;
-        }
-    }
-
-    private static PacketTeleportTarget getTeleportPacketTarget(Packet<?> packet) {
-        return null;
-    }
-
-    private static PacketTeleportTarget getJourneyMapTeleportTarget(FriendlyByteBuf payload, Identifier id) {
-        if (!id.getNamespace().equals("journeymap") || !id.getPath().equals("teleport_req")) {
-            return null;
-        }
-        try {
-            Vec3 targetFeet = new Vec3(payload.readDouble(), payload.readDouble(), payload.readDouble());
-            String dimension = payload.isReadable() ? DimensionIds.normalize(payload.readUtf(Short.MAX_VALUE)) : null;
-            return new PacketTeleportTarget(targetFeet, dimension, false);
-        }
-        catch (RuntimeException ignored) {
-            return null;
-        }
-    }
-
-    private static PacketTeleportTarget getWaystonesTeleportTarget(FriendlyByteBuf payload, Identifier id) {
-        if (!id.getNamespace().equals("waystones")) {
-            return null;
-        }
-        if (id.getPath().equals("select_waystone")) {
-            WaystoneTarget target = getWaystonesSelectedTarget(payload);
-            return target == null ? null : new PacketTeleportTarget(target.targetFeet(), target.targetDimensionId(), true);
-        }
-        if (id.getPath().equals("inventory_button")) {
-            WaystoneTarget target = getWaystonesInventoryButtonTarget();
-            return target == null ? null : new PacketTeleportTarget(target.targetFeet(), target.targetDimensionId(), false);
-        }
-        return null;
-    }
-
-    private static WaystoneTarget getWaystonesSelectedTarget(FriendlyByteBuf payload) {
-        try {
-            UUID waystoneUid = payload.readUUID();
             Minecraft client = Minecraft.getInstance();
-            AbstractContainerMenu menu = client.player == null ? null : client.player.containerMenu;
-            WaystoneTarget menuTarget = findWaystoneTargetInMenu(menu, waystoneUid);
+            WaystoneTarget menuTarget = findWaystoneTargetInMenu(client.player == null ? null : client.player.containerMenu, waystoneUid);
             return menuTarget != null ? menuTarget : findWaystoneTargetInStore(waystoneUid);
         }
         catch (ReflectiveOperationException | RuntimeException ignored) {
@@ -246,7 +99,7 @@ public final class TeleportClient {
         }
     }
 
-    private static WaystoneTarget getWaystonesInventoryButtonTarget() {
+    static WaystoneTarget getWaystonesInventoryButtonTarget() {
         Minecraft client = Minecraft.getInstance();
         if (client.player == null) {
             return null;
@@ -319,42 +172,7 @@ public final class TeleportClient {
         }
     }
 
-    private static boolean canExecuteServerCommand(Minecraft client, String command) {
-        ClientPacketListener networkHandler = client.getConnection();
-        if (networkHandler == null) return false;
-        String normalized = normalizeCommand(command);
-        if (normalized.isEmpty()) return false;
-        ParseResults<ClientSuggestionProvider> parseResults = networkHandler.getCommands().parse(normalized, networkHandler.getSuggestionsProvider());
-        return !parseResults.getReader().canRead() && hasExecutableCommand(parseResults.getContext());
-    }
-
-    private static boolean hasExecutableCommand(CommandContextBuilder<?> context) {
-        for (CommandContextBuilder<?> current = context; current != null; current = current.getChild()) {
-            if (current.getCommand() == null) continue;
-            return true;
-        }
-        return false;
-    }
-
-    private static String normalizeCommand(String command) {
-        String normalized = command.strip();
-        if (normalized.startsWith("/")) {
-            normalized = normalized.substring(1).stripLeading();
-        }
-        return normalized;
-    }
-
-    private static String getLocalCommandName(String normalized) {
-        int end;
-        for (end = 0; end < normalized.length() && !Character.isWhitespace(normalized.charAt(end)); end++) {
-        }
-        String commandName = normalized.substring(0, end).toLowerCase(Locale.ROOT);
-        for (String alias : COMMAND_ALIASES) {
-            if (!commandName.equals(alias)) continue;
-            return normalized.substring(0, end);
-        }
-        return null;
-    }
+    // ---- Local mod commands (/ta, /tpanimation) ----
 
     private static boolean handleGtaTeleportCommand(Minecraft client, String command) {
         String normalized = command.stripLeading();
@@ -403,6 +221,18 @@ public final class TeleportClient {
         return true;
     }
 
+    private static String getLocalCommandName(String normalized) {
+        int end;
+        for (end = 0; end < normalized.length() && !Character.isWhitespace(normalized.charAt(end)); end++) {
+        }
+        String commandName = normalized.substring(0, end).toLowerCase(Locale.ROOT);
+        for (String alias : COMMAND_ALIASES) {
+            if (!commandName.equals(alias)) continue;
+            return normalized.substring(0, end);
+        }
+        return null;
+    }
+
     private static void sendCommandFeedback(Minecraft client, boolean enabled, boolean saved) {
         sendFeedback(client, createStateFeedback(enabled, saved, saved ? ChatFormatting.GREEN : ChatFormatting.YELLOW));
     }
@@ -425,9 +255,6 @@ public final class TeleportClient {
         }
     }
 
-    private record PacketTeleportTarget(Vec3 targetFeet, String targetDimensionId, boolean keepMenuOpen) {
-    }
-
-    private record WaystoneTarget(Vec3 targetFeet, String targetDimensionId) {
+    record WaystoneTarget(Vec3 targetFeet, String targetDimensionId) {
     }
 }
