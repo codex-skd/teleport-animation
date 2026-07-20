@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.1] - 2026-07-19
+
+### Changed
+- Waystones is now a forced required dependency (mod loading + CurseForge auto-install)
+- Updated description to clarify mod is Waystones-only
+
 ## [1.0.0] - 2026-07-19
 
 ### Added
