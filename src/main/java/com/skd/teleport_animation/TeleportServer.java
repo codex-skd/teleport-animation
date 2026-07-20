@@ -4,7 +4,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Relative;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
@@ -24,8 +23,8 @@ public final class TeleportServer {
         TeleportConfig.load();
     }
 
-    public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel level, double x, double y, double z,
-                                                   Set<Relative> relatives, float yaw, float pitch, boolean resetCamera) {
+public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel level, double x, double y, double z,
+                                                    Set<?> relatives, float yaw, float pitch, boolean resetCamera) {
         return false;
     }
 

@@ -21,7 +21,7 @@ public final class TeleportMixinPlugin implements IMixinConfigPlugin {
     }
 
     public String getRefMapperConfig() {
-        return null;
+        return "teleport_animation.refmap.json";
     }
 
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
