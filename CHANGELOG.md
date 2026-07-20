@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.19 (2026-07-19)
+
+- fix: restore template to src/main/templates/ so generateModMetadata expands version correctly
+
 ## 0.0.0-beta.18 (2026-07-19)
 
 - fix: declare Waystones as project-level embedded dependency on CurseForge
