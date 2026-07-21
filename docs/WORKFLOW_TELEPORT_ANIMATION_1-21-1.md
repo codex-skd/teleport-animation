@@ -1,7 +1,9 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW.md`.
+> **Versión del workflow**: 1.0.0 (codex-docs)
+> Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
+> Para actualizar este workflow, revisar la última versión en `codex-docs/WORKFLOW_GENERIC.md`.
 
 ## Convenciones de nomenclatura
 
@@ -185,8 +187,8 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 
 | Rama | Versión |
 |---|---|
-| `minecraft/1.21.1/neoforge-21.1.238/production` | Trabajo diario en Minecraft 1.21.1 |
-| `minecraft/1.21.1/neoforge-21.1.238/main` | Código público para GitHub (misma versión) |
+| `minecraft/1.21.1/neoforge-21.1.235/production` | Trabajo diario en Minecraft 1.21.1 |
+| `minecraft/1.21.1/neoforge-21.1.235/main` | Código público para GitHub (misma versión) |
 
 ### Esquema de publicación
 
@@ -215,10 +217,10 @@ Al crear una nueva rama `production` para una versión, su hermana `main` debe e
 
 ```bash
 # Crear la rama main desde production (solo la primera vez)
-git checkout minecraft/1.21.1/neoforge-21.1.238/production
-git checkout -b minecraft/1.21.1/neoforge-21.1.238/main
-git push origin minecraft/1.21.1/neoforge-21.1.238/main
-git checkout minecraft/1.21.1/neoforge-21.1.238/production
+git checkout minecraft/1.21.1/neoforge-21.1.235/production
+git checkout -b minecraft/1.21.1/neoforge-21.1.235/main
+git push origin minecraft/1.21.1/neoforge-21.1.235/main
+git checkout minecraft/1.21.1/neoforge-21.1.235/production
 ```
 
 Esto solo se hace **una vez por versión**. A partir de ahí el CI/CD se encarga de mantenerla actualizada con force push.
@@ -362,10 +364,10 @@ Cada vez que se hace push a una rama `production`, GitLab CI ejecuta automática
 Antes de que el CI/CD funcione, la rama `*/main` hermana debe existir al menos una vez en el remoto:
 
 ```bash
-git checkout minecraft/1.21.1/neoforge-21.1.238/production
-git checkout -b minecraft/1.21.1/neoforge-21.1.238/main
-git push origin minecraft/1.21.1/neoforge-21.1.238/main
-git checkout minecraft/1.21.1/neoforge-21.1.238/production
+git checkout minecraft/1.21.1/neoforge-21.1.235/production
+git checkout -b minecraft/1.21.1/neoforge-21.1.235/main
+git push origin minecraft/1.21.1/neoforge-21.1.235/main
+git checkout minecraft/1.21.1/neoforge-21.1.235/production
 ```
 
 Si no se hace, el pipeline fallará al no encontrar la rama `*/main` en el remoto. Esto solo se hace **una vez por versión**.
@@ -448,7 +450,7 @@ publish-public:
 
 ```bash
 # Situarse en la rama de la versión correspondiente
-git checkout minecraft/1.21.1/neoforge-21.1.238/production
+git checkout minecraft/1.21.1/neoforge-21.1.235/production
 
 # Hacer cambios en el código
 # Compilar para verificar

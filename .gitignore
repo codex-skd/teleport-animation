@@ -39,3 +39,4 @@ run/
 repo/
 !**/src/**/repo/
 lib_ext/
+temp/

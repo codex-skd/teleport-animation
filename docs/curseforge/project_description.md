@@ -66,7 +66,7 @@
 
 <ul>
 <li>Minecraft: 1.21.1</li>
-<li>NeoForge: 21.1.238+</li>
+<li>NeoForge: 21.1.235+</li>
 <li>Java 21+</li>
 </ul>
 
