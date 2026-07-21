@@ -6,7 +6,6 @@
   "refmap": "teleport_animation.refmap.json",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "ServerPlayerMixin",
     "EntityMixin",
     "WaystonesPlayerWaystoneManagerMixin",
     "WaystonesWarpPlateBlockEntityMixin",

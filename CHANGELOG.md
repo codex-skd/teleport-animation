@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.23 (2026-07-21)
+
+- fix: remove ServerPlayerMixin teleportTo/changeDimension injects (handled by EntityMixin) to fix startup crash
+
 ## 0.0.0-beta.22 (2026-07-21)
 
 - fix: correct EntityMixin/ServerPlayerMixin teleportTo descriptor (8 params, returns boolean) to fix startup crash
