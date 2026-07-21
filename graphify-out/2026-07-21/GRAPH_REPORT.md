@@ -1,11 +1,11 @@
 # Graph Report - teleport_animation-26.1.2  (2026-07-21)
 
 ## Corpus Check
-- 71 files · ~94,140 words
+- 75 files · ~94,383 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 950 nodes · 2097 edges · 62 communities (57 shown, 5 thin omitted)
+- 950 nodes · 2087 edges · 62 communities (54 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -19,6 +19,7 @@
 - Flujo de trabajo — Teleport Animation (NeoForge)
 - TeleportClient
 - LocalPlayer
+- TeleportTransitionController
 - Changelog
 - LevelRendererMixin.java
 - .getCameraFrame
@@ -29,6 +30,7 @@
 - ZoomDimension
 - TeleportMixinPlugin
 - Teleport Animation
+- .enterBodyFrame
 - .getTravelEndTick
 - FrustumMixin.java
 - Teleport Animation 0.0.0-beta.2
@@ -47,15 +49,13 @@
 - ServerPlayerMixin.java
 - DistantHorizonsRenderUtilMixin.java
 - LeawindThirdPersonImplMixin.java
-- LeawindThirdPersonLegacyMixin.java
 - VoxyClientMixin.java
-- KeyboardInputMixin.java
 
 ## God Nodes (most connected - your core abstractions)
 1. `TeleportTransitionController` - 260 edges
 2. `TeleportConfig` - 122 edges
-3. `TeleportClient` - 21 edges
-4. `Changelog` - 21 edges
+3. `Changelog` - 23 edges
+4. `TeleportClient` - 21 edges
 5. `CameraFrame` - 18 edges
 6. `TeleportServer` - 14 edges
 7. `ZoomDimension` - 13 edges
@@ -71,14 +71,14 @@
 - `TeleportTransitionController` --references--> `CameraFrame`  [EXTRACTED]
   src/main/java/com/skd/teleport_animation/TeleportTransitionController.java → src/main/java/com/skd/teleport_animation/TeleportTransitionController.java  _Bridges community 28 → community 15_
 - `TeleportTransitionController` --references--> `Vec3`  [EXTRACTED]
-  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 28 → community 9_
+  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 28 → community 27_
 - `CameraFrame` --references--> `Vec3`  [EXTRACTED]
-  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 9 → community 15_
+  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 27 → community 15_
 
 ## Import Cycles
 - None detected.
 
-## Communities (62 total, 5 thin omitted)
+## Communities (62 total, 8 thin omitted)
 
 ### Community 1 - "TeleportServer"
 Cohesion: 0.09
@@ -108,13 +108,9 @@ Nodes (41): 1. Desarrollo, 2. Copiar a instancia de pruebas, 3. Probar en instan
 Cohesion: 0.08
 Nodes (17): CameraType, ChatFormatting, CommandDispatcher, CommandSourceStack, Component, EventBusSubscriber, FMLClientSetupEvent, RegisterClientCommandsEvent (+9 more)
 
-### Community 9 - "LocalPlayer"
-Cohesion: 0.06
-Nodes (6): LocalPlayer, SodiumCompat, BodyCameraHeights, Camera, Minecraft, Vec3
-
 ### Community 13 - "Changelog"
-Cohesion: 0.08
-Nodes (25): 0.0.0-beta.10 (2026-07-13), 0.0.0-beta.11 (2026-07-14), 0.0.0-beta.12 (2026-07-14), 0.0.0-beta.13 (2026-07-14), 0.0.0-beta.14 (2026-07-14), 0.0.0-beta.15 (2026-07-16), 0.0.0-beta.16 (2026-07-19), 0.0.0-beta.17 (2026-07-19) (+17 more)
+Cohesion: 0.07
+Nodes (27): 0.0.0-beta.10 (2026-07-13), 0.0.0-beta.11 (2026-07-14), 0.0.0-beta.12 (2026-07-14), 0.0.0-beta.13 (2026-07-14), 0.0.0-beta.14 (2026-07-14), 0.0.0-beta.15 (2026-07-16), 0.0.0-beta.16 (2026-07-19), 0.0.0-beta.17 (2026-07-19) (+19 more)
 
 ### Community 14 - "LevelRendererMixin.java"
 Cohesion: 0.11
@@ -125,12 +121,12 @@ Cohesion: 0.19
 Nodes (10): CallbackInfoReturnable, Inject, Mixin, Pseudo, WaystonesPlayerWaystoneManagerMixin, Entity, Level, ResourceKey (+2 more)
 
 ### Community 18 - "TeleportStepEffectRenderer"
-Cohesion: 0.17
+Cohesion: 0.12
 Nodes (7): GuiGraphicsExtractor, GameRendererMixin, Mixin, GuiMixin, Mixin, Vec3, TeleportStepEffectRenderer
 
 ### Community 20 - "KeyboardInputMixin.java"
-Cohesion: 0.44
-Nodes (5): MouseButtonInfo, CallbackInfo, Inject, Mixin, MouseHandlerMixin
+Cohesion: 0.20
+Nodes (9): MouseButtonInfo, CallbackInfo, Inject, Mixin, KeyboardInputMixin, CallbackInfo, Inject, Mixin (+1 more)
 
 ### Community 22 - "CurseForge — Variables del proyecto"
 Cohesion: 0.14
@@ -148,8 +144,12 @@ Nodes (4): ClassNode, IMixinConfigPlugin, IMixinInfo, TeleportMixinPlugin
 Cohesion: 0.18
 Nodes (10): Building from source, Configuration, Credits, Features, Installation, Integrations, License, Requirements (+2 more)
 
+### Community 27 - ".enterBodyFrame"
+Cohesion: 0.10
+Nodes (3): LocalPlayer, Camera, Vec3
+
 ### Community 29 - "FrustumMixin.java"
-Cohesion: 0.18
+Cohesion: 0.20
 Nodes (11): Frustum, EntityRendererMixin, CallbackInfoReturnable, Inject, Mixin, FrustumMixin, CallbackInfo, Field (+3 more)
 
 ### Community 32 - "Teleport Animation 0.0.0-beta.2"
@@ -196,49 +196,37 @@ Nodes (3): gradlew script, die(), warn()
 Cohesion: 0.42
 Nodes (6): EntityMixin, CallbackInfoReturnable, Entity, Inject, Mixin, ServerLevel
 
-### Community 56 - "ServerPlayerMixin.java"
-Cohesion: 0.42
-Nodes (6): CallbackInfoReturnable, Inject, Mixin, ServerLevel, ServerPlayer, ServerPlayerMixin
-
 ### Community 58 - "DistantHorizonsRenderUtilMixin.java"
 Cohesion: 0.48
 Nodes (5): DistantHorizonsRenderUtilMixin, CallbackInfoReturnable, Inject, Mixin, Pseudo
 
 ### Community 59 - "LeawindThirdPersonImplMixin.java"
-Cohesion: 0.48
-Nodes (5): CallbackInfoReturnable, Inject, Mixin, Pseudo, LeawindThirdPersonImplMixin
-
-### Community 60 - "LeawindThirdPersonLegacyMixin.java"
-Cohesion: 0.48
-Nodes (5): CallbackInfoReturnable, Inject, Mixin, Pseudo, LeawindThirdPersonLegacyMixin
+Cohesion: 0.21
+Nodes (10): CallbackInfoReturnable, Inject, Mixin, Pseudo, LeawindThirdPersonImplMixin, CallbackInfoReturnable, Inject, Mixin (+2 more)
 
 ### Community 61 - "VoxyClientMixin.java"
 Cohesion: 0.48
 Nodes (5): CallbackInfoReturnable, Inject, Mixin, Pseudo, VoxyClientMixin
 
-### Community 62 - "KeyboardInputMixin.java"
-Cohesion: 0.53
-Nodes (4): CallbackInfo, Inject, Mixin, KeyboardInputMixin
-
 ## Knowledge Gaps
-- **107 isolated node(s):** `OVERWORLD`, `NETHER`, `END`, `0.0.0-beta.21 (2026-07-21)`, `0.0.0-beta.20 (2026-07-19)` (+102 more)
+- **109 isolated node(s):** `OVERWORLD`, `NETHER`, `END`, `0.0.0-beta.23 (2026-07-21)`, `0.0.0-beta.22 (2026-07-21)` (+104 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `TeleportTransitionController`, `.getFallbackTerrainSectionVisibility`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `.tick`, `.enterBodyFrame`, `FrustumMixin.java`, `ScreenEffectRendererMixin.java`?**
+- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `TeleportTransitionController`, `LeawindThirdPersonImplMixin.java`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.tick`, `.enterBodyFrame`, `FrustumMixin.java`, `ScreenEffectRendererMixin.java`?**
   _High betweenness centrality (0.309) - this node is a cross-community bridge._
-- **Why does `TeleportConfig` connect `TeleportConfig` to `TeleportServer`, `TeleportClient`, `Vec3`, `.getCameraFrame`, `.save`, `.tick`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `FrustumMixin.java`, `ScreenEffectRendererMixin.java`, `.load`?**
+- **Why does `TeleportConfig` connect `TeleportConfig` to `TeleportServer`, `TeleportClient`, `.getCameraFrame`, `.save`, `KeyboardInputMixin.java`, `.tick`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `ScreenEffectRendererMixin.java`, `.load`?**
   _High betweenness centrality (0.174) - this node is a cross-community bridge._
-- **Why does `TeleportClient` connect `TeleportClient` to `TeleportServer`, `StartServerTeleportPayload`, `.load`?**
+- **Why does `TeleportClient` connect `TeleportClient` to `StartServerTeleportPayload`?**
   _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `OVERWORLD`, `NETHER`, `END` to the rest of the system?**
-  _107 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _109 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `TeleportServer` be split into smaller, more focused modules?**
-  _Cohesion score 0.08562367864693446 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09059233449477352 - nodes in this community are weakly interconnected._
 - **Should `TeleportConfig` be split into smaller, more focused modules?**
-  _Cohesion score 0.044326241134751775 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
 - **Should `StartServerTeleportPayload` be split into smaller, more focused modules?**
   _Cohesion score 0.0797872340425532 - nodes in this community are weakly interconnected._
