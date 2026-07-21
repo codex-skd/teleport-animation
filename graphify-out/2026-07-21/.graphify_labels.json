@@ -50,18 +50,5 @@
   "48": "0.0.0-beta.18.md",
   "49": "0.0.0-beta.19.md",
   "50": "0.0.0-beta.20.md",
-  "51": "settings.gradle",
-  "52": ".start",
-  "53": ".tick",
-  "54": "Vec3",
-  "55": "EntityMixin.java",
-  "56": "ServerPlayerMixin.java",
-  "57": ".getFallbackTerrainSectionVisibility",
-  "58": "DistantHorizonsRenderUtilMixin.java",
-  "59": "LeawindThirdPersonImplMixin.java",
-  "60": "LeawindThirdPersonLegacyMixin.java",
-  "61": "VoxyClientMixin.java",
-  "62": "KeyboardInputMixin.java",
-  "63": "upload_beta21.py",
-  "64": "0.0.0-beta.21.md"
+  "51": "settings.gradle"
 }
