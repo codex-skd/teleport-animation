@@ -113,7 +113,12 @@ configurations {
 }
 
 dependencies {
+    annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
     implementation files("libs/waystones-neoforge-26.1.2-26.1.2.10.jar")
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs.add('-Amixin.outrefmap=' + project.layout.buildDirectory.get().file('classes/java/main/teleport_animation.refmap.json'))
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

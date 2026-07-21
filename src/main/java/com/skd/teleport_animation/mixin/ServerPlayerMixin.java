@@ -11,11 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(ServerPlayer.class)
 public abstract class ServerPlayerMixin {
     @Inject(method = "teleportTo", at = @At("HEAD"), cancellable = true, require = 0, remap = false)
-    private void ta$tp7(ServerLevel level, double x, double y, double z, java.util.Set<?> relatives, float yaw, float pitch, CallbackInfo ci) {
-    }
-
-    @Inject(method = "teleportTo", at = @At("HEAD"), cancellable = true, require = 0, remap = false)
-    private void ta$tp8(ServerLevel level, double x, double y, double z, java.util.Set<?> relatives, float yaw, float pitch, boolean resetCamera, CallbackInfo ci) {
+    private void ta$tp8(ServerLevel level, double x, double y, double z, java.util.Set<?> relatives, float yaw, float pitch, boolean resetCamera, CallbackInfoReturnable<Boolean> cir) {
     }
 
     @Inject(method = "changeDimension", at = @At("HEAD"), cancellable = true, require = 0, remap = false)
