@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.22 (2026-07-21)
+
+- fix: correct EntityMixin/ServerPlayerMixin teleportTo descriptor (8 params, returns boolean) to fix startup crash
+
 ## 0.0.0-beta.21 (2026-07-21)
 
 - fix: update all client mixins for MC 26.1.2 rendering pipeline (Camera.setup → extractRenderState, etc.)
