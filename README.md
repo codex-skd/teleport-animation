@@ -13,7 +13,7 @@ Adds a cinematic camera transition when the player teleports via **Waystones**.
 ## Requirements
 
 - Minecraft 1.21.1
-- NeoForge 21.1.238+
+- NeoForge 21.1.235+
 - [Waystones](https://curseforge.com/minecraft/mc-mods/waystones) (required dependency)
 
 ## Installation
