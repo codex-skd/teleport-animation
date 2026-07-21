@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.0-beta.24 (2026-07-21)
+
+- fix: update Waystones integration for new API (WaystoneTeleportManager.tryTeleport)
+- fix: move template to src/main/resources/templates/ per WORKFLOW_GENERIC
+- chore: remove nul, create temp/, update .gitignore
+- chore: rename mod_name from Grand Teleport to Teleport Animation
+- chore: update workflow version to 1.0.0
+
 ## 0.0.0-beta.23 (2026-07-21)
 
 - fix: remove ServerPlayerMixin teleportTo/changeDimension injects (handled by EntityMixin) to fix startup crash

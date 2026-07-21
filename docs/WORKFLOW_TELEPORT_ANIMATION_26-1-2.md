@@ -1,5 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
+> **Versión del workflow**: 1.0.0 (codex-docs)
 > Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 
