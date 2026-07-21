@@ -1,6 +1,5 @@
 package com.skd.teleport_animation;
 
-import com.mojang.datafixers.util.Either;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -9,59 +8,55 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.List;
 
 public final class WaystonesTeleportHandler {
-    private static final String PLAYER_WAYSTONE_MANAGER_CLASS = "net.blay09.mods.waystones.core.PlayerWaystoneManager";
-    private static final String WAYSTONE_TELEPORT_CONTEXT_CLASS = "net.blay09.mods.waystones.api.IWaystoneTeleportContext";
+    private static final String WAYSTONE_TELEPORT_MANAGER_CLASS = "net.blay09.mods.waystones.core.WaystoneTeleportManager";
+    private static final String WAYSTONE_TELEPORT_CONTEXT_CLASS = "net.blay09.mods.waystones.api.WaystoneTeleportContext";
+    private static final String WAYSTONE_TELEPORT_RESULT_CLASS = "net.blay09.mods.waystones.api.WaystoneTeleportResult";
 
     private WaystonesTeleportHandler() {
     }
 
     public static Object delayTeleportContext(Object context) {
-        ResourceKey<Level> finalTargetDimension;
-        Vec3 finalTargetFeet;
-        boolean scheduled;
         Entity entity = readEntity(context);
         if (!(entity instanceof ServerPlayer player)) {
             return null;
         }
-        Object destination = invokeNoArg(context, "getDestination");
-        Vec3 targetFeet = readDestinationLocation(destination);
-        ResourceKey<Level> targetDimension = readDestinationDimension(destination);
-        if (targetFeet == null) {
-            Object targetWaystone = invokeNoArg(context, "getTargetWaystone");
-            targetFeet = readWaystoneFeet(targetWaystone);
-            if (targetDimension == null) {
-                targetDimension = readWaystoneDimension(targetWaystone);
-            }
+        Object waystone = invokeNoArg(context, "getTargetWaystone");
+        if (waystone == null) {
+            return null;
         }
+        Vec3 targetFeet = readWaystoneFeet(waystone);
+        ResourceKey<Level> targetDimension = readWaystoneDimension(waystone);
         if (targetFeet == null) {
             return null;
         }
         if (targetDimension == null) {
             targetDimension = ((ServerLevel)player.level()).dimension();
         }
-        return (scheduled = TeleportServer.scheduleServerTransition(player, 3, finalTargetFeet = targetFeet, finalTargetDimension = targetDimension, () -> runWaystonesTeleport(context))) ? Either.left(List.of(player)) : null;
+        boolean scheduled = TeleportServer.scheduleServerTransition(player, 3, targetFeet, targetDimension, () -> runWaystonesTeleport(context));
+        if (!scheduled) {
+            return null;
+        }
+        return createEmptyTeleportResult();
+    }
+
+    private static Object createEmptyTeleportResult() {
+        try {
+            Class<?> resultClass = Class.forName(WAYSTONE_TELEPORT_RESULT_CLASS);
+            Constructor<?> constructor = resultClass.getConstructor(List.class);
+            return constructor.newInstance(List.of());
+        } catch (ReflectiveOperationException ignored) {
+            return null;
+        }
     }
 
     private static Entity readEntity(Object context) {
         Object result = invokeNoArg(context, "getEntity");
         return result instanceof Entity entity ? entity : null;
-    }
-
-    private static Vec3 readDestinationLocation(Object destination) {
-        Object result = invokeNoArg(destination, "getLocation");
-        return result instanceof Vec3 vec3 ? vec3 : null;
-    }
-
-    private static ResourceKey<Level> readDestinationDimension(Object destination) {
-        Object result = invokeNoArg(destination, "getLevel");
-        if (result instanceof ServerLevel level) {
-            return level.dimension();
-        }
-        return null;
     }
 
     private static Vec3 readWaystoneFeet(Object waystone) {
@@ -72,12 +67,11 @@ public final class WaystonesTeleportHandler {
         return null;
     }
 
+    @SuppressWarnings("unchecked")
     private static ResourceKey<Level> readWaystoneDimension(Object waystone) {
         Object result = invokeNoArg(waystone, "getDimension");
         if (result instanceof ResourceKey<?> key) {
-            @SuppressWarnings("unchecked")
-            ResourceKey<Level> dimension = (ResourceKey<Level>) key;
-            return dimension;
+            return (ResourceKey<Level>) key;
         }
         return null;
     }
@@ -89,20 +83,18 @@ public final class WaystonesTeleportHandler {
         try {
             Method method = target.getClass().getMethod(methodName);
             return method.invoke(target);
-        }
-        catch (ReflectiveOperationException ignored) {
+        } catch (ReflectiveOperationException ignored) {
             return null;
         }
     }
 
     private static void runWaystonesTeleport(Object context) {
         try {
-            Class<?> managerClass = Class.forName(PLAYER_WAYSTONE_MANAGER_CLASS);
+            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
             Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
             Method method = managerClass.getMethod("tryTeleport", contextClass);
             method.invoke(null, context);
-        }
-        catch (ReflectiveOperationException ignored) {
+        } catch (ReflectiveOperationException ignored) {
         }
     }
 }

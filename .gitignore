@@ -48,6 +48,7 @@ _extracted/
 compile_errors.txt
 errors.txt
 nul
+temp/
 
 ### Release notes ###
 *.zip
