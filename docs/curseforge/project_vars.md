@@ -1,5 +1,12 @@
 # CurseForge — Variables del proyecto
 
+> Variables en formato `key = value` para el script compartido `codex-docs/scripts/curseforge-upload.ps1`
+
+project_id = 1608291
+api_token = ee776b0a-ee95-4850-b554-06be02a8657f
+game_versions = Client, Server, 1.21.1, NeoForge
+release_type = release
+
 ## Proyecto
 
 | Variable | Valor |

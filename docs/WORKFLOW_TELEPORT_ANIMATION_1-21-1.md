@@ -1,6 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> **Versión del workflow**: 1.0.0 (codex-docs)
+> **Versión del workflow**: 1.1.0 (codex-docs)
 > Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 > Para actualizar este workflow, revisar la última versión en `codex-docs/WORKFLOW_GENERIC.md`.
@@ -412,7 +412,8 @@ publish-public:
     - sed -i 's/^mod_version=.*/mod_version=0.0.0/' gradle.properties
     - sed -i 's/^mod_group_id=.*/mod_group_id=com\.skd\.placeholder/' gradle.properties
     - sed -i 's/^mod_curseforge_project_id=.*/mod_curseforge_project_id=/' gradle.properties
-    - sed -i 's/^mod_curseforge_token=.*/mod_curseforge_token=/' gradle.properties
+    # Nota: el API token de CurseForge está en docs/curseforge/project_vars.md,
+    # no en gradle.properties. No se sanitiza aquí porque GitLab es privado.
 
     # Commit y push (force push a la rama /main hermana)
     - git add -A
@@ -515,6 +516,13 @@ git push origin 1.21.1-neoforge-beta.3
 # 8. PREGUNTAR: "¿Subir JAR a CurseForge ahora?"
 #    Solo subir si el usuario confirma.
 #    El JAR está en build/libs/teleport_animation-1.21.1-neoforge-<version>.jar
+
+# 9. Subir a CurseForge usando el script compartido
+#    powershell -File ../codex-docs/scripts/curseforge-upload.ps1
+#
+#    Este script lee project_vars.md (project_id, api_token) y gradle.properties
+#    (mod_id, mod_name, mod_version) y sube el JAR automáticamente.
+#    Es el mismo script para todos los mods, vive en codex-docs.
 ```
 
 ### 5. Release estable
@@ -547,6 +555,13 @@ git push
 ```
 
 > **Nota**: El grafo permite a los asistentes de IA entender la arquitectura del mod sin leer todo el código fuente, reduciendo el consumo de tokens hasta 71×.
+
+## Historial de versiones del workflow
+
+| Versión | Fecha | Cambios |
+|---|---|---|
+| 1.1.0 | 2026-07-21 | CI: eliminado `mod_curseforge_token` (nunca en gradle.properties). Script: displayName usa `mod_name`. Workflow: añadido paso de subida con el script compartido |
+| 1.0.0 | 2026-07-21 | Versión inicial |
 
 ---
 
