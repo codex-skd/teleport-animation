@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.26 (2026-07-22)
+
+- chore: add diagnostic logging to WaystonesTeleportHandler and TeleportServer
+- chore: update mod_description to reflect Waystones-only scope
+
 ## 0.0.0-beta.25 (2026-07-21)
 
 - fix: @Pseudo mixin method matching without explicit descriptors for WaystoneTeleportManager

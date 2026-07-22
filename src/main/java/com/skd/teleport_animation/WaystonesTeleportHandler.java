@@ -1,5 +1,6 @@
 package com.skd.teleport_animation;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -7,12 +8,14 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.List;
 
 public final class WaystonesTeleportHandler {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private static final String WAYSTONE_TELEPORT_MANAGER_CLASS = "net.blay09.mods.waystones.core.WaystoneTeleportManager";
     private static final String WAYSTONE_TELEPORT_CONTEXT_CLASS = "net.blay09.mods.waystones.api.WaystoneTeleportContext";
     private static final String WAYSTONE_TELEPORT_RESULT_CLASS = "net.blay09.mods.waystones.api.WaystoneTeleportResult";
@@ -21,23 +24,36 @@ public final class WaystonesTeleportHandler {
     }
 
     public static Object delayTeleportContext(Object context) {
+        LOGGER.info("GTP delayTeleportContext called, context class: {}", context.getClass().getName());
         Entity entity = readEntity(context);
-        if (!(entity instanceof ServerPlayer player)) {
+        if (entity == null) {
+            LOGGER.info("GTP readEntity returned null");
             return null;
         }
+        if (!(entity instanceof ServerPlayer player)) {
+            LOGGER.info("GTP entity not ServerPlayer: {}", entity.getClass().getName());
+            return null;
+        }
+        LOGGER.info("GTP player: {}", player.getScoreboardName());
         Object waystone = invokeNoArg(context, "getTargetWaystone");
         if (waystone == null) {
+            LOGGER.info("GTP getTargetWaystone returned null");
             return null;
         }
+        LOGGER.info("GTP waystone type: {}", waystone.getClass().getName());
         Vec3 targetFeet = readWaystoneFeet(waystone);
-        ResourceKey<Level> targetDimension = readWaystoneDimension(waystone);
         if (targetFeet == null) {
+            LOGGER.info("GTP readWaystoneFeet returned null");
             return null;
         }
+        ResourceKey<Level> targetDimension = readWaystoneDimension(waystone);
         if (targetDimension == null) {
+            LOGGER.info("GTP readWaystoneDimension returned null, using player dim");
             targetDimension = ((ServerLevel)player.level()).dimension();
         }
+        LOGGER.info("GTP scheduling transition: player={} dim={} pos={},{},{}", player.getScoreboardName(), DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
         boolean scheduled = TeleportServer.scheduleServerTransition(player, 3, targetFeet, targetDimension, () -> runWaystonesTeleport(context));
+        LOGGER.info("GTP scheduleServerTransition result: {}", scheduled);
         if (!scheduled) {
             return null;
         }
@@ -47,9 +63,13 @@ public final class WaystonesTeleportHandler {
     private static Object createEmptyTeleportResult() {
         try {
             Class<?> resultClass = Class.forName(WAYSTONE_TELEPORT_RESULT_CLASS);
+            LOGGER.info("GTP WaystoneTeleportResult class found");
             Constructor<?> constructor = resultClass.getConstructor(List.class);
-            return constructor.newInstance(new java.util.ArrayList<>());
-        } catch (ReflectiveOperationException ignored) {
+            Object instance = constructor.newInstance(new java.util.ArrayList<>());
+            LOGGER.info("GTP empty result created: {}", instance);
+            return instance;
+        } catch (ReflectiveOperationException e) {
+            LOGGER.error("GTP createEmptyTeleportResult failed", e);
             return null;
         }
     }

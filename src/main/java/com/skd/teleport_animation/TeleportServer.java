@@ -1,16 +1,19 @@
 package com.skd.teleport_animation;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 public final class TeleportServer {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private static final int BYPASS_TICKS = 20;
     private static final int ACK_TIMEOUT_TICKS = 200;
     private static final AtomicLong NEXT_REQUEST_ID = new AtomicLong(1L);
@@ -33,13 +36,17 @@ public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel 
     }
 
     static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, ResourceKey<Level> targetDimension, Runnable action) {
+        LOGGER.info("GTP scheduleServerTransition: player={} source={} dim={} pos={},{},{}", player.getScoreboardName(), source, DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
         if (consumeServerTeleportBypass(player)) {
+            LOGGER.info("GTP scheduleServerTransition: bypass consumed");
             return false;
         }
         if (pendingPlayers.contains(player.getUUID())) {
+            LOGGER.info("GTP scheduleServerTransition: player already pending");
             return true;
         }
         if (!shouldStartServerTransition(player, source)) {
+            LOGGER.info("GTP scheduleServerTransition: shouldStart returned false");
             return false;
         }
         long requestId = NEXT_REQUEST_ID.getAndIncrement();
@@ -47,6 +54,7 @@ public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel 
         pendingTeleports.put(requestId, pending);
         pendingPlayers.add(player.getUUID());
         TeleportServerNetworking.sendStart(player, requestId, source, targetFeet, targetDimension);
+        LOGGER.info("GTP scheduleServerTransition: scheduled requestId={}", requestId);
         return true;
     }
 
