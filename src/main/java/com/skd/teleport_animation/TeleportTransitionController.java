@@ -1379,7 +1379,8 @@ public final class TeleportTransitionController {
         }
         if (!skipTravel && !plannedTargetFeetStable && ticks <= TeleportTransitionController.getTravelStartTick()) {
             travelTicks = TeleportTransitionController.calculateTravelTicks(startFeet, actualTargetFeet);
-            totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
+        totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
+        LOGGER.info("TA transition start: totalTicks={} travelTicks={} fixedTicks={} skipTravel={}", totalTicks, travelTicks, TeleportTransitionController.getFixedTotalTicks(), skipTravel);
         }
         if (skipTravel || ticks < TeleportTransitionController.getTravelEndTick() || arrivalCameraFeet == null) {
             arrivalCameraFeet = playerFeet;
