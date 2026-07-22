@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.2] - 2026-07-19
+
+### Changed
+- NeoForge downgraded from 21.1.238 to 21.1.235 for broader compatibility
+- Branch renamed to `minecraft/1.21.1/neoforge-21.1.235/production`
+
+### Fix
+- Audit: created temp/, updated workflow header to v1.0.0
+
 ## [1.0.1] - 2026-07-19
 
 ### Changed
