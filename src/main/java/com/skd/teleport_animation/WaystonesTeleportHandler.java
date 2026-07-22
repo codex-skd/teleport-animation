@@ -114,14 +114,38 @@ public final class WaystonesTeleportHandler {
             Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
             Method tryTeleport = managerClass.getMethod("tryTeleport", contextClass);
             tryTeleport.invoke(null, context);
+            return;
         } catch (ReflectiveOperationException ignored) {
-            try {
-                Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
-                Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-                Method teleport = managerClass.getMethod("teleport", contextClass);
-                teleport.invoke(null, context);
-            } catch (ReflectiveOperationException ignored2) {
+        }
+        try {
+            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
+            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
+            Method teleport = managerClass.getMethod("teleport", contextClass);
+            teleport.invoke(null, context);
+            return;
+        } catch (ReflectiveOperationException ignored) {
+        }
+        try {
+            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
+            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
+            Method asyncMethod = managerClass.getMethod("tryTeleportAsync", contextClass);
+            Object future = asyncMethod.invoke(null, context);
+            if (future instanceof java.util.concurrent.CompletableFuture) {
+                ((java.util.concurrent.CompletableFuture<?>) future).join();
             }
+            return;
+        } catch (ReflectiveOperationException ignored) {
+        }
+        try {
+            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
+            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
+            Method asyncMethod = managerClass.getMethod("forceTeleportAsync", contextClass);
+            Object future = asyncMethod.invoke(null, context);
+            if (future instanceof java.util.concurrent.CompletableFuture) {
+                ((java.util.concurrent.CompletableFuture<?>) future).join();
+            }
+            return;
+        } catch (ReflectiveOperationException ignored) {
         }
     }
 }
