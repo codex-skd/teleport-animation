@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.ViewArea;
 import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -57,7 +56,7 @@ abstract class LevelRendererMixin {
             return;
         }
         Vec3 cameraPos = renderState.pos;
-        viewArea.repositionCamera(SectionPos.of(BlockPos.containing(cameraPos)));
+        teleportAnimation$repositionViewArea(viewArea, cameraPos.x, cameraPos.z);
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
 
@@ -67,6 +66,14 @@ abstract class LevelRendererMixin {
             return Double.NEGATIVE_INFINITY;
         }
         return data.getHorizonHeight(level);
+    }
+
+    @Unique
+    private static void teleportAnimation$repositionViewArea(ViewArea viewArea, double x, double z) {
+        try {
+            viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, x, z);
+        } catch (ReflectiveOperationException ignored) {
+        }
     }
 
     @Unique
