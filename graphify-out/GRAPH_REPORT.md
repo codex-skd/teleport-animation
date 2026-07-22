@@ -1,11 +1,11 @@
 # Graph Report - teleport_animation-26.1.2  (2026-07-22)
 
 ## Corpus Check
-- 89 files · ~95,931 words
+- 80 files · ~94,995 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 979 nodes · 2116 edges · 85 communities (76 shown, 9 thin omitted)
+- 970 nodes · 2116 edges · 75 communities (66 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -83,7 +83,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (85 total, 9 thin omitted)
+## Communities (75 total, 9 thin omitted)
 
 ### Community 1 - "TeleportServer"
 Cohesion: 0.09
@@ -237,10 +237,10 @@ Nodes (6): EntityMixin, CallbackInfoReturnable, Entity, Inject, Mixin, ServerLev
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `LevelRendererMixin.java`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.enterBodyFrame`, `FrustumMixin.java`, `ScreenEffectRendererMixin.java`, `.tick`, `EntityMixin.java`, `LeawindThirdPersonImplMixin.java`, `.shouldPreferVoxyOnlyTerrain`, `IrisCompat`, `CameraMixin.java`, `.shouldPreferVoxyOnlyTerrain`?**
-  _High betweenness centrality (0.297) - this node is a cross-community bridge._
-- **Why does `TeleportConfig` connect `TeleportConfig` to `.isRunning`, `TeleportClient`, `LocalPlayer`, `.getCameraFrame`, `.save`, `KeyboardInputMixin.java`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `LeawindThirdPersonImplMixin.java`, `FrustumMixin.java`, `ScreenEffectRendererMixin.java`, `.load`?**
-  _High betweenness centrality (0.164) - this node is a cross-community bridge._
+- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `Vec3`, `LevelRendererMixin.java`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.enterBodyFrame`, `FrustumMixin.java`, `.tick`, `EntityMixin.java`, `LeawindThirdPersonImplMixin.java`, `.shouldPreferVoxyOnlyTerrain`, `IrisCompat`, `.shouldPreferVoxyOnlyTerrain`?**
+  _High betweenness centrality (0.303) - this node is a cross-community bridge._
+- **Why does `TeleportConfig` connect `TeleportConfig` to `.isRunning`, `TeleportClient`, `LocalPlayer`, `Vec3`, `.save`, `KeyboardInputMixin.java`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `LeawindThirdPersonImplMixin.java`, `FrustumMixin.java`, `.load`?**
+  _High betweenness centrality (0.167) - this node is a cross-community bridge._
 - **Why does `TeleportClient` connect `TeleportClient` to `.isRunning`, `StartServerTeleportPayload`?**
   _High betweenness centrality (0.024) - this node is a cross-community bridge._
 - **What connects `OVERWORLD`, `NETHER`, `END` to the rest of the system?**

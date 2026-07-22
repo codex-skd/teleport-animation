@@ -1226,7 +1226,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getzoomoutstageticks",
-      "community": 59,
+      "community": 30,
       "norm_label": ".getzoomoutstageticks()"
     },
     {
@@ -1256,7 +1256,7 @@
       "source_location": "L267",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getzoomstageglideheight",
-      "community": 30,
+      "community": 15,
       "norm_label": ".getzoomstageglideheight()"
     },
     {
@@ -3326,7 +3326,7 @@
       "source_location": "L203",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_start",
-      "community": 28,
+      "community": 30,
       "norm_label": ".start()"
     },
     {
@@ -3576,7 +3576,7 @@
       "source_location": "L546",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_resetarrivalbodycameraheights",
-      "community": 28,
+      "community": 30,
       "norm_label": ".resetarrivalbodycameraheights()"
     },
     {
@@ -4006,7 +4006,7 @@
       "source_location": "L1066",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldprefervoxyonlyterrain",
-      "community": 28,
+      "community": 84,
       "norm_label": ".shouldprefervoxyonlyterrain()"
     },
     {
@@ -4016,7 +4016,7 @@
       "source_location": "L1073",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldoverridedistanthorizonsnearclip",
-      "community": 28,
+      "community": 84,
       "norm_label": ".shouldoverridedistanthorizonsnearclip()"
     },
     {
@@ -4226,7 +4226,7 @@
       "source_location": "L1273",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_normalizetargetdimensionid",
-      "community": 28,
+      "community": 30,
       "norm_label": ".normalizetargetdimensionid()"
     },
     {
@@ -4236,7 +4236,7 @@
       "source_location": "L1277",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldskiptravelfortargetdimension",
-      "community": 28,
+      "community": 30,
       "norm_label": ".shouldskiptravelfortargetdimension()"
     },
     {
@@ -4336,7 +4336,7 @@
       "source_location": "L1356",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_calculatetravelticks",
-      "community": 28,
+      "community": 30,
       "norm_label": ".calculatetravelticks()"
     },
     {
@@ -4636,7 +4636,7 @@
       "source_location": "L1645",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getinitialtransitioncameraposition",
-      "community": 28,
+      "community": 30,
       "norm_label": ".getinitialtransitioncameraposition()"
     },
     {
@@ -4756,7 +4756,7 @@
       "source_location": "L1740",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoomoutstagealtitude",
-      "community": 30,
+      "community": 28,
       "norm_label": ".getzoomoutstagealtitude()"
     },
     {
@@ -4776,7 +4776,7 @@
       "source_location": "L1748",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getstartzoomdimension",
-      "community": 30,
+      "community": 28,
       "norm_label": ".getstartzoomdimension()"
     },
     {
@@ -4796,7 +4796,7 @@
       "source_location": "L1758",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_pullaltitude",
-      "community": 30,
+      "community": 28,
       "norm_label": ".pullaltitude()"
     },
     {
@@ -4816,7 +4816,7 @@
       "source_location": "L1786",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_departingaltitude",
-      "community": 30,
+      "community": 28,
       "norm_label": ".departingaltitude()"
     },
     {
@@ -4826,7 +4826,7 @@
       "source_location": "L1790",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_arrivingaltitude",
-      "community": 30,
+      "community": 28,
       "norm_label": ".arrivingaltitude()"
     },
     {
@@ -4836,7 +4836,7 @@
       "source_location": "L1794",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_departingfinalaltitude",
-      "community": 30,
+      "community": 28,
       "norm_label": ".departingfinalaltitude()"
     },
     {
@@ -4846,7 +4846,7 @@
       "source_location": "L1798",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_zoomstageglideprogressbetween",
-      "community": 30,
+      "community": 28,
       "norm_label": ".zoomstageglideprogressbetween()"
     },
     {
@@ -4856,7 +4856,7 @@
       "source_location": "L1803",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_finalzoomoutglideprogressbetween",
-      "community": 30,
+      "community": 28,
       "norm_label": ".finalzoomoutglideprogressbetween()"
     },
     {
@@ -4866,7 +4866,7 @@
       "source_location": "L1808",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_lineartheneaseout",
-      "community": 30,
+      "community": 28,
       "norm_label": ".lineartheneaseout()"
     },
     {
@@ -4876,7 +4876,7 @@
       "source_location": "L1813",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_longeaseout",
-      "community": 30,
+      "community": 28,
       "norm_label": ".longeaseout()"
     },
     {
@@ -4896,7 +4896,7 @@
       "source_location": "L1822",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_firstpersonenterbodyheightprogress",
-      "community": 30,
+      "community": 28,
       "norm_label": ".firstpersonenterbodyheightprogress()"
     },
     {
@@ -4916,7 +4916,7 @@
       "source_location": "L1833",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_hermiteeaseoutfromlinear",
-      "community": 30,
+      "community": 28,
       "norm_label": ".hermiteeaseoutfromlinear()"
     },
     {
@@ -5126,7 +5126,7 @@
       "source_location": "L1989",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_stopcustomtravelsound",
-      "community": 28,
+      "community": 30,
       "norm_label": ".stopcustomtravelsound()"
     },
     {
@@ -5206,7 +5206,7 @@
       "source_location": "L2046",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldstartnormalchunkhandoff",
-      "community": 28,
+      "community": 84,
       "norm_label": ".shouldstartnormalchunkhandoff()"
     },
     {
@@ -5226,7 +5226,7 @@
       "source_location": "L2054",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_issamedimensiontarget",
-      "community": 28,
+      "community": 84,
       "norm_label": ".issamedimensiontarget()"
     },
     {
@@ -5326,7 +5326,7 @@
       "source_location": "L2146",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isdistantterrainavailable",
-      "community": 28,
+      "community": 84,
       "norm_label": ".isdistantterrainavailable()"
     },
     {
@@ -5336,7 +5336,7 @@
       "source_location": "L2150",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isvoxyterrainavailable",
-      "community": 28,
+      "community": 84,
       "norm_label": ".isvoxyterrainavailable()"
     },
     {
@@ -5346,7 +5346,7 @@
       "source_location": "L2154",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isdistanthorizonsterrainavailable",
-      "community": 28,
+      "community": 84,
       "norm_label": ".isdistanthorizonsterrainavailable()"
     },
     {
@@ -5356,7 +5356,7 @@
       "source_location": "L2158",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isbobbyterrainavailable",
-      "community": 28,
+      "community": 84,
       "norm_label": ".isbobbyterrainavailable()"
     },
     {
@@ -5406,7 +5406,7 @@
       "source_location": "L2178",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpullticks",
-      "community": 59,
+      "community": 30,
       "norm_label": ".getpullticks()"
     },
     {
@@ -5426,7 +5426,7 @@
       "source_location": "L2194",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getfixedtotalticks",
-      "community": 59,
+      "community": 30,
       "norm_label": ".getfixedtotalticks()"
     },
     {
@@ -5446,7 +5446,7 @@
       "source_location": "L2202",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getenterbodyticks",
-      "community": 59,
+      "community": 30,
       "norm_label": ".getenterbodyticks()"
     },
     {
@@ -5496,7 +5496,7 @@
       "source_location": "L2239",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoomstageglideheight",
-      "community": 30,
+      "community": 15,
       "norm_label": ".getzoomstageglideheight()"
     },
     {
@@ -5546,7 +5546,7 @@
       "source_location": "L2262",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getprepushwaitticks",
-      "community": 59,
+      "community": 30,
       "norm_label": ".getprepushwaitticks()"
     },
     {
@@ -5836,7 +5836,7 @@
       "source_location": "L2431",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_updatehardcutterrainstate",
-      "community": 28,
+      "community": 30,
       "norm_label": ".updatehardcutterrainstate()"
     },
     {
@@ -5856,7 +5856,7 @@
       "source_location": "L2461",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_clear",
-      "community": 28,
+      "community": 30,
       "norm_label": ".clear()"
     },
     {
@@ -5876,7 +5876,7 @@
       "source_location": "L2542",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_resetvisibilityrefreshstate",
-      "community": 28,
+      "community": 30,
       "norm_label": ".resetvisibilityrefreshstate()"
     },
     {
@@ -8933,7 +8933,7 @@
       "label": "Archivos que pasan a GitHub",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L434",
+      "source_location": "L435",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_archivos_que_pasan_a_github",
       "community": 7,
@@ -8943,7 +8943,7 @@
       "label": "Flujo completo (paso a paso)",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L453",
+      "source_location": "L454",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "community": 7,
@@ -8953,7 +8953,7 @@
       "label": "1. Desarrollo",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L455",
+      "source_location": "L456",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_1_desarrollo",
       "community": 7,
@@ -8963,7 +8963,7 @@
       "label": "2. Copiar a instancia de pruebas",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L475",
+      "source_location": "L476",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_2_copiar_a_instancia_de_pruebas",
       "community": 7,
@@ -8973,7 +8973,7 @@
       "label": "3. Probar en instancia",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L490",
+      "source_location": "L491",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_3_probar_en_instancia",
       "community": 7,
@@ -8983,7 +8983,7 @@
       "label": "4. Preparar versi\u00f3n para CurseForge",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L496",
+      "source_location": "L497",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_4_preparar_versi\u00f3n_para_curseforge",
       "community": 7,
@@ -8993,7 +8993,7 @@
       "label": "5. Release estable",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L527",
+      "source_location": "L534",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_5_release_estable",
       "community": 7,
@@ -9003,7 +9003,7 @@
       "label": "6. Actualizar Knowledge Graph (Graphify)",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L536",
+      "source_location": "L543",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_6_actualizar_knowledge_graph_graphify",
       "community": 7,
@@ -9013,9 +9013,9 @@
       "label": "Buenas pr\u00e1cticas",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L556",
+      "source_location": "L563",
       "_origin": "ast",
-      "id": "docs_workflow_teleport_animation_26_1_2_buenas_pr\u00e1cticas_556",
+      "id": "docs_workflow_teleport_animation_26_1_2_buenas_pr\u00e1cticas_563",
       "community": 7,
       "norm_label": "buenas practicas"
     },
@@ -9023,7 +9023,7 @@
       "label": "Idioma",
       "file_type": "document",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L580",
+      "source_location": "L587",
       "_origin": "ast",
       "id": "docs_workflow_teleport_animation_26_1_2_idioma",
       "community": 7,
@@ -31448,10 +31448,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L556",
+      "source_location": "L563",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_de_trabajo_teleport_animation_neoforge",
-      "target": "docs_workflow_teleport_animation_26_1_2_buenas_pr\u00e1cticas_556",
+      "target": "docs_workflow_teleport_animation_26_1_2_buenas_pr\u00e1cticas_563",
       "confidence_score": 1.0
     },
     {
@@ -31488,7 +31488,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L453",
+      "source_location": "L454",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_de_trabajo_teleport_animation_neoforge",
       "target": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
@@ -31498,7 +31498,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L580",
+      "source_location": "L587",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_de_trabajo_teleport_animation_neoforge",
       "target": "docs_workflow_teleport_animation_26_1_2_idioma",
@@ -31758,7 +31758,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L434",
+      "source_location": "L435",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_publicaci\u00f3n_a_github_ci_cd",
       "target": "docs_workflow_teleport_animation_26_1_2_archivos_que_pasan_a_github",
@@ -31788,7 +31788,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L455",
+      "source_location": "L456",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_1_desarrollo",
@@ -31798,7 +31798,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L475",
+      "source_location": "L476",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_2_copiar_a_instancia_de_pruebas",
@@ -31808,7 +31808,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L490",
+      "source_location": "L491",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_3_probar_en_instancia",
@@ -31818,7 +31818,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L496",
+      "source_location": "L497",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_4_preparar_versi\u00f3n_para_curseforge",
@@ -31828,7 +31828,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L527",
+      "source_location": "L534",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_5_release_estable",
@@ -31838,7 +31838,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md",
-      "source_location": "L536",
+      "source_location": "L543",
       "weight": 1.0,
       "source": "docs_workflow_teleport_animation_26_1_2_flujo_completo_paso_a_paso",
       "target": "docs_workflow_teleport_animation_26_1_2_6_actualizar_knowledge_graph_graphify",
