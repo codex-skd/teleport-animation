@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.30 (2026-07-22)
+
+- fix: use reflection for ViewArea.repositionCamera(double, double) instead of removed SectionPos overload
+
 ## 0.0.0-beta.29 (2026-07-22)
 
 - chore: add client-side logging for TeleportClient.handleServerTeleportRequest
