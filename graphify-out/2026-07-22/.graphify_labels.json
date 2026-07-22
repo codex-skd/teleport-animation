@@ -64,5 +64,13 @@
   "62": "upload_beta26.py",
   "63": "upload_beta21.py",
   "64": "0.0.0-beta.21.md",
-  "65": "0.0.0-beta.26.md"
+  "65": "0.0.0-beta.26.md",
+  "66": ".shouldPreferVoxyOnlyTerrain",
+  "67": "FogRendererMixin.java",
+  "68": "DistantHorizonsRenderUtilMixin.java",
+  "69": "VoxyClientMixin.java",
+  "70": ".scheduleTerrainUpdate",
+  "71": "IrisCompat",
+  "72": "upload_beta27.py",
+  "73": "0.0.0-beta.27.md"
 }
