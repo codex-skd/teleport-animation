@@ -36,17 +36,17 @@ public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel 
     }
 
     static boolean scheduleServerTransition(ServerPlayer player, int source, Vec3 targetFeet, ResourceKey<Level> targetDimension, Runnable action) {
-        LOGGER.info("GTP scheduleServerTransition: player={} source={} dim={} pos={},{},{}", player.getScoreboardName(), source, DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
+        LOGGER.info("TA scheduleServerTransition: player={} source={} dim={} pos={},{},{}", player.getScoreboardName(), source, DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
         if (consumeServerTeleportBypass(player)) {
-            LOGGER.info("GTP scheduleServerTransition: bypass consumed");
+            LOGGER.info("TA scheduleServerTransition: bypass consumed");
             return false;
         }
         if (pendingPlayers.contains(player.getUUID())) {
-            LOGGER.info("GTP scheduleServerTransition: player already pending");
+            LOGGER.info("TA scheduleServerTransition: player already pending");
             return true;
         }
         if (!shouldStartServerTransition(player, source)) {
-            LOGGER.info("GTP scheduleServerTransition: shouldStart returned false");
+            LOGGER.info("TA scheduleServerTransition: shouldStart returned false");
             return false;
         }
         long requestId = NEXT_REQUEST_ID.getAndIncrement();
@@ -54,7 +54,7 @@ public static boolean tryDelayExternalTeleport(ServerPlayer player, ServerLevel 
         pendingTeleports.put(requestId, pending);
         pendingPlayers.add(player.getUUID());
         TeleportServerNetworking.sendStart(player, requestId, source, targetFeet, targetDimension);
-        LOGGER.info("GTP scheduleServerTransition: scheduled requestId={}", requestId);
+        LOGGER.info("TA scheduleServerTransition: scheduled requestId={}", requestId);
         return true;
     }
 
