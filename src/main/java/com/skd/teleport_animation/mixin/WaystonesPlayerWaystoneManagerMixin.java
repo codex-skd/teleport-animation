@@ -26,4 +26,30 @@ public abstract class WaystonesPlayerWaystoneManagerMixin {
             cir.setReturnValue(result);
         }
     }
+
+    @Inject(method = "tryTeleportAsync", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
+    private static void teleportAnimation$delayTryTeleportAsync(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
+        Object result = WaystonesTeleportHandler.delayTeleportContext(context);
+        if (result == null) {
+            return;
+        }
+        if (result instanceof java.util.concurrent.CompletableFuture) {
+            cir.setReturnValue(result);
+        } else {
+            cir.setReturnValue(java.util.concurrent.CompletableFuture.completedFuture(result));
+        }
+    }
+
+    @Inject(method = "forceTeleportAsync", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
+    private static void teleportAnimation$delayForceTeleportAsync(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
+        Object result = WaystonesTeleportHandler.delayTeleportContext(context);
+        if (result == null) {
+            return;
+        }
+        if (result instanceof java.util.concurrent.CompletableFuture) {
+            cir.setReturnValue(result);
+        } else {
+            cir.setReturnValue(java.util.concurrent.CompletableFuture.completedFuture(result));
+        }
+    }
 }

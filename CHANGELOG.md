@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.28 (2026-07-22)
+
+- fix: also intercept tryTeleportAsync and forceTeleportAsync on WaystoneTeleportManager
+
 ## 0.0.0-beta.27 (2026-07-22)
 
 - chore: rename log prefix from GTP to TA
