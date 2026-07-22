@@ -1,9 +1,13 @@
 package com.skd.teleport_animation;
 
+import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
 
 final class TeleportClientNetworking {
+    private static final Logger LOGGER = LogUtils.getLogger();
+
     private TeleportClientNetworking() {
     }
 
@@ -11,6 +15,7 @@ final class TeleportClientNetworking {
     }
 
     static void handleStart(TeleportNetworkPayloads.StartServerTeleportPayload payload) {
+        LOGGER.info("TA client handleStart: source={} pos={},{},{} dim={} reqId={}", payload.source(), payload.x(), payload.y(), payload.z(), payload.dimension(), payload.requestId());
         Minecraft.getInstance().execute(() -> TeleportClient.handleServerTeleportRequest(payload));
     }
 

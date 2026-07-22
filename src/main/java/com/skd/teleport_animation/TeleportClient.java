@@ -3,6 +3,7 @@ package com.skd.teleport_animation;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+import com.mojang.logging.LogUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.commands.CommandSourceStack;
@@ -12,6 +13,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
+import org.slf4j.Logger;
 
 import java.lang.reflect.Method;
 import java.util.Collection;
@@ -20,6 +22,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public final class TeleportClient {
+    private static final Logger LOGGER = LogUtils.getLogger();
     private static final String[] COMMAND_ALIASES = new String[]{"ta", "tpanimation"};
     private static final String USAGE_MESSAGE = "Usage: /ta or /tpanimation on|off|status|player_freeze <on|off|status>";
     private static boolean openConfigScreenNextTick;
@@ -64,13 +67,19 @@ public final class TeleportClient {
     }
 
     static void handleServerTeleportRequest(TeleportNetworkPayloads.StartServerTeleportPayload payload) {
+        LOGGER.info("TA client handleServerTeleportRequest: source={} reqId={} effect={} running={}", payload.source(), payload.requestId(), TeleportConfig.isEffectEnabled(), TeleportTransitionController.isRunning());
         Minecraft client = Minecraft.getInstance();
         if (!shouldPlayServerTeleportTransition(client, payload.source())) {
+            LOGGER.info("TA client shouldPlay returned false, sending ACK immediately");
             TeleportClientNetworking.sendServerTeleportAck(payload.requestId());
             return;
         }
+        LOGGER.info("TA client starting transition");
         TeleportTransitionController.start(client, TeleportClientNetworking.targetFeet(payload), TeleportClientNetworking.targetDimensionId(payload),
-            () -> TeleportClientNetworking.sendServerTeleportAck(payload.requestId()), payload.source());
+            () -> {
+                LOGGER.info("TA client transition complete, sending ACK for reqId={}", payload.requestId());
+                TeleportClientNetworking.sendServerTeleportAck(payload.requestId());
+            }, payload.source());
     }
 
     private static boolean shouldPlayServerTeleportTransition(Minecraft client, int source) {

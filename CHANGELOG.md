@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.29 (2026-07-22)
+
+- chore: add client-side logging for TeleportClient.handleServerTeleportRequest
+
 ## 0.0.0-beta.28 (2026-07-22)
 
 - fix: also intercept tryTeleportAsync and forceTeleportAsync on WaystoneTeleportManager
