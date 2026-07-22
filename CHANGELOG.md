@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.25 (2026-07-21)
+
+- fix: @Pseudo mixin method matching without explicit descriptors for WaystoneTeleportManager
+
 ## 0.0.0-beta.24 (2026-07-21)
 
 - fix: update Waystones integration for new API (WaystoneTeleportManager.tryTeleport)

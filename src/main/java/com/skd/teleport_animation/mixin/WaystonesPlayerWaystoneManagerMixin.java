@@ -11,8 +11,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Pseudo
 @Mixin(targets = "net.blay09.mods.waystones.core.WaystoneTeleportManager", remap = false)
 public abstract class WaystonesPlayerWaystoneManagerMixin {
-    @Inject(method = "tryTeleport(Lnet/blay09/mods/waystones/api/WaystoneTeleportContext;)Lnet/blay09/mods/waystones/api/WaystoneTeleportResult;", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
-    private static void teleportAnimation$delayWaystonesTeleport(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
+    @Inject(method = "tryTeleport", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
+    private static void teleportAnimation$delayTryTeleport(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
+        Object result = WaystonesTeleportHandler.delayTeleportContext(context);
+        if (result != null) {
+            cir.setReturnValue(result);
+        }
+    }
+
+    @Inject(method = "teleport", at = @At("HEAD"), cancellable = true, remap = false, require = 0)
+    private static void teleportAnimation$delayTeleport(@Coerce Object context, CallbackInfoReturnable<Object> cir) {
         Object result = WaystonesTeleportHandler.delayTeleportContext(context);
         if (result != null) {
             cir.setReturnValue(result);
