@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.27 (2026-07-22)
+
+- chore: rename log prefix from GTP to TA
+
 ## 0.0.0-beta.26 (2026-07-22)
 
 - chore: add diagnostic logging to WaystonesTeleportHandler and TeleportServer
