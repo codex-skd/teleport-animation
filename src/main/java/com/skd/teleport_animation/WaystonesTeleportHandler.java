@@ -48,7 +48,7 @@ public final class WaystonesTeleportHandler {
         try {
             Class<?> resultClass = Class.forName(WAYSTONE_TELEPORT_RESULT_CLASS);
             Constructor<?> constructor = resultClass.getConstructor(List.class);
-            return constructor.newInstance(List.of());
+            return constructor.newInstance(new java.util.ArrayList<>());
         } catch (ReflectiveOperationException ignored) {
             return null;
         }
@@ -92,9 +92,16 @@ public final class WaystonesTeleportHandler {
         try {
             Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
             Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-            Method method = managerClass.getMethod("tryTeleport", contextClass);
-            method.invoke(null, context);
+            Method tryTeleport = managerClass.getMethod("tryTeleport", contextClass);
+            tryTeleport.invoke(null, context);
         } catch (ReflectiveOperationException ignored) {
+            try {
+                Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
+                Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
+                Method teleport = managerClass.getMethod("teleport", contextClass);
+                teleport.invoke(null, context);
+            } catch (ReflectiveOperationException ignored2) {
+            }
         }
     }
 }
