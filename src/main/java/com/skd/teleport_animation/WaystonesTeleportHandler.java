@@ -24,36 +24,36 @@ public final class WaystonesTeleportHandler {
     }
 
     public static Object delayTeleportContext(Object context) {
-        LOGGER.info("GTP delayTeleportContext called, context class: {}", context.getClass().getName());
+        LOGGER.info("TA delayTeleportContext called, context class: {}", context.getClass().getName());
         Entity entity = readEntity(context);
         if (entity == null) {
-            LOGGER.info("GTP readEntity returned null");
+            LOGGER.info("TA readEntity returned null");
             return null;
         }
         if (!(entity instanceof ServerPlayer player)) {
-            LOGGER.info("GTP entity not ServerPlayer: {}", entity.getClass().getName());
+            LOGGER.info("TA entity not ServerPlayer: {}", entity.getClass().getName());
             return null;
         }
-        LOGGER.info("GTP player: {}", player.getScoreboardName());
+        LOGGER.info("TA player: {}", player.getScoreboardName());
         Object waystone = invokeNoArg(context, "getTargetWaystone");
         if (waystone == null) {
-            LOGGER.info("GTP getTargetWaystone returned null");
+            LOGGER.info("TA getTargetWaystone returned null");
             return null;
         }
-        LOGGER.info("GTP waystone type: {}", waystone.getClass().getName());
+        LOGGER.info("TA waystone type: {}", waystone.getClass().getName());
         Vec3 targetFeet = readWaystoneFeet(waystone);
         if (targetFeet == null) {
-            LOGGER.info("GTP readWaystoneFeet returned null");
+            LOGGER.info("TA readWaystoneFeet returned null");
             return null;
         }
         ResourceKey<Level> targetDimension = readWaystoneDimension(waystone);
         if (targetDimension == null) {
-            LOGGER.info("GTP readWaystoneDimension returned null, using player dim");
+            LOGGER.info("TA readWaystoneDimension returned null, using player dim");
             targetDimension = ((ServerLevel)player.level()).dimension();
         }
-        LOGGER.info("GTP scheduling transition: player={} dim={} pos={},{},{}", player.getScoreboardName(), DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
+        LOGGER.info("TA scheduling transition: player={} dim={} pos={},{},{}", player.getScoreboardName(), DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
         boolean scheduled = TeleportServer.scheduleServerTransition(player, 3, targetFeet, targetDimension, () -> runWaystonesTeleport(context));
-        LOGGER.info("GTP scheduleServerTransition result: {}", scheduled);
+        LOGGER.info("TA scheduleServerTransition result: {}", scheduled);
         if (!scheduled) {
             return null;
         }
@@ -63,13 +63,13 @@ public final class WaystonesTeleportHandler {
     private static Object createEmptyTeleportResult() {
         try {
             Class<?> resultClass = Class.forName(WAYSTONE_TELEPORT_RESULT_CLASS);
-            LOGGER.info("GTP WaystoneTeleportResult class found");
+            LOGGER.info("TA WaystoneTeleportResult class found");
             Constructor<?> constructor = resultClass.getConstructor(List.class);
             Object instance = constructor.newInstance(new java.util.ArrayList<>());
-            LOGGER.info("GTP empty result created: {}", instance);
+            LOGGER.info("TA empty result created: {}", instance);
             return instance;
         } catch (ReflectiveOperationException e) {
-            LOGGER.error("GTP createEmptyTeleportResult failed", e);
+            LOGGER.error("TA createEmptyTeleportResult failed", e);
             return null;
         }
     }
