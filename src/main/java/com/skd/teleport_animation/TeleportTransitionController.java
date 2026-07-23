@@ -270,6 +270,7 @@ public final class TeleportTransitionController {
             TeleportTransitionController.updateArrivalBodyCameraHeights(client, plannedTargetFeet);
         }
         totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
+        LOGGER.info("TA start: totalTicks={} travelTicks={} fixedTicks={} skipTravel={}", totalTicks, travelTicks, TeleportTransitionController.getFixedTotalTicks(), skipTravel);
         transitionSource = source;
         if (skipTravel) {
             LOGGER.info("GTP cross-dimension transition start: source={} startDim={} targetDim={} startFeet={} plannedTargetFeet={}", new Object[]{transitionSource, DimensionIds.fromResourceKey(startDimension), plannedTargetDimensionId, startFeet, plannedTargetFeet});
@@ -1379,8 +1380,7 @@ public final class TeleportTransitionController {
         }
         if (!skipTravel && !plannedTargetFeetStable && ticks <= TeleportTransitionController.getTravelStartTick()) {
             travelTicks = TeleportTransitionController.calculateTravelTicks(startFeet, actualTargetFeet);
-        totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
-        LOGGER.info("TA transition start: totalTicks={} travelTicks={} fixedTicks={} skipTravel={}", totalTicks, travelTicks, TeleportTransitionController.getFixedTotalTicks(), skipTravel);
+            totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
         }
         if (skipTravel || ticks < TeleportTransitionController.getTravelEndTick() || arrivalCameraFeet == null) {
             arrivalCameraFeet = playerFeet;
