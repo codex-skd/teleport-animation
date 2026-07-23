@@ -1,11 +1,11 @@
-# Graph Report - teleport_animation-26.1.2  (2026-07-23)
+# Graph Report - teleport_animation-26.1.2  (2026-07-22)
 
 ## Corpus Check
-- 79 files · ~94,883 words
+- 80 files · ~94,995 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 969 nodes · 2116 edges · 75 communities (66 shown, 9 thin omitted)
+- 970 nodes · 2116 edges · 75 communities (66 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -32,7 +32,6 @@
 - Teleport Animation
 - .getTravelEndTick
 - FrustumMixin.java
-- DistantHorizonsCompat.java
 - Teleport Animation 0.0.0-beta.2
 - Teleport Animation 0.0.0-beta.3
 - Teleport Animation 0.0.0-beta.4
@@ -47,7 +46,6 @@
 - .tick
 - EntityMixin.java
 - ServerPlayerMixin.java
-- VoxyCompat.java
 - .shouldPreferVoxyOnlyTerrain
 - FogRendererMixin.java
 - DistantHorizonsRenderUtilMixin.java
@@ -56,6 +54,7 @@
 - IrisCompat
 - WaystonesWarpPlateBlockEntityMixin.java
 - VoxyCompat.java
+- DistantHorizonsCompat.java
 
 ## God Nodes (most connected - your core abstractions)
 1. `TeleportTransitionController` - 260 edges
@@ -76,10 +75,10 @@
   src/main/java/com/skd/teleport_animation/TeleportTransitionController.java → src/main/java/com/skd/teleport_animation/TeleportTransitionController.java  _Bridges community 28 → community 15_
 - `TeleportTransitionController` --references--> `FadingTravelSound`  [EXTRACTED]
   src/main/java/com/skd/teleport_animation/TeleportTransitionController.java → src/main/java/com/skd/teleport_animation/TeleportTransitionController.java  _Bridges community 28 → community 53_
+- `TeleportTransitionController` --references--> `Level`  [EXTRACTED]
+  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 28 → community 71_
 - `TeleportTransitionController` --references--> `Vec3`  [EXTRACTED]
   src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 28 → community 9_
-- `CameraFrame` --references--> `Vec3`  [EXTRACTED]
-  src/main/java/com/skd/teleport_animation/TeleportTransitionController.java →   _Bridges community 9 → community 15_
 
 ## Import Cycles
 - None detected.
@@ -202,10 +201,6 @@ Nodes (3): Changes since beta.13, Known issues, Teleport Animation 0.0.0-beta.14
 Cohesion: 0.83
 Nodes (3): gradlew script, die(), warn()
 
-### Community 53 - ".tick"
-Cohesion: 0.22
-Nodes (6): AbstractTickableSoundInstance, FadingTravelSound, BlockPos, Level, Logger, ResourceKey
-
 ### Community 55 - "EntityMixin.java"
 Cohesion: 0.39
 Nodes (5): CallbackInfo, Inject, Mixin, ScreenEffectRendererMixin, SubmitNodeCollector
@@ -223,8 +218,8 @@ Cohesion: 0.48
 Nodes (5): CallbackInfoReturnable, Inject, Mixin, Pseudo, VoxyClientMixin
 
 ### Community 71 - "IrisCompat"
-Cohesion: 0.22
-Nodes (3): Method, BobbyCompat, IrisCompat
+Cohesion: 0.13
+Nodes (8): Method, BobbyCompat, DistantHorizonsCompat, BlockPos, Level, Logger, ResourceKey, VoxyCompat
 
 ### Community 74 - "WaystonesWarpPlateBlockEntityMixin.java"
 Cohesion: 0.39
@@ -242,9 +237,9 @@ Nodes (6): EntityMixin, CallbackInfoReturnable, Entity, Inject, Mixin, ServerLev
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `Vec3`, `.getFallbackTerrainSectionVisibility`, `LevelRendererMixin.java`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.enterBodyFrame`, `FrustumMixin.java`, `.tick`, `EntityMixin.java`, `LeawindThirdPersonImplMixin.java`, `.shouldPreferVoxyOnlyTerrain`?**
+- **Why does `TeleportTransitionController` connect `.getTravelEndTick` to `Minecraft`, `TeleportTransitionController.java`, `.isRunning`, `.handleWarpPlateTeleport`, `TeleportClient`, `LocalPlayer`, `Vec3`, `LevelRendererMixin.java`, `.getCameraFrame`, `TeleportStepEffectRenderer`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.enterBodyFrame`, `FrustumMixin.java`, `.tick`, `EntityMixin.java`, `LeawindThirdPersonImplMixin.java`, `.shouldPreferVoxyOnlyTerrain`, `IrisCompat`, `.shouldPreferVoxyOnlyTerrain`?**
   _High betweenness centrality (0.303) - this node is a cross-community bridge._
-- **Why does `TeleportConfig` connect `TeleportConfig` to `.isRunning`, `TeleportClient`, `LocalPlayer`, `Vec3`, `.save`, `.getPullEndTick`, `KeyboardInputMixin.java`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `LeawindThirdPersonImplMixin.java`, `FrustumMixin.java`, `.load`?**
+- **Why does `TeleportConfig` connect `TeleportConfig` to `.isRunning`, `TeleportClient`, `LocalPlayer`, `Vec3`, `.save`, `KeyboardInputMixin.java`, `.applyConfigProperties`, `ZoomDimension`, `.clamp`, `LeawindThirdPersonImplMixin.java`, `FrustumMixin.java`, `.load`?**
   _High betweenness centrality (0.167) - this node is a cross-community bridge._
 - **Why does `TeleportClient` connect `TeleportClient` to `.isRunning`, `StartServerTeleportPayload`?**
   _High betweenness centrality (0.024) - this node is a cross-community bridge._
