@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.0-beta.32 (2026-07-23)
+
+- fix: correct totalTicks diagnostic log location (was in recordActualTargetFeet instead of start)
+
+## 0.0.0-beta.31 (2026-07-22)
+
+- chore: add totalTicks diagnostic log on transition start
+
 ## 0.0.0-beta.30 (2026-07-22)
 
 - fix: use reflection for ViewArea.repositionCamera(double, double) instead of removed SectionPos overload
