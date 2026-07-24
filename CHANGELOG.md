@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.34 (2026-07-24)
+
+- fix: smooth time-based ticks with float frameTick accumulator
+
 ## 0.0.0-beta.33 (2026-07-24)
 
 - fix: use time-based ticks (50ms) instead of frame-based to fix animation speed at high FPS
