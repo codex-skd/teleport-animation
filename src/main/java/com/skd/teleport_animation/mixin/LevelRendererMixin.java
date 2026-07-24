@@ -2,6 +2,7 @@ package com.skd.teleport_animation.mixin;
 
 import com.mojang.blaze3d.buffers.GpuBufferSlice;
 import com.mojang.blaze3d.resource.GraphicsResourceAllocator;
+import com.mojang.logging.LogUtils;
 import com.skd.teleport_animation.TeleportTransitionController;
 import java.lang.reflect.Field;
 import net.minecraft.client.Camera;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4fc;
 import org.joml.Vector4f;
+import org.slf4j.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -27,6 +29,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(LevelRenderer.class)
 abstract class LevelRendererMixin {
+    @Unique
+    private static final Logger LOGGER = LogUtils.getLogger();
     @Unique
     private static Field teleportAnimation$viewAreaField;
     @Unique
@@ -53,9 +57,11 @@ abstract class LevelRendererMixin {
         }
         ViewArea viewArea = LevelRendererMixin.teleportAnimation$getViewArea((LevelRenderer)(Object) this);
         if (viewArea == null) {
+            LOGGER.info("TA viewArea is null, cannot reposition");
             return;
         }
         Vec3 cameraPos = renderState.pos;
+        LOGGER.info("TA repositioning viewArea to camera ({}, {})", (int)cameraPos.x, (int)cameraPos.z);
         teleportAnimation$repositionViewArea(viewArea, cameraPos.x, cameraPos.z);
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
@@ -72,7 +78,8 @@ abstract class LevelRendererMixin {
     private static void teleportAnimation$repositionViewArea(ViewArea viewArea, double x, double z) {
         try {
             viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, x, z);
-        } catch (ReflectiveOperationException ignored) {
+        } catch (ReflectiveOperationException e) {
+            LOGGER.error("TA repositionViewArea failed", e);
         }
     }
 
