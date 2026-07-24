@@ -155,6 +155,7 @@ public final class TeleportTransitionController {
     private static int ticks;
     private static int travelTicks;
     private static int totalTicks;
+    private static long lastTickTimeMs;
     private static boolean commandSent;
     private static boolean cameraReleasePrepared;
     private static boolean cameraReleased;
@@ -270,6 +271,7 @@ public final class TeleportTransitionController {
             TeleportTransitionController.updateArrivalBodyCameraHeights(client, plannedTargetFeet);
         }
         totalTicks = TeleportTransitionController.getFixedTotalTicks() + travelTicks;
+        lastTickTimeMs = System.currentTimeMillis();
         LOGGER.info("TA start: totalTicks={} travelTicks={} fixedTicks={} skipTravel={}", totalTicks, travelTicks, TeleportTransitionController.getFixedTotalTicks(), skipTravel);
         transitionSource = source;
         if (skipTravel) {
@@ -295,6 +297,14 @@ public final class TeleportTransitionController {
         SodiumCompat.beginTransition(client, TeleportTransitionController.isFallbackTerrainMode());
     }
 
+    private static void advanceTickTime() {
+        long now = System.currentTimeMillis();
+        long elapsed = now - lastTickTimeMs;
+        lastTickTimeMs = now;
+        int delta = Math.max(0, (int)(elapsed / 50L));
+        ticks += delta;
+    }
+
     static void tick(Minecraft client) {
         if (needsStateReset) {
             needsStateReset = false;
@@ -311,9 +321,10 @@ public final class TeleportTransitionController {
             TeleportTransitionController.clear(client);
             return;
         }
+        TeleportTransitionController.advanceTickTime();
         TeleportTransitionController.updateHardCutTerrainState(client);
         TeleportTransitionController.updateHudVisibility(client);
-        if (!commandSent && ++ticks >= TeleportTransitionController.getCommandSendTick()) {
+        if (!commandSent && ticks >= TeleportTransitionController.getCommandSendTick()) {
             if (skipTravel) {
                 LOGGER.info("GTP cross-dimension command send: source={} tick={} travelStart={} pullStart={} pullEnd={}", new Object[]{transitionSource, ticks, TeleportTransitionController.getTravelStartTick(), TeleportTransitionController.getPullStartTick(), TeleportTransitionController.getPullEndTick()});
             }
