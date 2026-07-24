@@ -430,9 +430,14 @@ public final class TeleportTransitionController {
         }
         boolean bl = enteringPlayer = ticks >= TeleportTransitionController.getEnterStartTick() && ticks >= totalTicks - hideTicks;
         if (enteringPlayer) {
+            LOGGER.info("TA hidePlayer: enteringPlayer at tick={}", ticks);
             return true;
         }
-        return !TeleportTransitionController.shouldRespectPreviousCameraPosition() && ticks <= hideTicks;
+        boolean earlyHide = !TeleportTransitionController.shouldRespectPreviousCameraPosition() && ticks <= hideTicks;
+        if (earlyHide) {
+            LOGGER.info("TA hidePlayer: earlyHide at tick={}", ticks);
+        }
+        return earlyHide;
     }
 
     public static boolean shouldSuppressScreenEffects() {
