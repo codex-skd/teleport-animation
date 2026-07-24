@@ -153,6 +153,7 @@ public final class TeleportTransitionController {
     private static int exitBodyTicks;
     private static int enterBodyTicks;
     private static int ticks;
+    private static float frameTick;
     private static int travelTicks;
     private static int totalTicks;
     private static long lastTickTimeMs;
@@ -247,6 +248,7 @@ public final class TeleportTransitionController {
         startYaw = TeleportTransitionController.getInitialTransitionYaw(client, player);
         startPitch = TeleportTransitionController.getInitialTransitionPitch(client, player);
         ticks = 0;
+        frameTick = 0.0f;
         skipTravel = TeleportTransitionController.shouldSkipTravelForTargetDimension(plannedTargetDimensionId);
         skipTravelArrivalDelayTicks = 0;
         skipTravelTargetDimensionTicks = 0;
@@ -301,8 +303,9 @@ public final class TeleportTransitionController {
         long now = System.currentTimeMillis();
         long elapsed = now - lastTickTimeMs;
         lastTickTimeMs = now;
-        int delta = Math.max(0, (int)(elapsed / 50L));
-        ticks += delta;
+        float delta = Math.min((float)(elapsed / 50.0), 10.0f);
+        frameTick += delta;
+        ticks = (int)frameTick;
     }
 
     static void tick(Minecraft client) {
@@ -641,7 +644,7 @@ public final class TeleportTransitionController {
         if (cameraReleased) {
             return TeleportTransitionController.getPostReleaseCameraFrame(tickProgress);
         }
-        float frameTick = Math.min((float)ticks + tickProgress, (float)totalTicks);
+        float frameTick = Math.min(TeleportTransitionController.frameTick, (float)totalTicks);
         if (frameTick <= (float)(exitTicks = TeleportTransitionController.getExitBodyTicks())) {
             return TeleportTransitionController.exitBodyFrame(frameTick / (float)exitTicks);
         }
