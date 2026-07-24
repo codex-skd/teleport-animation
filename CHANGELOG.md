@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.33 (2026-07-24)
+
+- fix: use time-based ticks (50ms) instead of frame-based to fix animation speed at high FPS
+
 ## 0.0.0-beta.32 (2026-07-23)
 
 - fix: correct totalTicks diagnostic log location (was in recordActualTargetFeet instead of start)
