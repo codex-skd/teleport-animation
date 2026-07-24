@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.35 (2026-07-24)
+
+- chore: add diagnostic logging for player hide and view area repositioning
+
 ## 0.0.0-beta.34 (2026-07-24)
 
 - fix: smooth time-based ticks with float frameTick accumulator
