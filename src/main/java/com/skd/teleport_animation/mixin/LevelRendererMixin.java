@@ -78,8 +78,35 @@ abstract class LevelRendererMixin {
     private static void teleportAnimation$repositionViewArea(ViewArea viewArea, double x, double z) {
         try {
             viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, x, z);
-        } catch (ReflectiveOperationException e) {
-            LOGGER.error("TA repositionViewArea failed", e);
+            return;
+        } catch (ReflectiveOperationException ignored) {
+        }
+        try {
+            viewArea.getClass().getMethod("repositionCamera", Double.TYPE).invoke(viewArea, x);
+            return;
+        } catch (ReflectiveOperationException ignored) {
+        }
+        try {
+            for (var m : viewArea.getClass().getMethods()) {
+                String name = m.getName();
+                Class<?>[] params = m.getParameterTypes();
+                if ((name.contains("repos") || name.contains("camera") || name.contains("Camera")) && params.length >= 1) {
+                    if (params.length == 2 && params[0] == Double.TYPE && params[1] == Double.TYPE) {
+                        m.invoke(viewArea, x, z);
+                        return;
+                    }
+                    if (params.length == 1 && params[0] == Double.TYPE) {
+                        m.invoke(viewArea, x);
+                        return;
+                    }
+                }
+            }
+        } catch (ReflectiveOperationException ignored) {
+        }
+        LOGGER.error("TA repositionViewArea: no matching method found on ViewArea");
+        for (var m : viewArea.getClass().getMethods()) {
+            LOGGER.error("TA ViewArea method: {}({})", m.getName(),
+                java.util.Arrays.stream(m.getParameterTypes()).map(Class::getSimpleName).collect(java.util.stream.Collectors.joining(",")));
         }
     }
 

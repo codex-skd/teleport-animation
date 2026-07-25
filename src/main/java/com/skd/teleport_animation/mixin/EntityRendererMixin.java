@@ -22,13 +22,8 @@ public abstract class EntityRendererMixin {
     @Inject(method = "shouldRender", at = @At("HEAD"), cancellable = true, require = 0, remap = false)
     private <E extends Entity> void teleportAnimation$hideLocalPlayerDuringBodyCamera(E entity, Frustum frustum, double x, double y, double z, CallbackInfoReturnable<Boolean> cir) {
         LocalPlayer player = Minecraft.getInstance().player;
-        if (player != null && entity.getId() == player.getId()) {
-            if (TeleportTransitionController.shouldHideLocalPlayerModel()) {
-                LOGGER.info("TA hiding player model");
-                cir.setReturnValue(false);
-            } else {
-                LOGGER.info("TA not hiding player model");
-            }
+        if (player != null && entity.getId() == player.getId() && TeleportTransitionController.shouldHideLocalPlayerModel()) {
+            cir.setReturnValue(false);
         }
     }
 }
