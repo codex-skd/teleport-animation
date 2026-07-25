@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.36 (2026-07-25)
+
+- fix: dynamic ViewArea reposition method resolution to fix chunk rendering during animation
+- chore: remove verbose diagnostic logs
+
 ## 0.0.0-beta.35 (2026-07-24)
 
 - chore: add diagnostic logging for player hide and view area repositioning
