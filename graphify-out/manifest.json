@@ -1,0 +1,482 @@
+{
+  "build.gradle": {
+    "mtime": 1784669479.0467596,
+    "ast_hash": "924ab1665ec05c45573aedf560a3f683",
+    "semantic_hash": ""
+  },
+  "gradlew": {
+    "mtime": 1784211673.3136785,
+    "ast_hash": "f2d3d383787f61a4a99710ee8d780434",
+    "semantic_hash": ""
+  },
+  "settings.gradle": {
+    "mtime": 1784211673.3149438,
+    "ast_hash": "99e779284ca5df48a056afa6a0bf2cd1",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/BobbyCompat.java": {
+    "mtime": 1784211673.3159573,
+    "ast_hash": "9e59c67d87efff7ed69ff0f1e80f4449",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/ClientModEvents.java": {
+    "mtime": 1784211673.3169844,
+    "ast_hash": "fadf38751bb0f1901b4f7cba633ae1ab",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/DimensionIds.java": {
+    "mtime": 1784211673.3169844,
+    "ast_hash": "25ed05286a3351b08287f324a2b5e9cb",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/DistantHorizonsCompat.java": {
+    "mtime": 1784211673.3169844,
+    "ast_hash": "0297e18c31df5bf4e93f0b8b819a5076",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/IrisCompat.java": {
+    "mtime": 1784211673.318379,
+    "ast_hash": "13cbf9cae258ab99aef3e335084165f9",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/SodiumCompat.java": {
+    "mtime": 1784211673.318379,
+    "ast_hash": "8ee65b12eff7191aef813ab997e19e27",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportAnimation.java": {
+    "mtime": 1784551804.4813554,
+    "ast_hash": "62d1a334d1c39a73709b731447a733d3",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportClient.java": {
+    "mtime": 1784738735.718426,
+    "ast_hash": "84fe2bf9bef2960406080b9603cab941",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportClientNetworking.java": {
+    "mtime": 1784738642.8099444,
+    "ast_hash": "6fb139e103d9e8537523fec362212a82",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportConfig.java": {
+    "mtime": 1784211673.3217933,
+    "ast_hash": "c6be8eab113a59b0b7b464e826f8610e",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportModMenu.java": {
+    "mtime": 1784211673.3227992,
+    "ast_hash": "3c35ab229d3d0c0bd5adf4d6a5f6781f",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportNetworkPayloads.java": {
+    "mtime": 1784211673.3238127,
+    "ast_hash": "c236a34495cf1a0c4a41ae26c8556d43",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportServer.java": {
+    "mtime": 1784733070.2198358,
+    "ast_hash": "680a3af7d8f76e922f72850a5d0aaa21",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportServerNetworking.java": {
+    "mtime": 1784211673.3248131,
+    "ast_hash": "f45a17007c994829042625b916dbd14c",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportSounds.java": {
+    "mtime": 1784211673.3248131,
+    "ast_hash": "268c52e0c9bc868e372c85d7d420059b",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportStepEffectRenderer.java": {
+    "mtime": 1784211673.3248131,
+    "ast_hash": "aaa8b81fda03c2f42bfb6288e540872c",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java": {
+    "mtime": 1785107579.039446,
+    "ast_hash": "be186a7e6880d0ac6b71148b0aeb0436",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/VoxyCompat.java": {
+    "mtime": 1784211673.326815,
+    "ast_hash": "9a4da35199b49557e963a3adce2bca28",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/WaystonesTeleportHandler.java": {
+    "mtime": 1784734913.211948,
+    "ast_hash": "633a1b571e17194bd3fb62a800bb6921",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/WaystonesWarpPlateHandler.java": {
+    "mtime": 1784211673.3278153,
+    "ast_hash": "c49f7479ebf0a2583352be06670857d2",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/CameraAccessor.java": {
+    "mtime": 1784581491.8607073,
+    "ast_hash": "bac48b09621f48c99397dc31278b443e",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java": {
+    "mtime": 1784581552.5261416,
+    "ast_hash": "ec497a90685a1163be8f09e855bdc4f9",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/DistantHorizonsRenderUtilMixin.java": {
+    "mtime": 1784211673.3308153,
+    "ast_hash": "22faf0441c9b2b6d2ad9ca5b27adc573",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/EntityMixin.java": {
+    "mtime": 1784633508.5691035,
+    "ast_hash": "c60e65cb3997e77355b9be5eeb431af8",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java": {
+    "mtime": 1785000927.5035539,
+    "ast_hash": "dd058fa3f1d49103e771ca0f8cbaeb53",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/FogRendererMixin.java": {
+    "mtime": 1784582014.9386075,
+    "ast_hash": "5ad47d3d28ac3b9b0fc25ed19c357a5e",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java": {
+    "mtime": 1784581967.0413437,
+    "ast_hash": "b03ecfb22a8f028752810c481ab9c68c",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/GameRendererMixin.java": {
+    "mtime": 1784211673.3328269,
+    "ast_hash": "fbf63922ded388ffc816cff055e235d0",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/GuiMixin.java": {
+    "mtime": 1784211673.3328269,
+    "ast_hash": "cc5d9613359c6a8af4eb07fe51aaa0ac",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/KeyboardInputMixin.java": {
+    "mtime": 1784581642.915818,
+    "ast_hash": "9e1a3c824f1f72a587e973007b1b1fcc",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonEventsNeoForgeMixin.java": {
+    "mtime": 1784211673.334844,
+    "ast_hash": "5c88ca52e05d682a10f8d4924f7161be",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonImplMixin.java": {
+    "mtime": 1784211673.334844,
+    "ast_hash": "0e564c584c377ee0475f6b390b3ad2d2",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonLegacyMixin.java": {
+    "mtime": 1784211673.334844,
+    "ast_hash": "379a6f88b54e7866deeb885e0a617639",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java": {
+    "mtime": 1785091016.720014,
+    "ast_hash": "799c0bae42bf68f901327e72252df8ee",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/MinecraftMixin.java": {
+    "mtime": 1784582044.5322347,
+    "ast_hash": "c3cb2ef321b8666f59c6f8bc78987955",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/MouseHandlerMixin.java": {
+    "mtime": 1784581696.7247336,
+    "ast_hash": "433ed4057796aae5ae66578be916516e",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ScreenEffectRendererMixin.java": {
+    "mtime": 1784581834.8593836,
+    "ast_hash": "d2310924c14f1457715debadbbcc2473",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ServerPlayerMixin.java": {
+    "mtime": 1784652191.0815468,
+    "ast_hash": "bb728a9fc2a5ff7dc1fbc1530293c2e4",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/TeleportMixinPlugin.java": {
+    "mtime": 1784554464.8508976,
+    "ast_hash": "2e09d0d50a9d864cffc1b9b891f52c76",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/VoxyClientMixin.java": {
+    "mtime": 1784211673.3390622,
+    "ast_hash": "ea502740e8ef0fbcd4ec71ff09895eb6",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/WaystonesPlayerWaystoneManagerMixin.java": {
+    "mtime": 1784734898.6318097,
+    "ast_hash": "563d7094666b81872779d38ff83ed444",
+    "semantic_hash": ""
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/WaystonesWarpPlateBlockEntityMixin.java": {
+    "mtime": 1784211673.3400645,
+    "ast_hash": "307fa78f864223f0cfa66b08f7bbac9d",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/lang/en_us.json": {
+    "mtime": 1784211673.3570263,
+    "ast_hash": "45c0de67f3e226bebc55f13d7c534c5f",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/lang/ja_jp.json": {
+    "mtime": 1784211673.3580258,
+    "ast_hash": "f4755503befdfe3274bf7be1c9d613dd",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds.json": {
+    "mtime": 1784211673.3580258,
+    "ast_hash": "f73004ceef3b09224a91385b75cede90",
+    "semantic_hash": ""
+  },
+  "src/main/resources/teleport_animation.mixins.json": {
+    "mtime": 1784652196.8087068,
+    "ast_hash": "fae9993b4a8202e0609edd53b0f6699e",
+    "semantic_hash": ""
+  },
+  ".gitlab-ci.yml": {
+    "mtime": 1784832994.1836095,
+    "ast_hash": "6256bedf7bb846722d31da7b191613a6",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.md": {
+    "mtime": 1785107611.6004558,
+    "ast_hash": "59fdcc1bcf082dfccaff2f746b672eee",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1784485014.7071562,
+    "ast_hash": "6400a2b73570600e4e09d90605fc5897",
+    "semantic_hash": ""
+  },
+  "docs/WORKFLOW_TELEPORT_ANIMATION_26-1-2.md": {
+    "mtime": 1784832971.701186,
+    "ast_hash": "abfc95b9e65b1725b9ea7762c3d3640d",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/project_description.md": {
+    "mtime": 1784244542.9449387,
+    "ast_hash": "1fb9e4c9f599e02a28ebfe98c9129bbc",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/project_vars.md": {
+    "mtime": 1784485421.017885,
+    "ast_hash": "a4de0e101a997adcbbefbf3a96c35581",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.1.md": {
+    "mtime": 1784211673.304925,
+    "ast_hash": "0889f88f04e6fa46a49bed76050b3aa6",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.10.md": {
+    "mtime": 1784211673.304925,
+    "ast_hash": "c7947d5e98d15ae281604df3d6d21fd2",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.12.md": {
+    "mtime": 1784211673.305926,
+    "ast_hash": "983b7cdf5b45262aed71698845df6ef7",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.13.md": {
+    "mtime": 1784211673.305926,
+    "ast_hash": "eda7c2b7afc6715de505e8382564c080",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.14.md": {
+    "mtime": 1784211673.3070533,
+    "ast_hash": "036d5563285427d0c9ce36e2341c804a",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.15.md": {
+    "mtime": 1784243942.9343183,
+    "ast_hash": "f8ce5ff4fbd20727bda76c3446495515",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.16.md": {
+    "mtime": 1784484555.34221,
+    "ast_hash": "491e5b0e3615f717c88394fabd4afcfe",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.17.md": {
+    "mtime": 1784502278.4479067,
+    "ast_hash": "f7c23fbedba4f24eacbb3f1820643ed6",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.18.md": {
+    "mtime": 1784502446.301336,
+    "ast_hash": "730bb4d6c68a471170d7c709310c1c71",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.19.md": {
+    "mtime": 1784507796.3327515,
+    "ast_hash": "60409ac64ff8dd84b368b727f8912d40",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.20.md": {
+    "mtime": 1784551955.787182,
+    "ast_hash": "e985503776e5541e293d8005ad640e72",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.21.md": {
+    "mtime": 1784589295.9130206,
+    "ast_hash": "5de496bf55ce32825fcab497519032c1",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.22.md": {
+    "mtime": 1784633726.156104,
+    "ast_hash": "472fa2f3a9836ef537571a8a1d9b4f00",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.23.md": {
+    "mtime": 1784652206.9379249,
+    "ast_hash": "62c30efb125c72791d6ad179f58acac9",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.24.md": {
+    "mtime": 1784669589.8280573,
+    "ast_hash": "dc0d3363a6918563c67452990e787ce5",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.25.md": {
+    "mtime": 1784681244.4397638,
+    "ast_hash": "dabfe779b5f471738cbba51077e92e94",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.26.md": {
+    "mtime": 1784730253.5813675,
+    "ast_hash": "5a6cd9c723825e3de61080ab3d5e8ffc",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.27.md": {
+    "mtime": 1784733159.1635633,
+    "ast_hash": "32106518231c3ea1e8c83100570eec58",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.28.md": {
+    "mtime": 1784734938.1954336,
+    "ast_hash": "b1dcc3aebe596e782cdbc7fe9ece196f",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.29.md": {
+    "mtime": 1784738760.337151,
+    "ast_hash": "92c54e1ddbfae1af6ea8cbcd02e1a760",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.3.md": {
+    "mtime": 1784211673.308092,
+    "ast_hash": "a50475cf7a5612148081a9445ce9cd46",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.30.md": {
+    "mtime": 1784755301.5410655,
+    "ast_hash": "20a9d62cd2308b97e5528a4100fccebf",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.32.md": {
+    "mtime": 1784814285.1200573,
+    "ast_hash": "c80b1615f48f3209947562bd4b0f9d0d",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.33.md": {
+    "mtime": 1784891262.5592775,
+    "ast_hash": "840d6512ebd0c26b35fa03130cf5b90f",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.34.md": {
+    "mtime": 1784901448.3166246,
+    "ast_hash": "4d18ed7189b3d4d0aff2237256ba230c",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.35.md": {
+    "mtime": 1784904481.1255937,
+    "ast_hash": "9ed8221475137a1f6a622ee5d2ef62a8",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.36.md": {
+    "mtime": 1785001954.230128,
+    "ast_hash": "0aa2fc0467edb9ae662856bb9373a698",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.37.md": {
+    "mtime": 1785077464.01032,
+    "ast_hash": "c82f8f7790c2360c89a5c2a4e47e76c6",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.38.md": {
+    "mtime": 1785091468.7888596,
+    "ast_hash": "b40f96d7506056d570b16b1e969b9596",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.39.md": {
+    "mtime": 1785107624.9839895,
+    "ast_hash": "862655aefb76c0aa38213ffc6cfce5f6",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.4.md": {
+    "mtime": 1784211673.308092,
+    "ast_hash": "2ae51c0c33aea69ccb988925b0b65f49",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.5.md": {
+    "mtime": 1784211673.309174,
+    "ast_hash": "be6a80c4b2cedc130d4f1a0ced449d81",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.9.md": {
+    "mtime": 1784211673.3101816,
+    "ast_hash": "831bd6e941fd48003d38e55022e698dd",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/icon.png": {
+    "mtime": 1784211673.3560266,
+    "ast_hash": "ce760fc89387e56dbcf706c50ffe78be",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/camera_in.ogg": {
+    "mtime": 1784211673.3600261,
+    "ast_hash": "33d56ae9673b66559fa42e2fa100e915",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/camera_out.ogg": {
+    "mtime": 1784211673.3629193,
+    "ast_hash": "74245871c386bc3493993f57f7252093",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/teleport.ogg": {
+    "mtime": 1784211673.369346,
+    "ast_hash": "f230c68bfc0523dc01cec95ccebb0f9c",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_in_long.ogg": {
+    "mtime": 1784211673.3728788,
+    "ast_hash": "171a7137ddbd20f1ac0c424c478f7950",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_in_short.ogg": {
+    "mtime": 1784211673.375049,
+    "ast_hash": "e6ec764b67dd04e741ca5595ca35fb51",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_out_long.ogg": {
+    "mtime": 1784211673.377687,
+    "ast_hash": "f56559d955505594f5ef56c44757c850",
+    "semantic_hash": ""
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_out_short.ogg": {
+    "mtime": 1784211673.3787122,
+    "ast_hash": "204537a730354b55d859feefbcf05b0f",
+    "semantic_hash": ""
+  }
+}
