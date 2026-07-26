@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.0-beta.37 (2026-07-26)
+
+- fix: repositionCamera via SectionPos for runtime compatibility (method signature mismatch between NeoForge dev and production)
+- chore: add BlockPos import for SectionPos construction
+
 ## 0.0.0-beta.36 (2026-07-25)
 
 - fix: dynamic ViewArea reposition method resolution to fix chunk rendering during animation
