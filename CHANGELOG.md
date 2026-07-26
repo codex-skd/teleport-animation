@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.39 (2026-07-26)
+
+- fix: always show player model during animation (remove shouldHideLocalPlayerModel)
+
 ## 0.0.0-beta.38 (2026-07-26)
 
 - fix: reposition ViewArea to player position instead of camera to prevent chunk discarding during zoom-out

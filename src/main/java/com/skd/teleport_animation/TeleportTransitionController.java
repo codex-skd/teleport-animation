@@ -420,19 +420,7 @@ public final class TeleportTransitionController {
     }
 
     public static boolean shouldHideLocalPlayerModel() {
-        boolean enteringPlayer;
-        if (!TeleportTransitionController.isRunning() || cameraReleased) {
-            return false;
-        }
-        int hideTicks = TeleportConfig.getLocalPlayerHideTicks();
-        if (hideTicks <= 0) {
-            return false;
-        }
-        boolean bl = enteringPlayer = ticks >= TeleportTransitionController.getEnterStartTick() && ticks >= totalTicks - hideTicks;
-        if (enteringPlayer) {
-            return true;
-        }
-        return !TeleportTransitionController.shouldRespectPreviousCameraPosition() && ticks <= hideTicks;
+        return false;
     }
 
     public static boolean shouldSuppressScreenEffects() {
