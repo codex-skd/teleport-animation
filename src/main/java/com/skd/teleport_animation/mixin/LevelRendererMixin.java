@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.ViewArea;
 import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -82,25 +83,8 @@ abstract class LevelRendererMixin {
         } catch (ReflectiveOperationException ignored) {
         }
         try {
-            viewArea.getClass().getMethod("repositionCamera", Double.TYPE).invoke(viewArea, x);
+            viewArea.getClass().getMethod("repositionCamera", SectionPos.class).invoke(viewArea, SectionPos.of(BlockPos.containing(x, 0, z)));
             return;
-        } catch (ReflectiveOperationException ignored) {
-        }
-        try {
-            for (var m : viewArea.getClass().getMethods()) {
-                String name = m.getName();
-                Class<?>[] params = m.getParameterTypes();
-                if ((name.contains("repos") || name.contains("camera") || name.contains("Camera")) && params.length >= 1) {
-                    if (params.length == 2 && params[0] == Double.TYPE && params[1] == Double.TYPE) {
-                        m.invoke(viewArea, x, z);
-                        return;
-                    }
-                    if (params.length == 1 && params[0] == Double.TYPE) {
-                        m.invoke(viewArea, x);
-                        return;
-                    }
-                }
-            }
         } catch (ReflectiveOperationException ignored) {
         }
         LOGGER.error("TA repositionViewArea: no matching method found on ViewArea");
