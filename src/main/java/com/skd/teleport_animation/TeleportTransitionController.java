@@ -277,7 +277,7 @@ public final class TeleportTransitionController {
         LOGGER.info("TA start: totalTicks={} travelTicks={} fixedTicks={} skipTravel={}", totalTicks, travelTicks, TeleportTransitionController.getFixedTotalTicks(), skipTravel);
         transitionSource = source;
         if (skipTravel) {
-            LOGGER.info("GTP cross-dimension transition start: source={} startDim={} targetDim={} startFeet={} plannedTargetFeet={}", new Object[]{transitionSource, DimensionIds.fromResourceKey(startDimension), plannedTargetDimensionId, startFeet, plannedTargetFeet});
+            LOGGER.info("TA cross-dimension transition start: source={} startDim={} targetDim={} startFeet={} plannedTargetFeet={}", new Object[]{transitionSource, DimensionIds.fromResourceKey(startDimension), plannedTargetDimensionId, startFeet, plannedTargetFeet});
         }
         commandSent = false;
         cameraReleasePrepared = false;
@@ -329,7 +329,7 @@ public final class TeleportTransitionController {
         TeleportTransitionController.updateHudVisibility(client);
         if (!commandSent && ticks >= TeleportTransitionController.getCommandSendTick()) {
             if (skipTravel) {
-                LOGGER.info("GTP cross-dimension command send: source={} tick={} travelStart={} pullStart={} pullEnd={}", new Object[]{transitionSource, ticks, TeleportTransitionController.getTravelStartTick(), TeleportTransitionController.getPullStartTick(), TeleportTransitionController.getPullEndTick()});
+                LOGGER.info("TA cross-dimension command send: source={} tick={} travelStart={} pullStart={} pullEnd={}", new Object[]{transitionSource, ticks, TeleportTransitionController.getTravelStartTick(), TeleportTransitionController.getPullStartTick(), TeleportTransitionController.getPullEndTick()});
             }
             commandSent = true;
             TeleportTransitionController.runPendingAction();
@@ -777,7 +777,7 @@ public final class TeleportTransitionController {
         boolean bl = restoreThirdPersonCamera = client != null && client.options != null && client.options.getCameraType() != CameraType.FIRST_PERSON;
         if (!(TeleportTransitionController.resetLeawindCameraAgent("com.github.leawind.thirdperson.ThirdPerson", releasePitch, releaseYaw, restoreThirdPersonCamera) || TeleportTransitionController.resetLeawindCameraAgent("com.github.leawind.thirdperson.impl.ThirdPersonImpl", releasePitch, releaseYaw, restoreThirdPersonCamera) || leawindCameraResetWarningLogged)) {
             leawindCameraResetWarningLogged = true;
-            LOGGER.warn("Leawind's Third Person is loaded, but GTP could not reset its CAMERA_AGENT.");
+            LOGGER.warn("Leawind's Third Person is loaded, but TA could not reset its CAMERA_AGENT.");
         }
     }
 
@@ -1313,7 +1313,7 @@ public final class TeleportTransitionController {
         }
         if (TeleportTransitionController.isInPlannedTargetDimension(client)) {
             if (++skipTravelTargetDimensionTicks == 1 && client.player != null) {
-                LOGGER.info("GTP cross-dimension target level visible: targetDim={} playerFeet={} plannedTargetFeet={}", new Object[]{plannedTargetDimensionId, TeleportTransitionController.getFeetPos(client.player), plannedTargetFeet});
+                LOGGER.info("TA cross-dimension target level visible: targetDim={} playerFeet={} plannedTargetFeet={}", new Object[]{plannedTargetDimensionId, TeleportTransitionController.getFeetPos(client.player), plannedTargetFeet});
             }
         } else {
             skipTravelTargetDimensionTicks = 0;
@@ -1327,7 +1327,7 @@ public final class TeleportTransitionController {
         if (!TeleportTransitionController.canRevealSkipTravelTarget(client)) {
             return;
         }
-        LOGGER.info("GTP closing cross-dimension loading terrain screen: targetDim={} targetDimTicks={} actualTargetFeet={} plannedTargetFeet={}", new Object[]{plannedTargetDimensionId, skipTravelTargetDimensionTicks, actualTargetFeet, plannedTargetFeet});
+        LOGGER.info("TA closing cross-dimension loading terrain screen: targetDim={} targetDimTicks={} actualTargetFeet={} plannedTargetFeet={}", new Object[]{plannedTargetDimensionId, skipTravelTargetDimensionTicks, actualTargetFeet, plannedTargetFeet});
         client.setScreen(null);
     }
 
@@ -1390,7 +1390,7 @@ public final class TeleportTransitionController {
         }
         TeleportTransitionController.updateArrivalBodyCameraHeights(Minecraft.getInstance(), playerFeet);
         if (skipTravel) {
-            LOGGER.info("GTP cross-dimension arrival recorded: actualTargetFeet={} plannedTargetFeet={} targetDimTicks={}", new Object[]{actualTargetFeet, plannedTargetFeet, skipTravelTargetDimensionTicks});
+            LOGGER.info("TA cross-dimension arrival recorded: actualTargetFeet={} plannedTargetFeet={} targetDimTicks={}", new Object[]{actualTargetFeet, plannedTargetFeet, skipTravelTargetDimensionTicks});
         }
         if (!skipTravel && !plannedTargetFeetStable && ticks <= TeleportTransitionController.getTravelStartTick()) {
             travelTicks = TeleportTransitionController.calculateTravelTicks(startFeet, actualTargetFeet);
@@ -2086,7 +2086,7 @@ public final class TeleportTransitionController {
         if (minimumWaitElapsed && TeleportTransitionController.areArrivalChunksReady(client)) {
             normalChunkHandoffReady = true;
             TeleportTransitionController.forceTerrainRefresh(client);
-            LOGGER.info("GTP normal chunk handoff ready: delayTicks={} targetFeet={}", (Object)normalChunkHandoffDelayTicks, (Object)actualTargetFeet);
+            LOGGER.info("TA normal chunk handoff ready: delayTicks={} targetFeet={}", (Object)normalChunkHandoffDelayTicks, (Object)actualTargetFeet);
             return;
         }
         TeleportTransitionController.extendOrReleaseNormalChunkHandoff(client);
@@ -2096,7 +2096,7 @@ public final class TeleportTransitionController {
         if (normalChunkHandoffDelayTicks >= 80) {
             normalChunkHandoffReady = true;
             TeleportTransitionController.forceTerrainRefresh(client);
-            LOGGER.info("GTP normal chunk handoff timeout: delayTicks={} targetFeet={}", (Object)normalChunkHandoffDelayTicks, (Object)TeleportTransitionController.getBestTargetFeet());
+            LOGGER.info("TA normal chunk handoff timeout: delayTicks={} targetFeet={}", (Object)normalChunkHandoffDelayTicks, (Object)TeleportTransitionController.getBestTargetFeet());
             return;
         }
         ++totalTicks;

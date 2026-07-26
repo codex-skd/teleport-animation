@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.38 (2026-07-26)
+
+- fix: reposition ViewArea to player position instead of camera to prevent chunk discarding during zoom-out
+- chore: remove verbose per-frame reposition logging
+- chore: fix remaining GTP log prefixes to TA
+
 ## 0.0.0-beta.37 (2026-07-26)
 
 - fix: repositionCamera via SectionPos for runtime compatibility (method signature mismatch between NeoForge dev and production)

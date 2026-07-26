@@ -5,7 +5,6 @@ import com.mojang.blaze3d.resource.GraphicsResourceAllocator;
 import com.mojang.logging.LogUtils;
 import com.skd.teleport_animation.TeleportTransitionController;
 import java.lang.reflect.Field;
-import net.minecraft.client.Camera;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -17,7 +16,6 @@ import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4fc;
 import org.joml.Vector4f;
 import org.slf4j.Logger;
@@ -58,12 +56,9 @@ abstract class LevelRendererMixin {
         }
         ViewArea viewArea = LevelRendererMixin.teleportAnimation$getViewArea((LevelRenderer)(Object) this);
         if (viewArea == null) {
-            LOGGER.info("TA viewArea is null, cannot reposition");
             return;
         }
-        Vec3 cameraPos = renderState.pos;
-        LOGGER.info("TA repositioning viewArea to camera ({}, {})", (int)cameraPos.x, (int)cameraPos.z);
-        teleportAnimation$repositionViewArea(viewArea, cameraPos.x, cameraPos.z);
+        teleportAnimation$repositionViewArea(viewArea);
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
 
@@ -76,21 +71,19 @@ abstract class LevelRendererMixin {
     }
 
     @Unique
-    private static void teleportAnimation$repositionViewArea(ViewArea viewArea, double x, double z) {
+    private static void teleportAnimation$repositionViewArea(ViewArea viewArea) {
+        LocalPlayer player = Minecraft.getInstance().player;
+        if (player == null) return;
+        SectionPos section = SectionPos.of(BlockPos.containing(player.getX(), 0, player.getZ()));
         try {
-            viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, x, z);
+            viewArea.getClass().getMethod("repositionCamera", SectionPos.class).invoke(viewArea, section);
             return;
         } catch (ReflectiveOperationException ignored) {
         }
         try {
-            viewArea.getClass().getMethod("repositionCamera", SectionPos.class).invoke(viewArea, SectionPos.of(BlockPos.containing(x, 0, z)));
+            viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, player.getX(), player.getZ());
             return;
         } catch (ReflectiveOperationException ignored) {
-        }
-        LOGGER.error("TA repositionViewArea: no matching method found on ViewArea");
-        for (var m : viewArea.getClass().getMethods()) {
-            LOGGER.error("TA ViewArea method: {}({})", m.getName(),
-                java.util.Arrays.stream(m.getParameterTypes()).map(Class::getSimpleName).collect(java.util.stream.Collectors.joining(",")));
         }
     }
 
