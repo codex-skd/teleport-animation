@@ -4,7 +4,7 @@
 
 - fix: always show player model during animation (remove shouldHideLocalPlayerModel)
 - fix: prevent ViewArea chunk discard by removing repositionCamera inject (vanilla setup runs before renderLevel)
-- docs: update WORKFLOW to v1.4.0 (organización en workspace, historial de versiones)
+- docs: update WORKFLOW to v1.5.0 (single repo with branches per version, .git/ en mod_id/)
 
 ## 0.0.0-beta.38 (2026-07-26)
 
