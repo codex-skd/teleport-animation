@@ -1,6 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> **Versión del workflow**: 1.2.7 (codex-docs)
+> **Versión del workflow**: 1.4.0 (codex-docs)
 > Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 > Para actualizar este workflow, revisar la última versión en `codex-docs/WORKFLOW_GENERIC.md`.
@@ -19,6 +19,42 @@ Reglas:
 - El display name en `README.md` y `CHANGELOG.md` debe estar en **Title Case**
 - Las clases Java principales deben seguir el naming del `mod_id` pero en **PascalCase**:
 - Las config keys en camelCase: `teleportAnimation.enableFeature`
+
+## Organización en el workspace
+
+Todos los mods siguen esta estructura en el directorio raíz (`Mods_Minecraft/`), tengan una o varias versiones de Minecraft:
+
+```
+<mod_id>/                    # Carpeta padre del mod (solo organizativa, sin .git)
+└── <minecraft_version>/     # Proyecto real con su propio .git y repositorio GitLab
+    ├── .git/
+    ├── build.gradle
+    ├── gradle.properties
+    ├── src/
+    ├── docs/
+    └── ...
+```
+
+Ejemplo real actual:
+
+```
+teleport_animation/          # Mod padre (organizativo)
+├── 1.21.1/                  # Repositorio independiente en GitLab
+│   ├── .git/
+│   ├── gradle.properties → minecraft_version=1.21.1
+│   └── ...
+└── 26.1.2/                  # Repositorio independiente en GitLab
+    ├── .git/
+    ├── gradle.properties → minecraft_version=26.1.2
+    └── ...
+```
+
+**Reglas:**
+- La carpeta padre `<mod_id>/` es solo organizativa, **no tiene `.git`**
+- Cada `<minecraft_version>/` tiene su propio `.git/` y es un repositorio independiente en GitLab
+- El `mod_id` en `gradle.properties` debe coincidir con la carpeta padre
+- La rama default del repo es `minecraft/<mc-version>/neoforge-<neo-version>/production`
+- El nombre del workflow sigue el patrón `WORKFLOW_<MOD_ID>_<MC-VERSION>.md` (ej: `WORKFLOW_TELEPORT_ANIMATION_1-21-1.md`)
 
 ## Tipografía
 
@@ -584,6 +620,8 @@ git push
 
 | Versión | Fecha | Cambios |
 |---|---|---|
+| 1.4.0 | 2026-07-23 | Organización en workspace: todos los mods usan `<mod_id>/<mc-version>/` tengan 1 o N versiones |
+| 1.3.0 | 2026-07-23 | Nueva sección: organización multi-versión con estructura `<mod_id>/<mc-version>/` |
 | 1.2.7 | 2026-07-23 | Sync: CI y ramas actualizados desde GENERIC v1.2.7 |
 | 1.2.6 | 2026-07-23 | Fix YAML en CI: `|| (&&)` reemplazado por bloque `if` para evitar error de sintaxis |
 | 1.2.5 | 2026-07-23 | `*/main` es ahora la rama por defecto, `main` raíz eliminada |
