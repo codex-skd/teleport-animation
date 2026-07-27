@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.42 (2026-07-27)
+
+- fix: remove repositionCamera call (causes section discard), keep only lastCameraSection sync to camera pos
+
 ## 0.0.0-beta.41 (2026-07-27)
 
 - fix: reposition ViewArea to camera position and set lastCameraSection to camera section (terrain now loads around the actual camera, not the player)

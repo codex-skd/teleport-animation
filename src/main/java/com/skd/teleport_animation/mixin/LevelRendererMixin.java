@@ -10,10 +10,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.ViewArea;
 import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import net.minecraft.world.phys.Vec3;
@@ -51,7 +49,6 @@ abstract class LevelRendererMixin {
         if (!TeleportTransitionController.shouldForceTerrainFrustumApply()) {
             return;
         }
-        LevelRendererMixin.teleportAnimation$repositionViewArea((LevelRenderer)(Object) this);
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
 
@@ -61,34 +58,6 @@ abstract class LevelRendererMixin {
             return Double.NEGATIVE_INFINITY;
         }
         return data.getHorizonHeight(level);
-    }
-
-    @Unique
-    private static void teleportAnimation$repositionViewArea(LevelRenderer renderer) {
-        Vec3 cameraPos = TeleportTransitionController.getTransitionCameraPositionForRendering();
-        if (cameraPos == null) return;
-        ViewArea viewArea = LevelRendererMixin.teleportAnimation$getViewArea(renderer);
-        if (viewArea == null) return;
-        try {
-            viewArea.getClass().getMethod("repositionCamera", SectionPos.class).invoke(viewArea, SectionPos.of(BlockPos.containing(cameraPos.x, cameraPos.y, cameraPos.z)));
-        } catch (ReflectiveOperationException e) {
-            try {
-                viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, cameraPos.x, cameraPos.z);
-            } catch (ReflectiveOperationException ignored) {
-            }
-        }
-    }
-
-    @Unique
-    private static ViewArea teleportAnimation$getViewArea(LevelRenderer renderer) {
-        try {
-            Field field = renderer.getClass().getDeclaredField("viewArea");
-            field.setAccessible(true);
-            Object value = field.get(renderer);
-            return value instanceof ViewArea ? (ViewArea) value : null;
-        } catch (ReflectiveOperationException e) {
-            return null;
-        }
     }
 
     @Unique
