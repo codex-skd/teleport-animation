@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.41 (2026-07-27)
+
+- fix: reposition ViewArea to camera position and set lastCameraSection to camera section (terrain now loads around the actual camera, not the player)
+
 ## 0.0.0-beta.40 (2026-07-27)
 
 - fix: always show player model during animation (remove shouldHideLocalPlayerModel)
