@@ -1,6 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> **Versión del workflow**: 1.2.7 (codex-docs)
+> **Versión del workflow**: 1.4.0 (codex-docs)
 > Este archivo pertenece al proyecto **Teleport Animation**. Cada proyecto tiene su propio `WORKFLOW_<MOD_ID>_<MC-VERSION>.md`.
 > No es un archivo central ni template compartido. Los cambios aquí solo afectan a este proyecto.
 
@@ -28,6 +28,42 @@ Reglas:
 | README | `README.md` (fijo) | `README.md` |
 
 > El nombre del WORKFLOW incluye el `mod_id` y la versión de Minecraft (con puntos reemplazados por guiones) para identificar inequívocamente a qué proyecto y versión pertenece, especialmente útil cuando conviven múltiples versiones del mismo mod.
+
+## Organización en el workspace
+
+Todos los mods siguen esta estructura en el directorio raíz (`Mods_Minecraft/`), tengan una o varias versiones de Minecraft:
+
+```
+<mod_id>/                    # Carpeta padre del mod (solo organizativa, sin .git)
+└── <minecraft_version>/     # Proyecto real con su propio .git y repositorio GitLab
+    ├── .git/
+    ├── build.gradle
+    ├── gradle.properties
+    ├── src/
+    ├── docs/
+    └── ...
+```
+
+Ejemplo real actual:
+
+```
+teleport_animation/          # Mod padre (organizativo)
+├── 1.21.1/                  # Repositorio independiente en GitLab
+│   ├── .git/
+│   ├── gradle.properties → minecraft_version=1.21.1
+│   └── ...
+└── 26.1.2/                  # Repositorio independiente en GitLab
+    ├── .git/
+    ├── gradle.properties → minecraft_version=26.1.2
+    └── ...
+```
+
+**Reglas:**
+- La carpeta padre `<mod_id>/` es solo organizativa, **no tiene `.git`**
+- Cada `<minecraft_version>/` tiene su propio `.git/` y es un repositorio independiente en GitLab
+- El `mod_id` en `gradle.properties` debe coincidir con la carpeta padre
+- La rama default del repo es `minecraft/<mc-version>/neoforge-<neo-version>/production`
+- El nombre del workflow sigue el patrón `WORKFLOW_<MOD_ID>_<MC-VERSION>.md` (ej: `WORKFLOW_TELEPORT_ANIMATION_26-1-2.md`)
 
 ## Tipografía
 
@@ -63,6 +99,7 @@ Reglas:
 │   ├── main/java/<package>/...         # Código fuente
 ├── libs/                               # Dependencias reales del mod (JARs necesarios para compilar). Versionado.
 ├── lib_ext/                            # Librerías externas para análisis de la sesión. NO versionado (.gitignore).
+├── temp/                               # Archivos temporales: investigaciones, prototipos, JARs extraídos, pruebas. NO versionado (.gitignore).
 ├── docs/
 │   ├── WORKFLOW_TELEPORT_ANIMATION_26-1-2.md  # Este documento
 │   └── curseforge/                    # Documentación para publicación en CurseForge
@@ -89,6 +126,8 @@ Reglas:
 | `docs/curseforge/versions/<version>.md` | Release notes de cada versión que se sube a CurseForge. Solo se agrega cuando se va a publicar esa versión |
 
 Las variables de cada proyecto (project ID, API token, versiones de Minecraft/NeoForge/Java) se documentan en `docs/curseforge/project_vars.md`. No duplicar aquí.
+
+> El API token de CurseForge es el mismo para todos los mods (token de cuenta, no de proyecto). Se copia en cada `project_vars.md` individualmente.
 
 ### Formato de descripciones CurseForge
 
@@ -199,10 +238,10 @@ El changelog se envía en formato **HTML**, no Markdown. Aunque CurseForge acept
 
 | Rama | Propósito |
 |---|---|
-| `minecraft/26.1.2/neoforge-26.1.2.78/production` | Trabajo diario en Minecraft 26.1.2 |
-| `minecraft/26.1.2/neoforge-26.1.2.78/main` | Código público para GitHub (misma versión) |
-| `minecraft/1.21.1/neoforge-21.1.141/production` | Trabajo diario en Minecraft 1.21.1 |
-| `minecraft/1.21.1/neoforge-21.1.141/main` | Código público para GitHub (misma versión) |
+| `minecraft/1.21.1/neoforge-21.1.78/production` | Trabajo diario en Minecraft 1.21.1 |
+| `minecraft/1.21.1/neoforge-21.1.78/main` | Código público para GitHub (misma versión) |
+| `minecraft/26.1.2/neoforge-21.1.141/production` | Trabajo diario en Minecraft 26.1.2 |
+| `minecraft/26.1.2/neoforge-21.1.141/main` | Código público para GitHub (misma versión) |
 
 ### Esquema de publicación
 
@@ -577,7 +616,11 @@ Después de cada push a remoto, actualizar el grafo de conocimiento:
 
 ```bash
 # 1. Regenerar el grafo del mod
+#    Ruta al ejecutable (Windows):
 "C:\Users\llagu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\Scripts\graphify.exe" build .
+
+#    O si graphify está en PATH:
+#    graphify build .
 
 # 2. Commit del grafo actualizado
 git add graphify-out/
@@ -625,3 +668,22 @@ git push
 | CurseForge (descripción del proyecto, release notes) | **Inglés** (en-US) — plataforma global |
 
 El código, los logs y los commits siguen el estándar internacional de programación en inglés. El README debe estar en inglés por ser la primera impresión del proyecto en GitHub. La documentación interna se mantiene en castellano por ser el idioma del equipo. CurseForge se publica en inglés para llegar a la mayor audiencia posible.
+
+---
+
+## Historial de versiones del workflow
+
+| Versión | Fecha | Cambios |
+|---|---|---|
+| 1.4.0 | 2026-07-23 | Organización en workspace: todos los mods usan `<mod_id>/<mc-version>/` tengan 1 o N versiones |
+| 1.3.0 | 2026-07-23 | Nueva sección: organización multi-versión con estructura `<mod_id>/<mc-version>/` |
+| 1.2.7 | 2026-07-23 | Corrección: default branch = production, protected branch = */main |
+| 1.2.6 | 2026-07-23 | Fix YAML en CI: `|| (&&)` reemplazado por bloque `if` para evitar error de sintaxis |
+| 1.2.5 | 2026-07-23 | `*/main` es ahora la rama por defecto, `main` raíz eliminada |
+| 1.2.4 | 2026-07-23 | Roles clarificados: agente crea `*/main`, operador elimina `main` raíz + protege + mirror |
+| 1.2.3 | 2026-07-23 | CI: elimina creación automática de `*/main` (orphan). Si no existe, falla. Rama `main` raíz marcada para eliminar |
+| 1.2.2 | 2026-07-23 | CI: `libs/` separado como opcional en checkout para no fallar si el mod no lo tiene |
+| 1.2.1 | 2026-07-21 | Limpieza de tabla de ramas (eliminadas filas duplicadas) |
+| 1.2.0 | 2026-07-21 | Separación clara de roles: agente crea `*/main`, operador protege + mirror. Sección reescrita con tabla de responsabilidades |
+| 1.1.0 | 2026-07-21 | CI: eliminado `mod_curseforge_token` (nunca en gradle.properties). Script: displayName usa `mod_name`. Workflow: añadido paso de subida con el script compartido |
+| 1.0.0 | 2026-07-21 | Versión inicial: estructura, naming, tipografía, CI/CD, Graphify, fork attribution, temp/, README en inglés |
