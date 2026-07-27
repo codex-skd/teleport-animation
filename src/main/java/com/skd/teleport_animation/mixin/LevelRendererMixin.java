@@ -13,7 +13,6 @@ import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.ViewArea;
 import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
 import org.joml.Matrix4fc;
@@ -30,10 +29,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 abstract class LevelRendererMixin {
     @Unique
     private static final Logger LOGGER = LogUtils.getLogger();
-    @Unique
-    private static Field teleportAnimation$viewAreaField;
-    @Unique
-    private static boolean teleportAnimation$viewAreaLookupFailed;
     @Unique
     private static Field teleportAnimation$prevCamXField;
     @Unique
@@ -54,11 +49,6 @@ abstract class LevelRendererMixin {
         if (!TeleportTransitionController.shouldForceTerrainFrustumApply()) {
             return;
         }
-        ViewArea viewArea = LevelRendererMixin.teleportAnimation$getViewArea((LevelRenderer)(Object) this);
-        if (viewArea == null) {
-            return;
-        }
-        teleportAnimation$repositionViewArea(viewArea);
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
     }
 
@@ -68,23 +58,6 @@ abstract class LevelRendererMixin {
             return Double.NEGATIVE_INFINITY;
         }
         return data.getHorizonHeight(level);
-    }
-
-    @Unique
-    private static void teleportAnimation$repositionViewArea(ViewArea viewArea) {
-        LocalPlayer player = Minecraft.getInstance().player;
-        if (player == null) return;
-        SectionPos section = SectionPos.of(BlockPos.containing(player.getX(), 0, player.getZ()));
-        try {
-            viewArea.getClass().getMethod("repositionCamera", SectionPos.class).invoke(viewArea, section);
-            return;
-        } catch (ReflectiveOperationException ignored) {
-        }
-        try {
-            viewArea.getClass().getMethod("repositionCamera", Double.TYPE, Double.TYPE).invoke(viewArea, player.getX(), player.getZ());
-            return;
-        } catch (ReflectiveOperationException ignored) {
-        }
     }
 
     @Unique
@@ -107,41 +80,6 @@ abstract class LevelRendererMixin {
             teleportAnimation$lastCameraSectionZField.setInt(renderer, SectionPos.posToSectionCoord(player.getZ()));
         } catch (IllegalAccessException ignored) {
         }
-    }
-
-    @Unique
-    private static ViewArea teleportAnimation$getViewArea(LevelRenderer renderer) {
-        Field field = LevelRendererMixin.teleportAnimation$getViewAreaField(renderer.getClass());
-        if (field == null) {
-            return null;
-        }
-        try {
-            Object value = field.get(renderer);
-            return value instanceof ViewArea ? (ViewArea) value : null;
-        } catch (IllegalAccessException ignored) {
-            return null;
-        }
-    }
-
-    @Unique
-    private static Field teleportAnimation$getViewAreaField(Class<?> rendererClass) {
-        if (teleportAnimation$viewAreaField != null) {
-            return teleportAnimation$viewAreaField;
-        }
-        if (teleportAnimation$viewAreaLookupFailed) {
-            return null;
-        }
-        for (String fieldName : new String[]{"viewArea"}) {
-            try {
-                Field field = rendererClass.getDeclaredField(fieldName);
-                field.setAccessible(true);
-                teleportAnimation$viewAreaField = field;
-                return field;
-            } catch (NoSuchFieldException ignored) {
-            }
-        }
-        teleportAnimation$viewAreaLookupFailed = true;
-        return null;
     }
 
     @Unique
