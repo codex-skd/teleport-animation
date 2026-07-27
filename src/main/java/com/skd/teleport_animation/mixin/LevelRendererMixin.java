@@ -50,6 +50,19 @@ abstract class LevelRendererMixin {
             return;
         }
         LevelRendererMixin.teleportAnimation$maskPlayerChunkReposition((LevelRenderer)(Object) this);
+        try {
+            Vec3 camPos = renderState.pos;
+            int lsx = teleportAnimation$lastCameraSectionXField.getInt((LevelRenderer)(Object) this);
+            int lsy = teleportAnimation$lastCameraSectionYField.getInt((LevelRenderer)(Object) this);
+            int lsz = teleportAnimation$lastCameraSectionZField.getInt((LevelRenderer)(Object) this);
+            LOGGER.info("TA cam({},{},{}) lastSec({},{},{}) camSec({},{},{})",
+                (int)camPos.x, (int)camPos.y, (int)camPos.z,
+                lsx, lsy, lsz,
+                SectionPos.posToSectionCoord(camPos.x),
+                SectionPos.posToSectionCoord(camPos.y),
+                SectionPos.posToSectionCoord(camPos.z));
+        } catch (Exception ignored) {
+        }
     }
 
     @Redirect(method = "renderSky", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel$ClientLevelData;getHorizonHeight(Lnet/minecraft/world/level/LevelHeightAccessor;)D"), require = 0)

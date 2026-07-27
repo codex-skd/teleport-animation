@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.43 (2026-07-27)
+
+- chore: add diagnostic logging for camera position, lastCameraSection and camera section during animation
+
 ## 0.0.0-beta.42 (2026-07-27)
 
 - fix: remove repositionCamera call (causes section discard), keep only lastCameraSection sync to camera pos
