@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.46 (2026-07-28)
+
+- fix: modify Frustum.prepare parameters at HEAD (not TAIL) to use animation camera position for both frustum planes and position
+
 ## 0.0.0-beta.45 (2026-07-28)
 
 - chore: add ChunkSectionsToRender section count diagnostic
