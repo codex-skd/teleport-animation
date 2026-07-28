@@ -14,7 +14,6 @@ import net.minecraft.client.renderer.chunk.ChunkSectionsToRender;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.core.SectionPos;
 import net.minecraft.world.level.LevelHeightAccessor;
-import net.minecraft.world.phys.Vec3;
 import org.joml.Matrix4fc;
 import org.joml.Vector4f;
 import org.slf4j.Logger;
@@ -71,17 +70,13 @@ abstract class LevelRendererMixin {
         if (!LevelRendererMixin.teleportAnimation$ensureLastCameraFields(renderer.getClass())) {
             return;
         }
-        Vec3 cameraPos = TeleportTransitionController.getTransitionCameraPositionForRendering();
-        if (cameraPos == null) {
-            cameraPos = player.position();
-        }
         try {
             teleportAnimation$prevCamXField.setDouble(renderer, player.getX());
             teleportAnimation$prevCamYField.setDouble(renderer, player.getY());
             teleportAnimation$prevCamZField.setDouble(renderer, player.getZ());
-            teleportAnimation$lastCameraSectionXField.setInt(renderer, SectionPos.posToSectionCoord(cameraPos.x));
-            teleportAnimation$lastCameraSectionYField.setInt(renderer, SectionPos.posToSectionCoord(cameraPos.y));
-            teleportAnimation$lastCameraSectionZField.setInt(renderer, SectionPos.posToSectionCoord(cameraPos.z));
+            teleportAnimation$lastCameraSectionXField.setInt(renderer, SectionPos.posToSectionCoord(player.getX()));
+            teleportAnimation$lastCameraSectionYField.setInt(renderer, SectionPos.posToSectionCoord(player.getY()));
+            teleportAnimation$lastCameraSectionZField.setInt(renderer, SectionPos.posToSectionCoord(player.getZ()));
         } catch (IllegalAccessException ignored) {
         }
     }

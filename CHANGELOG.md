@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.47 (2026-07-29)
+
+- fix: anchor `lastCameraSectionX/Y/Z` to the player position instead of the transition camera position in `LevelRendererMixin`, so vanilla's own section-change check keeps firing and repositions the `ViewArea` to the actual transition camera every frame (previously the window was frozen at the pre-teleport position, causing terrain to disappear in chunks while the camera moved away)
+
 ## 0.0.0-beta.46 (2026-07-28)
 
 - fix: modify Frustum.prepare parameters at HEAD (not TAIL) to use animation camera position for both frustum planes and position
