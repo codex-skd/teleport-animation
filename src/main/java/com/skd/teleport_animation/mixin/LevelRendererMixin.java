@@ -55,12 +55,19 @@ abstract class LevelRendererMixin {
             int lsx = teleportAnimation$lastCameraSectionXField.getInt((LevelRenderer)(Object) this);
             int lsy = teleportAnimation$lastCameraSectionYField.getInt((LevelRenderer)(Object) this);
             int lsz = teleportAnimation$lastCameraSectionZField.getInt((LevelRenderer)(Object) this);
-            LOGGER.info("TA cam({},{},{}) lastSec({},{},{}) camSec({},{},{})",
+            int secCount = 0;
+            try {
+                secCount = (int) chunkSections.getClass().getMethod("size").invoke(chunkSections);
+            } catch (Exception e) {
+                secCount = -1;
+            }
+            LOGGER.info("TA cam({},{},{}) lastSec({},{},{}) camSec({},{},{}) secs={}",
                 (int)camPos.x, (int)camPos.y, (int)camPos.z,
                 lsx, lsy, lsz,
                 SectionPos.posToSectionCoord(camPos.x),
                 SectionPos.posToSectionCoord(camPos.y),
-                SectionPos.posToSectionCoord(camPos.z));
+                SectionPos.posToSectionCoord(camPos.z),
+                secCount);
         } catch (Exception ignored) {
         }
     }
