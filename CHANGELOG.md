@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.44 (2026-07-28)
+
+- chore: add FrustumMixin diagnostic logging to verify camX/Y/Z field lookup
+
 ## 0.0.0-beta.43 (2026-07-27)
 
 - chore: add diagnostic logging for camera position, lastCameraSection and camera section during animation
