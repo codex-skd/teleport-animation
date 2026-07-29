@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.0-beta.48 (2026-07-29)
+
+- fix: crash on startup — `FrustumMixin` used `index` (raw local-variable-table slot) instead of `ordinal` (argument position) in `@ModifyVariable` on the non-static `Frustum.prepare` method, so Mixin resolved `index = 0` to the `this` slot and rejected the injection with `InvalidInjectionException`. Switched to `ordinal = 0/1/2` for camX/camY/camZ.
+
 ## 0.0.0-beta.47 (2026-07-29)
 
 - fix: anchor `lastCameraSectionX/Y/Z` to the player position instead of the transition camera position in `LevelRendererMixin`, so vanilla's own section-change check keeps firing and repositions the `ViewArea` to the actual transition camera every frame (previously the window was frozen at the pre-teleport position, causing terrain to disappear in chunks while the camera moved away)
