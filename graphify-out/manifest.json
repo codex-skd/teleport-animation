@@ -145,8 +145,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java": {
-    "mtime": 1785239996.4620507,
-    "ast_hash": "8bb8959eb235d041a709a5630443bd32",
+    "mtime": 1785328489.4279733,
+    "ast_hash": "52bf3bf2fb52105be41b9306d0289bbf",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/GameRendererMixin.java": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1785279312.1093447,
-    "ast_hash": "4cdf49281d0a1d43ab11dc4375151111",
+    "mtime": 1785328532.267518,
+    "ast_hash": "425f6271f0cf3440851fcbbd7d41d2c4",
     "semantic_hash": ""
   },
   "README.md": {
@@ -517,6 +517,16 @@
   "docs/curseforge/versions/0.0.0-beta.46.md": {
     "mtime": 1785240053.5616193,
     "ast_hash": "e5480403d3c6d9935d14bbabf72a2b39",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.47.md": {
+    "mtime": 1785283380.9784544,
+    "ast_hash": "8f5a682273f1e4550757e22882ed0db5",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.48.md": {
+    "mtime": 1785329517.1225553,
+    "ast_hash": "8f70c683d5f0032f0b9fac3786a8081d",
     "semantic_hash": ""
   }
 }
