@@ -1,7 +1,7 @@
 package com.skd.teleport_animation.mixin;
 
 import com.skd.teleport_animation.TeleportTransitionController;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.Screen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Minecraft.class)
+@Mixin(Gui.class)
 public abstract class MinecraftMixin {
     @Inject(method = "setScreen", at = @At("HEAD"), cancellable = true, remap = false)
     private void teleportAnimation$suppressGameMenuDuringTransition(Screen screen, CallbackInfo ci) {
