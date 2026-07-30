@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/MinecraftMixin.java": {
-    "mtime": 1785150569.951604,
-    "ast_hash": "c3cb2ef321b8666f59c6f8bc78987955",
+    "mtime": 1785449459.3739047,
+    "ast_hash": "903071052addc729bb8280e59c54dc0e",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/MouseHandlerMixin.java": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1785414056.6136425,
-    "ast_hash": "9c6e6bb92704a3796055674bc4d3efae",
+    "mtime": 1785449600.2876897,
+    "ast_hash": "756f686e8568ecc9896d55e86fab06cf",
     "semantic_hash": ""
   },
   "README.md": {
@@ -317,6 +317,11 @@
   "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_out_short.ogg": {
     "mtime": 1785150569.970675,
     "ast_hash": "204537a730354b55d859feefbcf05b0f",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/0.0.0-beta.2.md": {
+    "mtime": 1785449618.5755162,
+    "ast_hash": "62c9ecf80d0712b7821c2ea5c5834c42",
     "semantic_hash": ""
   }
 }
