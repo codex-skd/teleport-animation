@@ -236,7 +236,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_dimensionids",
-      "community": 8,
+      "community": 16,
       "norm_label": "dimensionids.java"
     },
     {
@@ -246,7 +246,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_dimensionids_dimensionids",
-      "community": 8,
+      "community": 16,
       "norm_label": "dimensionids"
     },
     {
@@ -256,7 +256,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_dimensionids_dimensionids_dimensionids",
-      "community": 8,
+      "community": 16,
       "norm_label": ".dimensionids()"
     },
     {
@@ -266,7 +266,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_dimensionids_dimensionids_fromresourcekey",
-      "community": 8,
+      "community": 16,
       "norm_label": ".fromresourcekey()"
     },
     {
@@ -286,7 +286,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_dimensionids_dimensionids_normalize",
-      "community": 8,
+      "community": 16,
       "norm_label": ".normalize()"
     },
     {
@@ -296,7 +296,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_distanthorizonscompat",
-      "community": 178,
+      "community": 77,
       "norm_label": "distanthorizonscompat.java"
     },
     {
@@ -306,7 +306,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_distanthorizonscompat_distanthorizonscompat",
-      "community": 178,
+      "community": 77,
       "norm_label": "distanthorizonscompat"
     },
     {
@@ -316,7 +316,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_distanthorizonscompat_distanthorizonscompat_distanthorizonscompat",
-      "community": 178,
+      "community": 77,
       "norm_label": ".distanthorizonscompat()"
     },
     {
@@ -386,7 +386,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_sodiumcompat",
-      "community": 172,
+      "community": 77,
       "norm_label": "sodiumcompat.java"
     },
     {
@@ -736,7 +736,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportclient_teleportclient_readoptionaldimensionid",
-      "community": 8,
+      "community": 16,
       "norm_label": ".readoptionaldimensionid()"
     },
     {
@@ -896,7 +896,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportclientnetworking_teleportclientnetworking_handlestart",
-      "community": 5,
+      "community": 1,
       "norm_label": ".handlestart()"
     },
     {
@@ -1036,7 +1036,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_isplayerfreezeenabled",
-      "community": 3,
+      "community": 76,
       "norm_label": ".isplayerfreezeenabled()"
     },
     {
@@ -1056,7 +1056,7 @@
       "source_location": "L172",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_iscrossdimensiontravelenabled",
-      "community": 8,
+      "community": 16,
       "norm_label": ".iscrossdimensiontravelenabled()"
     },
     {
@@ -1126,7 +1126,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getzoomoutstageticks",
-      "community": 53,
+      "community": 19,
       "norm_label": ".getzoomoutstageticks()"
     },
     {
@@ -1136,7 +1136,7 @@
       "source_location": "L257",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getzoominstageticks",
-      "community": 19,
+      "community": 53,
       "norm_label": ".getzoominstageticks()"
     },
     {
@@ -1146,7 +1146,7 @@
       "source_location": "L261",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setzoomstageticks",
-      "community": 173,
+      "community": 17,
       "norm_label": ".setzoomstageticks()"
     },
     {
@@ -1156,7 +1156,7 @@
       "source_location": "L267",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getzoomstageglideheight",
-      "community": 4,
+      "community": 75,
       "norm_label": ".getzoomstageglideheight()"
     },
     {
@@ -1166,7 +1166,7 @@
       "source_location": "L271",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setzoomstageglideheight",
-      "community": 17,
+      "community": 96,
       "norm_label": ".setzoomstageglideheight()"
     },
     {
@@ -1186,7 +1186,7 @@
       "source_location": "L280",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setzoomstageglideticks",
-      "community": 173,
+      "community": 17,
       "norm_label": ".setzoomstageglideticks()"
     },
     {
@@ -1216,7 +1216,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_getbodyglideheight",
-      "community": 4,
+      "community": 2,
       "norm_label": ".getbodyglideheight()"
     },
     {
@@ -1246,7 +1246,7 @@
       "source_location": "L307",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setbodyglideticks",
-      "community": 173,
+      "community": 17,
       "norm_label": ".setbodyglideticks()"
     },
     {
@@ -1266,7 +1266,7 @@
       "source_location": "L316",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setlocalplayerhideticks",
-      "community": 17,
+      "community": 95,
       "norm_label": ".setlocalplayerhideticks()"
     },
     {
@@ -1406,7 +1406,7 @@
       "source_location": "L384",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_sanitizestageticks",
-      "community": 173,
+      "community": 17,
       "norm_label": ".sanitizestageticks()"
     },
     {
@@ -1416,7 +1416,7 @@
       "source_location": "L393",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_sanitizezoomstageglideheight",
-      "community": 17,
+      "community": 96,
       "norm_label": ".sanitizezoomstageglideheight()"
     },
     {
@@ -1446,7 +1446,7 @@
       "source_location": "L405",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_sanitizestageticksvalue",
-      "community": 173,
+      "community": 17,
       "norm_label": ".sanitizestageticksvalue()"
     },
     {
@@ -1456,7 +1456,7 @@
       "source_location": "L409",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_sanitizelocalplayerhideticks",
-      "community": 17,
+      "community": 95,
       "norm_label": ".sanitizelocalplayerhideticks()"
     },
     {
@@ -1846,7 +1846,7 @@
       "source_location": "L460",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_setconfiglayout",
-      "community": 17,
+      "community": 21,
       "norm_label": ".setconfiglayout()"
     },
     {
@@ -2196,7 +2196,7 @@
       "source_location": "L857",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleportconfig_teleportconfig_writestageticks",
-      "community": 173,
+      "community": 17,
       "norm_label": ".writestageticks()"
     },
     {
@@ -3176,7 +3176,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_java_vec3",
-      "community": 15,
+      "community": 14,
       "norm_label": "vec3"
     },
     {
@@ -3296,7 +3296,7 @@
       "source_location": "L406",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldblockplayerinput",
-      "community": 3,
+      "community": 76,
       "norm_label": ".shouldblockplayerinput()"
     },
     {
@@ -3306,7 +3306,7 @@
       "source_location": "L410",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldblockgameplayinput",
-      "community": 3,
+      "community": 76,
       "norm_label": ".shouldblockgameplayinput()"
     },
     {
@@ -3326,7 +3326,7 @@
       "source_location": "L422",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldhidelocalplayermodel",
-      "community": 29,
+      "community": 28,
       "norm_label": ".shouldhidelocalplayermodel()"
     },
     {
@@ -3346,7 +3346,7 @@
       "source_location": "L430",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_stabilizecamerainsideblock",
-      "community": 2,
+      "community": 3,
       "norm_label": ".stabilizecamerainsideblock()"
     },
     {
@@ -3366,7 +3366,7 @@
       "source_location": "L451",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getskyfacingsurfacey",
-      "community": 9,
+      "community": 14,
       "norm_label": ".getskyfacingsurfacey()"
     },
     {
@@ -3376,7 +3376,7 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_resolveskyfacingsurfacey",
-      "community": 9,
+      "community": 14,
       "norm_label": ".resolveskyfacingsurfacey()"
     },
     {
@@ -3386,7 +3386,7 @@
       "source_location": "L468",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_trygetskyfacingsurfacey",
-      "community": 9,
+      "community": 14,
       "norm_label": ".trygetskyfacingsurfacey()"
     },
     {
@@ -3396,7 +3396,7 @@
       "source_location": "L484",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getunresolvedskyfacingsurfacefallbacky",
-      "community": 9,
+      "community": 14,
       "norm_label": ".getunresolvedskyfacingsurfacefallbacky()"
     },
     {
@@ -3406,7 +3406,7 @@
       "source_location": "L496",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isopenskydimension",
-      "community": 9,
+      "community": 14,
       "norm_label": ".isopenskydimension()"
     },
     {
@@ -3526,7 +3526,7 @@
       "source_location": "L576",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getarrivalbodyglideheight",
-      "community": 15,
+      "community": 2,
       "norm_label": ".getarrivalbodyglideheight()"
     },
     {
@@ -3656,7 +3656,7 @@
       "source_location": "L704",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpostreleasecameraframe",
-      "community": 171,
+      "community": 0,
       "norm_label": ".getpostreleasecameraframe()"
     },
     {
@@ -3826,7 +3826,7 @@
       "source_location": "L978",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_ispostreleasecamerasettled",
-      "community": 171,
+      "community": 3,
       "norm_label": ".ispostreleasecamerasettled()"
     },
     {
@@ -3846,7 +3846,7 @@
       "source_location": "L998",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gettransitioncamerapositionforrendering",
-      "community": 29,
+      "community": 0,
       "norm_label": ".gettransitioncamerapositionforrendering()"
     },
     {
@@ -3896,7 +3896,7 @@
       "source_location": "L1060",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldforceterrainfrustumapply",
-      "community": 14,
+      "community": 3,
       "norm_label": ".shouldforceterrainfrustumapply()"
     },
     {
@@ -3906,7 +3906,7 @@
       "source_location": "L1064",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldusegroundskybackground",
-      "community": 14,
+      "community": 18,
       "norm_label": ".shouldusegroundskybackground()"
     },
     {
@@ -3916,7 +3916,7 @@
       "source_location": "L1069",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldprefervoxyonlyterrain",
-      "community": 77,
+      "community": 19,
       "norm_label": ".shouldprefervoxyonlyterrain()"
     },
     {
@@ -3926,7 +3926,7 @@
       "source_location": "L1076",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldoverridedistanthorizonsnearclip",
-      "community": 177,
+      "community": 19,
       "norm_label": ".shouldoverridedistanthorizonsnearclip()"
     },
     {
@@ -3956,7 +3956,7 @@
       "source_location": "L1104",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldapplyfallbackterrainvisibility",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldapplyfallbackterrainvisibility()"
     },
     {
@@ -3966,7 +3966,7 @@
       "source_location": "L1108",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldhardcutfallbackterrain",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldhardcutfallbackterrain()"
     },
     {
@@ -3976,7 +3976,7 @@
       "source_location": "L1112",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldhidehardcutfallbackterrain",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldhidehardcutfallbackterrain()"
     },
     {
@@ -3996,7 +3996,7 @@
       "source_location": "L1120",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldrecoverhardcutfallbackterrain",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldrecoverhardcutfallbackterrain()"
     },
     {
@@ -4026,7 +4026,7 @@
       "source_location": "L1132",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldapplyvanillafallbackterrainvisibility",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldapplyvanillafallbackterrainvisibility()"
     },
     {
@@ -4036,7 +4036,7 @@
       "source_location": "L1136",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldhidefallbackskycelestials",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldhidefallbackskycelestials()"
     },
     {
@@ -4046,7 +4046,7 @@
       "source_location": "L1140",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getfallbackterrainsectionvisibility",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getfallbackterrainsectionvisibility()"
     },
     {
@@ -4056,7 +4056,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_java_blockpos",
-      "community": 18,
+      "community": 20,
       "norm_label": "blockpos"
     },
     {
@@ -4076,7 +4076,7 @@
       "source_location": "L1194",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldrenderfallbackterrainsection",
-      "community": 18,
+      "community": 28,
       "norm_label": ".shouldrenderfallbackterrainsection()"
     },
     {
@@ -4096,7 +4096,7 @@
       "source_location": "L1208",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getstepeffectintensity",
-      "community": 28,
+      "community": 18,
       "norm_label": ".getstepeffectintensity()"
     },
     {
@@ -4106,7 +4106,7 @@
       "source_location": "L1212",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getcameramotionstepeffectintensity",
-      "community": 28,
+      "community": 18,
       "norm_label": ".getcameramotionstepeffectintensity()"
     },
     {
@@ -4116,7 +4116,7 @@
       "source_location": "L1233",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gethudfadeoverlayintensity",
-      "community": 3,
+      "community": 0,
       "norm_label": ".gethudfadeoverlayintensity()"
     },
     {
@@ -4136,7 +4136,7 @@
       "source_location": "L1276",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_normalizetargetdimensionid",
-      "community": 9,
+      "community": 16,
       "norm_label": ".normalizetargetdimensionid()"
     },
     {
@@ -4146,7 +4146,7 @@
       "source_location": "L1280",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldskiptravelfortargetdimension",
-      "community": 8,
+      "community": 16,
       "norm_label": ".shouldskiptravelfortargetdimension()"
     },
     {
@@ -4156,7 +4156,7 @@
       "source_location": "L1284",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_hasarrivedatteleporttarget",
-      "community": 15,
+      "community": 14,
       "norm_label": ".hasarrivedatteleporttarget()"
     },
     {
@@ -4206,7 +4206,7 @@
       "source_location": "L1333",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isarrivalsurfaceready",
-      "community": 9,
+      "community": 14,
       "norm_label": ".isarrivalsurfaceready()"
     },
     {
@@ -4226,7 +4226,7 @@
       "source_location": "L1345",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isnearplannedtarget",
-      "community": 15,
+      "community": 14,
       "norm_label": ".isnearplannedtarget()"
     },
     {
@@ -4236,7 +4236,7 @@
       "source_location": "L1355",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_hasteleportedsincelastobservation",
-      "community": 15,
+      "community": 14,
       "norm_label": ".hasteleportedsincelastobservation()"
     },
     {
@@ -4246,7 +4246,7 @@
       "source_location": "L1359",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_calculatetravelticks",
-      "community": 19,
+      "community": 14,
       "norm_label": ".calculatetravelticks()"
     },
     {
@@ -4256,7 +4256,7 @@
       "source_location": "L1370",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_recordactualtargetfeet",
-      "community": 19,
+      "community": 14,
       "norm_label": ".recordactualtargetfeet()"
     },
     {
@@ -4266,7 +4266,7 @@
       "source_location": "L1392",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_exitbodyframe",
-      "community": 171,
+      "community": 0,
       "norm_label": ".exitbodyframe()"
     },
     {
@@ -4386,7 +4386,7 @@
       "source_location": "L1471",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_enterbodyframe",
-      "community": 171,
+      "community": 0,
       "norm_label": ".enterbodyframe()"
     },
     {
@@ -4426,7 +4426,7 @@
       "source_location": "L1535",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getleawindpreviouscameraposition",
-      "community": 0,
+      "community": 14,
       "norm_label": ".getleawindpreviouscameraposition()"
     },
     {
@@ -4436,7 +4436,7 @@
       "source_location": "L1544",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpreservedperspectivecameraoffset",
-      "community": 15,
+      "community": 14,
       "norm_label": ".getpreservedperspectivecameraoffset()"
     },
     {
@@ -4446,7 +4446,7 @@
       "source_location": "L1555",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_rotatehorizontaloffset",
-      "community": 15,
+      "community": 14,
       "norm_label": ".rotatehorizontaloffset()"
     },
     {
@@ -4466,7 +4466,7 @@
       "source_location": "L1579",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getcameraforwardvector",
-      "community": 0,
+      "community": 14,
       "norm_label": ".getcameraforwardvector()"
     },
     {
@@ -4486,7 +4486,7 @@
       "source_location": "L1605",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_clipcameraoffset",
-      "community": 0,
+      "community": 14,
       "norm_label": ".clipcameraoffset()"
     },
     {
@@ -4556,7 +4556,7 @@
       "source_location": "L1656",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getinitialtransitionyaw",
-      "community": 0,
+      "community": 9,
       "norm_label": ".getinitialtransitionyaw()"
     },
     {
@@ -4566,7 +4566,7 @@
       "source_location": "L1664",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getinitialtransitionpitch",
-      "community": 0,
+      "community": 9,
       "norm_label": ".getinitialtransitionpitch()"
     },
     {
@@ -4576,7 +4576,7 @@
       "source_location": "L1672",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldusestoredperspectivecamera",
-      "community": 0,
+      "community": 9,
       "norm_label": ".shouldusestoredperspectivecamera()"
     },
     {
@@ -4596,7 +4596,7 @@
       "source_location": "L1680",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getbesttargetfeet",
-      "community": 15,
+      "community": 28,
       "norm_label": ".getbesttargetfeet()"
     },
     {
@@ -4606,7 +4606,7 @@
       "source_location": "L1690",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getarrivalcamerafeet",
-      "community": 15,
+      "community": 14,
       "norm_label": ".getarrivalcamerafeet()"
     },
     {
@@ -4616,7 +4616,7 @@
       "source_location": "L1712",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getliveskiptravelarrivalfeet",
-      "community": 15,
+      "community": 9,
       "norm_label": ".getliveskiptravelarrivalfeet()"
     },
     {
@@ -4626,7 +4626,7 @@
       "source_location": "L1720",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gettraveltargetfeet",
-      "community": 15,
+      "community": 14,
       "norm_label": ".gettraveltargetfeet()"
     },
     {
@@ -4666,7 +4666,7 @@
       "source_location": "L1743",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoomoutstagealtitude",
-      "community": 28,
+      "community": 75,
       "norm_label": ".getzoomoutstagealtitude()"
     },
     {
@@ -4676,7 +4676,7 @@
       "source_location": "L1747",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoominstagealtitude",
-      "community": 19,
+      "community": 53,
       "norm_label": ".getzoominstagealtitude()"
     },
     {
@@ -4686,7 +4686,7 @@
       "source_location": "L1751",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getstartzoomdimension",
-      "community": 28,
+      "community": 75,
       "norm_label": ".getstartzoomdimension()"
     },
     {
@@ -4696,7 +4696,7 @@
       "source_location": "L1755",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getcurrentzoomdimension",
-      "community": 19,
+      "community": 23,
       "norm_label": ".getcurrentzoomdimension()"
     },
     {
@@ -4706,7 +4706,7 @@
       "source_location": "L1761",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_pullaltitude",
-      "community": 28,
+      "community": 75,
       "norm_label": ".pullaltitude()"
     },
     {
@@ -4716,7 +4716,7 @@
       "source_location": "L1775",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_pushaltitude",
-      "community": 19,
+      "community": 53,
       "norm_label": ".pushaltitude()"
     },
     {
@@ -4726,7 +4726,7 @@
       "source_location": "L1789",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_departingaltitude",
-      "community": 28,
+      "community": 75,
       "norm_label": ".departingaltitude()"
     },
     {
@@ -4736,7 +4736,7 @@
       "source_location": "L1793",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_arrivingaltitude",
-      "community": 28,
+      "community": 75,
       "norm_label": ".arrivingaltitude()"
     },
     {
@@ -4746,7 +4746,7 @@
       "source_location": "L1797",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_departingfinalaltitude",
-      "community": 28,
+      "community": 75,
       "norm_label": ".departingfinalaltitude()"
     },
     {
@@ -4756,7 +4756,7 @@
       "source_location": "L1801",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_zoomstageglideprogressbetween",
-      "community": 28,
+      "community": 75,
       "norm_label": ".zoomstageglideprogressbetween()"
     },
     {
@@ -4766,7 +4766,7 @@
       "source_location": "L1806",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_finalzoomoutglideprogressbetween",
-      "community": 28,
+      "community": 75,
       "norm_label": ".finalzoomoutglideprogressbetween()"
     },
     {
@@ -4776,7 +4776,7 @@
       "source_location": "L1811",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_lineartheneaseout",
-      "community": 28,
+      "community": 75,
       "norm_label": ".lineartheneaseout()"
     },
     {
@@ -4786,7 +4786,7 @@
       "source_location": "L1816",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_longeaseout",
-      "community": 28,
+      "community": 75,
       "norm_label": ".longeaseout()"
     },
     {
@@ -4796,7 +4796,7 @@
       "source_location": "L1821",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_perspectivehorizontalprogress",
-      "community": 171,
+      "community": 0,
       "norm_label": ".perspectivehorizontalprogress()"
     },
     {
@@ -4806,7 +4806,7 @@
       "source_location": "L1825",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_firstpersonenterbodyheightprogress",
-      "community": 28,
+      "community": 75,
       "norm_label": ".firstpersonenterbodyheightprogress()"
     },
     {
@@ -4816,7 +4816,7 @@
       "source_location": "L1829",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_lerpperspectivecameraposition",
-      "community": 171,
+      "community": 0,
       "norm_label": ".lerpperspectivecameraposition()"
     },
     {
@@ -4826,7 +4826,7 @@
       "source_location": "L1836",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_hermiteeaseoutfromlinear",
-      "community": 28,
+      "community": 75,
       "norm_label": ".hermiteeaseoutfromlinear()"
     },
     {
@@ -4846,7 +4846,7 @@
       "source_location": "L1855",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_pulseafter",
-      "community": 28,
+      "community": 18,
       "norm_label": ".pulseafter()"
     },
     {
@@ -4856,7 +4856,7 @@
       "source_location": "L1864",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_smoothstep",
-      "community": 171,
+      "community": 0,
       "norm_label": ".smoothstep()"
     },
     {
@@ -4866,7 +4866,7 @@
       "source_location": "L1869",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_lerpfloat",
-      "community": 171,
+      "community": 0,
       "norm_label": ".lerpfloat()"
     },
     {
@@ -4876,7 +4876,7 @@
       "source_location": "L1874",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_bodylookprogress",
-      "community": 171,
+      "community": 0,
       "norm_label": ".bodylookprogress()"
     },
     {
@@ -4886,7 +4886,7 @@
       "source_location": "L1878",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_easeoutcubic",
-      "community": 171,
+      "community": 0,
       "norm_label": ".easeoutcubic()"
     },
     {
@@ -4896,7 +4896,7 @@
       "source_location": "L1884",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_lerpdegrees",
-      "community": 171,
+      "community": 0,
       "norm_label": ".lerpdegrees()"
     },
     {
@@ -4906,7 +4906,7 @@
       "source_location": "L1888",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_wrapdegrees",
-      "community": 171,
+      "community": 3,
       "norm_label": ".wrapdegrees()"
     },
     {
@@ -4936,7 +4936,7 @@
       "source_location": "L1918",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpushstagetick",
-      "community": 19,
+      "community": 53,
       "norm_label": ".getpushstagetick()"
     },
     {
@@ -4946,7 +4946,7 @@
       "source_location": "L1927",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoominstageticklength",
-      "community": 19,
+      "community": 53,
       "norm_label": ".getzoominstageticklength()"
     },
     {
@@ -5116,7 +5116,7 @@
       "source_location": "L2049",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldstartnormalchunkhandoff",
-      "community": 9,
+      "community": 19,
       "norm_label": ".shouldstartnormalchunkhandoff()"
     },
     {
@@ -5136,7 +5136,7 @@
       "source_location": "L2057",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_issamedimensiontarget",
-      "community": 9,
+      "community": 19,
       "norm_label": ".issamedimensiontarget()"
     },
     {
@@ -5166,7 +5166,7 @@
       "source_location": "L2096",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_arearrivalchunksready",
-      "community": 9,
+      "community": 14,
       "norm_label": ".arearrivalchunksready()"
     },
     {
@@ -5176,7 +5176,7 @@
       "source_location": "L2123",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getnormalchunkhandoffreadyradius",
-      "community": 9,
+      "community": 14,
       "norm_label": ".getnormalchunkhandoffreadyradius()"
     },
     {
@@ -5226,7 +5226,7 @@
       "source_location": "L2145",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isfallbackterrainmode",
-      "community": 18,
+      "community": 28,
       "norm_label": ".isfallbackterrainmode()"
     },
     {
@@ -5236,7 +5236,7 @@
       "source_location": "L2149",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isdistantterrainavailable",
-      "community": 77,
+      "community": 19,
       "norm_label": ".isdistantterrainavailable()"
     },
     {
@@ -5246,7 +5246,7 @@
       "source_location": "L2153",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isvoxyterrainavailable",
-      "community": 77,
+      "community": 19,
       "norm_label": ".isvoxyterrainavailable()"
     },
     {
@@ -5256,7 +5256,7 @@
       "source_location": "L2157",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isdistanthorizonsterrainavailable",
-      "community": 77,
+      "community": 19,
       "norm_label": ".isdistanthorizonsterrainavailable()"
     },
     {
@@ -5266,7 +5266,7 @@
       "source_location": "L2161",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_isbobbyterrainavailable",
-      "community": 77,
+      "community": 19,
       "norm_label": ".isbobbyterrainavailable()"
     },
     {
@@ -5286,7 +5286,7 @@
       "source_location": "L2169",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getfallbackterrainshowtick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getfallbackterrainshowtick()"
     },
     {
@@ -5316,7 +5316,7 @@
       "source_location": "L2181",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpullticks",
-      "community": 53,
+      "community": 19,
       "norm_label": ".getpullticks()"
     },
     {
@@ -5326,7 +5326,7 @@
       "source_location": "L2189",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getpushticks",
-      "community": 19,
+      "community": 53,
       "norm_label": ".getpushticks()"
     },
     {
@@ -5406,7 +5406,7 @@
       "source_location": "L2242",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getzoomstageglideheight",
-      "community": 28,
+      "community": 75,
       "norm_label": ".getzoomstageglideheight()"
     },
     {
@@ -5526,7 +5526,7 @@
       "source_location": "L2296",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getenterholdstarttick",
-      "community": 15,
+      "community": 53,
       "norm_label": ".getenterholdstarttick()"
     },
     {
@@ -5536,7 +5536,7 @@
       "source_location": "L2300",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getenterstarttick",
-      "community": 15,
+      "community": 9,
       "norm_label": ".getenterstarttick()"
     },
     {
@@ -5566,7 +5566,7 @@
       "source_location": "L2312",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getfallbackterrainfadeinstarttick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getfallbackterrainfadeinstarttick()"
     },
     {
@@ -5586,7 +5586,7 @@
       "source_location": "L2320",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getvanillaterrainfadeoutstarttick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getvanillaterrainfadeoutstarttick()"
     },
     {
@@ -5596,7 +5596,7 @@
       "source_location": "L2324",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getvanillaterrainfadeoutendtick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getvanillaterrainfadeoutendtick()"
     },
     {
@@ -5606,7 +5606,7 @@
       "source_location": "L2328",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getvanillaterrainfadeinstarttick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getvanillaterrainfadeinstarttick()"
     },
     {
@@ -5616,7 +5616,7 @@
       "source_location": "L2332",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getvanillaterrainfadeinendtick",
-      "community": 18,
+      "community": 28,
       "norm_label": ".getvanillaterrainfadeinendtick()"
     },
     {
@@ -5626,7 +5626,7 @@
       "source_location": "L2336",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getdistanceordertowardpoint",
-      "community": 28,
+      "community": 14,
       "norm_label": ".getdistanceordertowardpoint()"
     },
     {
@@ -5646,7 +5646,7 @@
       "source_location": "L2349",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_horizontaldistance",
-      "community": 28,
+      "community": 14,
       "norm_label": ".horizontaldistance()"
     },
     {
@@ -5656,7 +5656,7 @@
       "source_location": "L2367",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getfallbackterrainrenderradius",
-      "community": 28,
+      "community": 14,
       "norm_label": ".getfallbackterrainrenderradius()"
     },
     {
@@ -5666,7 +5666,7 @@
       "source_location": "L2373",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getterrainvisibilityrefreshsectionstep",
-      "community": 9,
+      "community": 3,
       "norm_label": ".getterrainvisibilityrefreshsectionstep()"
     },
     {
@@ -5686,7 +5686,7 @@
       "source_location": "L2389",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_syncplayerinterpolationstate",
-      "community": 0,
+      "community": 9,
       "norm_label": ".syncplayerinterpolationstate()"
     },
     {
@@ -5866,7 +5866,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_voxycompat",
-      "community": 172,
+      "community": 82,
       "norm_label": "voxycompat.java"
     },
     {
@@ -5876,7 +5876,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_voxycompat_voxycompat",
-      "community": 172,
+      "community": 82,
       "norm_label": "voxycompat"
     },
     {
@@ -5886,7 +5886,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_voxycompat_voxycompat_voxycompat",
-      "community": 172,
+      "community": 82,
       "norm_label": ".voxycompat()"
     },
     {
@@ -5896,7 +5896,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_voxycompat_voxycompat_isrenderingenabled",
-      "community": 77,
+      "community": 82,
       "norm_label": ".isrenderingenabled()"
     },
     {
@@ -6206,7 +6206,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "method",
-      "community": 172,
+      "community": 77,
       "norm_label": "method"
     },
     {
@@ -6315,29 +6315,29 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_mixin",
-      "community": 84,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_mixin",
+      "community": 3,
       "norm_label": "mixin"
     },
     {
-      "label": ".teleportAnimation$overrideCamera()",
+      "label": ".teleportAnimation$overrideCameraBeforeCulling()",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L14",
+      "source_location": "L19",
       "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamera",
+      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
       "community": 3,
-      "norm_label": ".teleportanimation$overridecamera()"
+      "norm_label": ".teleportanimation$overridecamerabeforeculling()"
     },
     {
-      "label": "CameraRenderState",
+      "label": "DeltaTracker",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_camerarenderstate",
-      "community": 76,
-      "norm_label": "camerarenderstate"
+      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_deltatracker",
+      "community": 3,
+      "norm_label": "deltatracker"
     },
     {
       "label": "CallbackInfo",
@@ -6345,8 +6345,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_callbackinfo",
-      "community": 75,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_callbackinfo",
+      "community": 3,
       "norm_label": "callbackinfo"
     },
     {
@@ -6355,15 +6355,15 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_inject",
-      "community": 82,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_inject",
+      "community": 3,
       "norm_label": "inject"
     },
     {
       "label": ".teleportAnimation$applyCameraFrame()",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L19",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "community": 3,
@@ -6376,7 +6376,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_distanthorizonsrenderutilmixin",
-      "community": 177,
+      "community": 20,
       "norm_label": "distanthorizonsrenderutilmixin.java"
     },
     {
@@ -6386,7 +6386,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_distanthorizonsrenderutilmixin_distanthorizonsrenderutilmixin",
-      "community": 177,
+      "community": 20,
       "norm_label": "distanthorizonsrenderutilmixin"
     },
     {
@@ -6416,7 +6416,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_distanthorizonsrenderutilmixin_distanthorizonsrenderutilmixin_teleportanimation_reducenearclipduringtransition",
-      "community": 177,
+      "community": 20,
       "norm_label": ".teleportanimation$reducenearclipduringtransition()"
     },
     {
@@ -6543,7 +6543,7 @@
       "label": "EntityRendererMixin",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L17",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin",
       "community": 29,
@@ -6555,29 +6555,19 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_mixin",
-      "community": 97,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_mixin",
+      "community": 29,
       "norm_label": "mixin"
     },
     {
-      "label": "Logger",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_logger",
-      "community": 96,
-      "norm_label": "logger"
-    },
-    {
-      "label": ".teleportAnimation$hideLocalPlayerDuringBodyCamera()",
+      "label": ".teleportAnimation$keepLocalPlayerVisibleDuringCinematic()",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L22",
+      "source_location": "L16",
       "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_hidelocalplayerduringbodycamera",
+      "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
       "community": 29,
-      "norm_label": ".teleportanimation$hidelocalplayerduringbodycamera()"
+      "norm_label": ".teleportanimation$keeplocalplayervisibleduringcinematic()"
     },
     {
       "label": "Frustum",
@@ -6595,8 +6585,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_callbackinforeturnable",
-      "community": 94,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_callbackinforeturnable",
+      "community": 29,
       "norm_label": "callbackinforeturnable"
     },
     {
@@ -6605,8 +6595,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "g_proyectos_mods_minecraft_teleport_animation_26_1_2_src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_inject",
-      "community": 95,
+      "id": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_inject",
+      "community": 29,
       "norm_label": "inject"
     },
     {
@@ -6616,7 +6606,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_fogrenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "fogrenderermixin.java"
     },
     {
@@ -6626,7 +6616,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_fogrenderermixin_fogrenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "fogrenderermixin"
     },
     {
@@ -6646,7 +6636,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_fogrenderermixin_fogrenderermixin_teleportanimation_usegroundskybackground",
-      "community": 14,
+      "community": 18,
       "norm_label": ".teleportanimation$usegroundskybackground()"
     },
     {
@@ -6676,7 +6666,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "clientlevel",
-      "community": 14,
+      "community": 18,
       "norm_label": "clientlevel"
     },
     {
@@ -6700,83 +6690,13 @@
       "norm_label": "inject"
     },
     {
-      "label": "FrustumMixin.java",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
-      "community": 29,
-      "norm_label": "frustummixin.java"
-    },
-    {
-      "label": "FrustumMixin",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "community": 29,
-      "norm_label": "frustummixin"
-    },
-    {
-      "label": "Mixin",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_java_mixin",
-      "community": 29,
-      "norm_label": "mixin"
-    },
-    {
-      "label": ".teleportAnimation$modifyCamX()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamx",
-      "community": 29,
-      "norm_label": ".teleportanimation$modifycamx()"
-    },
-    {
-      "label": "ModifyVariable",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "modifyvariable",
-      "community": 29,
-      "norm_label": "modifyvariable"
-    },
-    {
-      "label": ".teleportAnimation$modifyCamY()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamy",
-      "community": 29,
-      "norm_label": ".teleportanimation$modifycamy()"
-    },
-    {
-      "label": ".teleportAnimation$modifyCamZ()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamz",
-      "community": 29,
-      "norm_label": ".teleportanimation$modifycamz()"
-    },
-    {
       "label": "GameRendererMixin.java",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/GameRendererMixin.java",
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_gamerenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "gamerenderermixin.java"
     },
     {
@@ -6786,7 +6706,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_gamerenderermixin_gamerenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "gamerenderermixin"
     },
     {
@@ -6836,7 +6756,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_keyboardinputmixin",
-      "community": 3,
+      "community": 76,
       "norm_label": "keyboardinputmixin.java"
     },
     {
@@ -6846,7 +6766,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_keyboardinputmixin_keyboardinputmixin",
-      "community": 3,
+      "community": 76,
       "norm_label": "keyboardinputmixin"
     },
     {
@@ -6866,7 +6786,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_keyboardinputmixin_keyboardinputmixin_teleportanimation_blockmovementinput",
-      "community": 3,
+      "community": 76,
       "norm_label": ".teleportanimation$blockmovementinput()"
     },
     {
@@ -6986,7 +6906,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_leawindthirdpersonimplmixin",
-      "community": 20,
+      "community": 84,
       "norm_label": "leawindthirdpersonimplmixin.java"
     },
     {
@@ -6996,7 +6916,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_leawindthirdpersonimplmixin_leawindthirdpersonimplmixin",
-      "community": 20,
+      "community": 84,
       "norm_label": "leawindthirdpersonimplmixin"
     },
     {
@@ -7026,7 +6946,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_leawindthirdpersonimplmixin_leawindthirdpersonimplmixin_teleportanimation_disableleawindduringtransition",
-      "community": 20,
+      "community": 84,
       "norm_label": ".teleportanimation$disableleawindduringtransition()"
     },
     {
@@ -7126,17 +7046,17 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "levelrenderermixin.java"
     },
     {
       "label": "LevelRendererMixin",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L27",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "levelrenderermixin"
     },
     {
@@ -7146,137 +7066,17 @@
       "source_location": "",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_mixin",
-      "community": 14,
+      "community": 18,
       "norm_label": "mixin"
-    },
-    {
-      "label": "Logger",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_logger",
-      "community": 14,
-      "norm_label": "logger"
-    },
-    {
-      "label": "Field",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "field",
-      "community": 14,
-      "norm_label": "field"
-    },
-    {
-      "label": ".teleportAnimation$anchorViewAreaToTransitionCamera()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "community": 14,
-      "norm_label": ".teleportanimation$anchorviewareatotransitioncamera()"
-    },
-    {
-      "label": "GraphicsResourceAllocator",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "graphicsresourceallocator",
-      "community": 14,
-      "norm_label": "graphicsresourceallocator"
-    },
-    {
-      "label": "DeltaTracker",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_deltatracker",
-      "community": 14,
-      "norm_label": "deltatracker"
-    },
-    {
-      "label": "CameraRenderState",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_camerarenderstate",
-      "community": 14,
-      "norm_label": "camerarenderstate"
-    },
-    {
-      "label": "Matrix4fc",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "matrix4fc",
-      "community": 14,
-      "norm_label": "matrix4fc"
-    },
-    {
-      "label": "GpuBufferSlice",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "gpubufferslice",
-      "community": 14,
-      "norm_label": "gpubufferslice"
-    },
-    {
-      "label": "Vector4f",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "vector4f",
-      "community": 14,
-      "norm_label": "vector4f"
-    },
-    {
-      "label": "ChunkSectionsToRender",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "chunksectionstorender",
-      "community": 14,
-      "norm_label": "chunksectionstorender"
-    },
-    {
-      "label": "CallbackInfo",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_callbackinfo",
-      "community": 14,
-      "norm_label": "callbackinfo"
-    },
-    {
-      "label": "Inject",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_inject",
-      "community": 14,
-      "norm_label": "inject"
     },
     {
       "label": ".teleportAnimation$useGroundSkyHorizon()",
       "file_type": "code",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L54",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
-      "community": 14,
+      "community": 18,
       "norm_label": ".teleportanimation$usegroundskyhorizon()"
     },
     {
@@ -7286,7 +7086,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "clientleveldata",
-      "community": 14,
+      "community": 18,
       "norm_label": "clientleveldata"
     },
     {
@@ -7296,7 +7096,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "levelheightaccessor",
-      "community": 14,
+      "community": 18,
       "norm_label": "levelheightaccessor"
     },
     {
@@ -7306,58 +7106,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "redirect",
-      "community": 14,
+      "community": 18,
       "norm_label": "redirect"
-    },
-    {
-      "label": ".teleportAnimation$maskPlayerChunkReposition()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L62",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition",
-      "community": 14,
-      "norm_label": ".teleportanimation$maskplayerchunkreposition()"
-    },
-    {
-      "label": "LevelRenderer",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "levelrenderer",
-      "community": 14,
-      "norm_label": "levelrenderer"
-    },
-    {
-      "label": "Unique",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "unique",
-      "community": 14,
-      "norm_label": "unique"
-    },
-    {
-      "label": ".teleportAnimation$ensureLastCameraFields()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L84",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_ensurelastcamerafields",
-      "community": 14,
-      "norm_label": ".teleportanimation$ensurelastcamerafields()"
-    },
-    {
-      "label": ".teleportAnimation$getField()",
-      "file_type": "code",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L103",
-      "_origin": "ast",
-      "id": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_getfield",
-      "community": 14,
-      "norm_label": ".teleportanimation$getfield()"
     },
     {
       "label": "MinecraftMixin.java",
@@ -7436,7 +7186,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_mousehandlermixin",
-      "community": 3,
+      "community": 76,
       "norm_label": "mousehandlermixin.java"
     },
     {
@@ -7446,7 +7196,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_mousehandlermixin_mousehandlermixin",
-      "community": 3,
+      "community": 76,
       "norm_label": "mousehandlermixin"
     },
     {
@@ -7466,7 +7216,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_mousehandlermixin_mousehandlermixin_teleportanimation_blockmouselook",
-      "community": 3,
+      "community": 76,
       "norm_label": ".teleportanimation$blockmouselook()"
     },
     {
@@ -7496,7 +7246,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_mousehandlermixin_mousehandlermixin_teleportanimation_blockmousepress",
-      "community": 3,
+      "community": 76,
       "norm_label": ".teleportanimation$blockmousepress()"
     },
     {
@@ -7506,7 +7256,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "mousebuttoninfo",
-      "community": 3,
+      "community": 76,
       "norm_label": "mousebuttoninfo"
     },
     {
@@ -7516,7 +7266,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_mousehandlermixin_mousehandlermixin_teleportanimation_blockmousescroll",
-      "community": 3,
+      "community": 76,
       "norm_label": ".teleportanimation$blockmousescroll()"
     },
     {
@@ -7756,7 +7506,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_voxyclientmixin",
-      "community": 77,
+      "community": 94,
       "norm_label": "voxyclientmixin.java"
     },
     {
@@ -7766,7 +7516,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_voxyclientmixin_voxyclientmixin",
-      "community": 77,
+      "community": 94,
       "norm_label": "voxyclientmixin"
     },
     {
@@ -7796,7 +7546,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "src_main_java_com_skd_teleport_animation_mixin_voxyclientmixin_voxyclientmixin_teleportanimation_prefervoxyterrainduringtransition",
-      "community": 77,
+      "community": 94,
       "norm_label": ".teleportanimation$prefervoxyterrainduringtransition()"
     },
     {
@@ -8070,10 +7820,20 @@
       "norm_label": "changelog"
     },
     {
-      "label": "0.0.0-beta.48 (2026-07-29)",
+      "label": "0.0.0-beta.49 (2026-07-29)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
       "source_location": "L3",
+      "_origin": "ast",
+      "id": "changelog_0_0_0_beta_49_2026_07_29",
+      "community": 13,
+      "norm_label": "0.0.0-beta.49 (2026-07-29)"
+    },
+    {
+      "label": "0.0.0-beta.48 (2026-07-29)",
+      "file_type": "document",
+      "source_file": "CHANGELOG.md",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_48_2026_07_29",
       "community": 13,
@@ -8083,7 +7843,7 @@
       "label": "0.0.0-beta.47 (2026-07-29)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L7",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_47_2026_07_29",
       "community": 13,
@@ -8093,7 +7853,7 @@
       "label": "0.0.0-beta.46 (2026-07-28)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L11",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_46_2026_07_28",
       "community": 13,
@@ -8103,7 +7863,7 @@
       "label": "0.0.0-beta.45 (2026-07-28)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L15",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_45_2026_07_28",
       "community": 13,
@@ -8113,7 +7873,7 @@
       "label": "0.0.0-beta.44 (2026-07-28)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L19",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_44_2026_07_28",
       "community": 13,
@@ -8123,7 +7883,7 @@
       "label": "0.0.0-beta.43 (2026-07-27)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L23",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_43_2026_07_27",
       "community": 13,
@@ -8133,7 +7893,7 @@
       "label": "0.0.0-beta.42 (2026-07-27)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_42_2026_07_27",
       "community": 13,
@@ -8143,7 +7903,7 @@
       "label": "0.0.0-beta.41 (2026-07-27)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L31",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_41_2026_07_27",
       "community": 13,
@@ -8153,7 +7913,7 @@
       "label": "0.0.0-beta.40 (2026-07-27)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L35",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_40_2026_07_27",
       "community": 13,
@@ -8163,7 +7923,7 @@
       "label": "0.0.0-beta.38 (2026-07-26)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L41",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_38_2026_07_26",
       "community": 13,
@@ -8173,7 +7933,7 @@
       "label": "0.0.0-beta.37 (2026-07-26)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L47",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_37_2026_07_26",
       "community": 13,
@@ -8183,7 +7943,7 @@
       "label": "0.0.0-beta.36 (2026-07-25)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L52",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_36_2026_07_25",
       "community": 13,
@@ -8193,7 +7953,7 @@
       "label": "0.0.0-beta.35 (2026-07-24)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L57",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_35_2026_07_24",
       "community": 13,
@@ -8203,7 +7963,7 @@
       "label": "0.0.0-beta.34 (2026-07-24)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L61",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_34_2026_07_24",
       "community": 13,
@@ -8213,7 +7973,7 @@
       "label": "0.0.0-beta.33 (2026-07-24)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L65",
+      "source_location": "L71",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_33_2026_07_24",
       "community": 13,
@@ -8223,7 +7983,7 @@
       "label": "0.0.0-beta.32 (2026-07-23)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L69",
+      "source_location": "L75",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_32_2026_07_23",
       "community": 13,
@@ -8233,7 +7993,7 @@
       "label": "0.0.0-beta.31 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L73",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_31_2026_07_22",
       "community": 13,
@@ -8243,7 +8003,7 @@
       "label": "0.0.0-beta.30 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L77",
+      "source_location": "L83",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_30_2026_07_22",
       "community": 13,
@@ -8253,7 +8013,7 @@
       "label": "0.0.0-beta.29 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L81",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_29_2026_07_22",
       "community": 13,
@@ -8263,7 +8023,7 @@
       "label": "0.0.0-beta.28 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L85",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_28_2026_07_22",
       "community": 13,
@@ -8273,7 +8033,7 @@
       "label": "0.0.0-beta.27 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L89",
+      "source_location": "L95",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_27_2026_07_22",
       "community": 13,
@@ -8283,7 +8043,7 @@
       "label": "0.0.0-beta.26 (2026-07-22)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L93",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_26_2026_07_22",
       "community": 13,
@@ -8293,7 +8053,7 @@
       "label": "0.0.0-beta.25 (2026-07-21)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L98",
+      "source_location": "L104",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_25_2026_07_21",
       "community": 13,
@@ -8303,7 +8063,7 @@
       "label": "0.0.0-beta.24 (2026-07-21)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L102",
+      "source_location": "L108",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_24_2026_07_21",
       "community": 13,
@@ -8313,7 +8073,7 @@
       "label": "0.0.0-beta.23 (2026-07-21)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L110",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_23_2026_07_21",
       "community": 13,
@@ -8323,7 +8083,7 @@
       "label": "0.0.0-beta.22 (2026-07-21)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L114",
+      "source_location": "L120",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_22_2026_07_21",
       "community": 13,
@@ -8333,7 +8093,7 @@
       "label": "0.0.0-beta.21 (2026-07-21)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L118",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_21_2026_07_21",
       "community": 13,
@@ -8343,7 +8103,7 @@
       "label": "0.0.0-beta.20 (2026-07-19)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L128",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_20_2026_07_19",
       "community": 13,
@@ -8353,7 +8113,7 @@
       "label": "0.0.0-beta.19 (2026-07-19)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L136",
+      "source_location": "L142",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_19_2026_07_19",
       "community": 13,
@@ -8363,7 +8123,7 @@
       "label": "0.0.0-beta.18 (2026-07-19)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L140",
+      "source_location": "L146",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_18_2026_07_19",
       "community": 13,
@@ -8373,7 +8133,7 @@
       "label": "0.0.0-beta.17 (2026-07-19)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L144",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_17_2026_07_19",
       "community": 13,
@@ -8383,7 +8143,7 @@
       "label": "0.0.0-beta.16 (2026-07-19)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L148",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_16_2026_07_19",
       "community": 13,
@@ -8393,7 +8153,7 @@
       "label": "0.0.0-beta.15 (2026-07-16)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L153",
+      "source_location": "L159",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_15_2026_07_16",
       "community": 13,
@@ -8403,7 +8163,7 @@
       "label": "0.0.0-beta.14 (2026-07-14)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L158",
+      "source_location": "L164",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_14_2026_07_14",
       "community": 13,
@@ -8413,7 +8173,7 @@
       "label": "0.0.0-beta.13 (2026-07-14)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L163",
+      "source_location": "L169",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_13_2026_07_14",
       "community": 13,
@@ -8423,7 +8183,7 @@
       "label": "0.0.0-beta.12 (2026-07-14)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L170",
+      "source_location": "L176",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_12_2026_07_14",
       "community": 13,
@@ -8433,7 +8193,7 @@
       "label": "0.0.0-beta.11 (2026-07-14)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L176",
+      "source_location": "L182",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_11_2026_07_14",
       "community": 13,
@@ -8443,7 +8203,7 @@
       "label": "0.0.0-beta.10 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L182",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_10_2026_07_13",
       "community": 13,
@@ -8453,7 +8213,7 @@
       "label": "0.0.0-beta.9 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L188",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_9_2026_07_13",
       "community": 13,
@@ -8463,7 +8223,7 @@
       "label": "0.0.0-beta.8 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L194",
+      "source_location": "L200",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_8_2026_07_13",
       "community": 13,
@@ -8473,7 +8233,7 @@
       "label": "0.0.0-beta.7 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L199",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_7_2026_07_13",
       "community": 13,
@@ -8483,7 +8243,7 @@
       "label": "0.0.0-beta.6 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L204",
+      "source_location": "L210",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_6_2026_07_13",
       "community": 13,
@@ -8493,7 +8253,7 @@
       "label": "0.0.0-beta.5 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L209",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_5_2026_07_13",
       "community": 13,
@@ -8503,7 +8263,7 @@
       "label": "0.0.0-beta.4 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L213",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_4_2026_07_13",
       "community": 13,
@@ -8513,7 +8273,7 @@
       "label": "0.0.0-beta.3 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L217",
+      "source_location": "L223",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_3_2026_07_13",
       "community": 13,
@@ -8523,7 +8283,7 @@
       "label": "0.0.0-beta.2 (2026-07-13)",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L223",
+      "source_location": "L229",
       "_origin": "ast",
       "id": "changelog_0_0_0_beta_2_2026_07_13",
       "community": 6,
@@ -8533,7 +8293,7 @@
       "label": "Added",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L227",
+      "source_location": "L233",
       "_origin": "ast",
       "id": "changelog_added",
       "community": 6,
@@ -8543,7 +8303,7 @@
       "label": "Compatibility",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L242",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "changelog_compatibility",
       "community": 6,
@@ -8553,7 +8313,7 @@
       "label": "Changed",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L252",
+      "source_location": "L258",
       "_origin": "ast",
       "id": "changelog_changed",
       "community": 6,
@@ -8563,7 +8323,7 @@
       "label": "Removed",
       "file_type": "document",
       "source_file": "CHANGELOG.md",
-      "source_location": "L258",
+      "source_location": "L264",
       "_origin": "ast",
       "id": "changelog_removed",
       "community": 6,
@@ -9960,6 +9720,16 @@
       "norm_label": "0.0.0-beta.48.md"
     },
     {
+      "label": "0.0.0-beta.49.md",
+      "file_type": "document",
+      "source_file": "docs/curseforge/versions/0.0.0-beta.49.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "docs_curseforge_versions_0_0_0_beta_49",
+      "community": 97,
+      "norm_label": "0.0.0-beta.49.md"
+    },
+    {
       "label": "0.0.0-beta.5.md",
       "file_type": "document",
       "source_file": "docs/curseforge/versions/0.0.0-beta.5.md",
@@ -10582,17 +10352,6 @@
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_normalizetargetdimensionid",
       "target": "src_main_java_com_skd_teleport_animation_dimensionids_dimensionids_normalize"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/DistantHorizonsCompat.java",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_distanthorizonscompat",
-      "target": "field",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -16766,7 +16525,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L4",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
@@ -16780,17 +16539,6 @@
       "source_location": "L3",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_fogrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
       "confidence_score": 1.0
     },
@@ -16854,7 +16602,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L6",
+      "source_location": "L3",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
@@ -16924,17 +16672,6 @@
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
       "target": "cameratype",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java",
-      "source_location": "L48",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller",
-      "target": "field",
       "confidence_score": 1.0
     },
     {
@@ -21569,17 +21306,6 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_hidelocalplayerduringbodycamera",
-      "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldhidelocalplayermodel"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/ScreenEffectRendererMixin.java",
       "source_location": "L15",
       "weight": 1.0,
@@ -21592,7 +21318,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L28",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_stabilizecamerainsideblock"
@@ -22274,7 +22000,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L20",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_getcameraframe"
@@ -22571,7 +22297,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L30",
+      "source_location": "L39",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldapplypostreleasecameraoverrideafterleawind"
@@ -22604,7 +22330,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L29",
+      "source_location": "L38",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldpreservepostreleasecamerarotation"
@@ -22933,20 +22659,9 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L6",
+      "source_location": "L5",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
-      "target": "localplayer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L11",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
       "target": "localplayer",
       "confidence_score": 1.0
     },
@@ -23242,7 +22957,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L31",
+      "source_location": "L40",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_followpostreleasecameraposition"
@@ -23264,7 +22979,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L40",
+      "source_location": "L46",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_remembertransitioncameraposition"
@@ -23318,41 +23033,8 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L15",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamx",
-      "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gettransitioncamerapositionforrendering"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamy",
-      "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gettransitioncamerapositionforrendering"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L27",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamz",
-      "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_gettransitioncamerapositionforrendering"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L41",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_requestterrainvisibilityupdate"
@@ -23439,10 +23121,10 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L48",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L19",
       "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldforceterrainfrustumapply"
     },
     {
@@ -23462,7 +23144,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L56",
+      "source_location": "L15",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
       "target": "src_main_java_com_skd_teleport_animation_teleporttransitioncontroller_teleporttransitioncontroller_shouldusegroundskybackground"
@@ -26779,17 +26461,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/VoxyCompat.java",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_voxycompat",
-      "target": "field",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/VoxyCompat.java",
       "source_location": "L4",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_voxycompat",
@@ -27351,7 +27022,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L34",
+      "source_location": "L43",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_mixin_cameraaccessor_cameraaccessor_teleportanimation_setposition"
@@ -27384,7 +27055,7 @@
       "confidence": "INFERRED",
       "confidence_score": 0.8,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L35",
+      "source_location": "L44",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
       "target": "src_main_java_com_skd_teleport_animation_mixin_cameraaccessor_cameraaccessor_teleportanimation_setrotation"
@@ -27411,10 +27082,54 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_callbackinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_deltatracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_inject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_mixin",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L19",
+      "source_location": "L28",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin",
       "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe",
@@ -27424,10 +27139,21 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L14",
+      "source_location": "L19",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamera",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L12",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_mixin",
       "confidence_score": 1.0
     },
     {
@@ -27436,10 +27162,43 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
-      "source_location": "L16",
+      "source_location": "L25",
       "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamera",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
       "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_applycameraframe"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_callbackinfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_deltatracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java",
+      "source_location": "L19",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_cameramixin_teleportanimation_overridecamerabeforeculling",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_cameramixin_java_inject",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -27496,7 +27255,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L7",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
       "target": "frustum",
@@ -27506,7 +27265,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L17",
+      "source_location": "L14",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin",
@@ -27520,39 +27279,83 @@
       "source_location": "L12",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
-      "target": "unique",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L22",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_hidelocalplayerduringbodycamera",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
-      "source_location": "L22",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_hidelocalplayerduringbodycamera",
-      "target": "frustum",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_callbackinforeturnable",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L4",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L11",
       "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_inject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_mixin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L14",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_mixin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
       "target": "frustum",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "parameter_type",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_callbackinforeturnable",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java",
+      "source_location": "L16",
+      "weight": 1.0,
+      "context": "attribute",
+      "source": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_entityrenderermixin_teleportanimation_keeplocalplayervisibleduringcinematic",
+      "target": "src_main_java_com_skd_teleport_animation_mixin_entityrenderermixin_java_inject",
       "confidence_score": 1.0
     },
     {
@@ -27602,116 +27405,10 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L10",
+      "source_location": "L4",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
       "target": "clientlevel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
-      "target": "modifyvariable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L10",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_java_mixin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamx",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamy",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamz",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L10",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_java_mixin",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L13",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamx",
-      "target": "modifyvariable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L19",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamy",
-      "target": "modifyvariable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java",
-      "source_location": "L25",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_frustummixin_frustummixin_teleportanimation_modifycamz",
-      "target": "modifyvariable",
       "confidence_score": 1.0
     },
     {
@@ -27862,10 +27559,21 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L13",
+      "source_location": "L6",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "chunksectionstorender",
+      "target": "levelheightaccessor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
+      "target": "redirect",
       "confidence_score": 1.0
     },
     {
@@ -27876,138 +27584,6 @@
       "source_location": "L7",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "field",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L3",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "gpubufferslice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "graphicsresourceallocator",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L16",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "levelheightaccessor",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L12",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "levelrenderer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L17",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "matrix4fc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L24",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "redirect",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L25",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_callbackinfo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L14",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_camerarenderstate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L8",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_deltatracker",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L23",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_inject",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_logger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L20",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_mixin",
       "confidence_score": 1.0
     },
@@ -28015,61 +27591,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L27",
+      "source_location": "L11",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L21",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "unique",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L18",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin",
-      "target": "vector4f",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L41",
-      "weight": 1.0,
-      "context": "field",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "field",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L29",
-      "weight": 1.0,
-      "context": "field",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_logger",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L27",
+      "source_location": "L11",
       "weight": 1.0,
       "context": "attribute",
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
@@ -28080,47 +27612,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L84",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_ensurelastcamerafields",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L103",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_getfield",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L62",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L54",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin",
       "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
@@ -28130,128 +27622,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L103",
-      "weight": 1.0,
-      "context": "return_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_getfield",
-      "target": "field",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "chunksectionstorender",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "gpubufferslice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "graphicsresourceallocator",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "matrix4fc",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_callbackinfo",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_camerarenderstate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_deltatracker",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_java_inject",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L51",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L46",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_anchorviewareatotransitioncamera",
-      "target": "vector4f",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L54",
+      "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
@@ -28262,7 +27633,7 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L54",
+      "source_location": "L13",
       "weight": 1.0,
       "context": "parameter_type",
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
@@ -28273,78 +27644,12 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L54",
+      "source_location": "L13",
       "weight": 1.0,
       "context": "attribute",
       "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_usegroundskyhorizon",
       "target": "redirect",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L62",
-      "weight": 1.0,
-      "context": "parameter_type",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition",
-      "target": "levelrenderer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L70",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_ensurelastcamerafields"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L62",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_maskplayerchunkreposition",
-      "target": "unique",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L84",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_ensurelastcamerafields",
-      "target": "unique",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L103",
-      "weight": 1.0,
-      "context": "attribute",
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_getfield",
-      "target": "unique",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java",
-      "source_location": "L92",
-      "weight": 1.0,
-      "source": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_ensurelastcamerafields",
-      "target": "src_main_java_com_skd_teleport_animation_mixin_levelrenderermixin_levelrenderermixin_teleportanimation_getfield"
     },
     {
       "relation": "imports",
@@ -28824,7 +28129,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L182",
+      "source_location": "L188",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_10_2026_07_13",
@@ -28834,7 +28139,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L176",
+      "source_location": "L182",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_11_2026_07_14",
@@ -28844,7 +28149,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L170",
+      "source_location": "L176",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_12_2026_07_14",
@@ -28854,7 +28159,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L163",
+      "source_location": "L169",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_13_2026_07_14",
@@ -28864,7 +28169,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L158",
+      "source_location": "L164",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_14_2026_07_14",
@@ -28874,7 +28179,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L153",
+      "source_location": "L159",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_15_2026_07_16",
@@ -28884,7 +28189,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L148",
+      "source_location": "L154",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_16_2026_07_19",
@@ -28894,7 +28199,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L144",
+      "source_location": "L150",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_17_2026_07_19",
@@ -28904,7 +28209,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L140",
+      "source_location": "L146",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_18_2026_07_19",
@@ -28914,7 +28219,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L136",
+      "source_location": "L142",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_19_2026_07_19",
@@ -28924,7 +28229,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L128",
+      "source_location": "L134",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_20_2026_07_19",
@@ -28934,7 +28239,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L118",
+      "source_location": "L124",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_21_2026_07_21",
@@ -28944,7 +28249,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L114",
+      "source_location": "L120",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_22_2026_07_21",
@@ -28954,7 +28259,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L110",
+      "source_location": "L116",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_23_2026_07_21",
@@ -28964,7 +28269,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L102",
+      "source_location": "L108",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_24_2026_07_21",
@@ -28974,7 +28279,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L98",
+      "source_location": "L104",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_25_2026_07_21",
@@ -28984,7 +28289,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L93",
+      "source_location": "L99",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_26_2026_07_22",
@@ -28994,7 +28299,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L89",
+      "source_location": "L95",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_27_2026_07_22",
@@ -29004,7 +28309,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L85",
+      "source_location": "L91",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_28_2026_07_22",
@@ -29014,7 +28319,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L81",
+      "source_location": "L87",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_29_2026_07_22",
@@ -29024,7 +28329,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L223",
+      "source_location": "L229",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_2_2026_07_13",
@@ -29034,7 +28339,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L77",
+      "source_location": "L83",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_30_2026_07_22",
@@ -29044,7 +28349,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L73",
+      "source_location": "L79",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_31_2026_07_22",
@@ -29054,7 +28359,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L69",
+      "source_location": "L75",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_32_2026_07_23",
@@ -29064,7 +28369,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L65",
+      "source_location": "L71",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_33_2026_07_24",
@@ -29074,7 +28379,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L61",
+      "source_location": "L67",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_34_2026_07_24",
@@ -29084,7 +28389,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_35_2026_07_24",
@@ -29094,7 +28399,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L52",
+      "source_location": "L58",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_36_2026_07_25",
@@ -29104,7 +28409,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L47",
+      "source_location": "L53",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_37_2026_07_26",
@@ -29114,7 +28419,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L41",
+      "source_location": "L47",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_38_2026_07_26",
@@ -29124,7 +28429,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L217",
+      "source_location": "L223",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_3_2026_07_13",
@@ -29134,7 +28439,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L35",
+      "source_location": "L41",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_40_2026_07_27",
@@ -29144,7 +28449,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L31",
+      "source_location": "L37",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_41_2026_07_27",
@@ -29154,7 +28459,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L27",
+      "source_location": "L33",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_42_2026_07_27",
@@ -29164,7 +28469,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L23",
+      "source_location": "L29",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_43_2026_07_27",
@@ -29174,7 +28479,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L19",
+      "source_location": "L25",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_44_2026_07_28",
@@ -29184,7 +28489,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L15",
+      "source_location": "L21",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_45_2026_07_28",
@@ -29194,7 +28499,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L11",
+      "source_location": "L17",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_46_2026_07_28",
@@ -29204,7 +28509,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L7",
+      "source_location": "L13",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_47_2026_07_29",
@@ -29214,7 +28519,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L3",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_48_2026_07_29",
@@ -29224,7 +28529,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L213",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "changelog_changelog",
+      "target": "changelog_0_0_0_beta_49_2026_07_29",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CHANGELOG.md",
+      "source_location": "L219",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_4_2026_07_13",
@@ -29234,7 +28549,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L209",
+      "source_location": "L215",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_5_2026_07_13",
@@ -29244,7 +28559,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L204",
+      "source_location": "L210",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_6_2026_07_13",
@@ -29254,7 +28569,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L199",
+      "source_location": "L205",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_7_2026_07_13",
@@ -29264,7 +28579,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L194",
+      "source_location": "L200",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_8_2026_07_13",
@@ -29274,7 +28589,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L188",
+      "source_location": "L194",
       "weight": 1.0,
       "source": "changelog_changelog",
       "target": "changelog_0_0_0_beta_9_2026_07_13",
@@ -29284,7 +28599,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L227",
+      "source_location": "L233",
       "weight": 1.0,
       "source": "changelog_0_0_0_beta_2_2026_07_13",
       "target": "changelog_added",
@@ -29294,7 +28609,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L252",
+      "source_location": "L258",
       "weight": 1.0,
       "source": "changelog_0_0_0_beta_2_2026_07_13",
       "target": "changelog_changed",
@@ -29304,7 +28619,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L242",
+      "source_location": "L248",
       "weight": 1.0,
       "source": "changelog_0_0_0_beta_2_2026_07_13",
       "target": "changelog_compatibility",
@@ -29314,7 +28629,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CHANGELOG.md",
-      "source_location": "L258",
+      "source_location": "L264",
       "weight": 1.0,
       "source": "changelog_0_0_0_beta_2_2026_07_13",
       "target": "changelog_removed",
@@ -30372,5 +29687,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d0c7580390b25d216eb93ae87827b44bbaf95e8c"
+  "built_at_commit": "345d9c36d3a743b83defb3de37038b3646e15e61"
 }
