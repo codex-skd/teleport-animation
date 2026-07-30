@@ -21,7 +21,6 @@
     "MouseHandlerMixin",
     "EntityRendererMixin",
     "ScreenEffectRendererMixin",
-    "FrustumMixin",
     "LevelRendererMixin",
     "MinecraftMixin",
     "VoxyClientMixin"

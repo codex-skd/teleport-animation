@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.0-beta.49 (2026-07-29)
+
+- fix: rework camera override to hook `Camera.update` right after `alignWithEntity` instead of `Camera.extractRenderState`, so the transition camera position lands before vanilla builds the cull frustum, view matrix and section repositioning for the frame — removes the need for the `LevelRendererMixin` reflection hack that faked `lastCameraSection` fields
+- fix: force the local player entity visible during the animation in `EntityRendererMixin` instead of relying on frustum timing
+- chore: remove now-unused `FrustumMixin` (no longer needed since the camera position is correct before frustum construction)
+
 ## 0.0.0-beta.48 (2026-07-29)
 
 - fix: crash on startup — `FrustumMixin` used `index` (raw local-variable-table slot) instead of `ordinal` (argument position) in `@ModifyVariable` on the non-static `Frustum.prepare` method, so Mixin resolved `index = 0` to the `this` slot and rejected the injection with `InvalidInjectionException`. Switched to `ordinal = 0/1/2` for camX/camY/camZ.
