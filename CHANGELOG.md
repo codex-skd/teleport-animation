@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0 (2026-07-30)
+
+- First stable release. Teleport animation confirmed working on Minecraft 26.1.2 (terrain rendering and local player visibility during the camera cinematic fixed in beta.49).
+
 ## 0.0.0-beta.49 (2026-07-29)
 
 - fix: rework camera override to hook `Camera.update` right after `alignWithEntity` instead of `Camera.extractRenderState`, so the transition camera position lands before vanilla builds the cull frustum, view matrix and section repositioning for the frame — removes the need for the `LevelRendererMixin` reflection hack that faked `lastCameraSection` fields
