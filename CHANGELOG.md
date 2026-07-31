@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0 (2026-07-31)
+
+- First stable release. Teleport animation confirmed working on Minecraft 26.2.
+
 ## 0.0.0-beta.2 (2026-07-30)
 
 - fix: crash on startup — `MinecraftMixin` targeted `Minecraft.setScreen`, which moved to `Gui.setScreen` in this MC version (screen management now lives on `Minecraft.gui`, not `Minecraft` itself). Retargeted the mixin to `Gui.class`.
