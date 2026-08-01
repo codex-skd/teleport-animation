@@ -1,4 +1,5 @@
 # Teleport Animation
+> This mod is a fork of **Grand Teleport** (Forge 1.20.1) by Codex, with contributions by hookuru_. Ported to NeoForge by Stalking Dragons. Not affiliated with the original authors.
 
 [![NeoForge](https://img.shields.io/badge/NeoForge-26.1.2-blue)](https://neoforged.net/)
 [![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-green)](https://www.minecraft.net/)
