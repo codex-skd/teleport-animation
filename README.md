@@ -1,4 +1,5 @@
 # Teleport Animation — NeoForge 1.21.1
+> This mod is a fork of **Grand Teleport** (Forge 1.20.1) by Codex, with contributions by hookuru_. Ported to NeoForge by Stalking Dragons. Not affiliated with the original authors.
 
 Adds a cinematic camera transition when the player teleports via **Waystones**.
 
