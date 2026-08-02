@@ -47,7 +47,7 @@
 
 <h2>Configuration</h2>
 
-<p>The configuration file is located at <code>config/grand_teleport.properties</code> and can be edited manually or through the in‑game GUI.</p>
+<p>The configuration file is located at <code>config/teleport_animation.properties</code> and can be edited manually or through the in‑game GUI.</p>
 
 <h3>Settings include:</h3>
 

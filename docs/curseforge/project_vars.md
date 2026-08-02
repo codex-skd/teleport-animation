@@ -4,7 +4,7 @@
 
 project_id = 1608291
 api_token = ee776b0a-ee95-4850-b554-06be02a8657f
-game_versions = Client, Server, 1.21.1, NeoForge
+game_versions = 9638, 9639, 11779, 10150
 release_type = release
 
 ## Proyecto
