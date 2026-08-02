@@ -1,5 +1,5 @@
 {
-  "teleport_animation.config.title": "Grand Teleport Settings",
+  "teleport_animation.config.title": "Teleport Animation Settings",
   "teleport_animation.config.description": "Adjust camera heights used by the zoom stages.",
   "teleport_animation.config.zoom_heights": "Zoom stage heights",
   "teleport_animation.config.zoom_out_heights": "Zoom-out heights",

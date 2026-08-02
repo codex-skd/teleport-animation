@@ -1,5 +1,12 @@
 # CurseForge — Variables del proyecto
 
+> Las siguientes variables son leídas automáticamente por `../../codex-docs/scripts/curseforge-upload.ps1`
+
+project_id = 1608291
+api_token = ee776b0a-ee95-4850-b554-06be02a8657f
+game_versions = 9638, 9639, 16498, 10150
+release_type = release
+
 ## Proyecto
 
 | Variable | Valor |

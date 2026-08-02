@@ -51,16 +51,16 @@ Seamless compatibility with popular mods:
 
 | Command | Description |
 |---------|-------------|
-| `/gtp on\|off` | Toggle the teleport effect |
-| `/gtp status` | Check if the effect is enabled |
-| `/gtp player_freeze on\|off` | Toggle player freeze during transitions |
-| `/gtp` | Open the configuration screen |
+| `/ta on\|off` | Toggle the teleport effect |
+| `/ta status` | Check if the effect is enabled |
+| `/ta player_freeze on\|off` | Toggle player freeze during transitions |
+| `/ta` | Open the configuration screen |
 
 The mod automatically intercepts `/tp`, `/teleport`, and `/execute ... run tp` commands.
 
 ## Configuration
 
-Edit `config/grand_teleport.properties` or use the in-game GUI to adjust:
+Edit `config/teleport_animation.properties` or use the in-game GUI to adjust:
 
 - Zoom heights for each dimension (Overworld, Nether, End)
 - Stage tick durations
