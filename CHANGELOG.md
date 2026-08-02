@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3] - 2026-08-02
+
+### Refactor
+- Config renombrado a `config/teleport_animation.properties` con migración automática desde `grand_teleport.properties`.
+- Paquete unificado a `com.skd.teleport_animation` (antes `teleportanimation`) + `mod_group_id` actualizado.
+- Eliminados residuos de fork "Grand Teleport"/"GTP" (strings de config, lang, pack.mcmeta, método `handleGtaTeleportCommand`).
+
 ## [1.0.2] - 2026-07-19
 
 ### Changed
