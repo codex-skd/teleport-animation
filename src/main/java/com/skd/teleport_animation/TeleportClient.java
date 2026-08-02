@@ -62,7 +62,7 @@ public final class TeleportClient {
     }
 
     private static int executeLocalCommand(String command) {
-        handleGtaTeleportCommand(Minecraft.getInstance(), command);
+        handleTeleportCommand(Minecraft.getInstance(), command);
         return 1;
     }
 
@@ -183,7 +183,7 @@ public final class TeleportClient {
 
     // ---- Local mod commands (/ta, /tpanimation) ----
 
-    private static boolean handleGtaTeleportCommand(Minecraft client, String command) {
+    private static boolean handleTeleportCommand(Minecraft client, String command) {
         String normalized = command.stripLeading();
         if (normalized.startsWith("/")) {
             normalized = normalized.substring(1).stripLeading();
