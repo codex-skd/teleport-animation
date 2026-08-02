@@ -1,8 +1,8 @@
 {
   "required": true,
   "minVersion": "0.8.5",
-  "package": "com.skd.teleportanimation.mixin",
-  "plugin": "com.skd.teleportanimation.mixin.TeleportMixinPlugin",
+  "package": "com.skd.teleport_animation.mixin",
+  "plugin": "com.skd.teleport_animation.mixin.TeleportMixinPlugin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ServerPlayerMixin",
