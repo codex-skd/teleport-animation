@@ -22,7 +22,7 @@ public abstract class LeawindThirdPersonEventsNeoForgeMixin {
     }
 
     @Inject(method = "cameraSetupEvent", at = @At("TAIL"), require = 0)
-    private static void teleportAnimation$restoreGtpCameraAfterLeawind(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
+    private static void teleportAnimation$restoreCameraAfterLeawind(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
         if (!TeleportTransitionController.shouldApplyPostReleaseCameraOverrideAfterLeawind()) {
             return;
         }

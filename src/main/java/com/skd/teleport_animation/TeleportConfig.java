@@ -15,7 +15,8 @@ import java.util.Map;
 import java.util.Properties;
 
 final class TeleportConfig {
-    private static final String FILE_NAME = "grand_teleport.properties";
+    private static final String FILE_NAME = "teleport_animation.properties";
+    private static final String PREVIOUS_FILE_NAME = "grand_teleport.properties";
     private static final String LEGACY_FILE_NAME = "gtalike_teleport.properties";
     private static final String EFFECT_ENABLED_KEY = "effectEnabled";
     private static final String PLAYER_FREEZE_ENABLED_KEY = "playerFreezeEnabled";
@@ -57,7 +58,7 @@ final class TeleportConfig {
     private static final String CONFIG_LAYOUT_BASE_HEIGHT_KEY = "configLayoutBaseHeight";
     private static final String CONFIG_WIDGET_PREFIX = "configWidget.";
     private static final String CONFIG_TEXT_PREFIX = "configText.";
-    private static final String DEFAULT_CONFIG_PROPERTIES = "bodyCameraHeight=6.0\nbodyGlideHeight=0.5\nbodyGlideTicks=10\nconfigLayoutAspectLocked=false\nconfigLayoutBaseHeight=353\nconfigLayoutBaseWidth=640\nconfigLayoutCustom=true\nconfigLayoutDebugEnabled=false\nconfigLayoutEditorButtonVisible=false\nconfigLayoutGridEnabled=true\nconfigLayoutHeight=0.6005665722379604\nconfigLayoutSnapEnabled=false\nconfigLayoutWidth=0.5796875\nconfigLayoutX=0.2109375\nconfigLayoutY=0.23796033994334279\nconfigText.advanced1_title=GTP Advanced Settings (1)\nconfigText.advanced2_description=Set tick lengths for each zoom stage. (1st / 2nd / 3rd)\nconfigText.advanced2_title=ZoomStage Settings (2)\nconfigText.advanced3_title=GTP Advanced Settings (3)\nconfigText.done_button=Close\nconfigText.fallback_chunk_fade_label=Vanilla/Sodium chunk-mask fade\nconfigText.general_title=General Settings\nconfigText.linked_slider=\\    camera_zoom 1st / 2nd / 3rd\nconfigText.others_title=Other Settings\nconfigText.reset_button=Reset\nconfigText.sounds_title=Sound Settings\nconfigText.title=ZoomStage Settings\nconfigText.zoom_out_ticks_label=Zoom-out stage ticks\nconfigWidget.advanced1_description.baseHeight=195\nconfigWidget.advanced1_description.baseWidth=368\nconfigWidget.advanced1_description.height=0.05128205128205128\nconfigWidget.advanced1_description.width=0.5407608695652174\nconfigWidget.advanced1_description.x=0.22826086956521738\nconfigWidget.advanced1_description.y=0.13333333333333333\nconfigWidget.advanced1_title.baseHeight=195\nconfigWidget.advanced1_title.baseWidth=368\nconfigWidget.advanced1_title.height=0.05128205128205128\nconfigWidget.advanced1_title.width=0.24456521739130435\nconfigWidget.advanced1_title.x=0.37771739130434784\nconfigWidget.advanced1_title.y=0.015384615384615385\nconfigWidget.advanced2_description.baseHeight=212\nconfigWidget.advanced2_description.baseWidth=371\nconfigWidget.advanced2_description.height=0.04716981132075472\nconfigWidget.advanced2_description.width... (line truncated to 2000 chars)";
+    private static final String DEFAULT_CONFIG_PROPERTIES = "bodyCameraHeight=6.0\nbodyGlideHeight=0.5\nbodyGlideTicks=10\nconfigLayoutAspectLocked=false\nconfigLayoutBaseHeight=353\nconfigLayoutBaseWidth=640\nconfigLayoutCustom=true\nconfigLayoutDebugEnabled=false\nconfigLayoutEditorButtonVisible=false\nconfigLayoutGridEnabled=true\nconfigLayoutHeight=0.6005665722379604\nconfigLayoutSnapEnabled=false\nconfigLayoutWidth=0.5796875\nconfigLayoutX=0.2109375\nconfigLayoutY=0.23796033994334279\nconfigText.advanced1_title=Teleport Animation Settings (1)\nconfigText.advanced2_description=Set tick lengths for each zoom stage. (1st / 2nd / 3rd)\nconfigText.advanced2_title=ZoomStage Settings (2)\nconfigText.advanced3_title=Teleport Animation Settings (3)\nconfigText.done_button=Close\nconfigText.fallback_chunk_fade_label=Vanilla/Sodium chunk-mask fade\nconfigText.general_title=General Settings\nconfigText.linked_slider=\\    camera_zoom 1st / 2nd / 3rd\nconfigText.others_title=Other Settings\nconfigText.reset_button=Reset\nconfigText.sounds_title=Sound Settings\nconfigText.title=ZoomStage Settings\nconfigText.zoom_out_ticks_label=Zoom-out stage ticks\nconfigWidget.advanced1_description.baseHeight=195\nconfigWidget.advanced1_description.baseWidth=368\nconfigWidget.advanced1_description.height=0.05128205128205128\nconfigWidget.advanced1_description.width=0.5407608695652174\nconfigWidget.advanced1_description.x=0.22826086956521738\nconfigWidget.advanced1_description.y=0.13333333333333333\nconfigWidget.advanced1_title.baseHeight=195\nconfigWidget.advanced1_title.baseWidth=368\nconfigWidget.advanced1_title.height=0.05128205128205128\nconfigWidget.advanced1_title.width=0.24456521739130435\nconfigWidget.advanced1_title.x=0.37771739130434784\nconfigWidget.advanced1_title.y=0.015384615384615385\nconfigWidget.advanced2_description.baseHeight=212\nconfigWidget.advanced2_description.baseWidth=371\nconfigWidget.advanced2_description.height=0.04716981132075472\nconfigWidget.advanced2_description.width... (line truncated to 2000 chars)";
     private static final double[] DEFAULT_STAGE_HEIGHTS = new double[]{20.0, 40.0, 60.0};
     private static final double MIN_STAGE_HEIGHT = 8.0;
     private static final double MAX_STAGE_HEIGHT = 512.0;
@@ -812,7 +813,7 @@ final class TeleportConfig {
         try {
             Files.createDirectories(configPath.getParent());
             try (OutputStream output = Files.newOutputStream(configPath)) {
-                properties.store(output, "Grand Teleport client settings");
+                properties.store(output, "Teleport Animation client settings");
             }
             return true;
         }
@@ -829,9 +830,28 @@ final class TeleportConfig {
         return FMLPaths.CONFIGDIR.get().resolve(LEGACY_FILE_NAME);
     }
 
+    private static Path resolvePreviousConfigPath() {
+        return FMLPaths.CONFIGDIR.get().resolve(PREVIOUS_FILE_NAME);
+    }
+
     private static void migrateLegacyConfig() {
+        if (Files.exists(configPath)) {
+            return;
+        }
+        Path previousPath = resolvePreviousConfigPath();
+        if (Files.exists(previousPath)) {
+            try {
+                Files.createDirectories(configPath.getParent());
+                Files.copy(previousPath, configPath);
+                return;
+            }
+            catch (IOException ignored) {
+                configPath = previousPath;
+                return;
+            }
+        }
         Path legacyPath = resolveLegacyConfigPath();
-        if (Files.exists(configPath) || !Files.exists(legacyPath)) {
+        if (!Files.exists(legacyPath)) {
             return;
         }
         try {
