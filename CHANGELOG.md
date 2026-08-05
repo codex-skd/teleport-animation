@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.1 (2026-08-05)
+
+### Fix
+- Floor flicker during top-down travel (all distances) — refined terrain refresh logic. The camera now stabilizes its height before changes become visible, and destructive full geometry rebuilds replaced with cheap Sodium updates.
+- Double flicker on arrival (near waystone teleports) — the blackout fade now covers the server-side teleport command window, hiding chunk retention/handoff changes.
+- Blank screen during long travel (far waystone teleports) — added short visible camera drags at entry and exit of the travel phase, with fade-to-black masking only the unknown middle (chunk load wait). Preserves the sense of camera movement instead of a long empty blackout.
+
+### Technical
+- `getArrivalSurfaceY()` now reuses `areArrivalChunksReady()` to avoid writing unresolved heightmap values during flight.
+- `updateArrivalTerrainRefresh()` and `extendOrReleaseNormalChunkHandoff()` replaced full `invalidateLevelGeometry()` rebuilds with `SodiumCompat.scheduleTerrainUpdate()` (lightweight). Full rebuilds now only at transition start and arrival.
+- New `updateArrivalChunkHold()` holds top-down camera over destination until chunks load, extending pre-push wait to avoid revealing partial terrain.
+- New `getTravelBlackoutIntensity()` manages full-screen fade-to-black overlay (9-tick fade out, opaque, 9-tick fade in). New `renderTravelBlackout()` in `TeleportStepEffectRenderer`.
+- `travelFrame()` now uses two short camera drags (20 blocks each, clamped to half actual distance on short teleports) instead of interpolating full flight path.
+
+### Notes
+**Unverified**: this build has not been tested in-game. Changes concentrated in camera positioning and terrain refresh during travel phase only; pull and push animations unchanged.
+
 ## 1.1.0 (2026-08-05)
 
 ### Fix
