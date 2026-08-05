@@ -1028,7 +1028,12 @@ public final class TeleportTransitionController {
         lastVisibilitySectionX = sectionX;
         lastVisibilitySectionY = sectionY;
         lastVisibilitySectionZ = sectionZ;
-        TeleportTransitionController.invalidateLevelGeometry(client);
+        // invalidateLevelGeometry tears down and rebuilds the entire SectionRenderDispatcher/ViewArea
+        // (see LevelRenderer#invalidateCompiledGeometry). Doing that on every section crossed during the
+        // fast top-down travel flight discards and recompiles all terrain geometry mid-flight, which is
+        // what caused the visible floor flicker while the camera moves. A cheap Sodium terrain update is
+        // enough to keep newly-visible chunks in sync during travel; the full reset already happens once
+        // when the transition starts and again on arrival.
         SodiumCompat.scheduleTerrainUpdate();
     }
 
