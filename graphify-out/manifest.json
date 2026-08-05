@@ -45,13 +45,13 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportAnimation.java": {
-    "mtime": 1785150569.9443474,
-    "ast_hash": "62d1a334d1c39a73709b731447a733d3",
+    "mtime": 1785891131.3888116,
+    "ast_hash": "9278ac5995c104f8bb1b59df289ceca6",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportClient.java": {
-    "mtime": 1785414514.5423105,
-    "ast_hash": "de3d73912c0eba4c63916813cfe2e3db",
+    "mtime": 1785706852.4719512,
+    "ast_hash": "c8a8b9196feee7f6ad0e0ce628da2528",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportClientNetworking.java": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportConfig.java": {
-    "mtime": 1785150569.945504,
-    "ast_hash": "c6be8eab113a59b0b7b464e826f8610e",
+    "mtime": 1785891125.2614942,
+    "ast_hash": "549208c9dd45857937f96f52adc9a0b0",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportModMenu.java": {
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java": {
-    "mtime": 1785414491.6943722,
-    "ast_hash": "f73f9d88398526340f6c56bbf765f967",
+    "mtime": 1785887714.7895985,
+    "ast_hash": "dfe6af8078011816c62eb4d91fcc94d3",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/VoxyCompat.java": {
@@ -160,8 +160,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonEventsNeoForgeMixin.java": {
-    "mtime": 1785150569.9506018,
-    "ast_hash": "5c88ca52e05d682a10f8d4924f7161be",
+    "mtime": 1785706824.8124764,
+    "ast_hash": "5124d7468a4efb4b332b514bbcdf123c",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonImplMixin.java": {
@@ -220,13 +220,13 @@
     "semantic_hash": ""
   },
   "src/main/resources/assets/teleport_animation/lang/en_us.json": {
-    "mtime": 1785150569.9614515,
-    "ast_hash": "45c0de67f3e226bebc55f13d7c534c5f",
+    "mtime": 1785706824.8566275,
+    "ast_hash": "15703b5eaff3a0623d194e6ed7a8b339",
     "semantic_hash": ""
   },
   "src/main/resources/assets/teleport_animation/lang/ja_jp.json": {
-    "mtime": 1785150569.9614515,
-    "ast_hash": "f4755503befdfe3274bf7be1c9d613dd",
+    "mtime": 1785706824.8645427,
+    "ast_hash": "1807c4a7e0f698bc86242c23cce434d6",
     "semantic_hash": ""
   },
   "src/main/resources/assets/teleport_animation/sounds.json": {
@@ -240,38 +240,38 @@
     "semantic_hash": ""
   },
   ".claude/CLAUDE.md": {
-    "mtime": 1785414044.420569,
-    "ast_hash": "b4db2b1bc495cc92ce75133f43b1d629",
+    "mtime": 1785489192.446875,
+    "ast_hash": "9618b42b52ac63d53d283aef712c79a2",
     "semantic_hash": ""
   },
   ".gitlab-ci.yml": {
-    "mtime": 1785150569.8221188,
-    "ast_hash": "2b6839b5cb779bb81b8d9d6515624e25",
+    "mtime": 1785801081.4616976,
+    "ast_hash": "6256bedf7bb846722d31da7b191613a6",
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1785481695.8205237,
-    "ast_hash": "0c1123d10c519eaac9ac2bacac6a7c89",
+    "mtime": 1785707361.8074243,
+    "ast_hash": "c422fdf9b740845d3652909e69e3358a",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1785414559.2415378,
-    "ast_hash": "749485dc6dc8158154fbc71583aa967b",
+    "mtime": 1785706873.5684397,
+    "ast_hash": "d7a5cf5cbea01fcddd41ec7f2d37ae64",
     "semantic_hash": ""
   },
   "docs/WORKFLOW_TELEPORT_ANIMATION_26-2.md": {
-    "mtime": 1785414101.8526127,
-    "ast_hash": "f73d8a2cea7a3349ab96e2a40d933e3e",
+    "mtime": 1785626678.1452367,
+    "ast_hash": "1fc11e48528b0a6e35dc9fd613d54bc6",
     "semantic_hash": ""
   },
   "docs/curseforge/project_description.md": {
-    "mtime": 1785150569.8231454,
-    "ast_hash": "77772835fbbd2a886eca6075c4fa284d",
+    "mtime": 1785706877.980154,
+    "ast_hash": "5563b9b21936eb12523adfcb4dbe4710",
     "semantic_hash": ""
   },
   "docs/curseforge/project_vars.md": {
-    "mtime": 1785414116.87116,
-    "ast_hash": "2642da750fea428f5ae1c2e31feb3856",
+    "mtime": 1785707269.2113743,
+    "ast_hash": "6e76ba32c442f8653ae3b66e5ae527af",
     "semantic_hash": ""
   },
   "docs/curseforge/versions/0.0.0-beta.1.md": {
@@ -327,6 +327,11 @@
   "docs/curseforge/versions/1.0.0.md": {
     "mtime": 1785481731.7700922,
     "ast_hash": "0f2a97ecabd34fc442a424c7aa560f3e",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.0.1.md": {
+    "mtime": 1785707345.9877274,
+    "ast_hash": "18aa4c16a2d4bb6f8df3a9b6048826a9",
     "semantic_hash": ""
   }
 }
