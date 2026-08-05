@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.0 (2026-08-05)
+
+### Fix
+- Floor flicker during the top-down travel flight — `requestTerrainVisibilityUpdate` no longer forces a full `invalidateCompiledGeometry()` rebuild of all terrain on every chunk section crossed while the camera flies; only a lightweight Sodium terrain update runs during travel now.
+
+### Feature
+- Config migrated from a custom `.properties` file to a native NeoForge `ModConfigSpec` (`config/teleport_animation-client.toml`), auto-created on first launch and editable from the Configured mod. Public `TeleportConfig` API unchanged.
+
+### Refactor
+- Removed dead code from a removed custom config-screen (`configLayout*`/`configWidget.*`/`configText.*` fields) and dropped the legacy `.properties` migration from the old "Grand Teleport" fork, which no longer applies to the new format.
+
 ## 1.0.1 (2026-08-02)
 
 ### Refactor
