@@ -115,7 +115,11 @@ configurations {
 
 dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.7:processor'
-    implementation files("libs/waystones-neoforge-26.2-26.2.0.5.jar")
+    // Waystones is an optional integration: the Waystones mixins and WaystonesTeleportHandler only
+    // activate when the mod is present (guarded via TeleportMixinPlugin.shouldApplyMixin isModLoaded).
+    // compileOnly keeps it available at compile time without loading it on the dev runtime classpath
+    // (its mandatory deps balm/shogi are not part of this project).
+    compileOnly files("libs/waystones-neoforge-26.2-26.2.0.5.jar")
 }
 
 tasks.withType(JavaCompile).configureEach {
