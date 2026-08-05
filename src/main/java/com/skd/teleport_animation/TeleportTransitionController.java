@@ -100,6 +100,8 @@ public final class TeleportTransitionController {
     private static final int POST_RELEASE_LEAWIND_BLEND_TICKS = 16;
     private static final int HUD_FADE_TICKS = 8;
     private static final int CUSTOM_TRAVEL_SOUND_FADE_TICKS = 30;
+    private static final int TRAVEL_BLACKOUT_FADE_TICKS = 9;
+    private static final double TRAVEL_DRAG_DISTANCE_BLOCKS = 20.0;
     private static final int ARRIVAL_TERRAIN_REFRESH_TICKS = 40;
     private static final double UNRESOLVED_SURFACE_SEA_LEVEL_PADDING = 16.0;
     private static final int NORMAL_CHUNK_HANDOFF_MIN_READY_TICKS = 8;
@@ -172,6 +174,7 @@ public final class TeleportTransitionController {
     private static boolean normalChunkHandoffReady;
     private static int normalChunkHandoffDelayTicks;
     private static int normalChunkHandoffArrivalTick;
+    private static int arrivalChunkHandoffDelayTicks;
     private static float enterBodyTargetYaw;
     private static float enterBodyTargetPitch;
     private static int lastVisibilitySectionX;
@@ -254,6 +257,7 @@ public final class TeleportTransitionController {
         skipTravelTargetDimensionTicks = 0;
         arrivalTerrainRefreshTicks = 0;
         normalChunkHandoffDelayTicks = 0;
+        arrivalChunkHandoffDelayTicks = 0;
         normalChunkHandoffReady = false;
         normalChunkHandoffArrivalTick = Integer.MIN_VALUE;
         retainedDepartingChunks.clear();
@@ -342,6 +346,7 @@ public final class TeleportTransitionController {
         }
         TeleportTransitionController.closeSkipTravelLoadingTerrainScreen(client);
         TeleportTransitionController.updateNormalChunkHandoff(client);
+        TeleportTransitionController.updateArrivalChunkHold(client);
         TeleportTransitionController.restoreCameraTypeForEnterBody(client);
         if (ticks == 1) {
             TeleportTransitionController.playBodyTransitionSound(client, false);
@@ -501,7 +506,7 @@ public final class TeleportTransitionController {
         double resolvedSurfaceY;
         Vec3 feet = TeleportTransitionController.getArrivalCameraFeet();
         Minecraft client = Minecraft.getInstance();
-        if (feet != null && !Double.isNaN(resolvedSurfaceY = TeleportTransitionController.resolveSkyFacingSurfaceY(client, feet, feet.y))) {
+        if (feet != null && !Double.isNaN(resolvedSurfaceY = TeleportTransitionController.resolveSkyFacingSurfaceY(client, feet, feet.y)) && TeleportTransitionController.canUpdateArrivalSurfaceY(client)) {
             arrivalSurfaceY = resolvedSurfaceY;
         }
         if (!Double.isNaN(arrivalSurfaceY)) {
@@ -511,6 +516,13 @@ public final class TeleportTransitionController {
             return TeleportTransitionController.getUnresolvedSkyFacingSurfaceFallbackY(client, feet.y);
         }
         return TeleportTransitionController.getBestTargetFeet().y;
+    }
+
+    private static boolean canUpdateArrivalSurfaceY(Minecraft client) {
+        if (Double.isNaN(arrivalSurfaceY)) {
+            return true;
+        }
+        return TeleportTransitionController.areArrivalChunksReady(client);
     }
 
     private static Vec3 topDownPos(Vec3 feet, double surfaceY, double altitude) {
@@ -1047,13 +1059,31 @@ public final class TeleportTransitionController {
             return;
         }
         --arrivalTerrainRefreshTicks;
-        TeleportTransitionController.forceTerrainRefresh(client);
+        // Cheap refresh only: same reasoning as requestTerrainVisibilityUpdate. The full
+        // invalidateLevelGeometry rebuild already ran once in beginArrivalTerrainRefresh; doing
+        // it again every tick for the whole arrival window tears down and recompiles all terrain
+        // geometry while the destination chunks settle, which is what caused the floor flicker.
+        SodiumCompat.scheduleTerrainUpdate();
     }
 
     private static void forceTerrainRefresh(Minecraft client) {
         TeleportTransitionController.resetVisibilityRefreshState();
         TeleportTransitionController.invalidateLevelGeometry(client);
         SodiumCompat.scheduleTerrainUpdate();
+    }
+
+    private static void updateArrivalChunkHold(Minecraft client) {
+        if (skipTravel || cameraReleased || !commandSent || ticks < TeleportTransitionController.getTravelEndTick()) {
+            return;
+        }
+        if (arrivalChunkHandoffDelayTicks >= 80 || TeleportTransitionController.areArrivalChunksReady(client)) {
+            return;
+        }
+        // Keep the camera in the destination top-down hold instead of starting the descent over
+        // terrain that is still streaming in; once the chunks around the destination are ready the
+        // push motion resumes from its first frame, so the descent animation itself is unchanged.
+        ++arrivalChunkHandoffDelayTicks;
+        ++totalTicks;
     }
 
     public static boolean shouldForceTerrainFrustumApply() {
@@ -1247,6 +1277,35 @@ public final class TeleportTransitionController {
         return 0.0f;
     }
 
+    public static float getTravelBlackoutIntensity(float tickProgress) {
+        if (!TeleportTransitionController.isRunning() || skipTravel) {
+            return 0.0f;
+        }
+        float frameTick = (float)ticks + tickProgress;
+        int fadeOutStart = TeleportTransitionController.getTravelBlackoutFadeOutStartTick();
+        int fadeOutEnd = fadeOutStart + TRAVEL_BLACKOUT_FADE_TICKS;
+        int fadeInEnd = TeleportTransitionController.getPushMotionStartTick();
+        int fadeInStart = fadeInEnd - TRAVEL_BLACKOUT_FADE_TICKS;
+        if (frameTick >= (float)fadeOutStart && frameTick < (float)fadeOutEnd) {
+            return TeleportTransitionController.smoothStep((frameTick - (float)fadeOutStart) / (float)TRAVEL_BLACKOUT_FADE_TICKS);
+        }
+        if (frameTick >= (float)fadeOutEnd && frameTick < (float)fadeInStart) {
+            return 1.0f;
+        }
+        if (frameTick >= (float)fadeInStart && frameTick < (float)fadeInEnd) {
+            return 1.0f - TeleportTransitionController.smoothStep((frameTick - (float)fadeInStart) / (float)TRAVEL_BLACKOUT_FADE_TICKS);
+        }
+        return 0.0f;
+    }
+
+    private static int getTravelBlackoutFadeOutStartTick() {
+        // The normal chunk handoff sends the real teleport command at getPullEndTick(), before
+        // getTravelStartTick() (there is a PRE_TRAVEL_WAIT_TICKS gap between them). That command
+        // triggers the actual server-side move and chunk retention changes, so the blackout must
+        // start covering the screen by then too, or that gap is still visible as a flicker.
+        return Math.min(TeleportTransitionController.getCommandSendTick(), TeleportTransitionController.getTravelStartTick());
+    }
+
     public static float getShaderScreenMaskIntensity(float tickProgress) {
         if (!TeleportTransitionController.shouldUseScreenMaskFallbackTerrain() || cameraReleased) {
             return 0.0f;
@@ -1425,14 +1484,55 @@ public final class TeleportTransitionController {
     }
 
     private static CameraFrame prePushTopDownFrame(Vec3 feet, float yaw, float frameTick) {
+        // When the arrival chunk wait extends the blackout past the travel segment, the fade-in
+        // window lands in this hold; mirror travelFrame and slide onto the destination instead of
+        // holding still on it while the screen opens.
+        int fadeInStart = TeleportTransitionController.getPushMotionStartTick() - TRAVEL_BLACKOUT_FADE_TICKS;
+        if (frameTick >= (float)fadeInStart) {
+            Vec3 source = TeleportTransitionController.topDownPos(startFeet, TeleportTransitionController.getStartSurfaceY(), TeleportTransitionController.getStartTravelAltitude());
+            Vec3 target = TeleportTransitionController.topDownPos(feet, TeleportTransitionController.getArrivalSurfaceY(), TeleportTransitionController.getTargetTravelAltitude());
+            Vec3 dragPos = TeleportTransitionController.travelDragPos(target, source, 1.0f - TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeInWindowProgress(frameTick)));
+            return TeleportTransitionController.applyZoomShake(dragPos, yaw, 90.0f, frameTick, 1.0f);
+        }
         return TeleportTransitionController.topDownFrame(feet, TeleportTransitionController.getArrivalSurfaceY(), yaw, frameTick, TeleportTransitionController.getTargetTravelAltitude());
     }
 
     private static CameraFrame travelFrame(float progress, float frameTick) {
         Vec3 source = TeleportTransitionController.topDownPos(startFeet, TeleportTransitionController.getStartSurfaceY(), TeleportTransitionController.getStartTravelAltitude());
         Vec3 target = TeleportTransitionController.topDownPos(TeleportTransitionController.getTravelTargetFeet(), TeleportTransitionController.getArrivalSurfaceY(), TeleportTransitionController.getTargetTravelAltitude());
-        Vec3 pos = source.lerp(target, (double)TeleportTransitionController.travelEaseProgress(progress));
+        // Only the middle of the travel segment is hidden behind the fade to black, because its
+        // duration is unknown (it waits for the destination chunks). Both ends keep a short visible
+        // drag towards/from the destination so the transition still reads as camera movement instead
+        // of a long empty blackout: the departure drag plays while the screen fades out, and the
+        // arrival drag lands exactly on the destination as the screen fades back in.
+        int fadeOutStart = TeleportTransitionController.getTravelBlackoutFadeOutStartTick();
+        int fadeOutEnd = fadeOutStart + TRAVEL_BLACKOUT_FADE_TICKS;
+        int fadeInEnd = TeleportTransitionController.getPushMotionStartTick();
+        int fadeInStart = fadeInEnd - TRAVEL_BLACKOUT_FADE_TICKS;
+        Vec3 pos = frameTick < (float)fadeOutEnd
+            ? TeleportTransitionController.travelDragPos(source, target, TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeOutWindowProgress(frameTick)))
+            : TeleportTransitionController.travelDragPos(target, source, 1.0f - TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeInWindowProgress(frameTick)));
         return TeleportTransitionController.applyZoomShake(pos, startYaw, 90.0f, frameTick, 1.0f);
+    }
+
+    private static float travelFadeOutWindowProgress(float frameTick) {
+        return (frameTick - (float)TeleportTransitionController.getTravelBlackoutFadeOutStartTick()) / (float)TRAVEL_BLACKOUT_FADE_TICKS;
+    }
+
+    private static float travelFadeInWindowProgress(float frameTick) {
+        return (frameTick - (float)(TeleportTransitionController.getPushMotionStartTick() - TRAVEL_BLACKOUT_FADE_TICKS)) / (float)TRAVEL_BLACKOUT_FADE_TICKS;
+    }
+
+    private static Vec3 travelDragPos(Vec3 anchor, Vec3 towards, float progress) {
+        double distance = anchor.distanceTo(towards);
+        if (distance < 1.0E-4) {
+            return anchor;
+        }
+        // Never drag past the half point, so on very short teleports the two drags meet instead of
+        // overshooting each other.
+        double dragDistance = Math.min(TRAVEL_DRAG_DISTANCE_BLOCKS, distance * 0.5);
+        double dragProgress = Mth.clamp((float)progress, (float)0.0f, (float)1.0f) * dragDistance / distance;
+        return anchor.lerp(towards, dragProgress);
     }
 
     private static float travelEaseProgress(float progress) {
@@ -2088,7 +2188,11 @@ public final class TeleportTransitionController {
         }
         ++totalTicks;
         if (++normalChunkHandoffDelayTicks == 1 || normalChunkHandoffDelayTicks % 4 == 0) {
-            TeleportTransitionController.forceTerrainRefresh(client);
+            // Same reasoning as requestTerrainVisibilityUpdate: keep the cheap Sodium terrain
+            // update while the destination chunks stream in. The full invalidateLevelGeometry
+            // rebuild is reserved for the handoff completion (or timeout) just below, so it is
+            // not repeated every few ticks while waiting.
+            SodiumCompat.scheduleTerrainUpdate();
         }
     }
 
@@ -2262,7 +2366,7 @@ public final class TeleportTransitionController {
     }
 
     private static int getPrePushWaitTicks() {
-        return skipTravel ? 20 : 10;
+        return skipTravel ? 20 : 10 + arrivalChunkHandoffDelayTicks;
     }
 
     private static int getTravelStartTick() {
@@ -2289,7 +2393,7 @@ public final class TeleportTransitionController {
     }
 
     private static int getPushMotionStartTick() {
-        return skipTravel ? TeleportTransitionController.getPushStartTick() : TeleportTransitionController.getTravelEndTick();
+        return skipTravel ? TeleportTransitionController.getPushStartTick() : TeleportTransitionController.getTravelEndTick() + arrivalChunkHandoffDelayTicks;
     }
 
     private static int getEnterHoldStartTick() {
@@ -2507,6 +2611,7 @@ public final class TeleportTransitionController {
         normalChunkHandoffEnabled = false;
         normalChunkHandoffReady = false;
         normalChunkHandoffDelayTicks = 0;
+        arrivalChunkHandoffDelayTicks = 0;
         normalChunkHandoffArrivalTick = Integer.MIN_VALUE;
         totalTicks = TeleportTransitionController.getFixedTotalTicks() + 40;
         commandSent = false;
