@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2 (2026-08-05)
+
+### Fix
+- Server crash on external teleport events (e.g., from Waystones) — server was trying to access client-side config values during network packet processing, causing `IllegalStateException: Cannot get config value before config is loaded`. Config validation moved to client-side; server now only validates player state and networking capabilities.
+
+### Technical
+- Removed `isEffectEnabled()` and `isWarpPlateTransitionsEnabled()` checks from `TeleportServer.shouldStartServerTransition()` — these are client-side config validations that should not run on the server.
+
 ## 1.1.1 (2026-08-05)
 
 ### Fix
