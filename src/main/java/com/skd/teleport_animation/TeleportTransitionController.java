@@ -200,6 +200,7 @@ public final class TeleportTransitionController {
     private static int postReleaseCameraBlendTicks;
     private static int postReleaseCameraOverrideFrames;
     private static int postReleaseCameraOverrideStableFrames;
+    private static boolean travelToNearbyWaystone;
     private static boolean needsStateReset = true;
 
     private TeleportTransitionController() {
@@ -1264,6 +1265,11 @@ public final class TeleportTransitionController {
             return 0.0f;
         }
         float frameTick = (float)ticks + tickProgress;
+        int travelStartTick = TeleportTransitionController.getTravelStartTick();
+        int pushMotionStartTick = TeleportTransitionController.getPushMotionStartTick();
+        if (frameTick >= (float)travelStartTick && frameTick < (float)pushMotionStartTick) {
+            return 0.0f;
+        }
         float releaseTick = totalTicks;
         if (frameTick < 8.0f) {
             return TeleportTransitionController.smoothStep(frameTick / 8.0f) * 0.46f;
@@ -1278,7 +1284,7 @@ public final class TeleportTransitionController {
     }
 
     public static float getTravelBlackoutIntensity(float tickProgress) {
-        if (!TeleportTransitionController.isRunning() || skipTravel) {
+        if (!TeleportTransitionController.isRunning() || skipTravel || travelToNearbyWaystone) {
             return 0.0f;
         }
         float frameTick = (float)ticks + tickProgress;
@@ -1415,12 +1421,20 @@ public final class TeleportTransitionController {
     }
 
     private static int calculateTravelTicks(Vec3 fromFeet, Vec3 toFeet) {
+        travelToNearbyWaystone = false;
         if (fromFeet == null || toFeet == null) {
             return 40;
         }
         double dx = toFeet.x - fromFeet.x;
         double dz = toFeet.z - fromFeet.z;
         double horizontalDistance = Math.sqrt(dx * dx + dz * dz);
+        Minecraft client = Minecraft.getInstance();
+        int renderDistance = client.options == null ? 12 : client.options.getEffectiveRenderDistance();
+        double maxNearbyDistance = renderDistance * 16.0;
+        if (horizontalDistance < maxNearbyDistance) {
+            travelToNearbyWaystone = true;
+            return Mth.clamp((int)(horizontalDistance / 2.0), (int)12, (int)20);
+        }
         int scaledTicks = Mth.ceil((double)(horizontalDistance / 30.0));
         return Mth.clamp((int)scaledTicks, (int)20, (int)60);
     }
@@ -2569,6 +2583,7 @@ public final class TeleportTransitionController {
         previousCameraType = null;
         previousHudHidden = false;
         hudSuppressed = false;
+        travelToNearbyWaystone = false;
         ticks = 0;
         totalTicks = 0;
         cameraReleased = false;
