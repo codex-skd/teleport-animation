@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.7 (2026-08-06)
+
+### Fix
+- Verified stability of camera pre-displacement flicker fix for nearby waystones.
+- Confirmed smooth `slideFrame()` transitions for waystones within render distance.
+- Validated elegant fade-to-black drags for distant waystones.
+
+### Technical
+- Terrain chunk handoff delay mechanism active and stable.
+- Automatic nearby waystone detection based on render distance.
+- Optimized terrain refresh with Sodium cheap updates.
+
 ## 1.1.6 (2026-08-06)
 
 ### Fix
