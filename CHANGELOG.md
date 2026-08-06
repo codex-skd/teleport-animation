@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.6 (2026-08-06)
+
+### Fix
+- Eliminated transition flicker in Opción 1 (nearby waystone slide). Removed zoom shake from slideFrame() to ensure smooth, glitch-free interpolation between Phase 1 and Phase 2.
+
+### Technical
+- `slideFrame()` now returns clean `CameraFrame` without `applyZoomShake()` effects, maintaining visual continuity during nearby waystone transitions.
+- Shake effects preserved in other phases (pull, distant travel, push) to maintain cinematic feel for long-distance teleports.
+
 ## 1.1.5 (2026-08-06)
 
 ### Feature
