@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.4 (2026-08-06)
+
+### Feature
+- Smart distance-based rendering in phase 2 (travel): detects if waystones are within render distance and optimizes camera animation accordingly.
+
+### Fix
+- Double flicker at start of phase 2 — HUD fade overlay no longer renders simultaneously with travel blackout effect.
+- Nearby waystones now skip fade-to-black transition for smoother short-distance teleports.
+
+### Technical
+- New static variable `travelToNearbyWaystone` tracks distance-based rendering mode.
+- `calculateTravelTicks()` now detects nearby waystones (distance < renderDistance × 16 blocks) and returns faster travel ticks (12-20).
+- `getTravelBlackoutIntensity()` returns 0.0f for nearby waystones.
+- `getHudFadeOverlayIntensity()` suppresses HUD overlay during travel phase (between `getTravelStartTick()` and `getPushMotionStartTick()`).
+
 ## 1.1.2 (2026-08-05)
 
 ### Fix
