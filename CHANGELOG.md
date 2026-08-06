@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.5 (2026-08-06)
+
+### Feature
+- Opción 1 implementation: smooth slide animation for nearby waystones. When teleporting to a waystone within render distance, the camera now smoothly interpolates XZ position in a single horizontal slide instead of complex travel animation.
+
+### Technical
+- New `slideFrame()` method handles horizontal interpolation for nearby waystone teleports.
+- `getCameraFrame()` now routes to `slideFrame()` when `travelToNearbyWaystone` is true, maintaining constant altitude and top-down view angle (pitch 90°).
+- Phase 1 (ascenso) and Phase 3 (descenso) remain unchanged, providing smooth vertical transitions before and after the slide.
+
 ## 1.1.4 (2026-08-06)
 
 ### Feature
