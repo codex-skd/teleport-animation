@@ -657,7 +657,11 @@ public final class TeleportTransitionController {
         }
         int travelStart = TeleportTransitionController.getTravelStartTick();
         if (!skipTravel && frameTick <= (float)(travelStart + travelTicks)) {
-            return TeleportTransitionController.travelFrame((frameTick - (float)travelStart) / (float)travelTicks, frameTick);
+            float progress = (frameTick - (float)travelStart) / (float)travelTicks;
+            if (travelToNearbyWaystone) {
+                return TeleportTransitionController.slideFrame(progress, frameTick);
+            }
+            return TeleportTransitionController.travelFrame(progress, frameTick);
         }
         if (skipTravel && actualTargetFeet == null && !TeleportTransitionController.isInPlannedTargetDimension(client)) {
             return TeleportTransitionController.topDownFrame(startFeet, TeleportTransitionController.getStartSurfaceY(), startYaw, frameTick, TeleportTransitionController.getStartTravelAltitude());
@@ -1527,6 +1531,19 @@ public final class TeleportTransitionController {
             ? TeleportTransitionController.travelDragPos(source, target, TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeOutWindowProgress(frameTick)))
             : TeleportTransitionController.travelDragPos(target, source, 1.0f - TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeInWindowProgress(frameTick)));
         return TeleportTransitionController.applyZoomShake(pos, startYaw, 90.0f, frameTick, 1.0f);
+    }
+
+    private static CameraFrame slideFrame(float progress, float frameTick) {
+        Vec3 source = startFeet;
+        Vec3 target = TeleportTransitionController.getTravelTargetFeet();
+        double altitude = TeleportTransitionController.getStartTravelAltitude();
+        float easeProgress = TeleportTransitionController.smoothStep(progress);
+        Vec3 interpolatedPos = new Vec3(
+            source.x + (target.x - source.x) * easeProgress,
+            source.y + altitude,
+            source.z + (target.z - source.z) * easeProgress
+        );
+        return new CameraFrame(interpolatedPos, startYaw, 90.0f);
     }
 
     private static float travelFadeOutWindowProgress(float frameTick) {
