@@ -1534,16 +1534,15 @@ public final class TeleportTransitionController {
     }
 
     private static CameraFrame slideFrame(float progress, float frameTick) {
-        Vec3 source = startFeet;
-        Vec3 target = TeleportTransitionController.getTravelTargetFeet();
-        double altitude = TeleportTransitionController.getStartTravelAltitude();
+        // Nearby waystones keep the whole path visible (no fade-to-black), so instead of the short
+        // masked drags travelFrame() uses, the camera slides the full distance between the two
+        // top-down holds, easing across the terrain at the travel altitude. No zoom shake to keep
+        // the slide smooth and flicker-free during the transition.
+        Vec3 source = TeleportTransitionController.topDownPos(startFeet, TeleportTransitionController.getStartSurfaceY(), TeleportTransitionController.getStartTravelAltitude());
+        Vec3 target = TeleportTransitionController.topDownPos(TeleportTransitionController.getTravelTargetFeet(), TeleportTransitionController.getArrivalSurfaceY(), TeleportTransitionController.getTargetTravelAltitude());
         float easeProgress = TeleportTransitionController.smoothStep(progress);
-        Vec3 interpolatedPos = new Vec3(
-            source.x + (target.x - source.x) * easeProgress,
-            source.y + altitude,
-            source.z + (target.z - source.z) * easeProgress
-        );
-        return new CameraFrame(interpolatedPos, startYaw, 90.0f);
+        Vec3 pos = source.lerp(target, easeProgress);
+        return new CameraFrame(pos, startYaw, 90.0f);
     }
 
     private static float travelFadeOutWindowProgress(float frameTick) {
