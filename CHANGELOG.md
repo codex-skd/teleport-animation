@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.2 (2026-08-06)
+
+### Fix
+- Eliminated flickering in Phase 2 (displacement) when teleporting to nearby waystones by implementing smooth camera pre-displacement with fade transition.
+- Added `slideFrame()` for smooth camera slides (no fade-to-black) on nearby waystone teleports.
+- Implemented `travelFrame()` with elegant fade-to-black drags for distant waystones.
+- Automatic detection of nearby waystones based on player render distance.
+- Optimized terrain refresh with cheap Sodium updates instead of full geometry rebuilds during travel phase.
+
+### Technical
+- Ported camera pre-displacement logic from v26.2 to v26.1.2.
+- 20-block pre-displacement distance with 9-tick fade windows.
+- Terrain chunk handoff delay support to avoid flicker while chunks stream in.
+
 ## 1.0.1 (2026-08-02)
 
 ### Refactor
