@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.9 (2026-08-07)
+
+### Fix
+- Eliminate flicker that appeared before both nearby and distant waystone phase 2 travel begins.
+- Disable visual shake in pre-travel hold phase to prevent Sodium terrain update conflicts.
+- Preserve flicker-free behavior during slide and fade-to-black transitions.
+
+### Technical
+- Pre-travel `topDownFrame()` now returns clean `CameraFrame` without `applyZoomShake()`.
+- Targets only the hold phase immediately before travel phase onset; preserves shake in other phases.
+- Prevents camera shake noise from conflicting with Sodium's terrain visibility updates.
+
 ## 1.1.8 (2026-08-07)
 
 ### Fix
