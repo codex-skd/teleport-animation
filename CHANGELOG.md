@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.8 (2026-08-07)
+
+### Fix
+- Eliminate visual flicker in nearby waystone transitions by disabling camera shake during ascent phases.
+- Remove inconsistency in distant waystone fade-in approach by smoothing the final drag without visual noise.
+- Ensure Sodium terrain updates don't interfere with camera movement for seamless transitions.
+
+### Technical
+- `pullFrame()` and `topDownFrame()` now use conditional shake envelope (0.0 for nearby, 1.0 for distant waystones).
+- `prePushTopDownFrame()` fade-in drag now returns clean `CameraFrame` without shake, maintaining smooth approach during screen fade-in.
+- Interaction with Sodium optimized: cheap terrain updates no longer conflict with camera movement noise during nearby waystone slides.
+
 ## 1.1.7 (2026-08-06)
 
 ### Fix
