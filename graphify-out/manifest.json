@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java": {
-    "mtime": 1786028124.0550785,
-    "ast_hash": "67fbef415d7542fb31f08c58b91e0036",
+    "mtime": 1786095194.6733902,
+    "ast_hash": "871cfb6a012e91b12f932b028f864798",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/VoxyCompat.java": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1786028164.2607036,
-    "ast_hash": "46e588d2533283823d58249d791675ba",
+    "mtime": 1786095403.2908163,
+    "ast_hash": "87e85f689466ad83806a9d3df37c11a7",
     "semantic_hash": ""
   },
   "README.md": {
@@ -367,6 +367,16 @@
   "docs/curseforge/versions/1.1.6.md": {
     "mtime": 1786028158.8231916,
     "ast_hash": "f7e02e9c6b8d97fcb8b6daf8549f2c5d",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.7.md": {
+    "mtime": 1786038875.7782862,
+    "ast_hash": "e1d861d52012bccb2eb6de65e251df38",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.8.md": {
+    "mtime": 1786095395.7808545,
+    "ast_hash": "bfddb337fdb711ce5dd8fa08d63f655e",
     "semantic_hash": ""
   }
 }
