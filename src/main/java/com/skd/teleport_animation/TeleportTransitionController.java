@@ -1493,12 +1493,14 @@ public final class TeleportTransitionController {
 
     private static CameraFrame pullFrame(float progress, float frameTick) {
         Vec3 pos = TeleportTransitionController.topDownPos(startFeet, TeleportTransitionController.getStartSurfaceY(), TeleportTransitionController.pullAltitude(frameTick));
-        return TeleportTransitionController.applyZoomShake(pos, startYaw, 90.0f, frameTick, 1.0f);
+        float shakeEnvelope = travelToNearbyWaystone ? 0.0f : 1.0f;
+        return TeleportTransitionController.applyZoomShake(pos, startYaw, 90.0f, frameTick, shakeEnvelope);
     }
 
     private static CameraFrame topDownFrame(Vec3 feet, double surfaceY, float yaw, float frameTick, double altitude) {
         Vec3 pos = TeleportTransitionController.topDownPos(feet, surfaceY, altitude);
-        return TeleportTransitionController.applyZoomShake(pos, yaw, 90.0f, frameTick, 1.0f);
+        float shakeEnvelope = travelToNearbyWaystone ? 0.0f : 1.0f;
+        return TeleportTransitionController.applyZoomShake(pos, yaw, 90.0f, frameTick, shakeEnvelope);
     }
 
     private static CameraFrame prePushTopDownFrame(Vec3 feet, float yaw, float frameTick) {
@@ -1510,7 +1512,7 @@ public final class TeleportTransitionController {
             Vec3 source = TeleportTransitionController.topDownPos(startFeet, TeleportTransitionController.getStartSurfaceY(), TeleportTransitionController.getStartTravelAltitude());
             Vec3 target = TeleportTransitionController.topDownPos(feet, TeleportTransitionController.getArrivalSurfaceY(), TeleportTransitionController.getTargetTravelAltitude());
             Vec3 dragPos = TeleportTransitionController.travelDragPos(target, source, 1.0f - TeleportTransitionController.travelEaseProgress(TeleportTransitionController.travelFadeInWindowProgress(frameTick)));
-            return TeleportTransitionController.applyZoomShake(dragPos, yaw, 90.0f, frameTick, 1.0f);
+            return new CameraFrame(dragPos, yaw, 90.0f);
         }
         return TeleportTransitionController.topDownFrame(feet, TeleportTransitionController.getArrivalSurfaceY(), yaw, frameTick, TeleportTransitionController.getTargetTravelAltitude());
     }
