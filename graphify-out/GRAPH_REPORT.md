@@ -1,16 +1,16 @@
 # Graph Report - 26.2  (2026-08-07)
 
 ## Corpus Check
-- 67 files · ~91,768 words
+- 67 files · ~91,758 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 854 nodes · 1764 edges · 153 communities (52 shown, 101 thin omitted)
+- 854 nodes · 1766 edges · 154 communities (53 shown, 101 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4ca435b9`
+- Built from commit: `88d2f7f8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,8 +27,8 @@
 - .getPullEndTick
 - .tick
 - .delayTeleportContext
+- FogRendererMixin.java
 - .teleportAnimation$restoreGtpCameraAfterLeawind
-- .isRunning
 - MouseHandlerMixin.java
 - .applyConfigProperties
 - MinecraftMixin.java
@@ -173,7 +173,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (153 total, 101 thin omitted)
+## Communities (154 total, 101 thin omitted)
 
 ### Community 1 - "TeleportStepEffectRenderer"
 Cohesion: 0.11
@@ -193,7 +193,7 @@ Nodes (12): CustomPacketPayload, FriendlyByteBuf, TeleportClientNetworking, Bypa
 
 ### Community 6 - "Minecraft"
 Cohesion: 0.06
-Nodes (5): SodiumCompat, LocalPlayer, BodyCameraHeights, Minecraft, Vec3
+Nodes (4): SodiumCompat, BodyCameraHeights, Minecraft, Vec3
 
 ### Community 8 - "TeleportServer"
 Cohesion: 0.08
@@ -204,19 +204,19 @@ Cohesion: 0.13
 Nodes (4): DimensionIds, WaystonesPlayerWaystoneManagerMixin, WaystonesTeleportHandler, SuppressWarnings
 
 ### Community 14 - ".teleportAnimation$restoreGtpCameraAfterLeawind"
-Cohesion: 0.09
+Cohesion: 0.11
 Nodes (9): ComputeCameraAngles, CameraAccessor, CameraMixin, Invoker, CallbackInfo, Inject, Mixin, Pseudo (+1 more)
 
 ### Community 19 - ".applyConfigProperties"
-Cohesion: 0.22
-Nodes (6): DistantHorizonsRenderUtilMixin, BlockPos, Camera, Level, Logger, ResourceKey
+Cohesion: 0.20
+Nodes (7): DistantHorizonsRenderUtilMixin, BlockPos, Camera, Level, Logger, ResourceKey, SoundEvent
 
 ### Community 24 - "CurseForge — Variables del proyecto"
 Cohesion: 0.14
 Nodes (13): Changelog, CurseForge — Variables del proyecto, Descripcion del proyecto, Estructura del changelog (HTML), Flujo completo, Parámetros del upload, Proyecto, Rama (+5 more)
 
 ### Community 25 - "ZoomDimension"
-Cohesion: 0.29
+Cohesion: 0.25
 Nodes (4): ZoomDimension, END, NETHER, OVERWORLD
 
 ### Community 26 - "TeleportMixinPlugin"
@@ -299,14 +299,14 @@ Nodes (3): 1.1.8 (2026-08-07), Fix, Technical
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TeleportTransitionController` connect `TeleportTransitionController` to `TeleportTransitionController.java`, `TeleportStepEffectRenderer`, `TeleportClient`, `Minecraft`, `.getPullEndTick`, `.getCameraFrame`, `.tick`, `.delayTeleportContext`, `FogRendererMixin.java`, `.teleportAnimation$restoreGtpCameraAfterLeawind`, `.fromResourceKey`, `.isRunning`, `MouseHandlerMixin.java`, `.applyConfigProperties`, `LocalPlayer`, `MinecraftMixin.java`, `LeawindThirdPersonImplMixin.java`, `ScreenEffectRendererMixin.java`, `.requestTerrainVisibilityUpdate`, `FadingTravelSound`?**
+- **Why does `TeleportTransitionController` connect `TeleportTransitionController` to `TeleportTransitionController.java`, `TeleportStepEffectRenderer`, `TeleportClient`, `Minecraft`, `.getPullEndTick`, `.getCameraFrame`, `.tick`, `.delayTeleportContext`, `FogRendererMixin.java`, `.teleportAnimation$restoreGtpCameraAfterLeawind`, `.fromResourceKey`, `.isRunning`, `MouseHandlerMixin.java`, `.applyConfigProperties`, `LocalPlayer`, `MinecraftMixin.java`, `LeawindThirdPersonImplMixin.java`, `.getZoomInStageTicks`, `ZoomDimension`, `ScreenEffectRendererMixin.java`, `.requestTerrainVisibilityUpdate`, `FadingTravelSound`?**
   _High betweenness centrality (0.321) - this node is a cross-community bridge._
-- **Why does `TeleportConfig` connect `TeleportConfig` to `TeleportTransitionController.java`, `gradlew`, `TeleportClient`, `Minecraft`, `TeleportServer`, `.getPullEndTick`, `.delayTeleportContext`, `FogRendererMixin.java`, `.isRunning`, `.save`, `LocalPlayer`, `ZoomDimension`?**
+- **Why does `TeleportConfig` connect `TeleportConfig` to `TeleportTransitionController.java`, `gradlew`, `.getZoomInStageTicks`, `TeleportClient`, `Minecraft`, `TeleportServer`, `.getPullEndTick`, `.delayTeleportContext`, `.isRunning`, `.save`, `LocalPlayer`, `ZoomDimension`?**
   _High betweenness centrality (0.109) - this node is a cross-community bridge._
 - **What connects `OVERWORLD`, `NETHER`, `END` to the rest of the system?**
   _76 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `TeleportStepEffectRenderer` be split into smaller, more focused modules?**
-  _Cohesion score 0.11491935483870967 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1051693404634581 - nodes in this community are weakly interconnected._
 - **Should `TeleportConfig` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `TeleportClient` be split into smaller, more focused modules?**
