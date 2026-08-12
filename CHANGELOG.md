@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [1.0.4] - 2026-08-12
+
+### Change
+
+- **Nombre de JAR con versión del cargador**: el artefacto ahora se compila como `teleport_animation-1.21.1-neoforge-21.1.235-1.0.4.jar` (se añade la versión de cargador/NeoForge al nombre del archivo). Empaquetado y documentación; sin cambios de funcionalidad.
+
 ## [1.0.3] - 2026-08-02
 
 ### Refactor
