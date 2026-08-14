@@ -1,6 +1,19 @@
 # Changelog
 
 
+## [1.1.11] - 2026-08-15
+
+### Fix
+
+- **El jugador atravesaba el suelo y aparecía un piso más abajo al llegar a un waystone**: la posición de llegada planificada por la animación de transición usaba la Y del bloque base del waystone en vez de su superficie de pisada (Y+1), por lo que la cámara/preview de llegada descendía un bloque entero a través del suelo antes de engancharse a la posición real del jugador. Ahora el objetivo de llegada apunta correctamente a la superficie de pisada, tanto en waystones normales como en Warp Plates.
+- **Fallos de teletransporte silenciosos**: si los 4 intentos de invocación por reflexión al gestor de teletransporte de Waystones fallaban, el jugador se quedaba sin teletransportar mientras la animación se reproducía como si hubiera tenido éxito, sin ningún registro del fallo. Ahora se registra como error.
+
+### Technical
+
+- `WaystonesTeleportHandler.readWaystoneFeet()`, `WaystonesWarpPlateHandler` y `TeleportClient` calculan ahora la posición de llegada como `(pos.getX()+0.5, pos.getY()+1.0, pos.getZ()+0.5)` en vez de usar la Y cruda del bloque.
+- `WaystonesTeleportHandler.runWaystonesTeleport()` refactorizado con un helper compartido `invokeWaystonesTeleport()`; si las 4 firmas de la API de Waystones (`tryTeleport`, `teleport`, `tryTeleportAsync`, `forceTeleportAsync`) fallan, ahora se registra con `LOGGER.error` en vez de descartarse en silencio.
+- Confirmado por inspección de bytecode del JAR de Waystones 26.2.0.5 que `WaystoneTeleportManager.resolveDefaultDestination()` ya coloca a la entidad en el centro del bloque (`+0.5` en cada eje) — el teletransporte real del servidor nunca se vio afectado por este bug, solo el preview de llegada de la animación de este mod.
+
 ## [1.1.10] - 2026-08-12
 
 ### Change

@@ -82,7 +82,7 @@ public final class WaystonesTeleportHandler {
     private static Vec3 readWaystoneFeet(Object waystone) {
         Object result = invokeNoArg(waystone, "getPos");
         if (result instanceof BlockPos pos) {
-            return new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            return new Vec3(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
         }
         return null;
     }
@@ -109,43 +109,37 @@ public final class WaystonesTeleportHandler {
     }
 
     private static void runWaystonesTeleport(Object context) {
-        try {
-            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
-            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-            Method tryTeleport = managerClass.getMethod("tryTeleport", contextClass);
-            tryTeleport.invoke(null, context);
+        Throwable tryTeleportFailure = invokeWaystonesTeleport(context, "tryTeleport", false);
+        if (tryTeleportFailure == null) {
             return;
-        } catch (ReflectiveOperationException ignored) {
         }
-        try {
-            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
-            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-            Method teleport = managerClass.getMethod("teleport", contextClass);
-            teleport.invoke(null, context);
+        Throwable teleportFailure = invokeWaystonesTeleport(context, "teleport", false);
+        if (teleportFailure == null) {
             return;
-        } catch (ReflectiveOperationException ignored) {
         }
+        Throwable tryAsyncFailure = invokeWaystonesTeleport(context, "tryTeleportAsync", true);
+        if (tryAsyncFailure == null) {
+            return;
+        }
+        Throwable forceAsyncFailure = invokeWaystonesTeleport(context, "forceTeleportAsync", true);
+        if (forceAsyncFailure == null) {
+            return;
+        }
+        LOGGER.error("TA runWaystonesTeleport: all 4 reflection attempts failed, the player was NOT teleported by Waystones despite the animation playing as if it succeeded. tryTeleport={} teleport={} tryTeleportAsync={} forceTeleportAsync={}", tryTeleportFailure.toString(), teleportFailure.toString(), tryAsyncFailure.toString(), forceAsyncFailure.toString());
+    }
+
+    private static Throwable invokeWaystonesTeleport(Object context, String methodName, boolean async) {
         try {
             Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
             Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-            Method asyncMethod = managerClass.getMethod("tryTeleportAsync", contextClass);
-            Object future = asyncMethod.invoke(null, context);
-            if (future instanceof java.util.concurrent.CompletableFuture) {
-                ((java.util.concurrent.CompletableFuture<?>) future).join();
+            Method method = managerClass.getMethod(methodName, contextClass);
+            Object result = method.invoke(null, context);
+            if (async && result instanceof java.util.concurrent.CompletableFuture) {
+                ((java.util.concurrent.CompletableFuture<?>) result).join();
             }
-            return;
-        } catch (ReflectiveOperationException ignored) {
-        }
-        try {
-            Class<?> managerClass = Class.forName(WAYSTONE_TELEPORT_MANAGER_CLASS);
-            Class<?> contextClass = Class.forName(WAYSTONE_TELEPORT_CONTEXT_CLASS);
-            Method asyncMethod = managerClass.getMethod("forceTeleportAsync", contextClass);
-            Object future = asyncMethod.invoke(null, context);
-            if (future instanceof java.util.concurrent.CompletableFuture) {
-                ((java.util.concurrent.CompletableFuture<?>) future).join();
-            }
-            return;
-        } catch (ReflectiveOperationException ignored) {
+            return null;
+        } catch (ReflectiveOperationException | LinkageError | RuntimeException e) {
+            return e;
         }
     }
 }
