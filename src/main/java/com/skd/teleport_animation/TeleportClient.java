@@ -158,7 +158,7 @@ public final class TeleportClient {
         if (!(result instanceof BlockPos pos)) {
             return null;
         }
-        Vec3 targetFeet = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        Vec3 targetFeet = new Vec3(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
         return new WaystoneTarget(targetFeet, readOptionalDimensionId(waystone, "getDimension"));
     }
 

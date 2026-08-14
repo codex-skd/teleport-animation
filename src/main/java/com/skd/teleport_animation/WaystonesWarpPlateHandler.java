@@ -30,7 +30,7 @@ public final class WaystonesWarpPlateHandler {
             TeleportServer.markNextServerTeleportBypassed(player);
             return false;
         }
-        Vec3 targetFeet = new Vec3(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+        Vec3 targetFeet = new Vec3(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
         return TeleportServer.scheduleServerTransition(player, 2, targetFeet, getWaystoneDimension(player, target), () -> runWarpPlateTeleport(warpPlate, teleportMethod, player, target, stack));
     }
 
