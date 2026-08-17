@@ -2149,7 +2149,10 @@ public final class TeleportTransitionController {
     }
 
     private static Vec3 getFeetPos(LocalPlayer player) {
-        return new Vec3(player.getX(), player.getY(), player.getZ());
+        if (player == null) {
+            return new Vec3(0.0, 0.0, 0.0);
+        }
+        return new Vec3(player.getX(), player.getY() - player.getEyeHeight(), player.getZ());
     }
 
     private static int getCommandSendTick() {
