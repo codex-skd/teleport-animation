@@ -1,0 +1,307 @@
+{
+  "build.gradle": {
+    "mtime": 1787001605.4533942,
+    "ast_hash": "3c4e55ead3c3d80694dd317bf8383a15",
+    "semantic_hash": "3c4e55ead3c3d80694dd317bf8383a15"
+  },
+  "gradlew": {
+    "mtime": 1787001467.8351562,
+    "ast_hash": "f2d3d383787f61a4a99710ee8d780434",
+    "semantic_hash": "f2d3d383787f61a4a99710ee8d780434"
+  },
+  "settings.gradle": {
+    "mtime": 1787001538.1165597,
+    "ast_hash": "58a5df05c6546d7d2671a516793e02e7",
+    "semantic_hash": "58a5df05c6546d7d2671a516793e02e7"
+  },
+  "src/main/java/com/skd/teleport_animation/BobbyCompat.java": {
+    "mtime": 1787003863.8722682,
+    "ast_hash": "de0220833d531406ba8a4e50d752f44a",
+    "semantic_hash": "de0220833d531406ba8a4e50d752f44a"
+  },
+  "src/main/java/com/skd/teleport_animation/ClientModEvents.java": {
+    "mtime": 1787039978.4379315,
+    "ast_hash": "3ee3a0292cc3ad40dc6d8c19ca479073",
+    "semantic_hash": "3ee3a0292cc3ad40dc6d8c19ca479073"
+  },
+  "src/main/java/com/skd/teleport_animation/DimensionIds.java": {
+    "mtime": 1787003841.5424697,
+    "ast_hash": "414f365e72be9734fa986d8107a4dc32",
+    "semantic_hash": "414f365e72be9734fa986d8107a4dc32"
+  },
+  "src/main/java/com/skd/teleport_animation/DistantHorizonsCompat.java": {
+    "mtime": 1787003883.5403101,
+    "ast_hash": "9c4283a00788373a3e9be061feea0666",
+    "semantic_hash": "9c4283a00788373a3e9be061feea0666"
+  },
+  "src/main/java/com/skd/teleport_animation/IrisCompat.java": {
+    "mtime": 1787003895.0669637,
+    "ast_hash": "9bb1215394a48ce60a56ef91f9de1632",
+    "semantic_hash": "9bb1215394a48ce60a56ef91f9de1632"
+  },
+  "src/main/java/com/skd/teleport_animation/SodiumCompat.java": {
+    "mtime": 1787003916.6203952,
+    "ast_hash": "42937fe15f91f41622d2f8c380cee85d",
+    "semantic_hash": "42937fe15f91f41622d2f8c380cee85d"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportAnimation.java": {
+    "mtime": 1787040535.9476984,
+    "ast_hash": "d19751fbac08f66ecd7caa4e1c6db39c",
+    "semantic_hash": "d19751fbac08f66ecd7caa4e1c6db39c"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportClient.java": {
+    "mtime": 1787009629.1369617,
+    "ast_hash": "f2cc1ce387ac712edc07b87d1b18349b",
+    "semantic_hash": "f2cc1ce387ac712edc07b87d1b18349b"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportClientNetworking.java": {
+    "mtime": 1787004086.0505161,
+    "ast_hash": "776c369906fb32ee315a83c5b629f4c0",
+    "semantic_hash": "776c369906fb32ee315a83c5b629f4c0"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportCommandMatcher.java": {
+    "mtime": 1787004096.531608,
+    "ast_hash": "564b35d00fd6ebff48d37f981d28b884",
+    "semantic_hash": "564b35d00fd6ebff48d37f981d28b884"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportConfig.java": {
+    "mtime": 1787040462.7831047,
+    "ast_hash": "49d76665a0e31611adb5f7c581495041",
+    "semantic_hash": "49d76665a0e31611adb5f7c581495041"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportDestinationParser.java": {
+    "mtime": 1787004363.150128,
+    "ast_hash": "36a2d31cf1e1c7f13b4122c2b1682b77",
+    "semantic_hash": "36a2d31cf1e1c7f13b4122c2b1682b77"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportModMenu.java": {
+    "mtime": 1787004373.7684145,
+    "ast_hash": "c08710c505735aafcaba100647f93523",
+    "semantic_hash": "c08710c505735aafcaba100647f93523"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportNetworkPayloads.java": {
+    "mtime": 1787040558.1372275,
+    "ast_hash": "458bf9277534f0ab0f5e4efcf2a6cb0f",
+    "semantic_hash": "458bf9277534f0ab0f5e4efcf2a6cb0f"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportServer.java": {
+    "mtime": 1787005796.3583572,
+    "ast_hash": "1be2edea52e6e729a4a232750187fe13",
+    "semantic_hash": "1be2edea52e6e729a4a232750187fe13"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportServerNetworking.java": {
+    "mtime": 1787005811.8182595,
+    "ast_hash": "4db8408b157d98f7f314ceb840da1b82",
+    "semantic_hash": "4db8408b157d98f7f314ceb840da1b82"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportSounds.java": {
+    "mtime": 1787004459.9933422,
+    "ast_hash": "df2697a01ece4efc26cd5167f8c7ee59",
+    "semantic_hash": "df2697a01ece4efc26cd5167f8c7ee59"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportStepEffectRenderer.java": {
+    "mtime": 1787007731.4284022,
+    "ast_hash": "9d5fba83b32b72e90b04fa66f479c150",
+    "semantic_hash": "9d5fba83b32b72e90b04fa66f479c150"
+  },
+  "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java": {
+    "mtime": 1787040605.1992953,
+    "ast_hash": "19e2843b542461b7c255f6b92438c67f",
+    "semantic_hash": "19e2843b542461b7c255f6b92438c67f"
+  },
+  "src/main/java/com/skd/teleport_animation/VoxyCompat.java": {
+    "mtime": 1787003986.9006503,
+    "ast_hash": "559e7bce5507ec22e00708ef81ee8fac",
+    "semantic_hash": "559e7bce5507ec22e00708ef81ee8fac"
+  },
+  "src/main/java/com/skd/teleport_animation/WaystonesTeleportHandler.java": {
+    "mtime": 1787005837.6897724,
+    "ast_hash": "62ddec2bb19615fb7db87b516d480671",
+    "semantic_hash": "62ddec2bb19615fb7db87b516d480671"
+  },
+  "src/main/java/com/skd/teleport_animation/WaystonesWarpPlateHandler.java": {
+    "mtime": 1787005866.775818,
+    "ast_hash": "76092c28df8da7c20ceb5e889a9c34cf",
+    "semantic_hash": "76092c28df8da7c20ceb5e889a9c34cf"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/CameraAccessor.java": {
+    "mtime": 1787004603.1465547,
+    "ast_hash": "ab9012e4d5b85b4ed693ea944b0ee6d9",
+    "semantic_hash": "ab9012e4d5b85b4ed693ea944b0ee6d9"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/CameraMixin.java": {
+    "mtime": 1787004618.0974448,
+    "ast_hash": "0ec49f536f3c153f69ff2ce39b390033",
+    "semantic_hash": "0ec49f536f3c153f69ff2ce39b390033"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ClientPacketListenerMixin.java": {
+    "mtime": 1787004638.3268936,
+    "ast_hash": "e049512e5597e05aa464039b04aa562c",
+    "semantic_hash": "e049512e5597e05aa464039b04aa562c"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ConnectionMixin.java": {
+    "mtime": 1787004967.6509626,
+    "ast_hash": "bcead337c8a90e05e8d2da2173b576af",
+    "semantic_hash": "bcead337c8a90e05e8d2da2173b576af"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/DistantHorizonsRenderUtilMixin.java": {
+    "mtime": 1787004741.9989076,
+    "ast_hash": "16817a336c531e3bd97586669b6e0b44",
+    "semantic_hash": "16817a336c531e3bd97586669b6e0b44"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/EntityRendererMixin.java": {
+    "mtime": 1787004945.6241302,
+    "ast_hash": "3d3745bac8223c77d2ab4f29c9113eb3",
+    "semantic_hash": "3d3745bac8223c77d2ab4f29c9113eb3"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/FogRendererMixin.java": {
+    "mtime": 1787005033.386687,
+    "ast_hash": "fdf9c95fd46b9a5db95175e752c28c25",
+    "semantic_hash": "fdf9c95fd46b9a5db95175e752c28c25"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/FrustumMixin.java": {
+    "mtime": 1787005118.0960183,
+    "ast_hash": "865363d30ef55265eae6ff37fddc6a9f",
+    "semantic_hash": "865363d30ef55265eae6ff37fddc6a9f"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/GameRendererMixin.java": {
+    "mtime": 1787007631.395376,
+    "ast_hash": "7e2fe6088d9e20683b62c26a3fc3d7dc",
+    "semantic_hash": "7e2fe6088d9e20683b62c26a3fc3d7dc"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/GuiMixin.java": {
+    "mtime": 1787007208.0400534,
+    "ast_hash": "3e6eb890f744069c7c43f5b938c57e53",
+    "semantic_hash": "3e6eb890f744069c7c43f5b938c57e53"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/JourneyMapClientNetworkDispatcherMixin.java": {
+    "mtime": 1787005223.4464488,
+    "ast_hash": "9018c475a246114e42e7a3f1c5529b96",
+    "semantic_hash": "9018c475a246114e42e7a3f1c5529b96"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/KeyboardInputMixin.java": {
+    "mtime": 1787007635.071849,
+    "ast_hash": "05ac45a3ceb2227742272bc82619e08a",
+    "semantic_hash": "05ac45a3ceb2227742272bc82619e08a"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonEventsNeoForgeMixin.java": {
+    "mtime": 1787040297.954055,
+    "ast_hash": "5e4ea5898a030ae907c866f399e16a58",
+    "semantic_hash": "5e4ea5898a030ae907c866f399e16a58"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonImplMixin.java": {
+    "mtime": 1787007648.0744338,
+    "ast_hash": "f98cd68fa4c3e4b2611a4497863bbfcf",
+    "semantic_hash": "f98cd68fa4c3e4b2611a4497863bbfcf"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LeawindThirdPersonLegacyMixin.java": {
+    "mtime": 1787007652.6591306,
+    "ast_hash": "1460746ecfb041a7f1b491ee3d5f9a5d",
+    "semantic_hash": "1460746ecfb041a7f1b491ee3d5f9a5d"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/LevelRendererMixin.java": {
+    "mtime": 1787007199.3939145,
+    "ast_hash": "4ae26602d5fd525df918d904d082f756",
+    "semantic_hash": "4ae26602d5fd525df918d904d082f756"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/MinecraftMixin.java": {
+    "mtime": 1787005914.3435698,
+    "ast_hash": "42b9cada2f6c8da04f689e60b035b27d",
+    "semantic_hash": "42b9cada2f6c8da04f689e60b035b27d"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/MouseHandlerMixin.java": {
+    "mtime": 1787005924.743618,
+    "ast_hash": "4822fd0065303c1116f9c08a24c34cc1",
+    "semantic_hash": "4822fd0065303c1116f9c08a24c34cc1"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ScreenEffectRendererMixin.java": {
+    "mtime": 1787005965.3737166,
+    "ast_hash": "9b2b03e179637343d916902b1edbcfc8",
+    "semantic_hash": "9b2b03e179637343d916902b1edbcfc8"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/ServerPlayerMixin.java": {
+    "mtime": 1787039404.801598,
+    "ast_hash": "c9fa9b7ad3c230872c9ea455ae57c5cc",
+    "semantic_hash": "c9fa9b7ad3c230872c9ea455ae57c5cc"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/TeleportMixinPlugin.java": {
+    "mtime": 1787040032.2805274,
+    "ast_hash": "289bfcef2c7349941b44bd0f8fc146ab",
+    "semantic_hash": "289bfcef2c7349941b44bd0f8fc146ab"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/VoxyClientMixin.java": {
+    "mtime": 1787005990.6237106,
+    "ast_hash": "28dfdb43e066519bcf47c40f85ed7b94",
+    "semantic_hash": "28dfdb43e066519bcf47c40f85ed7b94"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/WaystonesInternalMethodsMixin.java": {
+    "mtime": 1787006024.125469,
+    "ast_hash": "833845803cb622c586a65f79bf103bef",
+    "semantic_hash": "833845803cb622c586a65f79bf103bef"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/WaystonesPlayerWaystoneManagerMixin.java": {
+    "mtime": 1787006036.1230867,
+    "ast_hash": "c8b646e5700567efbd3540a1e2a2d2b7",
+    "semantic_hash": "c8b646e5700567efbd3540a1e2a2d2b7"
+  },
+  "src/main/java/com/skd/teleport_animation/mixin/WaystonesWarpPlateBlockEntityMixin.java": {
+    "mtime": 1787006061.9377778,
+    "ast_hash": "c78d17feef5ccc55ffb09a22b035c274",
+    "semantic_hash": "c78d17feef5ccc55ffb09a22b035c274"
+  },
+  "src/main/resources/assets/teleport_animation/lang/en_us.json": {
+    "mtime": 1787001468.1005087,
+    "ast_hash": "1807c4a7e0f698bc86242c23cce434d6",
+    "semantic_hash": "1807c4a7e0f698bc86242c23cce434d6"
+  },
+  "src/main/resources/assets/teleport_animation/lang/ja_jp.json": {
+    "mtime": 1787001468.1581209,
+    "ast_hash": "1807c4a7e0f698bc86242c23cce434d6",
+    "semantic_hash": "1807c4a7e0f698bc86242c23cce434d6"
+  },
+  "src/main/resources/assets/teleport_animation/sounds.json": {
+    "mtime": 1787001468.4820619,
+    "ast_hash": "9f90b96ce90514513b449e5774905a6b",
+    "semantic_hash": "9f90b96ce90514513b449e5774905a6b"
+  },
+  "src/main/resources/teleport_animation.mixins.json": {
+    "mtime": 1787004590.4271064,
+    "ast_hash": "27df667a35e531f31fa3bc3328a5fae8",
+    "semantic_hash": "27df667a35e531f31fa3bc3328a5fae8"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/camera_in.ogg": {
+    "mtime": 1787001468.251855,
+    "ast_hash": "33d56ae9673b66559fa42e2fa100e915",
+    "semantic_hash": "33d56ae9673b66559fa42e2fa100e915"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/camera_out.ogg": {
+    "mtime": 1787001468.2771168,
+    "ast_hash": "74245871c386bc3493993f57f7252093",
+    "semantic_hash": "74245871c386bc3493993f57f7252093"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/teleport.ogg": {
+    "mtime": 1787001468.3022296,
+    "ast_hash": "f230c68bfc0523dc01cec95ccebb0f9c",
+    "semantic_hash": "f230c68bfc0523dc01cec95ccebb0f9c"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_in_long.ogg": {
+    "mtime": 1787001468.3263667,
+    "ast_hash": "171a7137ddbd20f1ac0c424c478f7950",
+    "semantic_hash": "171a7137ddbd20f1ac0c424c478f7950"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_in_short.ogg": {
+    "mtime": 1787001468.3505964,
+    "ast_hash": "e6ec764b67dd04e741ca5595ca35fb51",
+    "semantic_hash": "e6ec764b67dd04e741ca5595ca35fb51"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_out_long.ogg": {
+    "mtime": 1787001468.378556,
+    "ast_hash": "f56559d955505594f5ef56c44757c850",
+    "semantic_hash": "f56559d955505594f5ef56c44757c850"
+  },
+  "src/main/resources/assets/teleport_animation/sounds/teleport/zoom_out_short.ogg": {
+    "mtime": 1787001468.4022703,
+    "ast_hash": "204537a730354b55d859feefbcf05b0f",
+    "semantic_hash": "204537a730354b55d859feefbcf05b0f"
+  }
+}
