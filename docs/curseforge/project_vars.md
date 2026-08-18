@@ -37,7 +37,7 @@ Autenticación Core: cabecera `x-api-key`
 ## Rama
 
 ```
-minecraft/1.20.1/neoforge-47.4.22/production
+minecraft/1.20.1/neoforge-47.1.99/production
 ```
 
 ## Tag
@@ -72,7 +72,7 @@ Ejemplo: `1.20.1-neoforge-0.0.0-beta.1`
 
 <hr>
 
-<p><strong>JAR</strong>: <code>teleport_animation-1.20.1-neoforge-47.4.22-0.0.0-beta.X.jar</code></p>
+<p><strong>JAR</strong>: <code>teleport_animation-1.20.1-neoforge-47.1.99-0.0.0-beta.X.jar</code></p>
 ```
 
 ## Subir archivo (JAR) con Python
@@ -91,7 +91,7 @@ metadata = {
     "releaseType": "beta"
 }
 
-with open(f"build/libs/teleport_animation-1.20.1-neoforge-47.4.22-{version}.jar", "rb") as f:
+with open(f"build/libs/teleport_animation-1.20.1-neoforge-47.1.99-{version}.jar", "rb") as f:
     jar_data = f.read()
 
 meta_bytes = json.dumps(metadata, ensure_ascii=False).encode("utf-8")
@@ -101,7 +101,7 @@ body += f"--{boundary}\r\n".encode()
 body += b'Content-Disposition: form-data; name="metadata"\r\n'
 body += b"Content-Type: application/json\r\n\r\n"
 body += meta_bytes + b"\r\n"
-jar_filename = f"teleport_animation-1.20.1-neoforge-47.4.22-{version}.jar"
+jar_filename = f"teleport_animation-1.20.1-neoforge-47.1.99-{version}.jar"
 body += f"--{boundary}\r\n".encode()
 body += f'Content-Disposition: form-data; name="file"; filename="{jar_filename}"\r\n'.encode()
 body += b"Content-Type: application/java-archive\r\n\r\n"

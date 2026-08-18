@@ -13,7 +13,7 @@
 | Clase principal | `TeleportAnimation` |
 | Display name (Title Case) | `Teleport Animation` |
 | Versiones de Minecraft | `1.20.1, 1.21.1, 26.1.2 y 26.2` |
-| Rama | `minecraft/1.20.1/neoforge-47.4.22/production` |
+| Rama | `minecraft/1.20.1/neoforge-47.1.99/production` |
 
 ## Convenciones de nomenclatura
 
@@ -56,7 +56,7 @@ Cada subida a CurseForge crea tag: beta `<mc>-neoforge-beta.X` · release `<mc>-
 **1. Desarrollo**
 
 ```bash
-git checkout minecraft/1.20.1/neoforge-47.4.22/production
+git checkout minecraft/1.20.1/neoforge-47.1.99/production
 ./gradlew.bat build
 git add -A
 git commit -m "feat: <descripción>

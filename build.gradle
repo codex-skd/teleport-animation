@@ -40,8 +40,12 @@ base {
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 legacyForge {
-    // Specify the version of MinecraftForge to use.
-    version = project.minecraft_version + '-' + project.forge_version
+    // Specify the version of NeoForge (net.neoforged:forge legacy-compat branch) to use.
+    // NOT MinecraftForge's own "version" property, which resolves net.minecraftforge:forge
+    // instead -- an unrelated project that kept advancing its own numbering past 47.1.x.
+    enable {
+        neoForgeVersion = project.minecraft_version + '-' + project.forge_version
+    }
 
     parchment {
         mappingsVersion = project.parchment_mappings_version

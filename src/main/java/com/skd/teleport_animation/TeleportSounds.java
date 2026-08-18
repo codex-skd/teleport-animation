@@ -16,6 +16,6 @@ final class TeleportSounds {
     }
 
     private static SoundEvent create(String path) {
-        return SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath("teleport_animation", path));
+        return SoundEvent.createVariableRangeEvent(new ResourceLocation("teleport_animation", path));
     }
 }
