@@ -1,7 +1,7 @@
 {
   "build.gradle": {
-    "mtime": 1785968340.2646844,
-    "ast_hash": "54ac0b79bbbe12715159476d1dba167b",
+    "mtime": 1786569058.4847791,
+    "ast_hash": "ff3f5273ddeef0562e697cd2ae69ee33",
     "semantic_hash": ""
   },
   "gradlew": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportClient.java": {
-    "mtime": 1785706852.4719512,
-    "ast_hash": "c8a8b9196feee7f6ad0e0ce628da2528",
+    "mtime": 1786750140.3639247,
+    "ast_hash": "8bb68cfbdd6836f104fce81fae534f7f",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportClientNetworking.java": {
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportTransitionController.java": {
-    "mtime": 1786100084.3468223,
-    "ast_hash": "e3b94d574ee8232ec935ad6898c56615",
+    "mtime": 1786971331.061681,
+    "ast_hash": "64b40dce83abe096ab06be6d1543e00b",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/VoxyCompat.java": {
@@ -105,13 +105,13 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/WaystonesTeleportHandler.java": {
-    "mtime": 1785150569.9475758,
-    "ast_hash": "633a1b571e17194bd3fb62a800bb6921",
+    "mtime": 1787104639.143125,
+    "ast_hash": "769376cbd155d41e1be1e82159d935ca",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/WaystonesWarpPlateHandler.java": {
-    "mtime": 1785150569.9485955,
-    "ast_hash": "c49f7479ebf0a2583352be06670857d2",
+    "mtime": 1786750139.7152073,
+    "ast_hash": "f94771c2b43b431f28d5575a2eb72c0d",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/mixin/CameraAccessor.java": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1786100282.4120069,
-    "ast_hash": "21bb499436c2981d39907f88559bc49b",
+    "mtime": 1787125248.109411,
+    "ast_hash": "c9231d563111835724ddd8db42109022",
     "semantic_hash": ""
   },
   "README.md": {
@@ -260,18 +260,18 @@
     "semantic_hash": ""
   },
   "docs/WORKFLOW_TELEPORT_ANIMATION_26-2.md": {
-    "mtime": 1785626678.1452367,
-    "ast_hash": "1fc11e48528b0a6e35dc9fd613d54bc6",
+    "mtime": 1786986890.9061096,
+    "ast_hash": "c1a6ad6e60ebb1799c809d979118c483",
     "semantic_hash": ""
   },
   "docs/curseforge/project_description.md": {
-    "mtime": 1785706877.980154,
-    "ast_hash": "5563b9b21936eb12523adfcb4dbe4710",
+    "mtime": 1786567703.4829974,
+    "ast_hash": "9772724e3ab3de31932a13d38621e92e",
     "semantic_hash": ""
   },
   "docs/curseforge/project_vars.md": {
-    "mtime": 1785707269.2113743,
-    "ast_hash": "6e76ba32c442f8653ae3b66e5ae527af",
+    "mtime": 1786986987.505907,
+    "ast_hash": "a84a3f419b084b625bf5d98a60ef039d",
     "semantic_hash": ""
   },
   "docs/curseforge/versions/0.0.0-beta.1.md": {
@@ -382,6 +382,31 @@
   "docs/curseforge/versions/1.1.9.md": {
     "mtime": 1786100278.0575807,
     "ast_hash": "3eebab997536fbcaf0ea65c3c0e57945",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.10.md": {
+    "mtime": 1786569058.486142,
+    "ast_hash": "a450874eb5eee65de03b48af77970202",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.11.md": {
+    "mtime": 1786750603.3680286,
+    "ast_hash": "0f1889e4e76f1f8d34e25bd083c07bf8",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.12.md": {
+    "mtime": 1786973691.5561552,
+    "ast_hash": "5af2e4cf7e8248688a4938d5c7c9c34d",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.13.md": {
+    "mtime": 1787060171.6548622,
+    "ast_hash": "3ca5d61c1fc1c76588beb46850fc4c78",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.1.14.md": {
+    "mtime": 1787125255.9226012,
+    "ast_hash": "290f7f7e5bb78c34a0d06ae7c3ef07bd",
     "semantic_hash": ""
   }
 }
