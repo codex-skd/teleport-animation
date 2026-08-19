@@ -1,6 +1,18 @@
 # Changelog
 
 
+## [1.1.14] - 2026-08-19
+
+### Fix
+
+- **El jugador aparece bajo tierra al llegar a un waystone, sobre todo en viajes largos**: `tryTeleport()`/`teleport()` (las variantes síncronas de Waystones) no fuerzan la carga completa (`ChunkStatus.FULL`) del chunk destino antes de resolver el punto de llegada, a diferencia de las variantes async (`tryTeleportAsync`/`forceTeleportAsync`). El puente por reflexión de este mod probaba siempre `tryTeleport` primero y trataba "no lanzó excepción" como éxito, por lo que casi nunca llegaba a usar las variantes que sí esperan la carga del chunk. Si el chunk destino no estaba cargado (habitual en viajes largos a waystones lejanos), Minecraft devolvía bloques de aire por defecto para esas posiciones, y la comprobación de hueco libre de Waystones elegía por error una casilla contigua que en la estructura real (aún no cargada) era en realidad un hueco de escalera o el sótano de la construcción — el jugador caía dentro al materializarse ahí.
+
+### Technical
+
+- `WaystonesTeleportHandler.runWaystonesTeleport()` ahora fuerza la carga completa del chunk del waystone destino y sus 4 vecinos cardinales (mismo conjunto que precarga Waystones internamente) antes de intentar cualquiera de las 4 llamadas de teletransporte por reflexión.
+- Nuevo `readWaystonePos()` / `forceLoadDestinationChunks()` en `WaystonesTeleportHandler`.
+- No relacionado con los fixes de offset de Y de 1.1.11/1.1.12 (aquellos corregían el cálculo de la posición de vista previa de la cámara; este corrige la posición real de llegada calculada por Waystones cuando el chunk destino no estaba cargado).
+
 ## [1.1.13] - 2026-08-17
 
 ### Change
