@@ -51,8 +51,14 @@ public final class WaystonesTeleportHandler {
             LOGGER.info("TA readWaystoneDimension returned null, using player dim");
             targetDimension = ((ServerLevel)player.level()).dimension();
         }
+        BlockPos targetWaystonePos = readWaystonePos(waystone);
+        if (targetWaystonePos == null) {
+            LOGGER.info("TA readWaystonePos returned null");
+            return null;
+        }
         LOGGER.info("TA scheduling transition: player={} dim={} pos={},{},{}", player.getScoreboardName(), DimensionIds.fromResourceKey(targetDimension), targetFeet.x, targetFeet.y, targetFeet.z);
-        boolean scheduled = TeleportServer.scheduleServerTransition(player, 3, targetFeet, targetDimension, () -> runWaystonesTeleport(context));
+        ResourceKey<Level> finalTargetDimension = targetDimension;
+        boolean scheduled = TeleportServer.scheduleServerTransition(player, 3, targetFeet, targetDimension, () -> runWaystonesTeleport(context, targetWaystonePos, finalTargetDimension, player));
         LOGGER.info("TA scheduleServerTransition result: {}", scheduled);
         if (!scheduled) {
             return null;
@@ -87,6 +93,30 @@ public final class WaystonesTeleportHandler {
         return null;
     }
 
+    private static BlockPos readWaystonePos(Object waystone) {
+        Object result = invokeNoArg(waystone, "getPos");
+        return result instanceof BlockPos pos ? pos : null;
+    }
+
+    private static void forceLoadDestinationChunks(ServerLevel level, BlockPos waystonePos) {
+        int chunkX = waystonePos.getX() >> 4;
+        int chunkZ = waystonePos.getZ() >> 4;
+        
+        // Load the waystone's chunk and 4 cardinal neighbors
+        int[][] neighborOffsets = {{0, 0}, {1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+        
+        for (int[] offset : neighborOffsets) {
+            int cx = chunkX + offset[0];
+            int cz = chunkZ + offset[1];
+            try {
+                level.getChunk(cx, cz); // This blocks until chunk is loaded
+                LOGGER.info("TA force-loaded chunk [{}, {}]", cx, cz);
+            } catch (Exception e) {
+                LOGGER.warn("TA failed to force-load chunk [{}, {}]: {}", cx, cz, e.getMessage());
+            }
+        }
+    }
+
     @SuppressWarnings("unchecked")
     private static ResourceKey<Level> readWaystoneDimension(Object waystone) {
         Object result = invokeNoArg(waystone, "getDimension");
@@ -108,7 +138,15 @@ public final class WaystonesTeleportHandler {
         }
     }
 
-    private static void runWaystonesTeleport(Object context) {
+    private static void runWaystonesTeleport(Object context, BlockPos targetWaystonePos, ResourceKey<Level> targetDimension, ServerPlayer player) {
+        // Force-load destination chunks before attempting any teleport
+        ServerLevel targetLevel = player.level().getServer().getLevel(targetDimension);
+        if (targetLevel != null) {
+            forceLoadDestinationChunks(targetLevel, targetWaystonePos);
+        } else {
+            LOGGER.warn("TA Could not find ServerLevel for dimension {}, skipping chunk loading", targetDimension);
+        }
+        
         Throwable tryTeleportFailure = invokeWaystonesTeleport(context, "tryTeleport", false);
         if (tryTeleportFailure == null) {
             return;
