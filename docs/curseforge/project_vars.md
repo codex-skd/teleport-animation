@@ -37,7 +37,7 @@ Autenticación Core: cabecera `x-api-key`
 ## Rama
 
 ```
-minecraft/26.2/neoforge-26.2.0.45-beta/production
+minecraft/26.2/neoforge-26.2.0.57/production
 ```
 
 ## Tag
