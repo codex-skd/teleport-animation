@@ -1,6 +1,6 @@
 # Flujo de trabajo — Teleport Animation (NeoForge)
 
-> **Versión del workflow**: 1.16.0 (codex-docs)
+> **Versión del workflow**: 1.17.0 (codex-docs)
 > Este archivo pertenece al proyecto **Teleport Animation**. Cambios aquí solo afectan a este proyecto.
 > **Trabaja directamente con este archivo**: es el workflow operativo del mod, autocontenido. No leas `codex-docs/WORKFLOW_AGENT.md` ni `WORKFLOW_GENERIC.md` de forma rutinaria.
 > On-demand (solo si la tarea lo necesita): `codex-docs/reference/CURSEFORGE.md` (formato HTML al publicar), `codex-docs/reference/GRAPHIFY.md` (backend LLM de Graphify), `codex-docs/reference/REPO_SETUP.md` (setup único de repo).
