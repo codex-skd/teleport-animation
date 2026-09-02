@@ -29,6 +29,15 @@ public final class TeleportStepEffectRenderer {
             intensity = Math.max(intensity, TeleportTransitionController.getHudFadeOverlayIntensity(tickProgress));
         }
         renderStepFlash(context, intensity);
+        float blackoutIntensity = TeleportTransitionController.getTravelBlackoutIntensity(tickProgress);
+        if (blackoutIntensity > 0.0f) {
+            renderTravelBlackout(context, blackoutIntensity);
+        }
+    }
+
+    private static void renderTravelBlackout(GuiGraphics context, float blackoutIntensity) {
+        int blackoutAlpha = (int) (255.0f * blackoutIntensity);
+        context.fill(0, 0, context.guiWidth(), context.guiHeight(), argb(blackoutAlpha, 0, 0, 0));
     }
 
     private static void renderStepFlash(GuiGraphics context, float intensity) {

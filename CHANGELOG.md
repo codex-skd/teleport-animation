@@ -1,115 +1,19 @@
 # Changelog
 
+## [1.1.0]
 
-## [1.0.4] - 2026-08-12
+### Bug Fixes (ported from 26.2 fix line)
 
-### Change
+- **Server crash on external teleport**: Removed client-only config checks (`isEffectEnabled()`, `isWarpPlateTransitionsEnabled()`) from the server-side `shouldStartServerTransition()` path. The server now only validates player state and networking, preventing `IllegalStateException: Cannot get config value before config is loaded` when Waystones triggers teleport on external events.
 
-- **Nombre de JAR con versión del cargador**: el artefacto ahora se compila como `teleport_animation-1.21.1-neoforge-21.1.235-1.0.4.jar` (se añade la versión de cargador/NeoForge al nombre del archivo). Empaquetado y documentación; sin cambios de funcionalidad.
+- **Floor flicker during top-down travel**: Replaced full `invalidateLevelGeometry()` terrain rebuilds mid-flight with lightweight `SodiumCompat.scheduleTerrainUpdate()` calls. Added fade-to-black overlay during the travel phase (`getTravelBlackoutIntensity()`), arrival chunk hold (`updateArrivalChunkHold()`) to wait for destination chunks before descent, and refactored `travelFrame()` to use short camera drags at entry/exit instead of interpolating the full path.
 
-## [1.0.3] - 2026-08-02
+- **Nearby-waystone slide + flicker elimination**: Added `travelToNearbyWaystone` detection for waystones within render distance. Nearby waystones now use a smooth horizontal `slideFrame()` at constant altitude instead of the full travel animation. Faster travel ticks (12-20) for nearby destinations. Suppressed HUD fade overlay during travel phase. Disabled zoom shake in the pre-travel hold phase to prevent Sodium terrain update conflicts.
 
-### Refactor
-- Config renombrado a `config/teleport_animation.properties` con migración automática desde `grand_teleport.properties`.
-- Paquete unificado a `com.skd.teleport_animation` (antes `teleportanimation`) + `mod_group_id` actualizado.
-- Eliminados residuos de fork "Grand Teleport"/"GTP" (strings de config, lang, pack.mcmeta, método `handleGtaTeleportCommand`).
+- **Player falls through floor at destination**: Fixed arrival position to target the walk surface (`pos.getY() + 1.0`) instead of the raw block Y in `WaystonesTeleportHandler`, `WaystonesWarpPlateHandler`, and `TeleportClient`. Fixed `getFeetPos()` to return true feet position (`player.getY() - player.getEyeHeight()`) instead of eye Y, correcting a ~1.62-block bias in all distance/arrival/camera-sync calculations. Added `invokeWaystonesTeleport()` helper with error logging when all 4 Waystones API signatures fail.
 
-## [1.0.2] - 2026-07-19
+- **Player spawns underground on long trips**: Added `readWaystonePos()` and `forceLoadDestinationChunks()` to `WaystonesTeleportHandler`. The destination waystone's chunk and 4 cardinal neighbours are now force-loaded at `ChunkStatus.FULL` before any reflection-based teleport call, ensuring real block data is available for Waystones' free-space check.
 
-### Changed
-- NeoForge downgraded from 21.1.238 to 21.1.235 for broader compatibility
-- Branch renamed to `minecraft/1.21.1/neoforge-21.1.235/production`
+### Internal
 
-### Fix
-- Audit: created temp/, updated workflow header to v1.0.0
-
-## [1.0.1] - 2026-07-19
-
-### Changed
-- Waystones is now a forced required dependency (mod loading + CurseForge auto-install)
-- Updated description to clarify mod is Waystones-only
-
-## [1.0.0] - 2026-07-19
-
-### Added
-- First stable release — all beta features polished and production-ready
-
-### Fix
-- Waystones 21.1.37 compatibility: added `tryTeleportAsync` interception
-- Removed dead mixins targeting removed Waystones API
-
-### Changed
-- Project structure aligned with WORKFLOW_GENERIC conventions
-- All Grand Teleport branding removed — fully rebranded to Teleport Animation
-
-## [0.0.0-beta.10] - 2026-07-19
-
-### Fix
-- Added tryTeleportAsync interception to WaystonesInternalMethodsMixin for Waystones 21.1.37 compatibility
-
-## [0.0.0-beta.9] - 2026-07-17
-
-### Fix
-- Removed all gtalike/GTP/Grand Teleport branding references from code
-- Fixed WaystonesInternalMethodsMixin with @Coerce annotation
-- Updated lang file keys to teleport_animation prefix
-- Added bypass flag to prevent Waystones mixin recursion (ConcurrentHashMap tracking)
-
-## [0.0.0-beta.8] - 2026-07-17
-
-### Added
-- Waystones required dependency
-- WaystonesInternalMethodsMixin for proper Waystones teleport interception
-
-## [0.0.0-beta.7] - 2026-07-17
-
-### Changed
-- Animation now only triggers for Waystones teleports (removed /tp command interception)
-
-## [0.0.0-beta.6] - 2026-07-17
-
-### Fix
-- Animation freeze mid-transition: ++ticks was inside command send condition, preventing further animation after command dispatch
-
-## [0.0.0-beta.5] - 2026-07-17
-
-### Changed
-- Added debug logs with TA prefix for transition troubleshooting
-- Removed all GTP references from code
-
-### Fix
-- GuiMixin and LevelRendererMixin signature fixes for Minecraft 1.21.1 DeltaTracker API
-
-## [0.0.0-beta.4] - 2026-07-17
-
-### Fix
-- GuiMixin crash on startup: fixed `Gui.render` mixin signature for Minecraft 1.21.1 (DeltaTracker)
-
-## [0.0.0-beta.3] - 2026-07-17
-
-### Fix
-- LevelRenderer crash on startup: fixed `renderLevel` mixin signature for Minecraft 1.21.1 (DeltaTracker)
-
-## [0.0.0-beta.2] - 2026-07-16
-
-### Changed
-- WORKFLOW.md actualizado con nueva sección de Ramas y formato de tags `<mc-version>-neoforge-beta.X`
-- Formato de JAR cambiado a `<mod_id>-<minecraft_version>-<framework>-<version>.jar`
-- Tag corregido al nuevo formato (`1.21.1-neoforge-beta.1`)
-- `.gitignore` ahora excluye archivos decompilados temporales
-
-## [0.0.0-beta.1] - 2026-07-16
-
-### Added
-- Port completo de Grand Teleport desde Forge 1.20.1 a NeoForge 1.21.1 (21.1.238)
-- Sistema de transición cinematográfica tipo GTA para teletransportes
-- Animación de cámara con 3 etapas de zoom (in/out) configurables
-- Sistema de sonidos personalizados (7 efectos OGG)
-- Comandos `/ta` y `/tpanimation` con subcomandos on/off/status/player_freeze
-- Integración con servidor: sistema de delayed teleport con ACK
-- Integración con Waystones (teleport y warp plates)
-- Compatibilidad con Sodium, Iris, Bobby, Distant Horizons, Voxy
-- Pantalla de configuración con editor de layout
-- Sistema de propiedades para configuración persistente
-- Mixin condicional para ServerPlayer (teleport interception)
-- Documentación de flujo de trabajo (WORKFLOW.md)
+- Version bumped to 1.1.0 to align with the 26.2 fix line.

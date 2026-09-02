@@ -101,15 +101,6 @@ public final class TeleportServer {
         if (player == null || player.isSpectator() || !player.isAlive()) {
             return false;
         }
-        if (!TeleportConfig.isEffectEnabled()) {
-            return false;
-        }
-        if (source == 1 && !TeleportConfig.isExternalTeleportTransitionsEnabled()) {
-            return false;
-        }
-        if (source == 2 && !TeleportConfig.isWarpPlateTransitionsEnabled()) {
-            return false;
-        }
         return TeleportServerNetworking.canSendStart(player);
     }
 
