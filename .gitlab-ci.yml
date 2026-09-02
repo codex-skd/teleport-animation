@@ -33,7 +33,7 @@ publish-public:
     - git rm -rf --ignore-unmatch --quiet . 2>/dev/null || true
 
     # Archivos obligatorios (deben existir en todos los mods)
-    - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md
+    - git checkout "$CI_COMMIT_SHA" -- src/ build.gradle settings.gradle gradle.properties gradlew gradlew.bat .gitignore README.md CHANGELOG.md LICENSE
 
     # Archivos opcionales (pueden no existir en algunos mods)
     - git checkout "$CI_COMMIT_SHA" -- libs/ 2>/dev/null || true

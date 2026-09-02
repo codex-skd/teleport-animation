@@ -31,3 +31,15 @@ Adds a cinematic camera transition when the player teleports via **Waystones**.
 - `/ta player_freeze on/off` — Freeze player during transition
 
 The animation triggers automatically when teleporting via Waystones (warp plates, warp stones, or scrolls).
+
+## Credits & License
+
+- **Codex** — original [Grand Teleport](https://www.curseforge.com/minecraft/mc-mods/grand-teleport-gtp) mod for Forge 1.20.1 (MIT)
+- **hookuru_** — contributions to the original mod
+- **Stalking Dragons** — NeoForge / current-Forge port and rework
+
+The **code** is under the **MIT** license — see [LICENSE](LICENSE). The **bundled sound
+effects** are third-party audio carried over from Grand Teleport: not original to this
+project, not covered by the MIT grant, included only for non-commercial in-game use as
+part of this mod. Do not extract or redistribute the sound files separately. The mod's
+declared license is therefore "Custom" (MIT code + restricted bundled sounds).
