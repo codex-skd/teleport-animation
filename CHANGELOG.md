@@ -1,7 +1,6 @@
 # Changelog
 
-## [1.1.0]
-
+## [1.1.0] - 2026-09-02
 ### Bug Fixes (ported from 26.2 fix line)
 
 - **Server crash on external teleport**: Removed client-only config checks (`isEffectEnabled()`, `isWarpPlateTransitionsEnabled()`) from the server-side `shouldStartServerTransition()` path. The server now only validates player state and networking, preventing `IllegalStateException: Cannot get config value before config is loaded` when Waystones triggers teleport on external events.
