@@ -78,12 +78,14 @@ Edit `config/teleport_animation.properties` or use the in-game GUI to adjust:
 
 The JAR will be in `build/libs/teleport_animation-26.1.2-neoforge-<version>.jar`.
 
-## Credits
+## Credits & License
 
-- **Codex** — original Grand Teleport mod for Forge 1.20.1
+- **Codex** — original [Grand Teleport](https://www.curseforge.com/minecraft/mc-mods/grand-teleport-gtp) mod for Forge 1.20.1 (MIT)
 - **hookuru_** — contributions to the original mod
-- **SKD** — NeoForge port
+- **Stalking Dragons** — NeoForge / current-Forge port and rework
 
-## License
-
-Custom license. All rights reserved.
+The **code** is under the **MIT** license — see [LICENSE](LICENSE). The **bundled sound
+effects** are third-party audio carried over from Grand Teleport: not original to this
+project, not covered by the MIT grant, included only for non-commercial in-game use as
+part of this mod. Do not extract or redistribute the sound files separately. The mod's
+declared license is therefore "Custom" (MIT code + restricted bundled sounds).
