@@ -155,3 +155,14 @@ No hay endpoint API para actualizar la descripcion. Se edita manualmente desde l
 6. Subir JAR a CurseForge con Python
 7. Verificar con GET que el changelog se vea bien
 8. Liberar manualmente desde la web si es necesario
+
+## Historial
+
+- **1.1.0** (2026-09-02) — CurseForge file `8791079` (project `1608291`, `release`). Sync de los 5 fixes
+  de comportamiento que la línea 26.2 recibió en `1.1.0`→`1.2.0` y a esta rama 1.21.1 le faltaban
+  (crash de servidor en teleport externo; flicker de suelo en travel top-down; slide para waystone
+  cercano; llegada un bloque abajo / atravesando el suelo; spawn bajo tierra en viajes largos por no
+  forzar los chunks destino). Feature set sin cambios (solo-Waystones, config `.properties`, Waystones
+  required). `compileJava` + `build` OK; el rework de cámara/flicker no revisado en juego. `runServer`
+  no ejecutado aquí (el entorno de dev no tiene Balm, dependencia de Waystones). Tag
+  `1.21.1-neoforge-1.1.0`.
