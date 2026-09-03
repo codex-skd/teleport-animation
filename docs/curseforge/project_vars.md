@@ -158,6 +158,15 @@ No hay endpoint API para actualizar la descripcion. Se edita manualmente desde l
 
 ## Historial
 
+- **1.2.0** (2026-09-03) — CurseForge file `8801533` (project `1608291`, `release`). Port del backend
+  de config de la rama 26.2: se sustituye el `config/teleport_animation.properties` hecho a mano por
+  `ModConfigSpec` nativo de NeoForge (`ModConfig.Type.CLIENT`), generando
+  `config/teleport_animation-client.toml` al primer arranque y visible en Configured. Eliminada la capa
+  muerta `configLayout*`/`configWidget*`/`configText*` (~490 líneas, sin llamadas) y la migración de
+  `.properties` legacy. API pública de `TeleportConfig` sin cambios → comportamiento de teleport
+  idéntico a 1.1.0. Reescritura delegada en OpenCode (`mimo-v2.5`), verificada con `./gradlew build` +
+  grep de callers. No arrancado en juego (dev env sin Balm/Waystones). Tag `1.21.1-neoforge-1.2.0`.
+
 - **1.1.0** (2026-09-02) — CurseForge file `8791079` (project `1608291`, `release`). Sync de los 5 fixes
   de comportamiento que la línea 26.2 recibió en `1.1.0`→`1.2.0` y a esta rama 1.21.1 le faltaban
   (crash de servidor en teleport externo; flicker de suelo en travel top-down; slide para waystone
