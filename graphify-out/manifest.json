@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportAnimation.java": {
-    "mtime": 1785706956.4746752,
-    "ast_hash": "e32b9871ada20ac0a6413fc08b33c1d4",
+    "mtime": 1788456346.6289206,
+    "ast_hash": "0c5baea5ffe4cf17ba40645e6403c741",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportClient.java": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportConfig.java": {
-    "mtime": 1785706972.6740034,
-    "ast_hash": "77e252cd8c991f7b313bead9ad288b4d",
+    "mtime": 1788456331.957195,
+    "ast_hash": "8941a1fb03055c43594a46cf05cfb8a2",
     "semantic_hash": ""
   },
   "src/main/java/com/skd/teleport_animation/TeleportDestinationParser.java": {
@@ -315,8 +315,8 @@
     "semantic_hash": ""
   },
   "CHANGELOG.md": {
-    "mtime": 1788338083.0909917,
-    "ast_hash": "eb68944ffd5d888cbb4419e3fed1d03a",
+    "mtime": 1788458731.327964,
+    "ast_hash": "e2c447e57509bc1ebe899dc1eac98800",
     "semantic_hash": ""
   },
   "README.md": {
@@ -427,6 +427,11 @@
   "src/main/resources/assets/teleport_animation/icon.png": {
     "mtime": 1784477320.8136747,
     "ast_hash": "ce760fc89387e56dbcf706c50ffe78be",
+    "semantic_hash": ""
+  },
+  "docs/curseforge/versions/1.2.0.md": {
+    "mtime": 1788458720.375724,
+    "ast_hash": "b980c50d765e66f2c0e3a539cebfce85",
     "semantic_hash": ""
   }
 }
