@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0] - 2026-09-03
+### Changed
+
+- **Native config system**: Replaced the hand-rolled `config/teleport_animation.properties` reader/writer with a native NeoForge `ModConfigSpec`, registered as `ModConfig.Type.CLIENT` in `TeleportAnimation`. `config/teleport_animation-client.toml` is now auto-generated on first launch and the mod is editable in Configured. Ported from the 26.2 branch's config backend. The public `TeleportConfig` API is unchanged, so all teleport/zoom/waystone behaviour is identical to 1.1.0.
+- Sound settings (`customSoundsEnabled`, `minecraftSoundVolume`, `customSoundVolume`) now live in the `[sounds]` section of the generated TOML.
+
+### Removed
+
+- Orphaned config-GUI-layout persistence layer (`configLayout*` / `configWidget*` / `configText*`, ~490 lines) carried over from Grand Teleport — it had no callers on this branch.
+- Legacy `.properties` migration (`grand_teleport.properties` / `gtalike_teleport.properties`). Old `.properties` values are not migrated to the new TOML.
+
+### Internal
+
+- `TeleportConfig.java` rebuilt against `ModConfigSpec` (940 → 452 lines). `TeleportAnimation` constructor now takes `(IEventBus, ModContainer)`. Config rewrite delegated to OpenCode (`mimo-v2.5`), verified by `./gradlew build` + caller grep.
+
 ## [1.1.0] - 2026-09-02
 ### Bug Fixes (ported from 26.2 fix line)
 
