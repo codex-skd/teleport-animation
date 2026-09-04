@@ -6,20 +6,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ServerPlayerMixin",
-    "CameraAccessor",
-    "CameraMixin",
-    "ClientPacketListenerMixin",
     "ConnectionMixin",
-    "EntityRendererMixin",
-    "FogRendererMixin",
-    "FrustumMixin",
-    "GameRendererMixin",
-    "GuiMixin",
-    "KeyboardInputMixin",
-    "LevelRendererMixin",
-    "MinecraftMixin",
-    "MouseHandlerMixin",
-    "ScreenEffectRendererMixin",
     "JourneyMapClientNetworkDispatcherMixin",
     "VoxyClientMixin",
     "LeawindThirdPersonEventsNeoForgeMixin",
@@ -31,6 +18,19 @@
     "DistantHorizonsRenderUtilMixin"
   ],
   "client": [
+    "CameraAccessor",
+    "CameraMixin",
+    "ClientPacketListenerMixin",
+    "EntityRendererMixin",
+    "FogRendererMixin",
+    "FrustumMixin",
+    "GameRendererMixin",
+    "GuiMixin",
+    "KeyboardInputMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "ScreenEffectRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
