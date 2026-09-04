@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.2.1] - 2026-09-04
+### Fixed
+
+- **Server-side mixin log spam**: 13 client-only mixins (`CameraMixin`, `GameRendererMixin`, `GuiMixin`, `LevelRendererMixin`, `MinecraftMixin`, `MouseHandlerMixin`, `ClientPacketListenerMixin`, `EntityRendererMixin`, `FogRendererMixin`, `FrustumMixin`, `ScreenEffectRendererMixin`, `KeyboardInputMixin`, `CameraAccessor`) were registered in the common `"mixins"` array of `teleport_animation.mixins.json` instead of `"client"`. On a dedicated server, NeoForge's `RuntimeDistCleaner` blocked every attempt to load those vanilla client classes — harmless (`TeleportMixinPlugin` already prevented real application), but it logged 13 `ERROR` + 13 `WARN` lines on *every* server boot. Moved to the `"client"` array; no behaviour change on either side. Found via log analysis of the Mystical Realms Develop instance.
+
 ## [1.2.0] - 2026-09-03
 ### Changed
 
