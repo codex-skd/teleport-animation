@@ -1,0 +1,30 @@
+{
+  "package": "com.skd.teleport_animation.mixin",
+  "plugin": "com.skd.teleport_animation.mixin.TeleportMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "CameraMixin",
+    "ClientPacketListenerMixin",
+    "ConnectionMixin",
+    "DistantHorizonsRenderUtilMixin",
+    "EntityRendererMixin",
+    "FogRendererMixin",
+    "FrustumMixin",
+    "GameRendererMixin",
+    "GuiMixin",
+    "JourneyMapClientNetworkDispatcherMixin",
+    "KeyboardInputMixin",
+    "LeawindThirdPersonEventsNeoForgeMixin",
+    "LeawindThirdPersonImplMixin",
+    "LeawindThirdPersonLegacyMixin",
+    "LevelRendererMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "ScreenEffectRendererMixin",
+    "ServerPlayerMixin",
+    "VoxyClientMixin",
+    "WaystonesInternalMethodsMixin",
+    "WaystonesPlayerWaystoneManagerMixin",
+    "WaystonesWarpPlateBlockEntityMixin"
+  ]
+}
