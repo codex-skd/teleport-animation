@@ -1,0 +1,37 @@
+{
+  "teleport.camera_in": {
+    "sounds": [
+      "teleport_animation:teleport/camera_in"
+    ]
+  },
+  "teleport.camera_out": {
+    "sounds": [
+      "teleport_animation:teleport/camera_out"
+    ]
+  },
+  "teleport.teleport": {
+    "sounds": [
+      "teleport_animation:teleport/teleport"
+    ]
+  },
+  "teleport.zoom_in_long": {
+    "sounds": [
+      "teleport_animation:teleport/zoom_in_long"
+    ]
+  },
+  "teleport.zoom_in_short": {
+    "sounds": [
+      "teleport_animation:teleport/zoom_in_short"
+    ]
+  },
+  "teleport.zoom_out_long": {
+    "sounds": [
+      "teleport_animation:teleport/zoom_out_long"
+    ]
+  },
+  "teleport.zoom_out_short": {
+    "sounds": [
+      "teleport_animation:teleport/zoom_out_short"
+    ]
+  }
+}
