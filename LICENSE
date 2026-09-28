@@ -1,0 +1,45 @@
+Teleport Animation — License
+
+CODE
+----
+MIT License
+
+Copyright (c) 2025 Codex (Grand Teleport, https://www.curseforge.com/minecraft/mc-mods/grand-teleport-gtp)
+Copyright (c) 2026 Stalking Dragons (Teleport Animation — NeoForge/Forge port and rework)
+
+Teleport Animation is a fork of Grand Teleport by Codex (Forge 1.20.1), with
+contributions to the original by hookuru_. The original Grand Teleport code is
+MIT licensed. Ported and reworked for NeoForge / current Forge by Stalking
+Dragons. Not affiliated with or endorsed by the original authors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+BUNDLED SOUND ASSETS
+-------------------
+The sound effects bundled with this mod (the .ogg files under
+assets/teleport_animation/sounds/) are NOT original to this project and are
+NOT covered by the MIT grant above. They are third-party audio, carried over
+from the upstream Grand Teleport mod, and are included here solely so the
+animation plays as intended, for non-commercial in-game use as part of this
+mod. Do not extract, redistribute, sell, sublicense, or reuse the bundled
+sound files separately from this mod. If you redistribute Teleport Animation,
+keep the sounds only as part of the mod package.
+
+This is why the mod's declared license is "Custom" rather than plain "MIT":
+the code is MIT, the bundled sounds are not.
